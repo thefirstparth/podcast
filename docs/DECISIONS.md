@@ -55,3 +55,6 @@
 - Women's cricket under India men "should not have slipped through": fixed with the profile's skip list (a story that names a skip word is ruled out entirely).
 - Barcelona may be mentioned inside a Madrid story that is about them (the Clasico, the title race), said plainly. Rival Watch and the never-celebrate rule are unchanged.
 - The greeting follows the publishing time, which is still to be decided.
+
+## 16 Oct 2026
+- Sports for everyone is parked again (Parth). The review and its four open decisions stay in docs/PARKED.md, untouched until he picks it up.
