@@ -138,7 +138,7 @@ Because ESPN covers almost every league and sport by team id, a new user's teams
 | Job | First choice | Fallback | Why |
 |---|---|---|---|
 | Script | Gemini Flash (the newest your key lists, as now) | older Flash models, then Flash Lite, then a plain script made by code | proven chain; one write and up to two rewrites is about 3 of roughly 20 daily requests |
-| Voice | Gemini TTS, solo takes per host | Kokoro (open source, CPU) | Gemini takes emotional direction; Kokoro keeps the show alive when Gemini fails, but it is flatter |
+| Voice | Gemini TTS, solo takes per host | none: if Gemini cannot voice it, no episode that day, Parth is told, and the next episode catches up (16 Oct) | a flat backup voice is worse than a missed day |
 | Listening check | faster-whisper base.en (CPU) | skip the solo cut that day | proven |
 | Mixing | ffmpeg (studio.mjs) | none needed | proven |
 | Schedule | GitHub Actions cron | backup crons | proven |
@@ -150,14 +150,14 @@ Not in version 1: other text providers (Groq, OpenRouter free models) as an extr
 
 ## 4. Tech stack and repo
 
-- Repo: `thefirstparth/podcast`, new and empty, created today. Plain JavaScript on Node 22, like the paper. Python only for whisper and Kokoro.
+- Repo: `thefirstparth/podcast`, new and empty, created today. Plain JavaScript on Node 22, like the paper. Python only for the listening check (whisper).
 - Layout:
   - `profile.json`: who you are and what you follow. The only file a user edits.
   - `config/show.json`: hosts, voices, mood table, lengths, pronunciations.
   - `engine/fetch/*.mjs`: one fetcher per sport, ported from the paper's `lib/`.
   - `engine/moods.mjs`: stance x outcome x weight to mood, pure code, with tests.
   - `engine/rundown.mjs`, `engine/writer.mjs`, `engine/checks.mjs`.
-  - `engine/voice.mjs`, `studio.mjs`, `verify_lines.py`, `kokoro_voice.py`: copied from the house show.
+  - `engine/voice.mjs`, `studio.mjs`, `verify_lines.py`: copied from the house show (not Kokoro: no backup voice, 16 Oct).
   - `engine/feed.mjs`.
   - `.github/workflows/episode.yml`.
   - `tests/`: recorded payloads, so the logic is tested offline, as in the paper.
@@ -213,8 +213,12 @@ Suggested gate: friends listen on at least 4 days a week, for 3 weeks, without b
 8. Language: English only, or a little Hinglish from the Fan?
 
 ## 7. Voices: who controls what (15 Oct 2026)
-- **What the engines allow.** Gemini TTS has about 30 fixed voices, each with its own timbre (male or female, deeper or brighter), plus written direction for accent, pace and character. Accent works but can drift, so it must be tested per voice (the 14:00 show: Tarun's accent 6/10 until each host was voiced alone in one take). Age can only be nudged by direction; the voice picked matters more. Kokoro, the free backup voice, has fewer voices and little emotion.
+- **What the engines allow.** Gemini TTS has about 30 fixed voices, each with its own timbre (male or female, deeper or brighter), plus written direction for accent, pace and character. Accent works but can drift, so it must be tested per voice (the 14:00 show: Tarun's accent 6/10 until each host was voiced alone in one take). Age can only be nudged by direction; the voice picked matters more.
 - **A listener controls:** one host or two; for each host, the role (which is the Fan), a voice from a tested shortlist with samples (this sets gender and, roughly, age), an accent from a tested list, energy (calm to lively), a name; later, the language. Samples are made once and stored, so choosing costs nothing.
+- **When Gemini cannot voice an episode (Parth, 16 Oct): no backup voice.** A flat open-source voice is not used for listeners. That day has no episode; the next one catches up, because each episode starts from the last one published. The listener is nudged to tell Parth:
+  - The run's summary page says what happened, with two one-click ways to reach Parth: a pre-filled issue on the public repo (GitHub emails Parth at once; it needs only the listener's GitHub account, which they already have) and a pre-filled email to him.
+  - GitHub already emails the listener when their run fails, and that email links to the summary.
+  - Later, if wanted: an automatic note to Parth with no click, through a small free function on his own site that a failed run calls.
 - **A listener does not control:** the fact rules and checks, the rival rules, the listening check, or any real person's voice (no impersonation).
 - **Parth controls:** the voice catalogue and defaults (only combinations that pass a listening test), the engine, the backup voice and the voice budget per episode, the code that turns "Indian English, thirties, lively" into the engine's direction, the personas and limits (the Fan always takes the listener's side; swearing only on an explicit feed), and later which voices or languages are paid.
 - **For Parth's show:** after the script is approved, one sample set (the same lines across a handful of pairs: both male, both female, one of each with the Fan either way; Indian English and one more accent), on the rehearsal key, about two voice requests per pair.

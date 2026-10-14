@@ -42,3 +42,6 @@
 
 ## 16 Oct 2026: a backup for every score
 - Every sport now has a keyless backup, each checked live by breaking the first source: football and tennis and the NBA and cricket fall back to Sofascore, F1 to f1api.dev; cricket then tries ESPN. Result ids are the subject and the day, so the memory of what was said holds whichever source served them. Gemini's and ChatGPT's data lists tested (research/data-sources.md): FotMob's page data is a possible third football source; ESPNcricinfo, ATP Tour and NBA.com block server requests.
+
+## 16 Oct 2026: no backup voice for listeners
+- Kokoro is not used as a backup voice for listeners (Parth: remove it). If Gemini cannot voice an episode, there is no episode that day, the next one catches up, and the listener is nudged to tell Parth: the failed run's summary carries a pre-filled GitHub issue on the public repo (GitHub emails Parth) and a pre-filled email. An automatic note with no click can come later through a small function on Parth's site.
