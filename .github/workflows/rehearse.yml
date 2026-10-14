@@ -12,17 +12,19 @@ permissions: { contents: write }
 jobs:
   rehearse:
     runs-on: ubuntu-latest
-    timeout-minutes: 20
+    timeout-minutes: 45
     steps:
       - uses: actions/checkout@v5
       - uses: actions/setup-node@v5
         with: { node-version: 22 }
       - name: Write the script
+        timeout-minutes: 35
         env:
           GEMINI_KEY_REHEARSAL: ${{ secrets.GEMINI_KEY_REHEARSAL }}
         run: node engine/writer.mjs --rehearse --days=${{ inputs.days }} ${{ inputs.models && '--models' || '' }}
+      # saved even when the writer step failed or ran out of time: the best script so far is still worth reading
       - name: Save it to the branch
-        if: ${{ !inputs.models }}
+        if: ${{ always() && !inputs.models }}
         run: |
           git config user.name "rehearsal"
           git config user.email "rehearsal@users.noreply.github.com"

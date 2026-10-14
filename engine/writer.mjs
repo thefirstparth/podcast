@@ -82,7 +82,7 @@ async function gemini(model, key, text) {
   return JSON.parse(body.slice(body.indexOf("{"), body.lastIndexOf("}") + 1)).turns;
 }
 
-export async function writeScript(P, { show = json("config/show.json"), profile = json("profile.json"), key, cap = show.rehearsal_requests ?? 3, log = console.log } = {}) {
+export async function writeScript(P, { show = json("config/show.json"), profile = json("profile.json"), key, cap = show.rehearsal_requests ?? 3, log = console.log, onTry = () => {} } = {}) {
   const base = prompt(P, show), opts = { hosts: show.hosts.map(h => h.id), rivals: profile.rivals || [], listener: profile.listener?.name };
   const tries = [];
   let asks = 0, model = null, last = null;
@@ -98,6 +98,8 @@ export async function writeScript(P, { show = json("config/show.json"), profile 
       log(`writer ${m}, request ${asks}: ${turns.length} turns, ${problems.length ? problems.map(p => (p.hard ? "HARD " : "") + p.msg).join("; ") : "no problems"}`);
       last = { turns, problems, model: m, request: asks };
       tries.push(last);
+      // saved after every try, so a run stopped by its time limit still leaves the best script so far
+      onTry({ best: bestOf(tries), tries, requests: asks });
       if (!problems.length) break;
     } catch (e) {
       log(`writer ${m}: ${e.message}`);
@@ -105,9 +107,9 @@ export async function writeScript(P, { show = json("config/show.json"), profile 
       if (!model) { models.shift(); if (!models.length) break; }
     }
   }
-  const ok = tries.filter(t => !t.problems.some(p => p.hard)).sort((a, b) => a.problems.length - b.problems.length);
-  return { best: ok[0] || null, tries, requests: asks };
+  return { best: bestOf(tries), tries, requests: asks };
 }
+const bestOf = tries => tries.filter(t => !t.problems.some(p => p.hard)).sort((a, b) => a.problems.length - b.problems.length)[0] || null;
 
 export function scriptMarkdown(r, P) {
   const L = [`# Script rehearsal, ${new Date(P.made_at).toLocaleString("en-GB", { timeZone: P.tz, dateStyle: "full", timeStyle: "short" })}`, ""];
@@ -143,7 +145,8 @@ if (import.meta.url === `file://${process.argv[1]}`) {
   mkdirSync(out, { recursive: true });
   writeFileSync(`${out}/pack.json`, JSON.stringify(P, null, 2));
   writeFileSync(`${out}/pack.md`, packMarkdown(P));
-  const r = await writeScript(P, { key });
+  const save = r => { writeFileSync(`${out}/script.json`, JSON.stringify(r, null, 2)); writeFileSync(`${out}/script.md`, scriptMarkdown(r, P)); };
+  const r = await writeScript(P, { key, onTry: save });
   writeFileSync(`${out}/script.json`, JSON.stringify(r, null, 2));
   writeFileSync(`${out}/script.md`, scriptMarkdown(r, P));
   console.log(`writer: ${r.best ? "script kept" : "no script passed"} after ${r.requests} request(s) -> rehearsals/${day}/script.md`);
