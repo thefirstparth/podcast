@@ -45,3 +45,7 @@
 
 ## 16 Oct 2026: no backup voice for listeners
 - Kokoro is not used as a backup voice for listeners (Parth: remove it). If Gemini cannot voice an episode, there is no episode that day, the next one catches up, and the listener is nudged to tell Parth: the failed run's summary carries a pre-filled GitHub issue on the public repo (GitHub emails Parth) and a pre-filled email. An automatic note with no click can come later through a small function on Parth's site.
+
+## 16 Oct 2026: voice samples, Parth's choices
+- Options before anything is made (Parth: "you need to ask me first. Give me options").
+- Two male hosts: a younger Fan and an older Anchor. Accents to hear: Indian English, British English, and a mix. A first set of up to 4 clips (one day of the rehearsal key's voice requests).
