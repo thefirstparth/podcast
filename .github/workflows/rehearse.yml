@@ -1,0 +1,31 @@
+# The script rehearsal (Parth, 14-15 Oct): builds today's pack and has Gemini write the script with the REHEARSAL key
+# only (never GEMINI_KEY_LIVE), at most three writer requests, no voice, nothing published. The pack, the script and
+# its checks are committed to rehearsals/<date>/ on this branch so they can be read on a phone.
+name: rehearse
+on:
+  workflow_dispatch:
+    inputs:
+      days: { description: "Days to look back (empty = a normal day, about 30 hours; more to see every sport)", required: false, default: "" }
+      models: { description: "Only list the Gemini models the rehearsal key can use", type: boolean, default: false }
+concurrency: { group: rehearse, cancel-in-progress: false }
+permissions: { contents: write }
+jobs:
+  rehearse:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
+        with: { node-version: 22 }
+      - name: Write the script
+        env:
+          GEMINI_KEY_REHEARSAL: ${{ secrets.GEMINI_KEY_REHEARSAL }}
+        run: node engine/writer.mjs --rehearse --days=${{ inputs.days }} ${{ inputs.models && '--models' || '' }}
+      - name: Save it to the branch
+        if: ${{ !inputs.models }}
+        run: |
+          git config user.name "rehearsal"
+          git config user.email "rehearsal@users.noreply.github.com"
+          git add rehearsals ledger/squads.json
+          git commit -m "Rehearsal $(TZ=Asia/Kolkata date +%Y-%m-%d\ %H:%M) IST" || echo "nothing new"
+          git pull --rebase origin "${GITHUB_REF_NAME}" && git push origin "HEAD:${GITHUB_REF_NAME}"

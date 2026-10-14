@@ -249,5 +249,24 @@
     "max": 2,
     "min_drama": 4,
     "note": "At most two results or stories from outside the listener's list, only when they clear min_drama (engine/fetch/elsewhere.mjs); none on a quiet day. Draft for discussion with Parth (15 Oct)."
-  }
+  },
+  "hosts": [
+    {
+      "id": "Fan",
+      "about": "carries the listener's loyalties and feels every result out loud, at the strength the pack gives: elated, gutted, angry, gleeful. Tells the listener's teams' stories. Names and voice come later (Parth picks)."
+    },
+    {
+      "id": "Anchor",
+      "about": "calm and exact, one notch below the Fan's mood; keeps the facts straight, explains the table and the series, asks the 'hang on, why?' a listener would, and teases the Fan a little. Leads Around the grounds and Coming up."
+    }
+  ],
+  "title": "Sports show (working title)",
+  "signoff": "That's the show. Same time tomorrow.",
+  "text_models": [
+    "gemini-3.8-flash",
+    "gemini-3.7-flash",
+    "gemini-3.6-flash",
+    "gemini-3.5-flash"
+  ],
+  "rehearsal_requests": 3
 }

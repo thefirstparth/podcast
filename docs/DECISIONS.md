@@ -24,3 +24,9 @@
 - Scores have a backup: Sofascore's public JSON (keyless) when ESPN fails, checked against ESPN on Roma 3-4 Real Madrid (every goal, minute and scorer the same). Football is wired; basketball and tennis next. A result's id is the team and the day, so the memory holds whichever source served it. Only ESPN's RSS news feeds broke on 15 Oct; its scores API is fine.
 - Thin subjects get targeted Google News searches (`site:` for outlets with no feed, `intitle:` on the subject's search word in the profile).
 - The writer's rules start from Bhide's banned list and the 14:00 show's fact rules; the Fan may feel out loud, the facts stay plain (docs/WRITER.md, for discussion).
+
+## 15 Oct 2026 (night): the writer
+- A podcast is not a newspaper (Parth: "Do not just blindly copy everything from Bhide"). The writer's facts rules come from the 14:00 podcast; its language is written for the ear. Strong words (stunning, incredible, historic) are allowed when earned, the same big word at most once an episode. Words nobody says out loud stay out. Bhide's print-only rules (em dashes, colons, quote marks, no feelings) are dropped. Full rules: docs/WRITER.md.
+- Rival Watch gets more colour ("Barcelona were dreadful"), within the old limits (results and big bad news, never personal).
+- The Fan feels it out loud and the facts stay plain; the Anchor is one notch calmer (Parth: "I love it").
+- The script rehearsal: .github/workflows/rehearse.yml, run by hand, the rehearsal key only, at most three writer requests, no voice; pack, script and checks committed to rehearsals/<date>/.

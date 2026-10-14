@@ -1,46 +1,38 @@
-# The writer's rules (draft for discussion, 15 Oct 2026)
+# The writer's rules (15 Oct 2026, after Parth's review)
 
-Taken from The House of 1400: Bhide's voice and banned list (`docs/EDITORIAL.md`, Voice) and the 14:00 show's writer prompt and script checks (`scripts/podcast/lib.mjs`, writerPrompt and checkScript). Marked: **kept** as is, **changed** for a sports show, **new**.
+Parth, 15 Oct: "a newspaper and a podcast are two very different things. Do not just blindly copy everything from Bhide." So the rules are not Bhide's. They come from two places:
+- **The facts** come from the 14:00 podcast's writer and script checks (`scripts/podcast/lib.mjs` in house-of-1400). That show is already a podcast, and these rules are proven on air.
+- **The language** is written for the ear: what sounds good spoken by two people, not what reads well on a page.
 
-## Kept from Bhide (the words)
-- No em dashes.
-- No rule-of-three lists for rhythm.
-- No "not X, but Y" or "it's not just X, it's Y".
-- No inflated words: pivotal, crucial, landmark, testament, underscores, highlights, showcases, delve, landscape, navigate, robust, seamless, notably, quietly, amid.
-- No "-ing" tails that fake analysis ("..., highlighting the growing importance of").
-- No summary lines that repeat the story, and no tidy moral at the end.
-- No vague attribution ("experts say", "many believe").
-- No colon-then-reveal sentences, no scare quotes, no sentences all the same length.
-- Never "spare a thought", "make no mistake", "it is worth noting".
-- Nothing about the process, the sources or anything missing. If there is nothing, say nothing.
-
-## Kept from the 14:00 show's writer (the facts)
-- Only facts in the pack. Never add a fact, name, number, quote or descriptive detail ("a packed stadium", "that evening").
+## The facts (strict, checked by code)
+- Only facts in the pack. Never add a fact, name, number, quote or detail ("a packed stadium", "that evening").
 - A host's question is answered only with what the pack says.
-- Each fact once. Never the same score or figure twice.
-- Round honestly: never round up past what it is.
-- Numbers, scores and times in words, times the twelve-hour way, never "IST".
-- Never copy a sentence from an article. Retell it the way people talk.
-- Banned connectors: "Turning to", "In other news", "Moving on", "Let's look at", "Meanwhile", "Stay tuned".
-- Never address the listener by name.
+- Each fact once. Never the same score twice.
+- Round honestly, never up past what it is.
+- Never a rival's win. Never a rival's injury, illness or anything personal. (A hard check: a script that does it is never voiced.)
+- The table only after a league result.
+- Nothing about how the show is made, its sources, or anything missing.
 
-## Changed for a sports show
-- **Feeling.** Bhide never tells the reader how to feel, and his copy is never sentimental. Here the Fan does feel, out loud, because that is the product. The line we draw:
-  - The feeling is in the Fan's own reactions ("Three goals in seven minutes. I had given up."), never in loaded words about the facts.
-  - Not allowed: "a stunning, historic, unforgettable night", "a dramatic, pivotal win".
-  - The Anchor stays plain, close to Bhide.
-- **Dramatic words.** Banned in the facts: stunning, sensational, historic (unless it is a record the pack names), incredible, unbelievable, dramatic, epic, masterclass, heroics, nightmare, disaster, humiliation, statement win.
-  - The Fan may use one strong word of his own per segment, as a reaction, never as the description of the event.
-  - Should Rival Watch allow a little more ("Barcelona were dreadful") than the rest?
-- **Mood.** Each segment gets its mood, shape and strength from the pack. The writer must follow it (dread to elated for Roma), and a check sends back a script whose words do not match (laughing in a gutted segment, celebrating in a frustrated one).
-- **Rivals.** Never a rival's win. Never an injury or anything personal. A check makes this hard: a script that does it is never voiced.
+## The feeling (Parth: "I love it")
+- The Fan feels it out loud: "Three goals in seven minutes. I had given up." The facts stay plain, and the feeling is in his reactions.
+- The Anchor is calmer, one notch down, and keeps the facts straight.
+- Each segment follows the mood, shape and strength in the pack: Roma starts in dread and ends elated.
+- **Rival Watch gets more colour** (Parth: yes): "Barcelona were dreadful" is fine. The limits still hold: results and big bad news only, never personal.
 
-## New
-- **Spoken, not read.** Short sentences. One idea per turn. Scores said the radio way ("four three to Madrid", "India lost by twenty-four runs").
-- **The table, only after a league result**, as the pack gives it.
-- **No hype openers.** No "What a night!" as the first words. The cold open states the moment ("Madrid were three one down at Roma with seven minutes left. They won.") and lets the Fan react.
+## The language: spoken, not written
+- **Strong words are welcome.** Stunning, incredible, historic, sensational, masterclass, nightmare: sports radio talks like this. The only rule is that they have to be earned and not repeated. The same big word at most once an episode, and not every sentence big. When everything is "stunning", nothing is.
+- **Words people do not say out loud stay out:** pivotal, underscores, testament, landscape, delve, navigate, robust, seamless, notably, showcases. Not because they are dramatic, but because nobody talks like that. They sound read, not spoken.
+- **Short sentences, one idea per turn**, plenty of quick reactions of two to eight words. Scores said the radio way ("four three to Madrid").
+- **Talk to each other, not at the listener.** No "Turning to", "In other news", "Moving on", "Meanwhile", "Stay tuned". A segment starts the way friends change the subject ("Right, India. Not a good night.").
+- **A short wrap at the end of a segment is fine** ("So Madrid are flying, Barcelona still top, and Sevilla on Sunday"). That is radio signposting, not a tidy moral.
+- **Never copy a sentence from an article.** Retell it the way people talk; contractions are good.
+- **Numbers, times and symbols** are turned into words by code before voicing, the way the 14:00 show does. The writer just writes naturally.
 
-## Questions for Parth
-1. Is the line on feeling right? The Fan feels it, the facts stay plain.
-2. Should Rival Watch allow a little more colour than the rest?
-3. Any words of your own to ban? (The 14:00 show's checks list is the place they go.)
+## Dropped from Bhide, and why
+| Bhide's rule | Why it does not apply to a podcast |
+|---|---|
+| No em dashes, colon-then-reveal, scare quotes | punctuation the listener never sees; code turns dashes into pauses |
+| No rule of three, no "not X but Y" | normal rhetoric when spoken; only a problem when every sentence does it |
+| Never tell the reader how to feel | the Fan's feelings are the product |
+| Never sentimental, no tidy endings | radio is allowed warmth and a wrap |
+| Banned dramatic words | sports talk is dramatic; repetition is the problem, not the words |
