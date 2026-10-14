@@ -2,6 +2,8 @@
 
 Status: a plan for review. Nothing is built yet. Decisions marked **[Parth]** are open and need your call.
 
+Decided so far (14 Oct): the repo goes public (hosting A); two Gemini keys in two separate Google projects, one for rehearsal and one for the real run; the script is approved before any audio is made.
+
 ## 0. What already works (The House of 1400 podcast, read from the repo)
 
 1. **Trigger.** `.github/workflows/podcast.yml` runs when the daily edition (`content/latest.json`) is pushed, at about 14:12 IST. Backup runs go at 14:40 and 15:25 IST.
@@ -160,17 +162,20 @@ Not in version 1: other text providers (Groq, OpenRouter free models) as an extr
   - `.github/workflows/episode.yml`.
   - `tests/`: recorded payloads, so the logic is tested offline, as in the paper.
 - Secrets, added by you in GitHub: `GEMINI_API_KEY` (from a **new** Google project). Possibly a hosting token, depending on the decision below.
-- **Hosting decision [Parth]:**
-  - **A. Make this repo public** (recommended). The code holds no secrets. The feed goes on GitHub Pages and the MP3s go in GitHub Releases. Both are free with no new accounts, and public repos get unlimited Actions minutes. It also becomes the template friends copy. Your profile (your teams) would be visible.
-  - **B. Keep it private** and publish through a separate Vercel Blob store, like the house show. This shares the free Vercel team that already hit 75% of its storage on 14 Oct. It also shares the 2,000 free Actions minutes a month with the house show's runs.
+- **Hosting (decided 14 Oct: A).** The repo is public. The feed goes on GitHub Pages and the MP3s in GitHub Releases, both free with no new accounts, and public repos get unlimited Actions minutes. The feed is committed daily, which also counts as repo activity: GitHub switches off schedules in a public repo after 60 days without any.
+- **Two Gemini keys, two Google projects (decided 14 Oct).** Free limits are counted per project, not per key, so the two keys must sit in two different projects. Neither may be the house show's project.
+  - `GEMINI_KEY_REHEARSAL`: every test (data packs, scripts, voice samples, emotion tests). Its use can never cost the real show a request.
+  - `GEMINI_KEY_LIVE`: only the scheduled episode and its redo. It is added once the rehearsals are approved.
+- **Free limits, as measured on the house show (13 and 14 Oct).** 3.8 Flash: about 20 requests a day. 3.8 Flash TTS: 10 requests a day. One TTS request has voiced 8 min 49 s (1,450 words, about 164 words a minute). Writing is never the limit: one request writes a script of any length we want. Voice is the limit: in the solo form each host is one request, so an episode costs 2 voice requests, 3 to 4 with a retry. The longest single take 3.8 Flash TTS allows has not been measured; the rehearsal project measures it before we fix the show's length.
 
 ## 5. Plan, in phases
 
-### Phase 0: prove the risky parts (one session, nothing published)
-1. A new Gemini key in a new Google project. List its models and confirm the quota is separate from the house show's.
-2. **Emotion test.** The same four lines voiced as elated, gutted, angry, gleeful and neutral, in two methods (one take per mood block, or inline direction in one solo take). You rate them. This decides whether delivery can carry mood or only the words can.
-3. **Data test.** Fetch the last 3 days for every item in your profile, Barcelona included, and print the data pack and the moods the code assigns. You check them against what really happened.
-4. Pick hosts: voice samples, names, and which one is the Fan.
+### Phase 0: structure, data and script first; audio only after you approve the script (rehearsal key only, nothing published)
+1. **Structure for you.** The running order, what each segment is for, what data feeds it, its length and the mood rules, written out on one page. You approve it or change it.
+2. **Data pack.** Real data for your profile over the last 3 days, Barcelona included, fetched by code, with the moods the code assigns to each item. You check it against what really happened.
+3. **Script rehearsal.** A workflow (`rehearse`, run by hand) writes the script from that data pack with the rehearsal key and commits the data pack, the running order and the script to `rehearsals/` so you can read them on your phone. No voice requests. We repeat until you approve a script.
+4. **Only then, audio.** Host voice samples (names, voices, which one is the Fan), then the emotion test: the same lines as elated, gutted, angry, gleeful and neutral, in two methods (one take per mood block, or inline direction in one solo take). You rate them.
+5. **Then the live key** goes in, and Phase 1 starts with what the rehearsals taught us.
 
 ### Phase 1: your show, private feed (about a week)
 1. Port the fetchers and write the mood engine and the rundown, with offline tests.
@@ -183,10 +188,12 @@ Not in version 1: other text providers (Groq, OpenRouter free models) as an extr
 Listing on Apple and Spotify if you want it public, chapters, mood stings, a Telegram ping, and optional reading of the House of 1400 sport desk if Phase 1 shows RSS ranking falls short.
 
 ### Phase 3: friends (replicable in about 10 minutes)
-1. Make the repo a GitHub template. A setup page (a static form) asks for teams, players, rivals, care levels, tone, time and language, and outputs `profile.json`.
-2. The setup is 5 steps: use the template, get a free Gemini key from AI Studio, add it as a secret, paste `profile.json`, turn on Pages. Then add the feed URL to the podcast app.
-3. Two or three friends with different sports, for example an Arsenal and NFL fan. This tests that nothing about you is hard-coded. We count how long setup takes and where they get stuck.
-4. Note: Spotify cannot follow a private RSS link, so personal feeds go in Apple Podcasts, Pocket Casts, Overcast or AntennaPod.
+1. **Picking teams: a setup page** on the repo's GitHub Pages site. Pick a sport, type a team or player, choose from a list (a catalogue of every team and player the data sources know, refreshed weekly by a workflow, so the page needs no server), then tap a care level for each: Die-hard, Follow, Big moments or Rival. Then: time of day and time zone, one or two hosts, length, tone, swearing, language.
+2. The page builds `profile.json`. Its "Save to my repo" button opens GitHub's new-file page in their copy with the file already filled in; they press Commit. To change teams later they reopen the page, load their profile, edit and save again.
+3. **Picking the time.** Each friend picks when the episode should be ready, in their own time zone. The page writes the matching schedule into their copy (GitHub schedules run in UTC, start a little late at busy times, and an episode takes about 10 to 20 minutes, so the run starts about 30 minutes before the time they pick, on an odd minute).
+4. The setup is 5 steps: use the template, get a free Gemini key in AI Studio, add it as a secret, save the profile from the setup page, turn on Pages. Then they add the feed link in their podcast app. Each friend runs on their own free key, so friends cost you nothing.
+5. Two or three friends with different sports, for example an Arsenal and NFL fan. This tests that nothing about you is hard-coded. We count how long setup takes and where they get stuck.
+6. Note: Spotify cannot follow a private RSS link, so personal feeds go in Apple Podcasts ("Follow a Show by URL"), Pocket Casts, Overcast or AntennaPod.
 
 ### Phase 4: paid (only after friends keep listening)
 Suggested gate: friends listen on at least 4 days a week, for 3 weeks, without being reminded. Then:
@@ -196,7 +203,7 @@ Suggested gate: friends listen on at least 4 days a week, for 3 weeks, without b
 - **Gates before charging money:** licensed sports data (ESPN's API is unofficial: fine for personal use, not for a paid product), summarising news rather than reading it out, no club logos or marks, and the Gemini paid-tier terms.
 
 ## 6. Questions for you, one at a time
-1. Hosting: A (public repo, GitHub Pages) or B (private, Vercel)?
+1. ~~Hosting~~: decided, A.
 2. When should the episode be out (IST)? Madrid's night games end about 02:30 IST and Warriors games about 10:30 IST, so anything from about 11:30 catches the night. Should it come before the 14:00 paper or after it?
 3. Care levels: is the draft profile right? Djokovic at Follow? Warriors at Follow? Ronaldo at Big moments?
 4. Other rivals: Atletico? In F1, McLaren, Norris or Hamilton? In tennis, Sinner? In cricket, Pakistan or Australia? In the NBA, the Lakers or the Celtics?
