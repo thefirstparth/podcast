@@ -39,3 +39,6 @@
 - The source list is approved as proposed (Parth: "take a call"), now in config/feeds.json. ESPNcricinfo, The Athletic, RealGM and Yahoo Sports NBA are signal only (paywall: true): they count towards how many outlets ran a story, but their text is never read.
 - Chess is out for Parth (profile.wider.skip_sports). For others, a sport's relevance follows their country (profile.listener.country, sports_wanted, skip_sports); the setup page will offer it per sport.
 - Score backups: Sofascore for football (wired); OpenF1, ESPN cricket and Sofascore for tennis and the NBA still to wire. Grok's data list tested (research/data-sources.md): football-data.org is the one worth a key; OpenLigaDB, TheSportsDB and SportScore are not reliable enough.
+
+## 16 Oct 2026: a backup for every score
+- Every sport now has a keyless backup, each checked live by breaking the first source: football and tennis and the NBA and cricket fall back to Sofascore, F1 to f1api.dev; cricket then tries ESPN. Result ids are the subject and the day, so the memory of what was said holds whichever source served them. Gemini's and ChatGPT's data lists tested (research/data-sources.md): FotMob's page data is a possible third football source; ESPNcricinfo, ATP Tour and NBA.com block server requests.

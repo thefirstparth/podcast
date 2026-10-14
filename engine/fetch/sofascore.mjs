@@ -7,6 +7,7 @@ import { getJSON } from "../http.mjs";
 const SS = "https://api.sofascore.com/api/v1";
 const UA = { "user-agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126 Safari/537.36", accept: "application/json" };
 const get = p => getJSON(`${SS}/${p}`, { headers: UA });
+export const raw = get;
 
 export function rowOf(e, id) {
   const home = String(e.homeTeam?.id) === String(id), me = home ? e.homeTeam : e.awayTeam, opp = home ? e.awayTeam : e.homeTeam;
@@ -47,4 +48,30 @@ export async function keyEvents(row, usId) {
 export async function find(q, type = "team") {
   const j = await get(`search/all?q=${encodeURIComponent(q)}`);
   return (j.results || []).filter(r => r.type === type).map(r => ({ id: r.entity?.id, name: r.entity?.name, sport: r.entity?.sport?.slug }));
+}
+
+// Tennis: a player's matches in the same shape as tennis.mjs player() (the backup when ESPN's scoreboard fails)
+export async function tennisPlayer({ sofascore_id: id, name }, { since, until }) {
+  const [last, next] = await Promise.all([get(`team/${id}/events/last/0`), get(`team/${id}/events/next/0`).catch(() => ({ events: [] }))]);
+  const shape = e => {
+    const home = String(e.homeTeam?.id) === String(id), me = home ? e.homeScore : e.awayScore, op = home ? e.awayScore : e.homeScore, opp = home ? e.awayTeam : e.homeTeam;
+    const sets = [1, 2, 3, 4, 5].filter(k => me?.[`period${k}`] != null).map(k => `${me[`period${k}`]}-${op[`period${k}`]}${me[`period${k}TieBreak`] != null ? ` (${Math.min(me[`period${k}TieBreak`], op[`period${k}TieBreak`])})` : ""}`).join(" ");
+    const won = e.winnerCode === (home ? 1 : 2), final = /^final$/i.test(e.roundInfo?.name || ""), semi = /semi/i.test(e.roundInfo?.name || "");
+    return { id: `ss${e.id}`, tournament: e.tournament?.uniqueTournament?.name || e.tournament?.name, round: e.roundInfo?.name || null, date: new Date(e.startTimestamp * 1000).toISOString(),
+      state: e.status?.type === "finished" ? "post" : "pre", opponent: opp?.name, score: sets,
+      note: e.status?.type === "finished" ? `${won ? name : opp?.name} bt ${won ? opp?.name : name} ${won ? sets : sets.replace(/(\d+)-(\d+)/g, "$2-$1")}` : null,
+      facts: { won, lost: !won, drew: false, eliminated: !won, title: won && final, big: false, upset: !won && (opp?.ranking || 999) > (home ? e.homeTeam : e.awayTeam)?.ranking + 20, stage: final ? "final" : semi ? "knockout" : "round", preseason: false } };
+  };
+  const results = (last.events || []).filter(e => e.status?.type === "finished" && e.startTimestamp * 1000 >= since).map(shape);
+  const fixtures = (next.events || []).filter(e => e.startTimestamp * 1000 <= until).map(shape);
+  return { name, results, fixtures, source: "Sofascore" };
+}
+
+// Basketball: a team's games in the same shape as nba.mjs team()
+export async function basketballTeam({ sofascore_id: id, name }, { since, until }) {
+  const { past, next } = await teamEvents(id);
+  const g = r => ({ id: r.id, date: r.date, kind: /preseason/i.test(r.competition) ? "Preseason" : r.competition, home: r.home, opponent: r.opponent, completed: r.completed, us: r.us, them: r.them });
+  const results = past.filter(r => r.completed && Date.parse(r.date) >= since).map(g);
+  for (const x of results) { const m = x.us - x.them; x.facts = { won: m > 0, lost: m < 0, drew: false, big: Math.abs(m) >= 15, close: Math.abs(m) <= 5, stage: /playoff/i.test(x.kind) ? "knockout" : "league", preseason: x.kind === "Preseason" }; }
+  return { name, results, fixtures: next.filter(r => !r.completed && Date.parse(r.date) <= until).map(g), source: "Sofascore" };
 }

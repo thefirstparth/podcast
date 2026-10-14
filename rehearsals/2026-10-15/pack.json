@@ -1,9 +1,9 @@
 {
-  "made_at": "2026-10-14T23:17:31.716Z",
+  "made_at": "2026-10-14T23:22:22.242Z",
   "tz": "Asia/Kolkata",
   "window": {
-    "from": "2026-10-10T23:17:31.716Z",
-    "to": "2026-10-14T23:17:31.716Z"
+    "from": "2026-10-10T23:22:22.242Z",
+    "to": "2026-10-14T23:22:22.242Z"
   },
   "listener": {
     "name": "Parth",
@@ -34,9 +34,9 @@
       "id": "die-hard",
       "items": [
         "fb-real-madrid-2026-10-14-love",
-        "cr-151598",
-        "tn-184941-Carlos Alcaraz",
-        "cr-151587",
+        "cr-india-men-2026-10-14",
+        "tn-carlos-alcaraz-2026-10-12",
+        "cr-india-men-2026-10-11",
         "f1-17-race-max_verstappen"
       ],
       "news": [
@@ -1005,9 +1005,9 @@
     {
       "id": "follow",
       "items": [
-        "nba-401898718",
+        "nba-golden-state-warriors-2026-10-14",
         "fb-al-nassr-2026-10-12-Cristiano Ronaldo",
-        "nba-401898399"
+        "nba-golden-state-warriors-2026-10-11"
       ],
       "news": [
         {
@@ -1109,19 +1109,21 @@
             "CBS Sports",
             "RealGM",
             "NBC Sports BayArea",
+            "Mesabi Tribune",
             "New York Post",
             "Bleacher Report",
             "Yahoo Sports",
+            "Daily Democrat",
             "The Mercury News",
+            "TSN",
             "Bozeman Daily Chronicle",
             "Your Valley",
             "Oskaloosa Herald",
-            "ESPN",
             "Yahoo",
             "NBC Sports Bay Area & California"
           ],
-          "n": 14,
-          "date": 1792018020000,
+          "n": 16,
+          "date": 1792019399000,
           "url": "https://sports.yahoo.com/articles/kristaps-porzi-addresses-frustrating-health-222840655.html",
           "reports": [
             {
@@ -1141,6 +1143,10 @@
               "url": "https://www.cbssports.com/nba/news/warriors-kristaps-porzingis-mysterious-health-issues-timeline/"
             },
             {
+              "source": "Mesabi Tribune",
+              "url": "https://news.google.com/rss/articles/CBMikAJBVV95cUxQazNsRTVPRVNsWVkyOXo2VEI4ZG1yUjh3WnF5Y3V3RTVHLWdJdllwdVJxcEYwX25wYWNLNWdFdEFfX3BZV2M1Sm0yT2d4YkdXM1BqT3JHQjlFcjNXT3RORkEwSHd1Nld0Qjl5OXlMOHd6VFRXOVA4bHZCVG4wdkZNc0g5dnRNU01tZVVmSUJONjNHbWp0bDBDLW5zVnNockItSWlHSEVhM3BzUnhveVk0M2lWUE5HYzNsX0lXSlloNjFJcFJmaGRGdnY0bzhlVkt5S0pFV1JZc18xUFZVSmt2Qk9jaVFGazlIODd3SWFOWjZVUmZELVpieEJuYkFaLUFteUdINEVkcnZCMlpqVFJBQQ?oc=5"
+            },
+            {
               "source": "New York Post",
               "url": "https://news.google.com/rss/articles/CBMi1wFBVV95cUxQSWtreEVOMVBTR000cmFSZ3FZZ0FObnpfSWdfWWpGaUJoQmExa0RUUDRHOWJJR3Qwc0F0OUtwSHpFRFpUV2t1by1odmw5RUsySGp2bmlQTjJUMU5kRnQ2dGFEN3R1bXdMWEZyMXBZV0d1TFF4R2stUXRzVjdvXzhBTGlhRDVac1pFLXlkajZaNzY4eVNaeklTZkV4cFRtTTJIVWFacHMxenhnZmx1VHRfelZaWVQ3d21ZZ1h2NWRaOVVKOTlVVTZRVy1Ra0oxTnJfQk5ScGxTSQ?oc=5"
             },
@@ -1153,8 +1159,16 @@
               "url": "https://news.google.com/rss/articles/CBMimwFBVV95cUxQTElzRXliTGdDYUVDM2VDYmRldE9vaTY0RkVwMHhPcnVPSnRCQXZqV1pFMDVDUjVjLVNZM3RFTHdrR0ZMLWg5dENHc0tkWEI5VFBTTVQxWnRmWHZCeU9XVVdVd1laZEFNaXhjV1JiOEJGZE5GUC1RUG5EVjI1VGxQRHI2T3dvbkU5dk90aGphdng0bnhUUTRHM0U3TQ?oc=5"
             },
             {
+              "source": "Daily Democrat",
+              "url": "https://news.google.com/rss/articles/CBMimwFBVV95cUxNSE9OekR4R1ZzNmhFRi1laEptZlhuVTNSTHFhUGxOdmtqZ01peGZ4TWNPRDZEYzJPRkJrVGFjdVprNDdkWDBsM3FrcFRHUkdnN2dIUEQ4bGZTcEppWE5BMDBpblFFeVhoN25VelRzQWZyNkxyclduNURuczZlTWtnY3UzTDU1ZXVRVGlhUjZ6Z2wweUxNZmJmNHRSTQ?oc=5"
+            },
+            {
               "source": "The Mercury News",
               "url": "https://news.google.com/rss/articles/CBMimAFBVV95cUxNYmtkam5fUUp6eGlsMXBNb1U4Q1N1endjdU1uU1Nla2szbTBIMk5vcGEyemRLb0xUeWxHcm1fb1JEakZJTWZyenk2WEk2cEw3S19oTkU1MXU0UWJUNEp2VlBHbDZXSFE4a3pJN0hLeWdnQVJhR0ZsSEwwVmJZMXpodUVseDc4dGhGZURNUzJGSjlMblhJYjZGUQ?oc=5"
+            },
+            {
+              "source": "TSN",
+              "url": "https://news.google.com/rss/articles/CBMisAFBVV95cUxQcHAxS3JMM1FFQ3dSbzRUX28xVkhZeXBJVlFuVGtEeHhMX0pEYlY2SW9nbzBjNHVQcDJiRGpEVi1tUkFYVjdNR01fUE5LWThNUTlDWGo0U3lmV3YtNDNmWDZuVkdjMzhCeDZoVVNGeDRFeGRiRzlZRzJpXzZqc0tva3lyelBFa3hGRWdOZmVNRFNxZ2pqMFZoZkhWaE01bVdhTU1hbEh0QnExcDkweXRqNA?oc=5"
             },
             {
               "source": "Bozeman Daily Chronicle",
@@ -1173,12 +1187,8 @@
               "url": "https://news.google.com/rss/articles/CBMimwFBVV95cUxNSVRoemd6Mm91dDIxVjVyY1lUdC12U3I0RUZOVElVT0djc1g4UVowUHluZUthei1BSU1FdUNOMnBiWndBSGhIMDhhQUhkZXBxd3ZHRXc2Z3BIUTlwbk13UDlFR0wzUnh6RVJhMjJVMXFkUmg3LWZpTVFTR0FUd2NKTGhmbHZTanU2OXRyclRNLTZIYldfRVk0LUIyaw?oc=5"
             },
             {
-              "source": "ESPN",
-              "url": "https://news.google.com/rss/articles/CBMilAFBVV95cUxOR1FJMWQ0azVoQno5R0gxRWtBcERVOXJPSEJIOWNQUDlRclZEMnhDcXdEN0VfX2Noa3BMYTZRSjhLdTMyX0UwaWdjcW95SFBYeFllNmRpWGlmZlpVY0NzRHVQbXVQVGFHSndZbWRqTU80SHdqcjlkRThHRy1YdjdSV1M2UUtDT1pUZXFCYkJEek5YNDhz?oc=5"
-            },
-            {
-              "source": "Yahoo Sports",
-              "url": "https://news.google.com/rss/articles/CBMiiAJBVV95cUxNdzhodTVkdkcyTVk5WTRlOXhyTV9OUEVCa3lQWjdyNnp4Zk95YVJBT1M3ZnJ5Wm0tTUZrM21DV25FUUlHOGJPdFdScVJvRmxyMzE5NmN1aTd6VnhHTGtUSkp5a3k2dTY3OF9jcnU1cDZ6ZXpvZzFqOEQ4WDIwNGRBUk9rbUJ5OWJlcEU1R2R6Nml0VnFlTVBNOHRhRDQydjBxanowenRyNHBrY3h6bm5BOVk2bnlVb3I4cDNYZldfckptZ2ZBSHJUZWh6Q1R2ckN5YjA4RTNFc05hdWJHYUFCWkNmemd1Q0RsTVpqN28yLTMwd1lsVGJYLU5uMDBvTUxxZENSSUQzdWE?oc=5"
+              "source": "Yahoo",
+              "url": "https://news.google.com/rss/articles/CBMigwJBVV95cUxQcXZ0YzlEYUtFdkV4cVpFZ0RvY0M0WmdIU21HcmNkMHVZYzYxT1kwV243Y3lpdllyaTV5OGlYQlpPLXZYM2wzYlQzZF8yRUYweTV2aUV4Q05HbHIyeldCZWp3ZkpSQzByNG9vNnVra0N6NFM0d3RFVVpwS3FuYlYxY1NrVE5zaUQ1WWJsMy04UDlxcFdHNzhXbU9PZld1ajBndGVUOVB0bnk2NExYRTNlNlNaM3VrMm1vOXl1TDh4dUdaN1FWTU42V0Q2eVA5MFdGRk15V0s2UGhsR2VMd1g3VU1ZTzc5NDRnQTRVSjB0dFRkT19UdXFnbmpNYklhWnlnUDBv?oc=5"
             },
             {
               "source": "Yahoo",
@@ -1186,11 +1196,11 @@
             },
             {
               "source": "NBC Sports Bay Area & California",
-              "url": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxNRGQtWEJTRXYzeHJfRVIxRjlXQ2M5bW1JbmloRktMOG5lU05ZQkpNeWNWN0ktUzRNVFktUU9aRzJmTWV0R0dDZjYwNzJ2amJtTFFXU3FLLVgxUThOZnVkWUVJWkdxTllLc0kxQ1A5ckc1QWhTaWRUdkplWFNfaVdrYkVtTWpXOG16WUtPTjRXYnJrRHdJUkVGMGRibVRVMU9pVlJ5SXVEZmRoQdIBqgFBVV95cUxNRGQtWEJTRXYzeHJfRVIxRjlXQ2M5bW1JbmloRktMOG5lU05ZQkpNeWNWN0ktUzRNVFktUU9aRzJmTWV0R0dDZjYwNzJ2amJtTFFXU3FLLVgxUThOZnVkWUVJWkdxTllLc0kxQ1A5ckc1QWhTaWRUdkplWFNfaVdrYkVtTWpXOG16WUtPTjRXYnJrRHdJUkVGMGRibVRVMU9pVlJ5SXVEZmRoQQ?oc=5"
+              "url": "https://news.google.com/rss/articles/CBMiogFBVV95cUxPUVFGYWNaelV4cTFVVGl0YlVSNmNYMS0za3hMSFZBU3c4Vy1aNFlXMTFWOWd5QjhlZTZzRUlYSHZjTkdyaGtvM2N3aUFQbUwtckxKTk5PTDJrbEYzNUNFLTBGdUdQSlZsalhZZElEaHBJMTRFbzBtYkI2cWd2N2wyVDQ5aXN0NkZTYnNKUmVjUnJ1RXVoRU9xenBrRXV0V0ZFbHfSAaoBQVVfeXFMTURkLVhCU0V2M3hyX0VSMUY5V0NjOW1tSW5paEZLTDhuZVNOWUJKTXljVjdJLVM0TVRZLVFPWkcyZk1ldEdHQ2Y2MDcydmpibUxRV1NxSy1YMVE4TmZ1ZFlFSVpHcU5ZS3NJMUNQOXJHNUFoU2lkVHZKZVhTX2lXa2JFbU1qVzhtellLT040V2Jya0R3SVJFRjBkYm1UVTFPaVZSeUl1RGZkaEE?oc=5"
             },
             {
               "source": "NBC Sports Bay Area & California",
-              "url": "https://news.google.com/rss/articles/CBMiogFBVV95cUxPUVFGYWNaelV4cTFVVGl0YlVSNmNYMS0za3hMSFZBU3c4Vy1aNFlXMTFWOWd5QjhlZTZzRUlYSHZjTkdyaGtvM2N3aUFQbUwtckxKTk5PTDJrbEYzNUNFLTBGdUdQSlZsalhZZElEaHBJMTRFbzBtYkI2cWd2N2wyVDQ5aXN0NkZTYnNKUmVjUnJ1RXVoRU9xenBrRXV0V0ZFbHfSAaoBQVVfeXFMTURkLVhCU0V2M3hyX0VSMUY5V0NjOW1tSW5paEZLTDhuZVNOWUJKTXljVjdJLVM0TVRZLVFPWkcyZk1ldEdHQ2Y2MDcydmpibUxRV1NxSy1YMVE4TmZ1ZFlFSVpHcU5ZS3NJMUNQOXJHNUFoU2lkVHZKZVhTX2lXa2JFbU1qVzhtellLT040V2Jya0R3SVJFRjBkYm1UVTFPaVZSeUl1RGZkaEE?oc=5"
+              "url": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxNRGQtWEJTRXYzeHJfRVIxRjlXQ2M5bW1JbmloRktMOG5lU05ZQkpNeWNWN0ktUzRNVFktUU9aRzJmTWV0R0dDZjYwNzJ2amJtTFFXU3FLLVgxUThOZnVkWUVJWkdxTllLc0kxQ1A5ckc1QWhTaWRUdkplWFNfaVdrYkVtTWpXOG16WUtPTjRXYnJrRHdJUkVGMGRibVRVMU9pVlJ5SXVEZmRoQdIBqgFBVV95cUxNRGQtWEJTRXYzeHJfRVIxRjlXQ2M5bW1JbmloRktMOG5lU05ZQkpNeWNWN0ktUzRNVFktUU9aRzJmTWV0R0dDZjYwNzJ2amJtTFFXU3FLLVgxUThOZnVkWUVJWkdxTllLc0kxQ1A5ckc1QWhTaWRUdkplWFNfaVdrYkVtTWpXOG16WUtPTjRXYnJrRHdJUkVGMGRibVRVMU9pVlJ5SXVEZmRoQQ?oc=5"
             },
             {
               "source": "Yahoo Sports",
@@ -1202,15 +1212,17 @@
             "Warriors' Kristaps Porziņģis breaks silence on mysterious health issues, remains out indefinitely",
             "Kristaps Porzingis To Remain Out Indefinitely For Warriors",
             "Kristaps Porziņģis addresses ‘frustrating' health issue after Warriors meeting",
+            "Warriors' Kristaps Porzingis remains out indefinitely, says he's seeing doctors to figure out health",
             "Warriors' Kristaps Porzingis breaks silence on prolonged absence, secret illness: 'I don't have HIV or AIDS'",
             "Kristaps Porzingis Updates 'Frustrating' Health-Related Matter as Warriors Star Out Indefinitely",
             "‘It Has Definitely Been Frustrating’ – Warriors’ Kristaps Porziņģis Breaks Silence on Health Issues, Pushes Back Against ‘Internet Doctors’",
             "Kristaps Porzingis breaks silence about health after meeting with Warriors",
+            "Kristaps Porzingis breaks silence about health after meeting with Warriors",
+            "Warriors’ Porzingis remains out indefinitely but will be around team",
             "Warriors' Kristaps Porzingis remains out indefinitely, says he's seeing doctors to figure out health",
             "Warriors' Kristaps Porzingis remains out indefinitely, says he's seeing doctors to figure out health",
             "Warriors' Kristaps Porzingis remains out indefinitely, says he's seeing doctors to figure out health",
             "Warriors’ Kristaps Porzingis out indefinitely for start of 2026-27 season amid health problems",
-            "Warriors' Kristaps Porzingis remains out indefinitely but will be around team",
             "Kristaps Porziņģis is 'getting better and better,' but Warriors say he will remain out indefinitely due to 'health-related matter'",
             "Warriors' Kristaps Porziņģis will remain out indefinitely due to 'health-related matter' but will be around team",
             "Kristaps Porziņģis addresses ‘frustrating' health issue after Warriors meeting",
@@ -1231,13 +1243,12 @@
           "outlets": [
             "The Athletic",
             "Yahoo Sports",
-            "Eurohoops",
             "San Francisco Chronicle",
-            "AOL.com",
+            "Eurohoops",
             "Sports Illustrated",
             "NBA.com"
           ],
-          "n": 7,
+          "n": 6,
           "date": 1792015445000,
           "url": "https://www.nytimes.com/athletic/7690853/2026/10/14/kristaps-porzingis-warriors-health-update-out-indefinitely/",
           "reports": [
@@ -1258,16 +1269,16 @@
               "url": "https://news.google.com/rss/articles/CBMilgFBVV95cUxNQWprLWhvOWJTVzdWNTdqeXN1dWJSbUE1MTFYVURvMGNNaHV3NXNRSzdQb2pTSjV3Tk9VaEtaOXZPM09QRGZDMVB3UW5PeWo5QmxwZmdkZGZZMFpUTEhyNUM2LXZzNnpSUDIzamZkNVoxUFlDeF8zeW1Eb0dyc0V3WG02RzV6UTdyNW5ZOElLN3F1WlA1V0E?oc=5"
             },
             {
-              "source": "Eurohoops",
-              "url": "https://news.google.com/rss/articles/CBMi3AFBVV95cUxOR25SQWNTNlc0M2RCQklKRk9faWduX01mWnZ3WjR2MUJBdWNWVk83SGM1VmdoQnA4V0FiVGZ6dmZydjlfUnpheDdiWEo4ajhmRkIybTVjV2FpaFp3eDlEVUZGaFpOY1l4Uml6VE1pTWEzU3BEOE9wZXpVcWdpS3FyamV2WXJVY1B2Z21QNkRIdkVCZ0RCdHZONF9kdlQ0X0RsV3dYVGw4STZXakZFcTVTczhSdlE2ZUg2d1dYVkhUT3Y1UEQ1Qkk3Zms5SkUzc05RblB0VEN2a2N6dHJr?oc=5"
-            },
-            {
               "source": "San Francisco Chronicle",
               "url": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxNZGhHZTRnbjM4NVVQMFpXMkpPZ2MwdlhSVTdYWVNuRTl5WV9VdEdQNFhWNThtSXVnVWllVDJsbXRqTHhJQnNwNDZqeW9pdVYzQ3NkOFYyeHg1Wm1INnpSSU0xd3pOTmR5ZWdrVkZlYXhLRnJXTzBMVl84NHpTWFJUZG04cmV2Z1QtMmh4TkJsb0FzOGpzVnhKaFRHb1BjNklkUU0xRlJPelY3VDQ?oc=5"
             },
             {
-              "source": "AOL.com",
-              "url": "https://news.google.com/rss/articles/CBMikwFBVV95cUxOT3VRR0YwZnBLaDcyS0hULUV0RmUxNEExRFAzNTRITV8wT2lhSVBZUkUyMzZIT0U2NXBXZFVxM3lFSjVVbmp2Vm5KWUhOUktSdWtLaExTMHFPN21VZG5PSHk3RXRfZVBNYUw4YzZTd3RvTl8yTEZFUWlFYWpPdTZUcWRaNjNreGdjY3JrZGF2YllybDg?oc=5"
+              "source": "Eurohoops",
+              "url": "https://news.google.com/rss/articles/CBMi1wFBVV95cUxQbFR3WVpMV2wtYVhYRUxKa093R0FJYXQwQVNnRWRfdzI5WEZfLTB5MGpNakctOFVScjk3UmJ2WFpUcUFzdGFXSjdFVVZ3RmhvMllucUJRU3pJalA4ajhYVUQ2RkhUaTRTOXhlamtvVVFYbVNJWUFwWERmZVRYdEJob2NHbVlzamlCNkJJMVVjSU9hNV9aVGNYS2VqSTBmamRNd0M0bjd0THZiczRYb3BkclFiYzZZMHRnZENTUlhfdlY1NGNreWJxNXUzeHgwZnVReDlzcXNzVQ?oc=5"
+            },
+            {
+              "source": "Yahoo Sports",
+              "url": "https://news.google.com/rss/articles/CBMimgFBVV95cUxQVGlKcENmUmdqVlR1YVZncDd3dEZFSDJ1ZzhGQjVGNXZIZlk5bnJDcXF6UG1JLXVoSzNRaXRmQlQ5Z1RSd1BIV2M3bnFmY256UThzdjBzRlhxQjdLaDRHQ0xGRlBua29jalByTThGdFNHeW5JRWJhWGNGTHI0amlaMDdMUG40bXd5VWJWWERubmdEWmJNaHhKQXVB?oc=5"
             },
             {
               "source": "Sports Illustrated",
@@ -1286,8 +1297,8 @@
             "Kristaps Porziņģis issues unusual statement addressing rumors amid health frustrations",
             "Kristaps Porziņģis issues unusual statement addressing rumors amid health frustrations",
             "Warriors' Kristaps Porzingis breaks silence on his health issues",
-            "Warriors’ Kristaps Porzingis out indefinitely for the start of the season amid health problems",
             "Kristaps Porzingis breaks silence after Warriors announce he’s out indefinitely",
+            "Warriors’ Kristaps Porzingis out indefinitely for the start of the season amid health problems",
             "Warriors release statement regarding Kristaps Porzingis' health issue",
             "Warriors' Kristaps Porzingis Breaks Silence on Health Issue",
             "Warriors' Kristaps Porzingis Breaks Silence on Health Issue",
@@ -1319,10 +1330,6 @@
           "url": "https://news.google.com/rss/articles/CBMi6AFBVV95cUxNM1hVbElFUW5jMjJrZS1CWUNIUEw2TVQyMW1veDlzdWZOQm1feDJVZnV2ZFItUmcyYzRHVm1BNHhka1hTdUx6UTBaMVRpNDdfRVdsWDc1Rk9EOUstOEl1R29vYkxuam1PeGM1Y1ZEejkwRFJabUFuM3VzWktIVVJ6VmQyeTJtLW5ZU0Q4cHBoNzI1V0o5anZtaWloNzVOcWwxTUZRQmo3dmtqUzVLa0NydUR4Y3FYWmpNX3gxdUdPV1NIUUxwNXZBSFpKZ3VyQUdfNGwzZ3Z5OUlEVF9SZ2twLWRMWUxWNWcx0gHoAUFVX3lxTFBmZW9aOXpaN3pJY2JkYU5SOGcwOGN1ZktReGJoekhPd3lPTDFZM2JNYi1zMzJvVFM5MXFGeVAtVXVxdndIOXBTazQ1Q2FxeGl0NWF2bkRUTGdsUVRPZERYbTVsaW5OaXZrN3dJMmEwUHdUODJWaWN6S3Z3SHAyZ2s1MElkOFJPZmFIVFNOS1kwaHZ4a1F3d0V4Nnd4cHJUTkQ1SmFyN29lUG9IZTFZVUh0djZUZjF5THR6aURsLWljRGNBb1JwcWU4U1RIVjJfeXI5cmoteDZJbG9wTDhFaE92dGprYjk5RkI?oc=5",
           "reports": [],
           "links": [
-            {
-              "source": "MARCA",
-              "url": "https://news.google.com/rss/articles/CBMi6AFBVV95cUxNM1hVbElFUW5jMjJrZS1CWUNIUEw2TVQyMW1veDlzdWZOQm1feDJVZnV2ZFItUmcyYzRHVm1BNHhka1hTdUx6UTBaMVRpNDdfRVdsWDc1Rk9EOUstOEl1R29vYkxuam1PeGM1Y1ZEejkwRFJabUFuM3VzWktIVVJ6VmQyeTJtLW5ZU0Q4cHBoNzI1V0o5anZtaWloNzVOcWwxTUZRQmo3dmtqUzVLa0NydUR4Y3FYWmpNX3gxdUdPV1NIUUxwNXZBSFpKZ3VyQUdfNGwzZ3Z5OUlEVF9SZ2twLWRMWUxWNWcx0gHoAUFVX3lxTFBmZW9aOXpaN3pJY2JkYU5SOGcwOGN1ZktReGJoekhPd3lPTDFZM2JNYi1zMzJvVFM5MXFGeVAtVXVxdndIOXBTazQ1Q2FxeGl0NWF2bkRUTGdsUVRPZERYbTVsaW5OaXZrN3dJMmEwUHdUODJWaWN6S3Z3SHAyZ2s1MElkOFJPZmFIVFNOS1kwaHZ4a1F3d0V4Nnd4cHJUTkQ1SmFyN29lUG9IZTFZVUh0djZUZjF5THR6aURsLWljRGNBb1JwcWU4U1RIVjJfeXI5cmoteDZJbG9wTDhFaE92dGprYjk5RkI?oc=5"
-            },
             {
               "source": "MARCA",
               "url": "https://news.google.com/rss/articles/CBMi6AFBVV95cUxNM1hVbElFUW5jMjJrZS1CWUNIUEw2TVQyMW1veDlzdWZOQm1feDJVZnV2ZFItUmcyYzRHVm1BNHhka1hTdUx6UTBaMVRpNDdfRVdsWDc1Rk9EOUstOEl1R29vYkxuam1PeGM1Y1ZEejkwRFJabUFuM3VzWktIVVJ6VmQyeTJtLW5ZU0Q4cHBoNzI1V0o5anZtaWloNzVOcWwxTUZRQmo3dmtqUzVLa0NydUR4Y3FYWmpNX3gxdUdPV1NIUUxwNXZBSFpKZ3VyQUdfNGwzZ3Z5OUlEVF9SZ2twLWRMWUxWNWcx0gHoAUFVX3lxTFBmZW9aOXpaN3pJY2JkYU5SOGcwOGN1ZktReGJoekhPd3lPTDFZM2JNYi1zMzJvVFM5MXFGeVAtVXVxdndIOXBTazQ1Q2FxeGl0NWF2bkRUTGdsUVRPZERYbTVsaW5OaXZrN3dJMmEwUHdUODJWaWN6S3Z3SHAyZ2s1MElkOFJPZmFIVFNOS1kwaHZ4a1F3d0V4Nnd4cHJUTkQ1SmFyN29lUG9IZTFZVUh0djZUZjF5THR6aURsLWljRGNBb1JwcWU4U1RIVjJfeXI5cmoteDZJbG9wTDhFaE92dGprYjk5RkI?oc=5"
@@ -1373,7 +1380,6 @@
             }
           ],
           "titles": [
-            "Cristiano Ronaldo pledges allegiance to Saudi Arabia after missile alert delays Al-Nassr with bold gesture",
             "Cristiano Ronaldo pledges allegiance to Saudi Arabia after missile alert delays Al-Nassr with bold gesture",
             "Cristiano Ronaldo waves Saudi flag scarf after missile alert delays Al-Nassr match in Riyadh",
             "Ronaldo Scores and Waves Saudi Scarf After Match Delay in Riyadh",
@@ -1798,6 +1804,7 @@
             "BBC Sport",
             "Managing Madrid",
             "Sky Sports",
+            "Chiesa Di Totti",
             "Arab News",
             "Yahoo Sports",
             "Universidad de Córdoba (UCO)",
@@ -1817,7 +1824,6 @@
           "headline": "Mourinho: 'Real Madrid impossible to stop, Roma players were dead' for 4-3 defeat",
           "outlets": [
             "Football Italia",
-            "Yahoo Sports",
             "TOD",
             "Universidad de Córdoba (UCO)"
           ]
@@ -1885,6 +1891,12 @@
           "headline": "Real Madrid claim astonishing win over AS Roma, for whom De Roon and Malen score",
           "outlets": [
             "Goal.com"
+          ]
+        },
+        {
+          "headline": "Real Madrid Complete Stunning Remontada to Beat Roma 4-3",
+          "outlets": [
+            "Morocco World News"
           ]
         },
         {
@@ -2056,7 +2068,7 @@
       }
     },
     {
-      "id": "cr-151587",
+      "id": "cr-india-men-2026-10-11",
       "sport": "cricket",
       "kind": "result",
       "subject": "India men",
@@ -2199,7 +2211,7 @@
       }
     },
     {
-      "id": "cr-151598",
+      "id": "cr-india-men-2026-10-14",
       "sport": "cricket",
       "kind": "result",
       "subject": "India men",
@@ -2353,7 +2365,7 @@
       }
     },
     {
-      "id": "tn-184941-Carlos Alcaraz",
+      "id": "tn-carlos-alcaraz-2026-10-12",
       "sport": "tennis",
       "kind": "result",
       "subject": "Carlos Alcaraz",
@@ -2499,7 +2511,7 @@
       }
     },
     {
-      "id": "nba-401898399",
+      "id": "nba-golden-state-warriors-2026-10-11",
       "sport": "basketball",
       "kind": "result",
       "subject": "Golden State Warriors",
@@ -2522,10 +2534,23 @@
       "source": "ESPN",
       "mood": "happy",
       "intensity": 1,
-      "score": 0.35
+      "score": 0.35,
+      "reports": [
+        {
+          "headline": "Biggest Preseason Issue the Warriors Can't Afford to Ignore (and How Lakers Exposed It)",
+          "outlets": [
+            "Sports Illustrated"
+          ]
+        }
+      ],
+      "report": {
+        "source": "Sports Illustrated",
+        "url": "https://www.si.com/nba/warriors/onsi/biggest-preseason-issue-the-warriors-can-t-afford-to-ignore-and-how-lakers-exposed-it-01m4xpyzk65a",
+        "text": "Austin Reaves exposed the Golden State Warriors defense last night while helping the Los Angeles Lakers build a 20-point third-quarter lead. That the Warriors came back to win 101-89 feels less important than Golden State's biggest preseason issue, which has been point-of-attack defense. (Note: Turning the ball over is a close second.) Let's go over how the Lakers exposed the Warriors' poor on-ball defense before addressing what they can do to fix it from a personnel perspective. In 25 minutes, Reaves had 28 points on 10-of-18 shooting with seven assists and seven turnovers. The Warriors deserve credit for swarming him into a high-turnover game, but the bigger-picture issue is how often they gave up easy drives, especially considering Reaves was the only major threat with Luka Doncic resting. The first defensive mistake came from Curry. Any time you're in a ball-screen situation at the point-of-attack defender, the first rule is to be ready if the offensive player rejects the screen. Curry was not ready: The Warriors are in zone here, but still I don't understand why Curry was so interested in getting over the screen with Podz waiting on the other side. Bassey could've defended"
+      }
     },
     {
-      "id": "nba-401898718",
+      "id": "nba-golden-state-warriors-2026-10-14",
       "sport": "basketball",
       "kind": "result",
       "subject": "Golden State Warriors",
@@ -2551,18 +2576,21 @@
       "score": 0.7,
       "reports": [
         {
+          "headline": "Warriors win over Lakers in Vegas, 101-89",
+          "outlets": [
+            "Golden State of Mind",
+            "ESPN",
+            "Golden State Of Mind",
+            "Sports Illustrated",
+            "ESPN India"
+          ]
+        },
+        {
           "headline": "Warriors storm back for second half comeback in preseason win vs. Lakers, 101-89",
           "outlets": [
             "Warriors Wire",
             "Sofascore",
             "NBC Sports Bay Area & California"
-          ]
-        },
-        {
-          "headline": "Warriors win over Lakers in Vegas, 101-89",
-          "outlets": [
-            "Golden State Of Mind",
-            "Sports Illustrated"
           ]
         },
         {
@@ -2608,6 +2636,12 @@
           ]
         },
         {
+          "headline": "SPORTS: NBA showcases in Vegas with Lakers/Warriors & VGK bounce back, beat Predators 5-2",
+          "outlets": [
+            "KSNV"
+          ]
+        },
+        {
           "headline": "Kessler impresses on Lakers preseason return despite Warriors defeat",
           "outlets": [
             "Geo Super"
@@ -2645,9 +2679,9 @@
         }
       ],
       "report": {
-        "source": "Warriors Wire",
-        "url": "https://warriorswire.usatoday.com/story/sports/nba/warriors/2026/10/14/warriors-storm-back-for-second-half-comeback-in-preseason-win-vs-lakers-101-89/92248175007/",
-        "text": "For the second time since the start of the preseason, the Golden State Warriors suited up agains the Los Angeles Lakers . After the Warriors secured their first preseason win in their first matchup at Chase Center, Tuesday's preseason battle in Las Vegas started off on a different foot. After a tight first quarter, the Lakers took control in the second frame. Behind 12 second quarter points from Austin Reaves, the Lakers jumped out to a 13 point lead at halftime and continued to stretch their lead into the third quarter. Following a 3-pointer from Reaves, the Lakers held a 70-50 lead with nine minutes remaining in the third quarter. Despite trailing by 20 points, the Warriors didn't walk away from the table in Las Vegas. Behind Will Richard, Brandin Podziemski and Gui Santos, the Warriors started to rally as the Lakers began to rest their core rotational players. As the fourth quarter started, the Warriors trailed by only four points. In the fourth and final frame, the Warriors didn't show any signs of slowing down. Richard tallied nine points in the fourth quarter on 3-of-5 shooting from the field with three made 3-pointers. Podziemski added seven fourth quarter points as the"
+        "source": "Golden State of Mind",
+        "url": "https://www.goldenstateofmind.com/warriors-news/112614/warriors-win-over-lakers-in-vegas-101-89",
+        "text": "On a night dominated by the apparent status of Kristaps Porzingis, the absence of the Latvian big was felt at times during the Golden State Warriors’ 101-89 win over the Los Angeles Lakers at T-Mobile Arena in Las Vegas, Nevada. Steve Kerr’s intention to spread the floor in a so-called ‘5-out’ alignment banked on players who are able to space to floor — including their center. Porzingis happens to fit that profile, while also being 7-foot-3-inches. Without Porzingis — and also not having Al Horford available tonight — the Warriors were not only small, they were bereft of shooting and spacing personnel. That was apparent at times during this game, where the Warriors were able to rally back from a significant deficit, albeit during a time when both teams’ main characters’ nights were finished (one of them, Luka Doncic, did not suit up for the Lakers). Once again, it was rookie Yaxel Lendeborg who stood out. He finished with 17 points, 5 rebounds, and 4 assists in just under 24 minutes of time on the floor. He once again flashed familiarity and comfort as an offensive player within Steve Kerr’s often-intricate scheme while displaying motor and hustle that gave the Warriors a couple"
       }
     }
   ],

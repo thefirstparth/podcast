@@ -12,10 +12,14 @@ import * as tennis from "./fetch/tennis.mjs";
 import * as cricket from "./fetch/cricket.mjs";
 import * as news from "./fetch/news.mjs";
 import * as elsewhere from "./fetch/elsewhere.mjs";
+import * as sofa from "./fetch/sofascore.mjs";
 import { moodOf, intensityOf } from "./moods.mjs";
 import * as ledger from "./ledger.mjs";
 
 const H = new URL("../", import.meta.url).pathname;
+// a result's id is the subject and the day, never a source's match id, so the memory of what was said holds whichever
+// source served it (ESPN, Sofascore, Cricbuzz, Jolpica or f1api.dev)
+const uid = (kind, subject, when) => `${kind}-${String(subject).toLowerCase().replace(/\W+/g, "-")}-${String(when).slice(0, 10)}`;
 
 // The ways a player is named in headlines: the full name, a one-word name (Rodrygo, Endrick), and a surname of six or
 // more letters that is not an everyday word or a common surname (Bellingham, Porzingis; not Green, Silva, Santos)
@@ -110,8 +114,8 @@ export async function buildPack({ profile = json("profile.json"), show = json("c
     if (!t) continue;
     for (const r of t.results) {
       const s = t.series.find(s => s.name === r.series && s.format === r.format);
-      add({ id: `cr-${r.id}`, sport: "cricket", kind: "result", subject: f.name, stance: "love", care: care(f), when: r.start, when_local: at(r.start), competition: r.series, stage: r.facts.stage,
-        line: `${r.desc} v ${r.opponent}${r.city ? `, ${r.city}` : ""}: ${r.status}`, scorecard: r.score, series: s ? `${s.format} series: India ${s.won}, ${r.opponent} ${s.lost} after ${s.played} of ${s.total}${s.left.length ? `; next ${s.left[0].desc}, ${at(s.left[0].start)}${s.left[0].city ? `, ${s.left[0].city}` : ""}` : ""}` : null, facts: r.facts, source: "Cricbuzz" });
+      add({ id: uid("cr", f.name, r.start), sport: "cricket", kind: "result", subject: f.name, stance: "love", care: care(f), when: r.start, when_local: at(r.start), competition: r.series, stage: r.facts.stage,
+        line: `${r.desc} v ${r.opponent}${r.city ? `, ${r.city}` : ""}: ${r.status}`, scorecard: r.score, series: s ? `${s.format} series: India ${s.won}, ${r.opponent} ${s.lost} after ${s.played} of ${s.total}${s.left.length ? `; next ${s.left[0].desc}, ${at(s.left[0].start)}${s.left[0].city ? `, ${s.left[0].city}` : ""}` : ""}` : null, facts: r.facts, source: t.source });
     }
     for (const x of t.fixtures) fixtures.push({ subject: f.name, care: care(f), when: x.start, when_local: at(x.start), what: `${x.desc} v ${x.opponent}`, competition: x.series, venue: [x.ground, x.city].filter(Boolean).join(", ") });
   }
@@ -119,7 +123,7 @@ export async function buildPack({ profile = json("profile.json"), show = json("c
   // ---- F1: the followed driver's weekend; the season for a follower of the whole sport
   const drivers = profile.follows.filter(f => f.sport === "f1" && f.kind === "driver"), allF1 = profile.follows.find(f => f.sport === "f1" && f.kind === "all");
   if (drivers.length || allF1) {
-    const s = await safe("Formula 1", () => f1.season(W));
+    const s = await safe("Formula 1", () => f1.season(W).catch(() => f1.seasonF1api(W)));
     for (const ses of s?.sessions || []) {
       const top = ses.order.slice(0, 3).map(x => `${x.pos}. ${x.driver} (${x.team})`).join(", ");
       let done = false;
@@ -130,7 +134,7 @@ export async function buildPack({ profile = json("profile.json"), show = json("c
         add({ id: `f1-${ses.round}-${ses.kind}-${d.jolpica_id}`, sport: "f1", kind: ses.kind === "race" ? "result" : "session", subject: d.name, stance: "love", care: ses.kind === "race" ? care(d) : "follow", when: ses.date, when_local: at(ses.date), competition: ses.race, stage: ses.kind,
           line: `${ses.race} ${ses.kind}: ${d.name} ${me.pos === 1 ? "won" : `P${me.pos}`}${me.grid ? ` from grid P${me.grid}` : ""}${me.status && !/^Finished$/.test(me.status) ? ` (${me.status})` : ""}`, top3: top,
           standings: ses.kind === "race" ? s.table.slice(0, 5).map(x => `${x.pos}. ${x.driver} ${x.points}`).concat(s.table.find(x => x.id === d.jolpica_id && x.pos > 5) ? [`${s.table.find(x => x.id === d.jolpica_id).pos}. ${d.name} ${s.table.find(x => x.id === d.jolpica_id).points}`] : []) : null,
-          facts: { ...me.facts, stage: ses.kind }, source: "Jolpica" });
+          facts: { ...me.facts, stage: ses.kind }, source: s.source });
       }
       if (!done && allF1 && ses.kind === "race") add({ id: `f1-${ses.round}-race`, sport: "f1", kind: "result", subject: "Formula 1", stance: "neutral", care: care(allF1), when: ses.date, when_local: at(ses.date), competition: ses.race, line: `${ses.race}: ${top}`, facts: { stage: "race" }, source: "Jolpica" });
     }
@@ -140,26 +144,27 @@ export async function buildPack({ profile = json("profile.json"), show = json("c
   // ---- tennis: followed players, then the big matches of the tournaments on now
   const players = profile.follows.filter(f => f.sport === "tennis" && f.kind === "player"), allTennis = profile.follows.find(f => f.sport === "tennis" && f.kind === "all");
   if (players.length || allTennis) {
-    const board = await safe("tennis", () => tennis.board("atp")) || [];
+    // ESPN's scoreboard first; if it fails, each player's matches from Sofascore
+    const board = await safe("tennis (Sofascore used)", () => tennis.board("atp"));
     const mine = new Set();
     for (const p of players) {
-      const t = tennis.player(board, p.name, W);
+      const t = board ? tennis.player(board, p.name, W) : p.sofascore_id ? await safe(`${p.name} (Sofascore)`, () => sofa.tennisPlayer(p, W)) || { results: [], fixtures: [] } : { results: [], fixtures: [] };
       for (const r of t.results) {
         mine.add(r.id);
-        add({ id: `tn-${r.id}-${p.name}`, sport: "tennis", kind: "result", subject: p.name, stance: "love", care: care(p), when: r.date, when_local: at(r.date), competition: r.tournament, stage: r.round,
-          line: `${r.tournament}, ${r.round}: ${r.note || `${p.name} v ${r.opponent} ${r.score}`}`, facts: r.facts, source: "ESPN" });
+        add({ id: uid("tn", p.name, r.date), sport: "tennis", kind: "result", subject: p.name, stance: "love", care: care(p), when: r.date, when_local: at(r.date), competition: r.tournament, stage: r.round,
+          line: `${r.tournament}, ${r.round}: ${r.note || `${p.name} v ${r.opponent} ${r.score}`}`, facts: r.facts, source: board ? "ESPN" : "Sofascore" });
       }
       for (const x of t.fixtures) { mine.add(x.id); fixtures.push({ subject: p.name, care: care(p), when: x.date, when_local: at(x.date), what: `${p.name} v ${x.opponent}, ${x.round}`, competition: x.tournament }); }
     }
-    if (allTennis) for (const m of tennis.bigMatches(board, W).filter(m => !mine.has(m.id)))
+    if (allTennis && board) for (const m of tennis.bigMatches(board, W).filter(m => !mine.has(m.id)))
       add({ id: `tn-${m.id}`, sport: "tennis", kind: "result", subject: m.tournament, stance: "neutral", care: care(allTennis), when: m.date, when_local: at(m.date), competition: m.tournament, stage: m.round, line: `${m.tournament}, ${m.round}: ${m.note || m.players.map(p => p.name).join(" v ")}`, facts: { stage: /final$/i.test(m.round) && !/semi/i.test(m.round) ? "final" : "knockout" }, source: "ESPN" });
   }
 
   // ---- NBA
   for (const f of profile.follows.filter(f => f.sport === "basketball")) {
-    const t = await safe(f.name, () => nba.team(f, W));
-    for (const g of t?.results || []) add({ id: `nba-${g.id}`, sport: "basketball", kind: "result", subject: f.name, stance: "love", care: care(f), when: g.date, when_local: at(g.date), competition: g.kind, stage: g.kind,
-      line: `${g.kind}: ${g.home ? `${f.name} ${g.us}-${g.them} ${g.opponent}` : `${g.opponent} ${g.them}-${g.us} ${f.name}`}`, facts: g.facts, source: "ESPN" });
+    const t = await safe(f.name, () => nba.team(f, W).then(t => { if (!t.results.length && !t.fixtures.length) throw new Error("ESPN: nothing"); return t; }).catch(e => (f.sofascore_id ? sofa.basketballTeam(f, W) : Promise.reject(e))));
+    for (const g of t?.results || []) add({ id: uid("nba", f.name, g.date), sport: "basketball", kind: "result", subject: f.name, stance: "love", care: care(f), when: g.date, when_local: at(g.date), competition: g.kind, stage: g.kind,
+      line: `${g.kind}: ${g.home ? `${f.name} ${g.us}-${g.them} ${g.opponent}` : `${g.opponent} ${g.them}-${g.us} ${f.name}`}`, facts: g.facts, source: t.source || "ESPN" });
     for (const x of t?.fixtures || []) fixtures.push({ subject: f.name, care: care(f), when: x.date, when_local: at(x.date), what: `${x.home ? `${f.name} v ${x.opponent}` : `${x.opponent} v ${f.name}`}`, competition: x.kind });
   }
 

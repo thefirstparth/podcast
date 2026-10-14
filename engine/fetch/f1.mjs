@@ -18,7 +18,8 @@ export async function season({ since, until }) {
   const N = next?.MRData?.RaceTable?.Races?.[0];
   const upcoming = N ? [["first practice", N.FirstPractice], ["sprint qualifying", N.SprintQualifying || N.SprintShootout], ["sprint", N.Sprint], ["qualifying", N.Qualifying], ["race", { date: N.date, time: N.time }]]
     .filter(([, s]) => s?.date).map(([kind, s]) => ({ kind, round: Number(N.round), race: N.raceName, date: new Date(at(s.date, s.time)).toISOString() })).filter(s => Date.parse(s.date) <= until) : [];
-  return { round: L ? Number(L.round) : null, sessions: sessions.filter(s => s.date && Date.parse(s.date) >= since), table, upcoming, next_race: N ? { round: Number(N.round), race: N.raceName, date: new Date(at(N.date, N.time)).toISOString() } : null };
+  if (!R && !L) throw new Error("Jolpica: nothing came back");
+  return { source: "Jolpica", round: L ? Number(L.round) : null, sessions: sessions.filter(s => s.date && Date.parse(s.date) >= since), table, upcoming, next_race: N ? { round: Number(N.round), race: N.raceName, date: new Date(at(N.date, N.time)).toISOString() } : null };
 }
 
 // A driver's weekend in facts for the mood rules
@@ -28,4 +29,19 @@ export function driverFacts(s, id) {
   const dnf = s.kind !== "qualifying" && me.finished === false && !/Lap/.test(me.status || "");
   return { pos: me.pos, grid: me.grid ?? null, team: me.team, status: me.status || null,
     facts: { won: me.pos === 1, podium: me.pos <= 3, dnf, finished_low: me.pos > 6, lost: false, drew: false, big: false, stage: s.kind === "race" ? "race" : s.kind, preseason: false } };
+}
+
+// The backup when Jolpica fails: f1api.dev (keyless; the same driver ids, checked 15 Oct 2026 on the Singapore GP).
+// Qualifying, race and standings; no sprint and no timetable from here.
+const F1API = "https://f1api.dev/api";
+export async function seasonF1api({ since }) {
+  const [race, quali, standings] = await Promise.all(["current/last/race", "current/last/qualy", "current/drivers-championship"].map(p => getJSON(`${F1API}/${p}`).catch(() => null)));
+  const R = race?.races, Q = quali?.races, nm = d => `${d.name} ${d.surname}`, sessions = [];
+  if (Q?.qualyResults?.length) sessions.push({ kind: "qualifying", round: Number(Q.round), race: Q.raceName, date: Q.qualyDate ? new Date(at(Q.qualyDate, Q.qualyTime)).toISOString() : null,
+    order: Q.qualyResults.map(x => ({ pos: Number(x.gridPosition), driver: nm(x.driver), id: x.driverId, team: x.team?.teamName || x.teamId })) });
+  if (R?.results?.length) sessions.push({ kind: "race", round: Number(R.round), race: R.raceName, date: new Date(at(R.date, R.time)).toISOString(),
+    order: R.results.map(x => ({ pos: Number(x.position), grid: Number(x.grid), driver: nm(x.driver), id: x.driver.driverId, team: x.team?.teamName, status: x.retired || "Finished", points: x.points, finished: !x.retired })) });
+  if (!sessions.length) throw new Error("f1api.dev: no results");
+  const table = (standings?.drivers_championship || []).map(x => ({ pos: x.position, driver: nm(x.driver), id: x.driverId, points: x.points, wins: x.wins }));
+  return { round: R ? Number(R.round) : null, sessions: sessions.filter(s => s.date && Date.parse(s.date) >= since), table, upcoming: [], next_race: null, source: "f1api.dev" };
 }

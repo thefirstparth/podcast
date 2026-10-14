@@ -70,7 +70,8 @@
         "UNICEF India",
         "India Legends",
         "India Champions"
-      ]
+      ],
+      "sofascore_id": 187765
     },
     {
       "sport": "f1",
@@ -90,7 +91,8 @@
         "New York Red Bulls",
         "Max Verstappen's father"
       ],
-      "search": "Verstappen"
+      "search": "Verstappen",
+      "note": "Backups when Jolpica fails: f1api.dev (same driver ids)."
     },
     {
       "sport": "tennis",
