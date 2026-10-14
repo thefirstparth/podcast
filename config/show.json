@@ -60,8 +60,16 @@
     "neutral": "easy and interested"
   },
   "mood_rules": {
-    "note": "Read top to bottom; the first rule that matches sets the mood. Facts the rules use are worked out by code from the data (engine/moods.mjs).",
+    "note": "Read top to bottom; the first rule that matches sets the mood. Facts the rules use are worked out by code from the data (engine/fetch/*.mjs): won, lost, drew, big, close, came_from_behind, lead_lost, late_decider, conceded_late, red_card, upset, eliminated, title, podium, dnf, finished_low, preseason, stage, derby (against a rival), losing_run (lost the two before), winless_run (no win in the three before), winning_run (won the three before).",
     "love": [
+      {
+        "if": "won && derby",
+        "mood": "elated"
+      },
+      {
+        "if": "lost && derby",
+        "mood": "heartbroken"
+      },
       {
         "if": "title",
         "mood": "elated"
@@ -73,6 +81,10 @@
       {
         "if": "won && came_from_behind",
         "mood": "elated"
+      },
+      {
+        "if": "won && (losing_run || winless_run)",
+        "mood": "relieved"
       },
       {
         "if": "won && late_decider",
@@ -113,6 +125,10 @@
       {
         "if": "eliminated",
         "mood": "gutted"
+      },
+      {
+        "if": "lost && (losing_run || winless_run)",
+        "mood": "angry"
       },
       {
         "if": "lost && (big || lead_lost || upset || red_card)",
@@ -173,5 +189,65 @@
         "mood": null
       }
     ]
+  },
+  "intensity": {
+    "note": "How strongly the mood is played, 1 to 5: the listener's care (die-hard 3, follow 2, big moments 1), one more for a final, a knockout, a derby, a title or going out, one more for a dramatic match (big margin, comeback, lead thrown away, late decider, upset, a run ended or extended). Pre-season and friendlies stay at 1. The Fan plays it at this strength, the Anchor one lower."
+  },
+  "big_clubs": {
+    "note": "Clubs whose upsets and heavy defeats are news to any football fan (Around the grounds). ESPN's names.",
+    "football": [
+      "Arsenal",
+      "Chelsea",
+      "Liverpool",
+      "Manchester City",
+      "Manchester United",
+      "Tottenham Hotspur",
+      "Real Madrid",
+      "Barcelona",
+      "Atlético Madrid",
+      "Bayern Munich",
+      "Borussia Dortmund",
+      "Bayer Leverkusen",
+      "Juventus",
+      "Internazionale",
+      "AC Milan",
+      "Napoli",
+      "Paris Saint-Germain"
+    ],
+    "football_leagues": [
+      "uefa.champions",
+      "uefa.europa",
+      "eng.1",
+      "esp.1",
+      "ger.1",
+      "ita.1",
+      "fra.1"
+    ]
+  },
+  "cricket_tiers": {
+    "note": "Men's international sides by strength, for upsets and big wins (Around the grounds).",
+    "1": [
+      "India",
+      "Australia",
+      "England",
+      "South Africa",
+      "New Zealand",
+      "Pakistan"
+    ],
+    "2": [
+      "Sri Lanka",
+      "West Indies",
+      "Bangladesh",
+      "Afghanistan"
+    ],
+    "3": [
+      "Ireland",
+      "Zimbabwe"
+    ]
+  },
+  "around": {
+    "max": 2,
+    "min_drama": 4,
+    "note": "At most two results or stories from outside the listener's list, only when they clear min_drama (engine/fetch/elsewhere.mjs); none on a quiet day. Draft for discussion with Parth (15 Oct)."
   }
 }

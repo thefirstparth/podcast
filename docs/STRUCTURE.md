@@ -49,7 +49,13 @@ For your review before any script or audio. The worked example is the real data 
 Rules that always hold:
 - Never a rival's injury, illness or anything personal.
 - No laughing in a sad segment.
-- A rival's row is taken out of any table given to the writer. Madrid's line says "6 points off the top" without naming who is top.
+- The league table comes only with a league result, said right after it, rival included ("Barcelona stay top, six clear"). On any other day, the table and the rival's place in it are not mentioned (Parth, 15 Oct).
+
+## Moods have a shape and a strength (Parth, 15 Oct: "slightly more dynamic")
+
+- **Shape:** the goals tell where the mood turned. Roma: "1-3 down at 57', then won with goals at 83', 85', 90'", so the segment starts in dread and ends elated, not elated from the first word. A lead thrown away goes the other way.
+- **Strength, 1 to 5:** how much you care, plus one for a final, knockout, derby, title or exit, plus one for drama (a comeback, a heavy result, a late winner, a run ended). Pre-season is always 1. The Fan plays it at full strength, the Anchor one lower.
+- **Context:** form before the match. A win that ends a bad run is relief. A third defeat in a row is anger, not sadness. A derby against a rival is the biggest of all. A day when Madrid won and Barcelona dropped points opens with both.
 
 ## Running order (what the 15 Oct pack gives)
 
@@ -63,7 +69,7 @@ Rules that always hold:
 | | | Max won in Singapore from pole, 4th in the championship | elated (older, so short) |
 | 3 | **Rival Watch** | Left out tonight: Barcelona won. On a night they drop points it comes here, short and gleeful | |
 | 4 | **Also on your list**, brisk | Warriors beat the Lakers in pre-season. Ronaldo scored in Al Nassr's 3-1. Djokovic news. Porzingis' health | happy, light |
-| 5 | **Around the grounds** (Wider Pitch and Sidelines) | Man City 2-4 PSG. Brugge's hat-trick against Inter. The Millwall racism row | neutral |
+| 5 | **Around the grounds**: at most two results or stories from outside your list that any fan would expect to hear, scored by code; none on a quiet day | Inter 3-4 Club Brugge at San Siro. Bodo/Glimt 1-0 Dortmund. (Considered, not used: Sri Lanka beating Pakistan, Liverpool 0-3 City, Australia by 214 runs, City 2-4 PSG) | neutral, amused |
 | 6 | **Coming up**, in IST | Warriors Sat 07:30. India's 5th T20I Sat 19:00, Bengaluru. Madrid v Sevilla Mon 00:30. Madrid v Leipzig Thu 00:30 | nervous and excited for the big ones |
 | 7 | **Sign-off** | the same line every day | |
 

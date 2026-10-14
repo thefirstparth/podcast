@@ -21,5 +21,12 @@ export function moodOf(facts, stance, rules) {
   return stance === "rival" ? null : "neutral";
 }
 
-// How strongly the mood is played: by how much the listener cares
-export const intensityOf = care => ({ "die-hard": 3, follow: 2, "big-moments": 1, rival: 2 })[care] || 1;
+// How strongly the mood is played, 1 to 5 (config/show.json intensity): the listener's care, then the stake, then the
+// drama. The Fan plays it at this strength, the Anchor one lower.
+export function intensityOf(care, f = {}) {
+  if (f.preseason || f.stage === "friendly") return 1;
+  let n = ({ "die-hard": 3, follow: 2, "big-moments": 1, rival: 3 })[care] || 1;
+  if (f.stage === "final" || f.stage === "knockout" || f.derby || f.title || f.eliminated) n++;
+  if (f.big || f.came_from_behind || f.lead_lost || f.late_decider || f.upset || f.losing_run || f.winless_run || (f.won && f.stage === "race")) n++;
+  return Math.min(5, n);
+}

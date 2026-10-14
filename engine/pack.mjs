@@ -11,6 +11,7 @@ import * as f1 from "./fetch/f1.mjs";
 import * as tennis from "./fetch/tennis.mjs";
 import * as cricket from "./fetch/cricket.mjs";
 import * as news from "./fetch/news.mjs";
+import * as elsewhere from "./fetch/elsewhere.mjs";
 import { moodOf, intensityOf } from "./moods.mjs";
 
 const H = new URL("../", import.meta.url).pathname;
@@ -31,7 +32,7 @@ export async function buildPack({ profile = json("profile.json"), show = json("c
   const add = it => {
     it.mood = moodOf(it.facts, it.stance, show.mood_rules);
     if (it.stance === "rival" && !it.mood) { suppressed.push(`${it.subject}: ${it.line} (a rival's good result, never said)`); return; }
-    it.intensity = intensityOf(it.care);
+    it.intensity = intensityOf(it.care, it.facts || {});
     it.score = +(weight({ care: it.care }) * stake(it.facts || {}) * fresh(it.when)).toFixed(2);
     items.push(it);
   };
@@ -43,19 +44,20 @@ export async function buildPack({ profile = json("profile.json"), show = json("c
     id: `fb-${r.id}-${stance}`, sport: "football", kind: "result", subject: f.name, stance, care: stance === "rival" ? "rival" : care(f), when: r.date, when_local: at(r.date),
     competition: r.competition, stage: r.stage, line: fbLine(t.name, r), venue: r.venue,
     goals: r.goals.map(g => `${g.minute} ${g.forUs ? f.name : r.opponent}: ${g.scorer}${g.kind && g.kind !== "goal" ? ` (${g.kind})` : ""}${g.assist ? `, assist ${g.assist}` : ""}, ${g.score}`),
-    reds: r.reds.map(x => `${x.minute} ${x.forUs ? f.name : r.opponent}: ${x.player}`), facts: r.facts, table: stance === "love" ? tableFor(t) : null, source: "ESPN",
+    reds: r.reds.map(x => `${x.minute} ${x.forUs ? f.name : r.opponent}: ${x.player}`), facts: r.facts, arc: r.arc, form_before: r.form_before || null,
+    table: stance === "love" && r.league && r.league === f.league ? tableFor(t) : null, source: "ESPN",
   });
-  // the table around a loved side, with every rival's row taken out (a rival top of the league is never said); the
-  // gap to the top stays, unnamed
+  // The league table, only with a loved side's league result and said after it (Parth, 15 Oct: a rival top of the
+  // table is named only on the day Madrid play, after Madrid's result, never on other days)
   const rivalIds = new Set((profile.rivals || []).map(r => String(r.espn_id)));
   const tableFor = t => {
     if (!t.table) return null;
     const rows = t.table.rows, me = rows.find(r => r.id === t.id), top = rows[0];
     return { league: t.table.league, position: me?.rank ?? null, points: me?.points ?? null, played: me?.played ?? null, points_off_top: me && top ? top.points - me.points : null,
-      rows: rows.filter(r => !rivalIds.has(r.id)).map(r => ({ rank: r.rank, team: r.team, points: r.points })) };
+      rows: rows.map(r => ({ rank: r.rank, team: r.team, points: r.points, ...(rivalIds.has(r.id) ? { rival: true } : {}) })) };
   };
   for (const f of profile.follows.filter(f => f.sport === "football" && f.kind === "team")) {
-    const t = await safe(f.name, () => football.team(f, W));
+    const t = await safe(f.name, () => football.team(f, { ...W, rivals: [...rivalIds] }));
     if (!t) continue;
     for (const r of t.results) add(fbItem(f, "love", t, r));
     for (const x of t.fixtures) fixtures.push({ subject: f.name, care: care(f), when: x.date, when_local: at(x.date), what: `${x.home ? `${f.name} v ${x.opponent}` : `${x.opponent} v ${f.name}`}`, competition: x.competition, venue: x.venue });
@@ -152,19 +154,56 @@ export async function buildPack({ profile = json("profile.json"), show = json("c
   const rivalRx = (profile.rivals || []).map(who);
   const used = new Set();
   const news_items = [];
+  // A report of a match already in the pack (it names the opponent, or reads like a result) is colour for that result,
+  // not a story of its own: the writer gets its text with the result.
+  const results = items.filter(i => i.kind === "result" && i.stance !== "rival");
+  // (written after the match started, and naming the opponent, a scorer or reading like a result)
+  const RESULTY = /\b(\d+-\d+|beat|beats|beaten|win|wins|won|lose|loses|lost|loss|draw|drew|comeback|defeat|exit|exits|out of|stun|stuns|shock|upset|thriller|knocked|crash)\b/i;
+  const reportOf = (c, f) => results.find(i => {
+    if (i.subject !== f.name || c.date < Date.parse(i.when) || c.date - Date.parse(i.when) > 40 * 36e5) return false;
+    const names = [...i.line.split(/ \d+-\d+ | v |: | bt /), ...(i.goals || []).map(g => g.split(": ")[1]?.split(/[,(]/)[0]?.trim().split(" ").at(-1))].map(p => p && p.replace(/^AS |\(\w+\)|\(\d+\)/g, "").trim()).filter(p => p && p.length > 3 && p !== f.name && !f.name.includes(p));
+    return names.some(p => c.headline.includes(p)) || RESULTY.test(c.headline);
+  });
   for (const f of names) {
-    const cap = { "die-hard": 3, follow: 2, "big-moments": 1 }[care(f)] ?? 1, min = care(f) === "big-moments" ? 2 : 1;
-    const mine = clusters.filter(c => who(f).test(c.headline) && c.n >= min && !rivalRx.some(r => r.test(c.headline)) && !used.has(c)).slice(0, cap);
-    for (const c of mine) { used.add(c); news_items.push({ subject: f.name, care: care(f), ...c }); }
+    const cap = { "die-hard": 4, follow: 2, "big-moments": 1 }[care(f)] ?? 1, min = care(f) === "big-moments" ? 2 : 1;
+    const mine = clusters.filter(c => who(f).test(c.headline) && c.n >= min && !rivalRx.some(r => r.test(c.headline)) && !used.has(c));
+    for (const c of mine) {
+      const r = reportOf(c, f);
+      if (r) { used.add(c); (r.reports ||= []).push(c); continue; }
+      if (news_items.filter(n => n.subject === f.name).length >= cap) continue;
+      used.add(c); news_items.push({ subject: f.name, care: care(f), ...c });
+    }
   }
-  // The Wider Pitch (football beyond the listener's own) and The Sidelines (other sport), never a story about anyone
-  // the listener follows (it belongs above) or a rival
+  // the text behind each story and each result's best report, read by code (a few hundred words each, at most)
+  for (const r of results) if (r.reports?.length) { r.reports.sort((a, b) => b.n - a.n); for (const c of r.reports.slice(0, 2)) if (!r.report) r.report = await news.readCluster(c); r.reports = r.reports.map(c => ({ headline: c.headline, outlets: c.outlets })); }
+  await Promise.all(news_items.map(async n => { n.text = await news.readCluster(n); }));
+
+  // ---- Around the grounds: at most two things from outside the list that any fan of the sport would expect to hear,
+  // scored by code (engine/fetch/elsewhere.mjs); nothing when nothing clears the bar
+  const A = show.around || { max: 2, min_drama: 4 }, B = show.big_clubs || {};
+  const skip = new Set([...profile.follows, ...(profile.rivals || [])].flatMap(f => [f.name, String(f.espn_id || "")]).filter(Boolean));
+  const cands = [];
+  if (sports.has("football")) cands.push(...(await safe("elsewhere: football", () => elsewhere.football({ since, now, big: new Set(B.football || []), leagues: B.football_leagues || ["uefa.champions"], skip })) || []));
+  if (sports.has("cricket")) cands.push(...(await safe("elsewhere: cricket", () => elsewhere.cricket({ since, tiers: show.cricket_tiers || {}, skip: new Set(["India"]) })) || []));
+  // a story many outlets lead with, not about anyone on the list or a rival
   const free = c => !used.has(c) && !rivalRx.some(r => r.test(c.headline)) && !names.some(f => who(f).test(c.headline) || new RegExp(`\\b${f.name.split(" ").at(-1)}\\b`, "i").test(c.headline));
-  const wide = profile.wider || {}, bar = l => ({ follow: 2, "big-moments": 3 })[l] ?? 99;
-  const around = [
-    ...clusters.filter(c => free(c) && c.sport === "football" && c.n >= bar(wide.football)).slice(0, 3),
-    ...clusters.filter(c => free(c) && !["football", ...sports].includes(c.sport) && c.n >= bar(wide.other_sports)).slice(0, 2),
-  ];
+  for (const c of clusters.filter(free)) { const d = elsewhere.newsDrama(c); if (d) cands.push({ id: `news-${c.headline.slice(0, 40)}`, sport: c.sport, kind: "news", line: c.headline, outlets: c.outlets, drama: d, why: [`${c.n} outlets`], cluster: c }); }
+  // the last day's results first: an older upset has had its day (rehearsals over several days only)
+  for (const c of cands) c.rank = c.drama - (c.date && Date.parse(c.date) < now - (show.window_hours ?? 30) * 36e5 ? 2 : 0);
+  cands.sort((a, b) => b.rank - a.rank || Date.parse(b.date || 0) - Date.parse(a.date || 0));
+  const around = cands.filter(c => c.rank >= A.min_drama).slice(0, A.max);
+  for (const c of around) {
+    // the result's own report, when one of the day's stories is about it
+    const rep = c.cluster || clusters.find(k => !used.has(k) && (c.sides || [{ name: c.team1 }, { name: c.team2 }]).filter(x => x.name && k.headline.includes(x.name.replace(/ (FC|CF)$/, ""))).length >= 1 && /\d|beat|stun|shock|thrash|upset|win|draw|held/i.test(k.headline));
+    if (rep) { used.add(rep); c.report = await news.readCluster(rep); c.report_headline = rep.headline; }
+    delete c.cluster;
+  }
+  const considered = cands.filter(c => !around.includes(c) && c.drama > 0).slice(0, 8).map(c => `${c.line} (drama ${c.drama}: ${c.why.join(", ")})`);
+
+  // a loved side won and a rival dropped points on the same day: both go in the cold open
+  const day = t => new Date(t).toLocaleDateString("en-CA", { timeZone: TZ });
+  const rivalSlips = items.filter(i => i.stance === "rival");
+  for (const i of results) if (i.facts?.won && i.care === "die-hard") { const r = rivalSlips.find(x => x.sport === i.sport && Math.abs(Date.parse(x.when) - Date.parse(i.when)) < 30 * 36e5); if (r) i.double = `${r.subject} also dropped points: ${r.line}`; }
 
   // ---- running order and word budget
   const by = c => items.filter(i => i.kind !== "news" && c(i)).sort((a, b) => b.score - a.score);
@@ -176,12 +215,12 @@ export async function buildPack({ profile = json("profile.json"), show = json("c
     { id: "die-hard", items: by(i => i.care === "die-hard").map(i => i.id), news: news_items.filter(n => n.care === "die-hard") },
     { id: "rival-watch", items: by(i => i.stance === "rival").map(i => i.id) },
     { id: "follow", items: by(i => i.stance !== "rival" && i.care !== "die-hard").map(i => i.id), news: news_items.filter(n => n.care !== "die-hard") },
-    { id: "around", news: around },
+    { id: "around", elsewhere: around, considered },
     { id: "ahead", fixtures: fixtures.filter(x => x.care !== "big-moments").sort((a, b) => a.when.localeCompare(b.when)) },
     { id: "signoff", words: 15 },
   ];
-  for (const s of segs) if (s.words == null) s.words = (s.items || []).reduce((n, id) => n + wordsFor(items.find(i => i.id === id)), 0) + (s.news || []).length * 35 + (s.fixtures || []).length * 14;
-  const live = segs.filter(s => s.words > 0 && ((s.items || []).length || (s.news || []).length || (s.fixtures || []).length || ["signoff"].includes(s.id)));
+  for (const s of segs) if (s.words == null) s.words = (s.items || []).reduce((n, id) => n + wordsFor(items.find(i => i.id === id)), 0) + (s.news || []).length * 35 + (s.elsewhere || []).length * 45 + (s.fixtures || []).length * 14;
+  const live = segs.filter(s => s.words > 0 && ((s.items || []).length || (s.news || []).length || (s.elsewhere || []).length || (s.fixtures || []).length || ["signoff"].includes(s.id)));
   let total = live.reduce((n, s) => n + s.words, 0);
   const [lo, hi] = [(profile.length?.min ?? 4) * wpm, (profile.length?.max ?? 10) * wpm];
   // a quiet day stays short (never padded); a big day is squeezed to the listener's longest
@@ -201,6 +240,8 @@ export function packMarkdown(P) {
     for (const id of s.items || []) {
       const i = it(id);
       L.push(`- **${i.subject}** · ${i.line}`, `  - Mood: **${i.mood}** (stance ${i.stance}, care ${i.care}, weight ${i.score})`, `  - When: ${i.when_local} · ${i.competition || ""}${i.venue ? ` · ${i.venue}` : ""} · source ${i.source}`);
+      L.push(`  - Strength: ${i.intensity} of 5${i.arc ? ` · Shape: ${i.arc.text} (from ${i.arc.from} to ${i.mood})` : ""}${i.form_before ? ` · Form before (newest first): ${i.form_before}` : ""}`);
+      if (i.double) L.push(`  - Same day: ${i.double}`);
       if (i.goals?.length) L.push(`  - Goals: ${i.goals.join("; ")}`);
       if (i.reds?.length) L.push(`  - Red cards: ${i.reds.join("; ")}`);
       if (i.player_note) L.push(`  - ${i.player_note}`);
@@ -208,11 +249,15 @@ export function packMarkdown(P) {
       if (i.series) L.push(`  - Series: ${i.series}`);
       if (i.top3) L.push(`  - Top three: ${i.top3}`);
       if (i.standings) L.push(`  - Standings: ${i.standings.join(", ")}`);
-      if (i.table) L.push(`  - Table: ${i.subject} ${i.table.position}${["th", "st", "nd", "rd"][i.table.position % 10 > 3 || [11, 12, 13].includes(i.table.position % 100) ? 0 : i.table.position % 10]} on ${i.table.points} points after ${i.table.played}, ${i.table.points_off_top} off the top. Rows given to the writer (rivals taken out): ${i.table.rows.map(r => `${r.rank}. ${r.team} ${r.points}`).join(", ")}`);
+      if (i.table) L.push(`  - Table (said after the result): ${i.table.rows.map(r => `${r.rank}. ${r.team} ${r.points}`).join(", ")}`);
+      if (i.report) L.push(`  - Match report (${i.report.source}): ${i.report.text}`);
+      if (i.reports?.length) L.push(`  - Also reported: ${i.reports.map(c => `${c.headline} (${c.outlets.length})`).join("; ")}`);
       const facts = Object.entries(i.facts || {}).filter(([k, v]) => v === true).map(([k]) => k);
       if (facts.length) L.push(`  - Facts the mood used: ${facts.join(", ")}`);
     }
-    for (const n of s.news || []) L.push(`- ${n.subject ? `**${n.subject}** · ` : ""}${n.headline} _(${n.outlets.join(", ")})_`);
+    for (const n of s.news || []) { L.push(`- ${n.subject ? `**${n.subject}** · ` : ""}${n.headline} _(${n.outlets.join(", ")})_`); if (n.text) L.push(`  - ${n.text.source}: ${n.text.text}`); }
+    for (const c of s.elsewhere || []) { L.push(`- ${c.line} _(${c.competition || c.outlets?.join(", ") || ""}; drama ${c.drama}: ${c.why.join(", ")})_`); if (c.report) L.push(`  - ${c.report.source}: ${c.report.text}`); }
+    if (s.considered?.length) L.push("", "Considered, not used:", ...s.considered.map(x => `- ${x}`));
     for (const x of s.fixtures || []) L.push(`- ${x.when_local} · ${x.what} · ${x.competition || ""}${x.venue ? ` · ${x.venue}` : ""}`);
     if (s.id === "signoff") L.push("- The fixed closing line.");
     L.push("");

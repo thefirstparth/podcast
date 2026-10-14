@@ -47,7 +47,7 @@ function row(e, id) {
   const c = e.competitions?.[0] || {}, cs = c.competitors || [];
   const me = cs.find(x => String(x.team?.id ?? x.id) === String(id)) || {}, opp = cs.find(x => x !== me) || {};
   const st = c.status?.type || e.status?.type || {};
-  return { id: e.id, date: e.date, competition: (e.league?.name || "").replace(/^Spanish /, ""), stage_text: [e.season?.name, ...(c.notes || []).map(n => n.headline || n.text)].filter(Boolean).join(" "),
+  return { id: e.id, date: e.date, league: e.league?.slug || null, competition: (e.league?.name || "").replace(/^Spanish /, ""), stage_text: [e.season?.name, ...(c.notes || []).map(n => n.headline || n.text)].filter(Boolean).join(" "),
     home: me.homeAway === "home", opponent: opp.team?.displayName || null, opponent_id: opp.team?.id ? String(opp.team.id) : null, venue: c.venue?.fullName || null,
     completed: !!st.completed, state: st.state || null, us: num(me.score), them: num(opp.score), shootout: me.shootoutScore != null ? { us: num(me.shootoutScore), them: num(opp.shootoutScore) } : null };
 }
@@ -61,9 +61,20 @@ export async function table(league) {
 }
 
 // A team's results since `since` and fixtures until `until`, with each result's story and facts for the mood rules
-export async function team({ espn_id: id, name, league }, { since, until }) {
+// The shape of a match for the voice: where the mood turned and why ("1-3 down at 57', then 83', 85', 90'")
+export function arcOf(goals, final) {
+  let low = null, high = null;
+  for (const g of goals) { const [u, t] = g.score.split("-").map(Number); if (u - t < (low?.d ?? 0)) low = { d: u - t, at: g.minute, score: g.score }; if (u - t > (high?.d ?? 0)) high = { d: u - t, at: g.minute, score: g.score }; }
+  const turn = goals.filter(g => g.forUs === (final !== "lost")).slice(-3).map(g => g.minute);
+  if (low && final !== "lost") return { from: "dread", text: `${low.score} down at ${low.at}, then ${final === "won" ? "won" : "drew"} with goals at ${turn.join(", ")}`, to: null };
+  if (high && final !== "won") return { from: "joy", text: `${high.score} up at ${high.at}, then ${final === "lost" ? "lost" : "drew"} (their goals at ${turn.join(", ")})`, to: null };
+  return null;
+}
+
+export async function team({ espn_id: id, name, league }, { since, until, rivals = [] }) {
   const [past, next] = await Promise.all([getJSON(`${ESPN}/all/teams/${id}/schedule`), getJSON(`${ESPN}/all/teams/${id}/schedule?fixture=true`).catch(() => ({ events: [] }))]);
-  const results = (past.events || []).map(e => row(e, id)).filter(r => r.completed && r.us != null && Date.parse(r.date) >= since).sort((a, b) => a.date.localeCompare(b.date));
+  const played = (past.events || []).map(e => row(e, id)).filter(r => r.completed && r.us != null).sort((a, b) => a.date.localeCompare(b.date));
+  const results = played.filter(r => Date.parse(r.date) >= since);
   const fixtures = (next.events || []).map(e => row(e, id)).filter(r => !r.completed && Date.parse(r.date) <= until && Date.parse(r.date) > Date.now() - 3 * 36e5).sort((a, b) => a.date.localeCompare(b.date));
   let tbl = null;
   if (league) tbl = await table(league).catch(() => null);
@@ -73,6 +84,10 @@ export async function team({ espn_id: id, name, league }, { since, until }) {
     r.stage = stageOf(r.stage_text || r.competition);
     const margin = r.us - r.them, wonPens = r.shootout && r.shootout.us > r.shootout.them, lostPens = r.shootout && r.shootout.us < r.shootout.them;
     const oppRank = tbl?.find(t => t.id === r.opponent_id)?.rank ?? null, ourRank = tbl?.find(t => t.id === String(id))?.rank ?? null;
+    // the run before this match, newest first (W, D, L), friendlies left out
+    const before = played.filter(p => p.date < r.date && stageOf(p.stage_text || p.competition) !== "friendly").slice(-5).reverse().map(p => (p.us > p.them ? "W" : p.us < p.them ? "L" : "D"));
+    const runOf = c => { let n = 0; for (const x of before) { if (x !== c) break; n++; } return n; };
+    r.form_before = before.join("");
     r.goals = story.goals;
     r.reds = story.reds.filter(x => x.player);
     r.facts = {
@@ -87,7 +102,10 @@ export async function team({ espn_id: id, name, league }, { since, until }) {
       eliminated: r.stage !== "league" && r.stage !== "friendly" && /\b(2nd leg|second leg|final)\b/i.test(r.stage_text) && (margin < 0 || !!lostPens),
       title: r.stage === "final" && (margin > 0 || !!wonPens),
       stage: r.stage, preseason: r.stage === "friendly",
+      derby: rivals.includes(String(r.opponent_id)),
+      losing_run: runOf("L") >= 2, winless_run: before.slice(0, 3).length === 3 && !before.slice(0, 3).includes("W"), winning_run: runOf("W") >= 3,
     };
+    r.arc = arcOf(story.goals, r.facts.won ? "won" : r.facts.lost ? "lost" : "drew");
   }
   const around = tbl ? (() => { const i = tbl.findIndex(t => t.id === String(id)); return i < 0 ? null : { league, rows: tbl.slice(0, Math.max(4, i + 2)) }; })() : null;
   return { name, id: String(id), results, fixtures, table: around };
