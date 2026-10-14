@@ -1,5 +1,5 @@
 {
-  "note": "Who this show is for and what they follow. The only file a listener edits. care: die-hard, follow, big-moments; rivals are only ever mentioned when they lose, draw or go out. ids are the data sources' own (ESPN team ids, Jolpica driver ids); the setup page will fill them in for friends.",
+  "note": "Who this show is for and what they follow. The only file a listener edits. care: die-hard, follow, big-moments; rivals are only ever mentioned when they lose, draw or go out. aliases: the words headlines use for the subject (a team's players are added from its squad automatically, every run); not: phrases that look like the subject but are not (taken out of a headline before it is matched). ids are the data sources' own (ESPN team ids, Jolpica driver ids); the setup page will fill them in for friends.",
   "listener": {
     "name": "Parth",
     "tz": "Asia/Kolkata",
@@ -12,40 +12,117 @@
       "name": "Real Madrid",
       "espn_id": 86,
       "league": "esp.1",
-      "care": "die-hard"
+      "care": "die-hard",
+      "aliases": [
+        "Real Madrid",
+        "Madrid",
+        "Los Blancos",
+        "Madridista",
+        "Bernabeu",
+        "Mourinho"
+      ],
+      "not": [
+        "Atletico Madrid",
+        "Atlético Madrid",
+        "Madrid Open",
+        "Rayo Vallecano",
+        "Real Madrid Castilla",
+        "Real Madrid women",
+        "Real Madrid Femenino",
+        "Real Madrid basketball",
+        "Real Madrid Baloncesto"
+      ]
     },
     {
       "sport": "cricket",
       "kind": "team",
       "name": "India men",
       "cricbuzz_id": 2,
-      "care": "die-hard"
+      "care": "die-hard",
+      "aliases": [
+        "India",
+        "Team India",
+        "Indian team",
+        "Shubman Gill",
+        "Suryakumar",
+        "Abhishek Sharma",
+        "Jasprit Bumrah",
+        "Hardik Pandya",
+        "Virat Kohli",
+        "Kohli",
+        "Gambhir"
+      ],
+      "not": [
+        "India women",
+        "India A",
+        "India U19",
+        "India Under-19",
+        "Women's",
+        "Ranji",
+        "India's women",
+        "Smriti Mandhana",
+        "Mandhana",
+        "Harmanpreet",
+        "Shafali",
+        "UNICEF India",
+        "India Legends",
+        "India Champions"
+      ]
     },
     {
       "sport": "f1",
       "kind": "driver",
       "name": "Max Verstappen",
       "jolpica_id": "max_verstappen",
-      "care": "die-hard"
+      "care": "die-hard",
+      "aliases": [
+        "Verstappen",
+        "Max",
+        "Red Bull"
+      ],
+      "not": [
+        "Red Bull Salzburg",
+        "RB Leipzig",
+        "Red Bull Bragantino",
+        "New York Red Bulls",
+        "Max Verstappen's father"
+      ]
     },
     {
       "sport": "tennis",
       "kind": "player",
       "name": "Carlos Alcaraz",
-      "care": "die-hard"
+      "care": "die-hard",
+      "aliases": [
+        "Alcaraz"
+      ]
     },
     {
       "sport": "tennis",
       "kind": "player",
       "name": "Novak Djokovic",
-      "care": "follow"
+      "care": "follow",
+      "aliases": [
+        "Djokovic",
+        "Nole"
+      ]
     },
     {
       "sport": "basketball",
       "kind": "team",
       "name": "Golden State Warriors",
       "espn_abbr": "gs",
-      "care": "follow"
+      "care": "follow",
+      "aliases": [
+        "Warriors",
+        "Golden State",
+        "Steph Curry",
+        "Stephen Curry",
+        "Steve Kerr"
+      ],
+      "not": [
+        "Golden State Valkyries"
+      ]
     },
     {
       "sport": "football",
@@ -61,7 +138,17 @@
           "espn_id": 482
         }
       ],
-      "care": "big-moments"
+      "care": "big-moments",
+      "aliases": [
+        "Cristiano Ronaldo",
+        "Ronaldo",
+        "CR7"
+      ],
+      "not": [
+        "Ronaldo Nazario",
+        "Ronaldinho",
+        "Ronaldo Jr"
+      ]
     },
     {
       "sport": "f1",
@@ -82,7 +169,19 @@
       "kind": "team",
       "name": "Barcelona",
       "espn_id": 83,
-      "league": "esp.1"
+      "league": "esp.1",
+      "aliases": [
+        "Barcelona",
+        "Barca",
+        "Barça",
+        "Blaugrana",
+        "Camp Nou",
+        "Flick"
+      ],
+      "not": [
+        "Barcelona Open",
+        "Espanyol"
+      ]
     }
   ],
   "wider": {

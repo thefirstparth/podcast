@@ -11,3 +11,10 @@
 - The league table, rival included, is said only with a loved side's league result, after it. Never on other days.
 - News is fetched by code, never by the writer: sport desks, team desks (SB Nation sites and others, Atom or RSS), and a Google News search per name, followed to the publisher's page. A match report becomes colour for its result; other stories stand alone with their text.
 - Around the grounds: at most two items from outside the list, chosen by a drama score (big clubs beaten or held by smaller ones, heavy defeats, goal-fests, cricket upsets and huge wins, sackings, bans, records). Rules still under discussion.
+
+## 15 Oct 2026 (later)
+- Length is the listener's setting: target 8 minutes, never more than 9; a quiet day is shorter, never padded.
+- Rival news only when important: a ban, sacking, fine, points deduction, crisis or exit, from three or more outlets (two if one is the rival's own desk). Never personal, never about the listener's own players.
+- Memory of what was said is kept simple and leans towards repeating rather than missing (Parth: "I would rather hear something about it in two consecutive podcasts than miss something important"). A result is remembered by its match id; a story only by its exact links. Only published episodes are recorded; the next window starts at the last one.
+- Matching news to subjects is code that keeps working as squads change: aliases and "not" phrases live in profile.json as plain words; each team's squad is pulled from ESPN every run (a new signing counts from the day ESPN lists him), with the last squad that loaded kept in ledger/squads.json for days ESPN is down. A preview of a match that has since been played is dropped.
+- Parked for later: "Sports for everyone", the sport web app as its own free project with sign-in (docs/PARKED.md).

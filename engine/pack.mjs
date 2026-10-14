@@ -20,6 +20,14 @@ const H = new URL("../", import.meta.url).pathname;
 // The ways a player is named in headlines: the full name, a one-word name (Rodrygo, Endrick), and a surname of six or
 // more letters that is not an everyday word or a common surname (Bellingham, Porzingis; not Green, Silva, Santos)
 const COMMON = new Set("junior jr ii iii silva santos martinez garcia rodriguez fernandez lopez gonzalez perez sanchez diaz gomez navarro rivas green williams moody butler richard terry burton payton melton bassey brandon jimmy martin johnson james jones smith brown davis wilson miller".split(" "));
+const fold = t => String(t).normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase();
+const esc = t => fold(t).replace(/[.*+?^${}()|[\]\\]/g, "\\$&").replace(/[- ]/g, "[- ]");
+// Does a headline name this subject? Its profile words and its squad, after the profile's "not" phrases are taken out
+export function buildMatcher(f, squad = []) {
+  const words = [...(f.aliases?.length ? f.aliases : [f.name]), ...squad.flatMap(playerAliases)];
+  const yes = new RegExp(`\\b(${words.map(esc).join("|")})\\b`, "i"), no = (f.not || []).length ? new RegExp(`\\b(${f.not.map(esc).join("|")})\\b`, "gi") : null;
+  return { test: h => yes.test(no ? fold(h).replace(no, " ") : fold(h)) };
+}
 export function playerAliases(name) {
   const f = String(name).normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/[^A-Za-z' -]/g, "").trim(), w = f.split(/\s+/);
   const out = [f.replace(/[-]/g, "[- ]")];
@@ -165,20 +173,18 @@ export async function buildPack({ profile = json("profile.json"), show = json("c
   const clusters = news.cluster(pool).filter(c => { if (ledger.newsSaid(said, c)) { already.push(`news: ${c.headline}`); return false; } return true; });
   const rx = n => new RegExp(`\\b(${n})\\b`, "i");
   // how a name appears in headlines (the setup page will ask for these; for now, Parth's), and what a match is not
-  const ALIAS = { "Real Madrid": "Real Madrid|Madrid(?! Open)(?<!Atl[eé]tico Madrid)|Madridistas?|Bernab[eé]u", "India men": "India(?:'s)? (?:cricket|team|captain|squad|batting|bowling)|Team India|India (?:beat|lose|loses|win|wins|v |vs )|Suryakumar|Gill", "Golden State Warriors": "Warriors|Golden State|Steph Curry|Stephen Curry", "Barcelona": "Barcelona|Bar[cç]a|Camp Nou|Flick" };
-  const NOT = { "India men": /\b(women|Mandhana|Harmanpreet|Ranji|U-?19|A team)\b/i };
-  // A team's players count as the team: "Vinicius Jr to miss Barcelona game because of ban" is Madrid news (15 Oct).
-  // The squads come from ESPN; a player is matched by full name, or by a surname distinctive enough to stand alone.
-  const fold = t => String(t).normalize("NFD").replace(/[\u0300-\u036f]/g, "");
-  const squad = {};
+  // How each subject appears in headlines: the profile's aliases (plain words a listener can edit) and, for a team, its
+  // squad from ESPN, fetched every run so a new signing counts from the day ESPN lists him. If ESPN fails, the last
+  // squad that loaded is used (ledger/squads.json). The profile's "not" phrases are taken out of a headline first, so
+  // "Atletico Madrid 2-0 Real Madrid" is still Madrid and "Atletico Madrid sign a striker" is not.
+  const squads = ledger.squads();
   for (const f of [...profile.follows, ...(profile.rivals || [])].filter(f => f.kind === "team" && (f.espn_id || f.espn_abbr))) {
-    const names = await safe(`${f.name} squad`, () => (f.sport === "basketball" ? nba.roster(f) : football.roster(f))) || [];
-    squad[f.name] = names.flatMap(playerAliases);
+    const names = await safe(`${f.name} squad (last known used)`, () => (f.sport === "basketball" ? nba.roster(f) : football.roster(f)));
+    if (names?.length >= 8) squads[f.name] = { names, as_of: new Date(now).toISOString() };
   }
-  const who = f => {
-    const r = new RegExp(`\\b(${[fold(ALIAS[f.name] || f.name.split(" ").at(-1)), ...(squad[f.name] || [])].join("|")})\\b`, "i");
-    return { test: h => r.test(fold(h)) && !NOT[f.name]?.test(h) };
-  };
+  ledger.saveSquads(squads);
+  const matchers = new Map();
+  const who = f => { if (!matchers.has(f.name)) matchers.set(f.name, buildMatcher(f, squads[f.name]?.names || [])); return matchers.get(f.name); };
   const rivalRx = (profile.rivals || []).map(who);
   const used = new Set();
   const news_items = [];
@@ -189,13 +195,15 @@ export async function buildPack({ profile = json("profile.json"), show = json("c
   const RESULTY = /\b(\d+-\d+|beat|beats|beaten|win|wins|won|lose|loses|lost|loss|draw|drew|comeback|defeat|exit|exits|out of|stun|stuns|shock|upset|thriller|knocked|crash)\b/i;
   const reportOf = (c, f) => results.find(i => {
     if (i.subject !== f.name || c.date < Date.parse(i.when) || c.date - Date.parse(i.when) > 40 * 36e5) return false;
-    const names = [...i.line.split(/ \d+-\d+ | v |: | bt /), ...(i.goals || []).map(g => g.split(": ")[1]?.split(/[,(]/)[0]?.trim().split(" ").at(-1))].map(p => p && p.replace(/^AS |\(\w+\)|\(\d+\)/g, "").trim()).filter(p => p && p.length > 3 && p !== f.name && !f.name.includes(p));
+    const names = [...i.line.split(/ \d+-\d+ | v |: | bt |, | won by .*$/), ...(i.goals || []).map(g => g.split(": ")[1]?.split(/[,(]/)[0]?.trim().split(" ").at(-1))].map(p => p && p.replace(/^AS |\(\w+\)|\(\d+\)/g, "").trim()).filter(p => p && p.length > 3 && p !== f.name && !f.name.includes(p));
     return names.some(p => c.headline.includes(p)) || RESULTY.test(c.headline);
   });
   for (const f of names) {
     const cap = { "die-hard": 4, follow: 2, "big-moments": 1 }[care(f)] ?? 1, min = care(f) === "big-moments" ? 2 : 1;
     const mine = clusters.filter(c => who(f).test(c.headline) && c.n >= min && !rivalRx.some(r => r.test(c.headline)) && !used.has(c));
     for (const c of mine) {
+      // a preview of a match that has since been played is old news: the result says it now
+      if (results.some(i => i.subject === f.name && c.date < Date.parse(i.when) && i.line.split(/ \d+-\d+ | v |: | bt |, /).some(p => p && p.length > 3 && p !== f.name && !f.name.includes(p) && c.headline.includes(p.replace(/^AS /, ""))))) { used.add(c); continue; }
       const r = reportOf(c, f);
       if (r) { used.add(c); (r.reports ||= []).push(c); continue; }
       if (news_items.filter(n => n.subject === f.name).length >= cap) continue;

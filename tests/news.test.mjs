@@ -26,3 +26,12 @@ test("players stand for their team in headlines", async () => {
   assert.deepEqual(playerAliases("Brandon Williams"), ["Brandon Williams"]);
   assert.deepEqual(playerAliases("Rodrygo"), ["Rodrygo"]);
 });
+
+test("matching by the profile's words: not-phrases are taken out first", async () => {
+  const { buildMatcher } = await import("../engine/pack.mjs");
+  const madrid = buildMatcher({ name: "Real Madrid", aliases: ["Real Madrid", "Madrid"], not: ["Atletico Madrid", "Madrid Open"] }, ["Vinícius Júnior", "Jude Bellingham"]);
+  assert.equal(madrid.test("Atlético Madrid 2-0 Real Madrid"), true);
+  assert.equal(madrid.test("Atletico Madrid sign a striker"), false);
+  assert.equal(madrid.test("Vinicius Jr to miss Barcelona game because of ban"), true);
+  assert.equal(madrid.test("Sinner wins the Madrid Open"), false);
+});
