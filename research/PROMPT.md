@@ -23,7 +23,7 @@ Rules:
 - The link must be the RSS or Atom feed itself (the URL that returns XML), not the website's home page. If a site has a feed per team or per sport, give that one.
 - Free to read only. Leave out any source whose articles are behind a paywall or a sign-in (for example The Athletic, The Times, Telegraph). A metered paywall counts as a paywall.
 - No betting or tips sites, no fantasy-sports sites, no sites that only rewrite other outlets' stories, no AI-generated content farms, no video-only or social-media-only accounts.
-- English first. A top club-specific outlet in Spanish or another language is welcome if it is the best source for that subject; say the language.
+- English only. No sources in other languages.
 - Only list feeds you have actually seen working. Do not guess URL patterns. If a great source has no feed, list it separately with its website and say "no feed".
 - Prefer sources that publish every day and that break news first.
 

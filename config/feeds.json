@@ -1,5 +1,5 @@
 {
-  "note": "The sport desks' RSS feeds, by sport (taken from The House of 1400's reading list, where each was tested). A followed name also gets its own Google News search, built by engine/fetch/news.mjs, so any team or player anywhere is covered without a feed of its own. kind: lead and official outrank news; search is discovery only.",
+  "note": "The sport desks' RSS feeds, by sport (taken from The House of 1400's reading list, where each was tested). A followed name also gets its own Google News search, built by engine/fetch/news.mjs, so any team or player anywhere is covered without a feed of its own. kind: lead and official outrank news; search is discovery only. English only (Parth, 15 Oct): a headline that reads as another language is dropped (engine/fetch/news.mjs isEnglish).",
   "football": [
     {
       "id": "bbc-football",
@@ -145,7 +145,7 @@
     }
   ],
   "teams": {
-    "note": "A team's own desks (fan sites, club beat writers), added to the news only when the team is followed or a rival. The start of the curated catalogue; each feed checked on 15 Oct 2026.",
+    "note": "A team's own desks (fan sites, club beat writers), added to the news only when the team is followed or a rival. The start of the curated catalogue; each feed checked on 15 Oct 2026. An entry with \"google\" is a Google News search (for an outlet with no feed, by site:), checked with scripts/feed-check.mjs like any feed.",
     "Real Madrid": [
       {
         "id": "managing-madrid",
@@ -160,6 +160,21 @@
         "name": "Golden State of Mind",
         "url": "https://www.goldenstateofmind.com/rss/index.xml",
         "kind": "news"
+      },
+      {
+        "google": "Warriors site:sfgate.com",
+        "edition": "en-US",
+        "name": "SFGate"
+      },
+      {
+        "google": "Warriors site:si.com",
+        "edition": "en-US",
+        "name": "Sports Illustrated"
+      },
+      {
+        "google": "Warriors site:nbcsportsbayarea.com",
+        "edition": "en-US",
+        "name": "NBC Sports Bay Area"
       }
     ],
     "Barcelona": [
@@ -168,6 +183,18 @@
         "name": "Barca Blaugranes",
         "url": "https://www.barcablaugranes.com/rss/current.xml",
         "kind": "news"
+      }
+    ],
+    "Carlos Alcaraz": [
+      {
+        "google": "ATP tennis",
+        "name": "Google News, tennis"
+      }
+    ],
+    "Cristiano Ronaldo": [
+      {
+        "google": "\"Al Nassr\"",
+        "name": "Google News, Al Nassr"
       }
     ]
   }

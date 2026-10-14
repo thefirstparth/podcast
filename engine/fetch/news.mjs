@@ -18,6 +18,8 @@ export function parseRSS(xml, feed) {
     // Google News: "Headline - Outlet", with the outlet in <source>
     const gsrc = strip(tag(x, "source"));
     if (gsrc) { source = gsrc; title = title.replace(new RegExp(`\\s+-\\s+${gsrc.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")}$`), ""); }
+    // a site's name after a bar ("... | The Daily Guardian - newspaper") is not part of the headline
+    title = title.replace(/\s+\|\s+[^|]{3,60}$/, "");
     const date = Date.parse(strip(tag(x, "pubDate")) || strip(tag(x, "dc:date")) || strip(tag(x, "published")) || strip(tag(x, "updated")) || "") || null;
     const summary = gsrc ? "" : strip(tag(x, "description") || tag(x, "summary") || tag(x, "content")).slice(0, 400);
     const url = strip(tag(x, "link")) || x.match(/<link[^>]*href="([^"]+)"/i)?.[1] || "";
@@ -109,15 +111,25 @@ export async function readCluster(c, max = 1200) {
   return null;
 }
 
+// English only (Parth, 15 Oct). A headline is taken as another language when it has more of the common little words
+// of Spanish, Portuguese, Italian or French than of English, and at least two of them.
+const EN = new Set("the a an of and to in for on with after as is at by his her their from vs win wins beat beats over into says will has have was be".split(" "));
+const XX = new Set("el la los las del de que y en con por para una un al se su sus lo es da do dos das na no il le les des et est pour sur dans du une ao à às pelo pela".split(" "));
+export function isEnglish(t) {
+  const w = String(t).toLowerCase().split(/[^a-zà-ÿ']+/).filter(Boolean);
+  const en = w.filter(x => EN.has(x)).length, xx = w.filter(x => XX.has(x)).length;
+  return !(xx >= 2 && xx > en);
+}
+
 export async function feeds(list, { since }) {
   const got = await Promise.all(list.map(f => getText(f.url, { timeout: 12000 }).then(x => parseRSS(x, f).map(i => ({ ...i, sport: f.sport || null }))).catch(() => [])));
-  return got.flat().filter(i => (!i.date || i.date >= since) && !NOISE.test(i.title));
+  return got.flat().filter(i => (!i.date || i.date >= since) && !NOISE.test(i.title) && isEnglish(i.title));
 }
 
 // A Google News search as a feed (the URL format: news.google.com/rss/search?q=...&hl=&gl=&ceid=). intitle: keeps
 // only headlines that name the subject; when:2d keeps it fresh; site: reaches one outlet that has no feed of its own.
-export const searchFeed = (q, lang = "en-IN", sport = null, { intitle = true, site = null } = {}) => {
+export const searchFeed = (q, lang = "en-IN", sport = null, { intitle = true, site = null, raw = false } = {}) => {
   const [hl, gl] = [lang, lang.split("-")[1] || "IN"];
-  const query = `${intitle ? `intitle:"${q}"` : q}${site ? ` site:${site}` : ""} when:2d`;
+  const query = `${raw ? q : intitle ? `intitle:"${q}"` : q}${site ? ` site:${site}` : ""} when:2d`;
   return { sport, id: `gn-${q.toLowerCase().replace(/\W+/g, "-")}${site ? `-${site}` : ""}`, name: "Google News", kind: "search", url: `https://news.google.com/rss/search?q=${encodeURIComponent(query)}&hl=${hl}&gl=${gl}&ceid=${gl}:${hl.split("-")[0]}` };
 };

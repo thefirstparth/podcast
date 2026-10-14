@@ -66,11 +66,11 @@ export async function buildPack({ profile = json("profile.json"), show = json("c
   // ---- football: followed clubs and national sides, rivals, followed players through their teams
   const fbLine = (t, r) => `${r.home ? `${t} ${r.us}-${r.them} ${r.opponent}` : `${r.opponent} ${r.them}-${r.us} ${t}`}${r.shootout ? ` (${r.shootout.us}-${r.shootout.them} on penalties)` : ""}`;
   const fbItem = (f, stance, t, r) => ({
-    id: `fb-${r.id}-${stance}`, sport: "football", kind: "result", subject: f.name, stance, care: stance === "rival" ? "rival" : care(f), when: r.date, when_local: at(r.date),
+    id: `fb-${r.uid}-${stance}`, sport: "football", kind: "result", subject: f.name, stance, care: stance === "rival" ? "rival" : care(f), when: r.date, when_local: at(r.date),
     competition: r.competition, stage: r.stage, line: fbLine(t.name, r), venue: r.venue,
     goals: r.goals.map(g => `${g.minute} ${g.forUs ? f.name : r.opponent}: ${g.scorer}${g.kind && g.kind !== "goal" ? ` (${g.kind})` : ""}${g.assist ? `, assist ${g.assist}` : ""}, ${g.score}`),
     reds: r.reds.map(x => `${x.minute} ${x.forUs ? f.name : r.opponent}: ${x.player}`), facts: r.facts, arc: r.arc, form_before: r.form_before || null,
-    table: stance === "love" && r.league && r.league === f.league ? tableFor(t) : null, source: "ESPN",
+    table: stance === "love" && r.league && r.league === f.league ? tableFor(t) : null, source: r.source,
   });
   // The league table, only with a loved side's league result and said after it (Parth, 15 Oct: a rival top of the
   // table is named only on the day Madrid play, after Madrid's result, never on other days)
@@ -82,7 +82,7 @@ export async function buildPack({ profile = json("profile.json"), show = json("c
       rows: rows.map(r => ({ rank: r.rank, team: r.team, points: r.points, ...(rivalIds.has(r.id) ? { rival: true } : {}) })) };
   };
   for (const f of profile.follows.filter(f => f.sport === "football" && f.kind === "team")) {
-    const t = await safe(f.name, () => football.team(f, { ...W, rivals: [...rivalIds] }));
+    const t = await safe(f.name, () => football.team(f, { ...W, rivals: [...rivalIds], rivalNames: (profile.rivals || []).map(r => r.name) }));
     if (!t) continue;
     for (const r of t.results) add(fbItem(f, "love", t, r));
     for (const x of t.fixtures) fixtures.push({ subject: f.name, care: care(f), when: x.date, when_local: at(x.date), what: `${x.home ? `${f.name} v ${x.opponent}` : `${x.opponent} v ${f.name}`}`, competition: x.competition, venue: x.venue });
@@ -99,7 +99,7 @@ export async function buildPack({ profile = json("profile.json"), show = json("c
         const his = r.goals.filter(g => g.forUs && g.scorer === f.name && g.kind !== "own goal");
         const big = r.stage === "final" || r.facts.title;
         if (!his.length && !big) continue;
-        add({ ...fbItem({ ...tm, care: care(f) }, "love", t, r), id: `fb-${r.id}-${f.name}`, subject: f.name, care: care(f), player_note: his.length ? `${f.name} scored ${his.length === 1 ? "once" : his.length + " times"} (${his.map(g => g.minute).join(", ")}) for ${tm.name}` : null });
+        add({ ...fbItem({ ...tm, care: care(f) }, "love", t, r), id: `fb-${r.uid}-${f.name}`, subject: f.name, care: care(f), player_note: his.length ? `${f.name} scored ${his.length === 1 ? "once" : his.length + " times"} (${his.map(g => g.minute).join(", ")}) for ${tm.name}` : null });
       }
     }
   }
@@ -169,7 +169,7 @@ export async function buildPack({ profile = json("profile.json"), show = json("c
   const lang = profile.listener?.language || "en-IN";
   const deskFeeds = [...sports].flatMap(s => feeds[s] || []), names = profile.follows.filter(f => f.kind !== "all");
   const tagged = (list, sport) => list.map(f => ({ ...f, sport }));
-  const pool = await safe("news", () => news.feeds([...[...sports].flatMap(s => tagged(feeds[s] || [], s)), ...tagged(feeds.general || [], null), ...names.flatMap(f => tagged(feeds.teams?.[f.name] || [], f.sport)), ...names.map(f => (/ men$/.test(f.name) ? news.searchFeed(`${f.name.replace(/ men$/, "")} cricket`, lang, f.sport, { intitle: false }) : news.searchFeed(f.name, lang, f.sport)))], W)) || [];
+  const pool = await safe("news", () => news.feeds([...[...sports].flatMap(s => tagged(feeds[s] || [], s)), ...tagged(feeds.general || [], null), ...[...names, ...(profile.rivals || [])].flatMap(f => (feeds.teams?.[f.name] || []).map(x => (x.google ? news.searchFeed(x.google, x.edition || lang, f.sport, { raw: true }) : { ...x, sport: f.sport }))), ...names.map(f => (/ men$/.test(f.name) ? news.searchFeed(`${f.name.replace(/ men$/, "")} cricket`, lang, f.sport, { intitle: false }) : news.searchFeed(f.search || f.name, lang, f.sport)))], W)) || [];
   const clusters = news.cluster(pool).filter(c => { if (ledger.newsSaid(said, c)) { already.push(`news: ${c.headline}`); return false; } return true; });
   const rx = n => new RegExp(`\\b(${n})\\b`, "i");
   // how a name appears in headlines (the setup page will ask for these; for now, Parth's), and what a match is not
@@ -194,9 +194,10 @@ export async function buildPack({ profile = json("profile.json"), show = json("c
   // (written after the match started, and naming the opponent, a scorer or reading like a result)
   const RESULTY = /\b(\d+-\d+|beat|beats|beaten|win|wins|won|lose|loses|lost|loss|draw|drew|comeback|defeat|exit|exits|out of|stun|stuns|shock|upset|thriller|knocked|crash)\b/i;
   const reportOf = (c, f) => results.find(i => {
-    if (i.subject !== f.name || c.date < Date.parse(i.when) || c.date - Date.parse(i.when) > 40 * 36e5) return false;
+    // a report names the opponent or a scorer (within four days of the match) or reads like a result (within 40 hours)
+    if (i.subject !== f.name || c.date < Date.parse(i.when) || c.date - Date.parse(i.when) > 96 * 36e5) return false;
     const names = [...i.line.split(/ \d+-\d+ | v |: | bt |, | won by .*$/), ...(i.goals || []).map(g => g.split(": ")[1]?.split(/[,(]/)[0]?.trim().split(" ").at(-1))].map(p => p && p.replace(/^AS |\(\w+\)|\(\d+\)/g, "").trim()).filter(p => p && p.length > 3 && p !== f.name && !f.name.includes(p));
-    return names.some(p => c.headline.includes(p)) || RESULTY.test(c.headline);
+    return names.some(p => c.headline.includes(p)) || (RESULTY.test(c.headline) && c.date - Date.parse(i.when) <= 40 * 36e5);
   });
   for (const f of names) {
     const cap = { "die-hard": 4, follow: 2, "big-moments": 1 }[care(f)] ?? 1, min = care(f) === "big-moments" ? 2 : 1;

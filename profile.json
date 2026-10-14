@@ -1,5 +1,5 @@
 {
-  "note": "Who this show is for and what they follow. The only file a listener edits. care: die-hard, follow, big-moments; rivals are only ever mentioned when they lose, draw or go out. aliases: the words headlines use for the subject (a team's players are added from its squad automatically, every run); not: phrases that look like the subject but are not (taken out of a headline before it is matched). ids are the data sources' own (ESPN team ids, Jolpica driver ids); the setup page will fill them in for friends.",
+  "note": "Who this show is for and what they follow. The only file a listener edits. care: die-hard, follow, big-moments; rivals are only ever mentioned when they lose, draw or go out. aliases: the words headlines use for the subject (a team's players are added from its squad automatically, every run); not: phrases that look like the subject but are not (taken out of a headline before it is matched). ids are the data sources' own (ESPN team ids, Jolpica driver ids); the setup page will fill them in for friends. search: the word a Google News headline search uses for the subject (intitle:). sofascore_id: the backup source's id, used when ESPN fails.",
   "listener": {
     "name": "Parth",
     "tz": "Asia/Kolkata",
@@ -31,7 +31,9 @@
         "Real Madrid Femenino",
         "Real Madrid basketball",
         "Real Madrid Baloncesto"
-      ]
+      ],
+      "sofascore_id": 2829,
+      "search": "Real Madrid"
     },
     {
       "sport": "cricket",
@@ -86,7 +88,8 @@
         "Red Bull Bragantino",
         "New York Red Bulls",
         "Max Verstappen's father"
-      ]
+      ],
+      "search": "Verstappen"
     },
     {
       "sport": "tennis",
@@ -95,7 +98,9 @@
       "care": "die-hard",
       "aliases": [
         "Alcaraz"
-      ]
+      ],
+      "sofascore_id": 275923,
+      "search": "Alcaraz"
     },
     {
       "sport": "tennis",
@@ -105,7 +110,9 @@
       "aliases": [
         "Djokovic",
         "Nole"
-      ]
+      ],
+      "sofascore_id": 14882,
+      "search": "Djokovic"
     },
     {
       "sport": "basketball",
@@ -122,7 +129,9 @@
       ],
       "not": [
         "Golden State Valkyries"
-      ]
+      ],
+      "sofascore_id": 3428,
+      "search": "Warriors"
     },
     {
       "sport": "football",
@@ -131,11 +140,13 @@
       "teams": [
         {
           "name": "Al Nassr",
-          "espn_id": 817
+          "espn_id": 817,
+          "sofascore_id": 23400
         },
         {
           "name": "Portugal",
-          "espn_id": 482
+          "espn_id": 482,
+          "sofascore_id": 4704
         }
       ],
       "care": "big-moments",
@@ -148,7 +159,8 @@
         "Ronaldo Nazario",
         "Ronaldinho",
         "Ronaldo Jr"
-      ]
+      ],
+      "search": "Ronaldo"
     },
     {
       "sport": "f1",
@@ -181,7 +193,8 @@
       "not": [
         "Barcelona Open",
         "Espanyol"
-      ]
+      ],
+      "sofascore_id": 2817
     }
   ],
   "wider": {

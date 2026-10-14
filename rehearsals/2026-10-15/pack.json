@@ -1,9 +1,9 @@
 {
-  "made_at": "2026-10-14T22:57:21.144Z",
+  "made_at": "2026-10-14T23:04:45.052Z",
   "tz": "Asia/Kolkata",
   "window": {
-    "from": "2026-10-10T22:57:21.144Z",
-    "to": "2026-10-14T22:57:21.144Z"
+    "from": "2026-10-10T23:04:45.052Z",
+    "to": "2026-10-14T23:04:45.052Z"
   },
   "listener": {
     "name": "Parth",
@@ -23,7 +23,7 @@
     {
       "id": "cold-open",
       "items": [
-        "fb-401915414-love"
+        "fb-real-madrid-2026-10-14-love"
       ],
       "words": 35,
       "name": "Cold open",
@@ -32,7 +32,7 @@
     {
       "id": "die-hard",
       "items": [
-        "fb-401915414-love",
+        "fb-real-madrid-2026-10-14-love",
         "cr-151598",
         "tn-184941-Carlos Alcaraz",
         "cr-151587",
@@ -46,14 +46,12 @@
           "sport": "football",
           "outlets": [
             "The Athletic",
-            "beIN SPORTS",
+            "Planet Football",
             "The New York Times",
-            "Chase Your Sport",
-            "Yahoo",
             "www.thenationalnews.com"
           ],
-          "n": 6,
-          "date": 1791999922000,
+          "n": 4,
+          "date": 1792005300000,
           "url": "https://www.nytimes.com/athletic/7674397/2026/10/14/erling-haaland-kylian-mbappe-and-the-hunt-for-cristiano-ronaldos-champions-league-goals-record/",
           "reports": [
             {
@@ -68,20 +66,12 @@
               "url": "https://www.nytimes.com/athletic/7674397/2026/10/14/erling-haaland-kylian-mbappe-and-the-hunt-for-cristiano-ronaldos-champions-league-goals-record/"
             },
             {
-              "source": "beIN SPORTS",
-              "url": "https://news.google.com/rss/articles/CBMi6gFBVV95cUxQWmhDRDRBQUEwekE3U09RMWRlY2xzYzI1VEhlRGZFOVNXMWh2MC1aYmxmNUkzdGY0cFh0N0dQQkJOdWh5ai1KN29KSjhXWWt0TXhlZXBkVjZybzVEVHFsaDQyWGVObklYajdDTnRpcG9DQUxHM19ZTldybWZLcHBxVmVqcG05UEZ3VDVUWU5hZmVubk5IbnVUMXBzZkJ6ejhTb2NhR3pzWkU5WmlaNExTVXpmdnFUbWpCVm9uZGRPTHI3V0JvTkpJVTJvQjJSODl5ZFNQSTkybmdkSmJNRG42T2JpSWZKdC14N0E?oc=5"
+              "source": "Planet Football",
+              "url": "https://news.google.com/rss/articles/CBMingFBVV95cUxPYXB3RVZZT1E2ZEhqamt5dENFaTBlNUY4T011eEVlSFhnZUthb21KUEJzRnBiVXdZYTA5SEtwN2xJNkJjbWFhR2I0UVM2cmY4QVVIZlQ2NnBoWURaaldmVEMtLTlOSHJmbG5Jc1p1THR5THVpQUN5SXR1MTlqOEszQ1lwYWVjUTdnWERVZFRBQU9sZGhzUEx4N3I2b0dyZw?oc=5"
             },
             {
               "source": "The New York Times",
               "url": "https://news.google.com/rss/articles/CBMi4AFBVV95cUxNcEdOZEpFUUIxVFNvVmF2RURWaENseVlOLThnMHRzWklxbFlndlFYSF8wdGo1UW5CTk5DWkpIZEQyZEFBRVQ3Y3VCYzBqVHNwcGF2RXBTX0t0M2hHNkgyS24yQ24yZjh0Rk1WYzRtc2ZVYmtyNzZhR29aY3BqX0lLU3N0Vk9Ua0tiQWl0S1FyS1BrVEN2WldLQk9jUGdfZXhxbzRvdldJTDVxT2RpeG1yWUhibWMzRkgwY2xsdzEtX3hubXNpa2pIZlRHX0E2SUptWjVqN182dGM5NXc5NmJYMw?oc=5"
-            },
-            {
-              "source": "Chase Your Sport",
-              "url": "https://news.google.com/rss/articles/CBMikgFBVV95cUxONFV5RHltZjJzVlFmaW5wcDMwSFB4T2swOTFvc1pDeDBKUHl2aldfNldKU1AtMDNJM2YzVUJaTFN5bTRSTTNjd1JCYVNLaWxmbGlieUxtdGpGYVFwTi0yYnBkcWJpdktrSkJQbFFxaUNWaFhTMkNyWnU3OFY4Sy1uSGJDRS1wQXVXeU5FY2E1WXNsQQ?oc=5"
-            },
-            {
-              "source": "Yahoo",
-              "url": "https://news.google.com/rss/articles/CBMiigFBVV95cUxOdlRtM1piS3NQMjNkNUVldE9iS0ZEZGpHQldpQXJaZ210ako0eWx2Tm9QSXRlYU9XLXpjWGN6Q29JakRsRFEtcFpkREp2eGxCU0hTbmNJajZKdkVHSV84cDlBeWFpYTZ5ZFR2Tnk1ekhsWFBLM1ZqTEM2MnlINlRDSGpmT3NDMnhBT3c?oc=5"
             },
             {
               "source": "www.thenationalnews.com",
@@ -90,16 +80,47 @@
           ],
           "titles": [
             "Erling Haaland, Kylian Mbappe and the hunt for Cristiano Ronaldo's Champions League goals record",
-            "Harry Kane Threatens a Historic Record of Cristiano Ronaldo in the Champions League",
+            "Most goals in first 100 Champions League appearances: Mbappe, Messi, Ronaldo…",
             "Erling Haaland, Kylian Mbappe and the hunt for Cristiano Ronaldo’s Champions League goals record",
-            "Harry Kane Closes in on Cristiano Ronaldo’s Champions League Record",
-            "Harry Kane closes in on Cristiano Ronaldo’s legendary UEFA Champions League scoring record",
             "Haaland vs Mbappe: The race to break Cristiano Ronaldo’s historic Champions League goals record"
           ],
           "text": {
-            "source": "beIN SPORTS",
-            "url": "https://www.beinsports.com/en-us/soccer/bundesliga/articles/harry-kane-threatens-a-historic-record-of-cristiano-ronaldo-in-the-champions-league-2026-10-14",
-            "text": "Harry Kane , game by game, makes it clear why he is the most important man for Bayern Munich. The English forward was the star in the last match, where he scored a brace in the 3-3 draw, a result that felt underwhelming after being down 2-0. A complete performance that, however, was not enough to take the three points. 450 goals and a record that threatens Cristiano Beyond the result, the night left crazy numbers. Kane reached 450 goals as a professional, a historic figure in his career. Of the total, 154 were scored with Bayern, 280 with Tottenham, nine with Millwall, five with Leyton Orient, and two with Leicester. In the Champions League , the Englishman has scored in nine consecutive matches. Only Cristiano Ronaldo surpasses him, with 11. Moreover, Kane has already made it into the top eight all-time scorers of the tournament: he has 57 goals, tied with Thomas Müller and ahead of Ruud van Nistelrooy (56). And he has accumulated 14 goals and five assists in 13 matches between Bayern and the English national team. Self-criticism and the obsession with the Ballon d'Or Still, despite his performance, Kane was not satisfied. He lamented the draw and considered that Olise's"
+            "source": "Planet Football",
+            "url": "https://www.planetfootball.com/champions-league/most-goals-first-100-champions-league-appearances",
+            "text": "Kylian Mbappe has reached the milestone of 100 Champions League appearances - but how does he rank for goals scored in that time? More than 50 players have now played 100 times or more in the Champions League, with Mbappe the latest. He's been one of the most effective in that time too, even if he's yet to win the competition. That will be much to his frustration, especially after he left Paris Saint-Germain for Real Madrid and then saw his old side win back-to-back Champions Leagues without him. What might have been. But in terms of individual numbers, Mbappe is up there with the best. Here are the players with the most goals from their first 100 Champions League games. Lewandowski has posted some insane goalscoring numbers throughout his career. He wasn't far off being a goal-a-game striker in his pomp at Bayern Munich. A 10-goal Champions League campaign in 2012-13 with runners-up Borussia Dortmund helped him become a household name. He did even better when he finally got his hands on the trophy with Bayern in 2019-20, scoring 15 times along the way. In fewer games, too. By the time of his 100th Champions League appearance, towards the twilight of his Bayern spell, Lewandowski"
+          }
+        },
+        {
+          "subject": "Real Madrid",
+          "care": "die-hard",
+          "headline": "Champions League round-up: Real Madrid and Paris headline record-breaking night",
+          "sport": "football",
+          "outlets": [
+            "UEFA.com",
+            "Goal.com"
+          ],
+          "n": 2,
+          "date": 1792014156000,
+          "url": "https://news.google.com/rss/articles/CBMi2gFBVV95cUxNTUxjb1JyelhwUzFSYXJoQ3NMLXlOY2RfeUt1ZTVqbkllb1ZRY1JUSHJ2dWxwRVo4SERWOVNoOEpEaEpsbk1VNzFoQkR6SzMzVUN0M2FhaDdGb29XTFJKMUlCNmJvUVFYMGItdlhUQzlFMEtEeXRFOWMtTnJ6dlR0SXB4S0lqMkxYbzlmemJSVm9oQnI1b1FUSW9DenBSUy1GWDRVNHBTakh6Szd1bDRFTDQ3akt0WmxKMFVDbnhpLXdUQVlwMXR6a29XbzcybnIzRkpweDlCajh5QQ?oc=5",
+          "reports": [],
+          "links": [
+            {
+              "source": "UEFA.com",
+              "url": "https://news.google.com/rss/articles/CBMi2gFBVV95cUxNTUxjb1JyelhwUzFSYXJoQ3NMLXlOY2RfeUt1ZTVqbkllb1ZRY1JUSHJ2dWxwRVo4SERWOVNoOEpEaEpsbk1VNzFoQkR6SzMzVUN0M2FhaDdGb29XTFJKMUlCNmJvUVFYMGItdlhUQzlFMEtEeXRFOWMtTnJ6dlR0SXB4S0lqMkxYbzlmemJSVm9oQnI1b1FUSW9DenBSUy1GWDRVNHBTakh6Szd1bDRFTDQ3akt0WmxKMFVDbnhpLXdUQVlwMXR6a29XbzcybnIzRkpweDlCajh5QQ?oc=5"
+            },
+            {
+              "source": "Goal.com",
+              "url": "https://news.google.com/rss/articles/CBMi3wFBVV95cUxQalF0cHYzS3VWNVBBeXRVY2ZzajljaFJPZnFZVExCbll5OHRhY0RYQmtseFJVSXdncUNJQmEtZXU4aGdKRGFONi1FRzlOTnRsMUFSOEdCS3VoUnhwZV9Pc2xGdm9oOXRBaHdXV292NVZKYk01eThPLWpXMTFBTHh2ZWxZWEh2N3JXS0FMWmhiMncyenkwRlBneUVPU05iYTBETE40dnAzQXNmeENkc2lPZmRhTWNKNlVRenotX3duY0poUVYxc3E2X1dVSkU1Zkx3b0dYZ3JmRHQwUllOVEFF?oc=5"
+            }
+          ],
+          "titles": [
+            "Champions League round-up: Real Madrid and Paris headline record-breaking night",
+            "A comeback like no other: Real Madrid achieve another miraculous record in the Champions League"
+          ],
+          "text": {
+            "source": "Goal.com",
+            "url": "https://www.goal.com/en-in/news/a-comeback-like-no-other-real-madrid-achieve-another-miraculous-record-in-the-champions-league/blt41bd81e67ca4c376",
+            "text": "Real Madrid pulled off a historic and unprecedented comeback in the Champions League, turning a 3-1 deficit against Roma into a thrilling 4-3 win after an extraordinary revival in the closing minutes. Three goals in quick succession did it. Carlos Espi struck on 82:04, Endrick followed on 84:40 and Antonio Rudiger completed the job on 89:47, flipping a two-goal deficit into a one-goal lead. A statistic published by MisterChip put the whole turnaround at 7 minutes and 43 seconds, the fastest away comeback in Champions League history. The Spanish giants broke a record that belonged to Liverpool, who took 12 minutes and 48 seconds to overturn their deficit against Villarreal when the two teams met on 3 May 2022. Another historic entry goes into Real Madrid's European record, a match heading for defeat turned into a thrilling victory in the decisive moments. Two rounds played, full"
           }
         },
         {
@@ -134,67 +155,33 @@
         {
           "subject": "Real Madrid",
           "care": "die-hard",
-          "headline": "OFFICIAL: Vinicius will miss El Clásico, suspended four games",
+          "headline": "Bellingham: 100 victories in 150 matches with Real Madrid",
           "sport": "football",
           "outlets": [
-            "Managing Madrid"
+            "Real Madrid CF | Web Oficial"
           ],
           "n": 1,
-          "date": 1791999496000,
-          "url": "https://www.managingmadrid.com/114101/vinicius-suspended-el-clasico-2026",
-          "reports": [
-            {
-              "source": "Managing Madrid",
-              "title": "OFFICIAL: Vinicius will miss El Clásico, suspended four games",
-              "summary": "The Spanish Football Federation announced today that Real Madrid’s Vinicius Junior will miss the next four LaLiga games and therefore he won’t be available for El Clásico on October 25th. “Two-game suspension for violent conduct away from the play, with no chance of contesting the ball or during a stoppage, along with additional penalty/penalties as […]"
-            }
-          ],
+          "date": 1792011900000,
+          "url": "https://news.google.com/rss/articles/CBMi1wFBVV95cUxObjFxeTA2QWZDRXpnV1B2TWU5UGxGM0x3WmxCWHN5QjhCN3NuRFJmbWZ2Zk1wdWM3NXE1X0gtZTJUVkU4M1hyaUQyUlN6QmIxdDktWExqQkhXOUpkQjM0VzhBMm1zQ2xVUWwwVkllaF9qdzY4U3pZNjBjOXJLQVJfbXRycFdEVURmQ2dndGdqWkJiZTA0T1d1cWZuWVRqa0RDd0VZY0N1Z2JFWi1WV1hneWRFQ211aWlsQ0IzYnhkbFBINlFSd01wU1VJSEQ4NnlXdWFVV0oySQ?oc=5",
+          "reports": [],
           "links": [
             {
-              "source": "Managing Madrid",
-              "url": "https://www.managingmadrid.com/114101/vinicius-suspended-el-clasico-2026"
+              "source": "Real Madrid CF | Web Oficial",
+              "url": "https://news.google.com/rss/articles/CBMi1wFBVV95cUxObjFxeTA2QWZDRXpnV1B2TWU5UGxGM0x3WmxCWHN5QjhCN3NuRFJmbWZ2Zk1wdWM3NXE1X0gtZTJUVkU4M1hyaUQyUlN6QmIxdDktWExqQkhXOUpkQjM0VzhBMm1zQ2xVUWwwVkllaF9qdzY4U3pZNjBjOXJLQVJfbXRycFdEVURmQ2dndGdqWkJiZTA0T1d1cWZuWVRqa0RDd0VZY0N1Z2JFWi1WV1hneWRFQ211aWlsQ0IzYnhkbFBINlFSd01wU1VJSEQ4NnlXdWFVV0oySQ?oc=5"
+            },
+            {
+              "source": "Real Madrid CF | Web Oficial",
+              "url": "https://news.google.com/rss/articles/CBMivgFBVV95cUxOa3ZzNk0yRFEzRXFqTGtUTXhzNDZwVkUydHFUVklOcVdDUHFVVnh4RWVUeE5WaXVuUHpPbGVuXzctSmpHR3ZsOEZkOTVWeFVDRUJMSmZxdzROTTMyWHVtRl8xSEt3LUE2cGlscHZuMWNhUDBSZ2lTTTcwM1BUZnk5eUE4TXI3TXotX0lHZ25zdGJSZFRqcGdWU1lmWGF1MzBhRW9zTkhNOW9pM1NkR0YxMnlCRmJ0dzFvbklqTHV3?oc=5"
             }
           ],
           "titles": [
-            "OFFICIAL: Vinicius will miss El Clásico, suspended four games"
+            "Bellingham: 100 victories in 150 matches with Real Madrid",
+            "Vini Jr., 250 victories with Real Madrid"
           ],
           "text": {
-            "source": "Managing Madrid",
-            "url": "https://www.managingmadrid.com/114101/vinicius-suspended-el-clasico-2026",
-            "text": "The Spanish Football Federation announced today that Real Madrid’s Vinicius Junior will miss the next four LaLiga games and therefore he won’t be available for El Clásico on October 25th. “Two-game suspension for violent conduct away from the play, with no chance of contesting the ball or during a stoppage, along with additional penalty/penalties as stipulated by Article 5. Further, a two-game suspension for dissent toward the referee, assistant, or fourth official.“ Real Madrid’s next four games in LaLiga will be played against Sevilla (H), Barcelona (A), Racing Santander (A) and Valencia (A). Vinicius will make his return in the domestic competition when Los Blancos take on Celta Vigo on November"
-          }
-        },
-        {
-          "subject": "Real Madrid",
-          "care": "die-hard",
-          "headline": "Madrid Daily: Cassano questions Mourinho, Comesaña responds and Sevilla lose Guridi",
-          "sport": "football",
-          "outlets": [
-            "Managing Madrid"
-          ],
-          "n": 1,
-          "date": 1791998816000,
-          "url": "https://www.managingmadrid.com/latest-news/114094/madrid-daily-cassano-questions-mourinho-comesana-responds-and-sevilla-lose-guridi",
-          "reports": [
-            {
-              "source": "Managing Madrid",
-              "title": "Madrid Daily: Cassano questions Mourinho, Comesaña responds and Sevilla lose Guridi",
-              "summary": "Real Madrid’s meeting with Roma has brought contrasting assessments of José Mourinho, with Antonio Cassano questioning his appointment and César Gómez backing his ability to guide the club’s younger players. The discussion surrounding Saturday’s victory over Villarreal also continues, as Santi Comesaña responds to Mourinho’s remarks about the refereeing. Meanwhile, Sevilla have another injury to ["
-            }
-          ],
-          "links": [
-            {
-              "source": "Managing Madrid",
-              "url": "https://www.managingmadrid.com/latest-news/114094/madrid-daily-cassano-questions-mourinho-comesana-responds-and-sevilla-lose-guridi"
-            }
-          ],
-          "titles": [
-            "Madrid Daily: Cassano questions Mourinho, Comesaña responds and Sevilla lose Guridi"
-          ],
-          "text": {
-            "source": "Managing Madrid",
-            "url": "https://www.managingmadrid.com/latest-news/114094/madrid-daily-cassano-questions-mourinho-comesana-responds-and-sevilla-lose-guridi",
-            "text": "Real Madrid’s meeting with Roma has brought contrasting assessments of José Mourinho, with Antonio Cassano questioning his appointment and César Gómez backing his ability to guide the club’s younger players. The discussion surrounding Saturday’s victory over Villarreal also continues, as Santi Comesaña responds to Mourinho’s remarks about the refereeing. Meanwhile, Sevilla have another injury to contend with before their visit to the Bernabéu on Sunday. Comesaña responds to Mourinho’s refereeing comments Santi Comesaña has questioned Madrid’s complaints about the refereeing in Saturday’s meeting with Villarreal, arguing that the home side put pressure on Isidro Díaz de Mera from the opening stages. Speaking in the mixed zone after Villarreal’s Champions League victory over Napoli, the midfielder was asked about Mourinho’s comments at his pre-match press conference in Rome. The Madrid coach had declined to discuss the Villarreal match in detail but invited reporters to watch its first minute to understand his assessment. “I saw something from the first minute. I don’t know what they’re complaining about with the referee and all that. If it’s a red card, it’s a red card. They were"
+            "source": "Real Madrid CF | Web Oficial",
+            "url": "https://www.realmadrid.com/en-US/news/football/first-team/latest-news/bellingham-100-victorias-en-150-partidos-con-el-real-madrid-14-10-2026",
+            "text": "Bellingham achieved his 100th victory with the Real Madrid jersey against Roma, and he did so in his 150th match as a madridista. The midfielder reaches both milestones in his fourth season with our club, during which he has scored 49 goals. Since his debut on August 12, 2023, he has won five titles: 1 Champions League, 1 Club World Cup, 1 UEFA Super Cup, 1 La Liga, and 1 Spanish Super Cup. His 150 matches are distributed as follows: 95 in La Liga, 35 in the Champions League, 6 in the Copa del Rey, 7 in the Club World Cup, 6 in the Spanish Super Cup, and 1 in the UEFA Super Cup. Regarding victories, he has accumulated 67 in La Liga, 20 in the Champions League, 3 in the Copa del Rey, 5 in the Club World Cup, 4 in the Spanish Super Cup, and 1 in the UEFA Super Cup. His best season in terms of records was 2024/25 (58 matches and 37 wins). The opponent he has faced the most is Atlético de Madrid (11), while the teams he has defeated the most times are Alavés and Villarreal (6). Disclaimer: Translation generated by artificial intelligence. It may contain"
           }
         },
         {
@@ -320,6 +307,62 @@
         {
           "subject": "Max Verstappen",
           "care": "die-hard",
+          "headline": "Valentino Rossi wary of Max Verstappen threat at Portimao: \"Big problem\"",
+          "sport": "f1",
+          "outlets": [
+            "Motorsport.com",
+            "RacingNews365",
+            "FormulaRapida.net",
+            "Crash.net"
+          ],
+          "n": 4,
+          "date": 1791997800000,
+          "url": "https://www.motorsport.com/f1/news/valentino-rossi-wary-of-max-verstappen-threat-at-portimao-big-problem/10865174/?utm_source=RSS&utm_medium=referral&utm_campaign=RSS-F1&utm_term=News&utm_content=www",
+          "reports": [
+            {
+              "source": "Motorsport.com",
+              "title": "Valentino Rossi wary of Max Verstappen threat at Portimao: \"Big problem\"",
+              "summary": "Two of motorsport's biggest drivers are about to share a grid this weekend, and they're both very wary of meeting each other during the race. Max Verstappen makes his GT World Challenge Europe debut at the Portimao season finale this weekend, but one of the 60-odd cars he will be racing will be driven by MotoGP legend Valentino Rossi. The nine-time motorcycle world champion has discussed with Sky "
+            }
+          ],
+          "links": [
+            {
+              "source": "Motorsport.com",
+              "url": "https://www.motorsport.com/f1/news/valentino-rossi-wary-of-max-verstappen-threat-at-portimao-big-problem/10865174/?utm_source=RSS&utm_medium=referral&utm_campaign=RSS-F1&utm_term=News&utm_content=www"
+            },
+            {
+              "source": "RacingNews365",
+              "url": "https://news.google.com/rss/articles/CBMimAFBVV95cUxPbWF6VWcxdXdzZDQzbVFmQ2RjWG1leEhpaHM2V2syWVRVVW5KVTA1Z1AwYmhldk01TUs2a2VYUUo1QWtGWXBrbnZiMXgxVFpmYjdWbkJwMThCNks3TkR6Nm96LWx2TFZhQmFsVE1uVHdaLW54Nm9yd1F4dTZWS3YtTWQzSV9uZ1FoX3duVUJJUEFBbHJyQ0FvYQ?oc=5"
+            },
+            {
+              "source": "FormulaRapida.net",
+              "url": "https://news.google.com/rss/articles/CBMic0FVX3lxTE1VQVVmcWhraG55ZUd6aWtSeW4xU083WGNNZE1zenRUUlItMTRsdWxVRXpJRlJoVms3bXNka2VMaTNRSDI0NEZvTFBYeW1hUzIwakRzX0F2SEhycFE5UlI1UmlvNm8tMjlFTkJyc2hmVm1fa1nSAXhBVV95cUxOamhxYllkb2RVczg4bnB0Vmp4U2VreDYxaDk1YVdSX3Z4ZnNONXhUbXRpVUI1R3c1MHl1dWpZQ2NfM1F5ZW5OeVlvSzd0V3pKV2lsVTVMY3FqYVh0bzVSWGd3YTJ0dkVsOHpUcmx5UnBESUlQS0syYy0?oc=5"
+            },
+            {
+              "source": "Motorsport.com",
+              "url": "https://news.google.com/rss/articles/CBMitAFBVV95cUxOMC1Qem1ycW1IMmcyU19aRnk2OVBpNjhJZW1mYUJSRmp4V0dMek10bGtsWkwwVmpNZmVQOVBsZFdZeEk2RjlpNjlRblQtYkY4My1NcVBGOFFQQTBOR2Y3ZUUtR1drazA0YVBtcDJXLTl0NlFtMVNBWm5sN3dCZzZMa0wwWm1nSXd5ZWVqVHNUYmJlVEVIcUhKX0VKUDA2VHh2TDVqNDdzRUFHZS12XzE0RFdzUkk?oc=5"
+            },
+            {
+              "source": "Crash.net",
+              "url": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxOMXNpdXFWSTFjblAtQkVLTWc5Ui1tSzhiekNIOHRuRGpBRGE1T0JSblpQVFRCdU8ySVRkMWMyZmNWWnpwNlVDSC03SGxvS2tTTzZOdkQ5NjhOaFNsS2ZROEh5OUUwNWYyS1NVZjJldHpBV0lZeXgyMGZvN1Y1WFRuNDZHd29BSmZHNDRGeUM0Q2l5UTVrY2lZRmRIZUVHcTlmSUtzamNyeW1fQQ?oc=5"
+            }
+          ],
+          "titles": [
+            "Valentino Rossi wary of Max Verstappen threat at Portimao: \"Big problem\"",
+            "Max Verstappen taking on Valentino Rossi raises intruging questions",
+            "Valentino Rossi admits Max Verstappen’s superiority at Portimao: ‘A big problem’",
+            "Valentino Rossi wary of Max Verstappen threat at Portimao: \"Big problem\"",
+            "Valentino Rossi admits Max Verstappen will be ‘big problem’ in GT3 race"
+          ],
+          "text": {
+            "source": "Motorsport.com",
+            "url": "https://www.motorsport.com/f1/news/valentino-rossi-wary-of-max-verstappen-threat-at-portimao-big-problem/10865174/?utm_source=RSS&utm_medium=referral&utm_campaign=RSS-F1&utm_term=News&utm_content=www",
+            "text": "Two of motorsport's biggest drivers are about to share a grid this weekend, and they're both very wary of meeting each other during the race. Max Verstappen makes his GT World Challenge Europe debut at the Portimao season finale this weekend, but one of the 60-odd cars he will be racing will be driven by MotoGP legend Valentino Rossi. The nine-time motorcycle world champion has discussed with Sky Sport Italy how he feels about going up against the one of Formula 1's greatest drivers. \"It's going to be amazing. I mean, it will be a big problem because he’s sure to be incredibly fast, but it will be fantastic,\" he said. \"I have to say, I never imagined I’d be racing towards Max Verstappen. So it’s great, it’ll be great for everyone to have him there, and I hope I get the chance to follow him and see how he drives.\" That is a man who knows exactly what he's up against, and is excited to use it as a learning moment. One very crowded grid Verstappen will be driving the #3 Mercedes-AMG GT3 EVO for Verstappen Racing. He and his co-drivers Chris Lulham and Lexus factory driver Ben Barnicoat will be running in the top Pro class. He'll arrive at the track following two consecutive wins with"
+          }
+        },
+        {
+          "subject": "Max Verstappen",
+          "care": "die-hard",
           "headline": "Mekies signs long-term contract extension with Red Bull",
           "sport": "f1",
           "outlets": [
@@ -381,133 +424,167 @@
         {
           "subject": "Max Verstappen",
           "care": "die-hard",
-          "headline": "Red Bull extends team principal Laurent Mekies’ contract until 2031",
-          "sport": null,
+          "headline": "Verstappen wins Singapore Grand Prix for first time",
+          "sport": "f1",
           "outlets": [
-            "Sportstar",
-            "BBC Sport"
+            "The Daily Star",
+            "Bluefield Daily Telegraph",
+            "Beloit Daily News"
           ],
-          "n": 2,
-          "date": 1792000147000,
-          "url": "https://sportstar.thehindu.com/motorsport/f1/red-bull-extends-laurent-mekies-contract-2031-comeback-season-formula-1-f1-news/article71585331.ece",
-          "reports": [
-            {
-              "source": "Sportstar",
-              "title": "Red Bull extends team principal Laurent Mekies’ contract until 2031",
-              "summary": "Laurent Mekies, who replaced Christian Horner in July 2025, secured a long-term extension after Red Bull’s resurgence, with Max Verstappen winning the Malaysian and Singapore Grands Prix."
-            },
-            {
-              "source": "BBC Sport",
-              "title": "Red Bull F1 boss Mekies gets new deal to 2031",
-              "summary": "Red Bull team principal Laurent Mekies, who replaced Christian Horner at the F1 team, has his contract extended until the end of 2031."
-            }
-          ],
+          "n": 3,
+          "date": 1792010982000,
+          "url": "https://news.google.com/rss/articles/CBMirAFBVV95cUxPTWl0dUM1ekdaek94UC13SUVqenROUEtBaUlvLXpVbngyYXkzdE1BTUQwUjhVWUJib2UzTE82YWppSnhhbXNqZmF2akdCY3NtOVluZURTSWdNNWVENFoyNWxtdlZybXJ4R3Q5d3lLa2wzRk5wdlRQeHR4UWRHSVd3N3FGMWRPbkxFbkxySWZFd0g0T092QlJBYUFQN0pXREpseUlIQUlWRmFXRUdt?oc=5",
+          "reports": [],
           "links": [
             {
-              "source": "Sportstar",
-              "url": "https://sportstar.thehindu.com/motorsport/f1/red-bull-extends-laurent-mekies-contract-2031-comeback-season-formula-1-f1-news/article71585331.ece"
+              "source": "The Daily Star",
+              "url": "https://news.google.com/rss/articles/CBMirAFBVV95cUxPTWl0dUM1ekdaek94UC13SUVqenROUEtBaUlvLXpVbngyYXkzdE1BTUQwUjhVWUJib2UzTE82YWppSnhhbXNqZmF2akdCY3NtOVluZURTSWdNNWVENFoyNWxtdlZybXJ4R3Q5d3lLa2wzRk5wdlRQeHR4UWRHSVd3N3FGMWRPbkxFbkxySWZFd0g0T092QlJBYUFQN0pXREpseUlIQUlWRmFXRUdt?oc=5"
             },
             {
-              "source": "BBC Sport",
-              "url": "https://www.bbc.co.uk/sport/formula1/articles/c84g1rxr0dpno?at_medium=RSS&at_campaign=rss"
+              "source": "Bluefield Daily Telegraph",
+              "url": "https://news.google.com/rss/articles/CBMikAJBVV95cUxQVndENndhZ1ZTRFBkZE52ZEJSZGNVY25KbW9uMHI5QTNVdmFsWXZmQW1PU0Rlb0FDVzBlcUFKZTQ1cWs0cUJRSFItQ0MwTDNDbW1aS0J0dmwtTlotQWREbEN2eVNuWEN3a0FZcnIwdDMycjNHYzlkV2NlcFJ4T0hINTRBRFo3Wmg2cXNPVXlIMFdjZGdoZllCQVdCT2lGbVo1bVd3b0FjeU02RldQVXRoTHBQRDhXcUhNNUJGZGVkRnJ0MTRmcUhTbGFHeHhPQjY1bEZMX0hDdWhrWW5mZ2Y2bDZ4b01KbHhfRUhmZVZGQTBVZ3ZBdWlJLWtuNXhCR3E5Z0VFVmJBQXJRVjRwNzFQTA?oc=5"
+            },
+            {
+              "source": "Beloit Daily News",
+              "url": "https://news.google.com/rss/articles/CBMi6wFBVV95cUxPZnFUazVJTVdSZjJHekRvalQzb2JJeDVKdnU1QUtVd0ZCODhCeUQ3S1J4LWJPbmQ0aEx4SGRqMzB5NTM5WnVGOTlpQ1JvWG9UNDBzVEJrNGh4XzBFY1RnSFJfaUc3WmFWbkp2ei13LTBMdWFXZWxzZ0ZEVmszZURxcEwyTWU2eWhvOWRTdkFfZHRMaGI4MUNtUzh5Z3FQNnhPUTN3MVREWWp1YXU5QktmMThGZ3NleExDdmlBZHYyNWljLWU2Zi1tM1BTREFCck5NODRlODZZMDRTWGZPdzBVcWVQYTZqX3NkOFg0?oc=5"
             }
           ],
           "titles": [
-            "Red Bull extends team principal Laurent Mekies’ contract until 2031",
-            "Red Bull F1 boss Mekies gets new deal to 2031"
+            "Verstappen wins Singapore Grand Prix for first time",
+            "Verstappen does the double with pole and sprint race win at F1's Singapore Grand Prix",
+            "Verstappen does the double with pole and sprint race win at F1's Singapore Grand Prix"
           ],
           "text": {
-            "source": "Sportstar",
-            "url": "https://sportstar.thehindu.com/motorsport/f1/red-bull-extends-laurent-mekies-contract-2031-comeback-season-formula-1-f1-news/article71585331.ece",
-            "text": "Red Bull extends team principal Laurent Mekies’ contract until 2031 left File Image: Laurent Mekies signed a contract extension until 2031 after overseeing the team’s resurgence in the 2026 Formula 1 season. REUTERS REUTERS https://ss-i.thgim.com/public/incoming/8ccejc/article71585327.ece/alternates/FREE_1200/2026-10-14T164246Z_972765294_RC24UNATKPP0_RTRMADP_3_MOTOR-F1-REDBULL-MEKIES.JPG HASNOOR HUSSAIN FILE PHOTO: Formula One F1 - Bahrain Grand Prix - Sepang International Circuit, Sepang, Malaysia - October 1, 2026 Red Bull team principal Laurent Mekies ahead of the Bahrain Grand Prix REUTERS/Hasnoor Hussain/File Photo Laurent Mekies, who replaced Christian Horner in July 2025, secured a long-term extension after Red Bull’s resurgence, with Max Verstappen winning the Malaysian and Singapore Grands Prix. CHENNAI Red Bull has extended team principal Laurent Mekies’ contract until the end of the 2031 Formula 1 season, the team announced on Wednesday. The agreement was confirmed by Red Bull shareholder Mark Mateschitz during a team meeting at its Milton Keynes headquarters, following Max Verstappen’s consecutive victories at the Malaysian and Singapore Grands Prix. Mekies took charge"
+            "source": "The Daily Star",
+            "url": "https://www.thedailystar.net/sports/more-sports/news/verstappen-wins-singapore-grand-prix-first-time-4296161",
+            "text": "Max Verstappen won the Singapore Grand Prix for the first time in his career on Sunday to complete a perfect weekend where he also finished first in the sprint and was on pole for both races. Red Bull's Verstappen finished 7.335sec ahead of Ferrari's Charles Leclerc with championship leader Kimi Antonelli third for Mercedes after 62 laps of the Marina Bay Street"
           }
         },
         {
           "subject": "Max Verstappen",
           "care": "die-hard",
-          "headline": "The upgrades behind Red Bull’s breakthrough in Singapore",
+          "headline": "Portimao GT World Challenge entry list: Full teams, drivers and GT3 cars confirmed for Max Verstappen test",
           "sport": "f1",
           "outlets": [
-            "Formula 1",
-            "PlanetF1"
+            "PlanetF1",
+            "FormulaRapida.net",
+            "DAZN"
           ],
-          "n": 2,
-          "date": 1791995017000,
-          "url": "https://www.formula1.com/en/latest/article/the-fruitful-upgrades-behind-red-bulls-breakthrough-in-malaysia-and-singapore.LXbRuqocItGbDGABOI9JG",
+          "n": 3,
+          "date": 1791969135000,
+          "url": "https://www.planetf1.com/news/max-verstappen-gt-world-challenge-portimao-full-entry-list",
           "reports": [
             {
-              "source": "Formula 1",
-              "title": "The upgrades behind Red Bull’s breakthrough in Singapore",
-              "summary": "Mark Hughes and Giorgio Piola identify how Red Bull's recent upgrades helped Max Verstappen clinch back-to-back wins in Malaysia and Singapore."
-            },
-            {
               "source": "PlanetF1",
-              "title": "Red Bull makes new announcement after Singapore Grand Prix",
-              "summary": "Red Bull has won the last two races."
+              "title": "Portimao GT World Challenge entry list: Full teams, drivers and GT3 cars confirmed for Max Verstappen test",
+              "summary": "Who will battle Max Verstappen at Portimao?"
             }
           ],
           "links": [
             {
-              "source": "Formula 1",
-              "url": "https://www.formula1.com/en/latest/article/the-fruitful-upgrades-behind-red-bulls-breakthrough-in-malaysia-and-singapore.LXbRuqocItGbDGABOI9JG"
+              "source": "PlanetF1",
+              "url": "https://www.planetf1.com/news/max-verstappen-gt-world-challenge-portimao-full-entry-list"
             },
             {
-              "source": "PlanetF1",
-              "url": "https://www.planetf1.com/news/red-bull-max-verstappen-singapore-grand-prix-2026-announcement"
+              "source": "FormulaRapida.net",
+              "url": "https://news.google.com/rss/articles/CBMid0FVX3lxTFBEcnRsSTdFbHBLaW9qZHFkX2YzQXRQTHJfVjlMNVZ4anJiTjBob0ZRV2l1cnp2S20tU0sxbnVaTHlMWUxUdmJYclAyTnFaN0JhWFdTMlFZWGJnZ1Q5RE9fUXhjWGtQWFRjd3ZTTzB1WjVNdlFOVEN30gF8QVVfeXFMTllheXRLNTNSOUgyVXZyU1FYYllDeDVkNk9wVjN6UVlIbGkwU0dvVXFGNEczR3VRNWx4dDFES0NZQm8tRGxzY2R4SlY1eG43OFptNWdCczZtaVczVWFzOU1HcUh1VUNsVExaMnpGbTNFRmZLYVdINHZiRDNPRA?oc=5"
+            },
+            {
+              "source": "FormulaRapida.net",
+              "url": "https://news.google.com/rss/articles/CBMieEFVX3lxTE1kNDkwUV84WXZ2Q1pOY2NwMWM0MkdBWm5QTkcxUERCTmE5MTF3bEE0NnVLNHdIT1oybWx4STlwd0lObHF6NWR5SjhuaXR6QU56NEstVUFrR2JsamRnMWVNaG9JdEFfamR3dEJ0SHBZVmFGQlFVejllaQ?oc=5"
+            },
+            {
+              "source": "DAZN",
+              "url": "https://news.google.com/rss/articles/CBMi6gFBVV95cUxQal80STZTUFdQVVV4U1BXNFVnM0I2dC05VGJGVW1raHdWeHc3YmFjNVVyalE2UnpHb3Y3dVNLcmY0bWhsblV1QWJaTWJHX3A2ci02MXRISXhLUG40TWNZcUNWYVdTWXByUFdMSHc2R0xfcm5WenBnNnhnT1A4WUFKZl93WTd1emYzQ1FBaWhtemFZWFJ1ZlNuVS1SeVJaS2hBZk56aXFqdDliblY4YmNQaUM0Unl2UXM2ampVejBwRUtHMU1vdmlCNklIS3BPekpoekp2ZkdNMlB4RkpJcmZhUWdMaXVYUjhSWlE?oc=5"
             }
           ],
           "titles": [
-            "The upgrades behind Red Bull’s breakthrough in Singapore",
-            "Red Bull makes new announcement after Singapore Grand Prix"
+            "Portimao GT World Challenge entry list: Full teams, drivers and GT3 cars confirmed for Max Verstappen test",
+            "Max Verstappen’s Debut in the GT World Challenge Europe at Portimao",
+            "Max Verstappen debuts in the GT World Challenge Europe in Portimao",
+            "Who are Max Verstappen's teammates at the GT World Challenge Europe 2026 in Portimão?"
           ],
           "text": {
-            "source": "Formula 1",
-            "url": "https://www.formula1.com/en/latest/article/the-fruitful-upgrades-behind-red-bulls-breakthrough-in-malaysia-and-singapore.LXbRuqocItGbDGABOI9JG",
-            "text": "For the first 14 races of the season, Max Verstappen found the Red Bull RB22 a very difficult car. But a breakthrough was made with a major upgrade in Baku for Round 15, one which subsequently allowed Verstappen to win the next two successive races, at Sepang and Singapore. He spoke about progress after taking his first-ever Singapore victory last Sunday. “The last few races have been really positive for us,” Verstappen said. “Our car has taken a really nice step forward. It's just been more driveable and more predictable. That's what I wanted and needed from the car to find that last step to fight up front. And I hope that we can carry that momentum forward… Unlock exclusive F1 content and more with F1 Unlocked. Totally free. Live like an F1 insider with exclusive access and VIP"
+            "source": "PlanetF1",
+            "url": "https://www.planetf1.com/news/max-verstappen-gt-world-challenge-portimao-full-entry-list",
+            "text": "The full entry list for this weekend's season-ending GT World Challenge event at Portimao has been confirmed, as Max Verstappen prepares for his latest GT outing. Full details of Verstappen's rivals for the weekend can be found here. All eyes will be on Portimao this weekend, with four-time F1 champion Verstappen returning to GT action after last driving his Mercedes AMG GT3 competitively at the Nürburgring 24 Hours. On that occasion, the Dutchman appeared to be on course for a dominant victory, before a reliability issue struck in the closing hours, putting an end to his hopes of claiming silverware. This next test may only be three hours long, but on a far smaller track and with over sixty cars to battle, it will be no less fierce. Unlike at the Nurburgring, there are not multiple different classes of cars racing. Instead, there are classes based on the abilities of the combined driver partnerships. From the top category down, these are Pro, Gold, Silver, and Bronze. Read next: How to watch Max Verstappen in the GT World"
           }
         },
         {
-          "subject": "Max Verstappen",
+          "subject": "Carlos Alcaraz",
           "care": "die-hard",
-          "headline": "The not-so-obvious chance Leclerc missed to usurp Verstappen",
-          "sport": "f1",
+          "headline": "Toni Nadal completely disagrees with Carlos Alcaraz’s recent complaint in Shanghai",
+          "sport": "tennis",
           "outlets": [
-            "Autosport",
-            "Motorsport.com"
+            "Tennis365",
+            "Tennis World USA",
+            "Yahoo Sports"
           ],
-          "n": 2,
-          "date": 1791820437000,
-          "url": "https://www.autosport.com/f1/news/charles-leclerc-admits-he-missed-a-chance-against-max-verstappen-but-not-the-obvious-one/10864639/?utm_source=RSS&utm_medium=referral&utm_campaign=RSS-F1&utm_term=News&utm_content=uk",
-          "reports": [
-            {
-              "source": "Autosport",
-              "title": "The not-so-obvious chance Leclerc missed to usurp Verstappen",
-              "summary": "When Charles Leclerc had a better start than Max Verstappen and claimed the inside line for Turn 1, many in the media centre thought the Monegasque should have held his ground to take the lead. However, Verstappen was on the outside, on the normal racing line that offered slightly more grip, and the Dutchman was prepared to take every risk. Verstappen had already told Autosport a day earlier ... K"
-            },
-            {
-              "source": "Motorsport.com",
-              "title": "Charles Leclerc admits he missed a chance against Max Verstappen – but not the obvious one",
-              "summary": "When Charles Leclerc had a better start than Max Verstappen and claimed the inside line for Turn 1, many in the media centre thought the Monegasque should have held his ground to take the lead. However, Verstappen was on the outside, on the normal racing line that offered slightly more grip, and the Dutchman was prepared to take every risk. Verstappen had already told Motorsport.com a day ... Keep"
-            }
-          ],
+          "n": 3,
+          "date": 1791990700000,
+          "url": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxNRGhkbU95THJaaWZvSU5CazhkcWhDOHluZ1hQYkRVZU9IY1RSb2lIY3V4dEZwTVJNNDZBQUtlMTJ0UGptblZRVm5NVFFxdkZBZjJfR3FPZVJpZjRDUTNfUXZpVElmbFBsTVpXRzFQcHNBNkc0OEdXb1BwYlVJdlNDQW9WVGtGZGI5cHFB?oc=5",
+          "reports": [],
           "links": [
             {
-              "source": "Autosport",
-              "url": "https://www.autosport.com/f1/news/charles-leclerc-admits-he-missed-a-chance-against-max-verstappen-but-not-the-obvious-one/10864639/?utm_source=RSS&utm_medium=referral&utm_campaign=RSS-F1&utm_term=News&utm_content=uk"
+              "source": "Tennis365",
+              "url": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxNRGhkbU95THJaaWZvSU5CazhkcWhDOHluZ1hQYkRVZU9IY1RSb2lIY3V4dEZwTVJNNDZBQUtlMTJ0UGptblZRVm5NVFFxdkZBZjJfR3FPZVJpZjRDUTNfUXZpVElmbFBsTVpXRzFQcHNBNkc0OEdXb1BwYlVJdlNDQW9WVGtGZGI5cHFB?oc=5"
             },
             {
-              "source": "Motorsport.com",
-              "url": "https://www.motorsport.com/f1/news/charles-leclerc-admits-he-missed-a-chance-against-max-verstappen-but-not-the-obvious-one/10864610/?utm_source=RSS&utm_medium=referral&utm_campaign=RSS-F1&utm_term=News&utm_content=www"
+              "source": "Tennis World USA",
+              "url": "https://news.google.com/rss/articles/CBMixwFBVV95cUxNcVBCazJpRlBwbGJxbGFmM3ROOWZpOUxYMUtvUG1lbkhuUzJ6NGQ1OFRXZ0F0bl9sMUVwMjllUEhYSnZSSWs4aDFBc19STGp6RW9KTXNtcHRuWmVmeFRyQ3p2WkwxYzlzd1JtR3U3dlNwSTN0T3hwMF84bUEwdlV4Q3AtQjBHYjFUM2FVSWVVSzRseXJ0cmdZWkktLWFXQTNWai0xRkhRclZpZGhqSU42VGRzeGcwdWU3U2REQ2xLWHpBdm5SbUow?oc=5"
+            },
+            {
+              "source": "Yahoo Sports",
+              "url": "https://news.google.com/rss/articles/CBMijAFBVV95cUxPZ20zNzFjN2I2dExzT3N3ZWVNcE8xWEdRUERxckExVWdKeHZYX3Y2U0pnNTVxN0dWWng1eDFZb2F2MHMwaDhKOWdpSTN5QzZkbnozd1ZFNUpRdnVGZ0tYc1AzSWF0UGJuSDF4ZG9LX3BDZ3VoRDZDeS1BalZiMjc2bkxHYzBXNTFHUURCSg?oc=5"
+            },
+            {
+              "source": "Yahoo Sports",
+              "url": "https://news.google.com/rss/articles/CBMijAFBVV95cUxPZ20zNzFjN2I2dExzT3N3ZWVNcE8xWEdRUERxckExVWdKeHZYX3Y2U0pnNTVxN0dWWng1eDFZb2F2MHMwaDhKOWdpSTN5QzZkbnozd1ZFNUpRdnVGZ0tYc1AzSWF0UGJuSDF4ZG9LX3BDZ3VoRDZDeS1BalZiMjc2bkxHYzBXNTFHUURCSg?oc=5"
             }
           ],
           "titles": [
-            "The not-so-obvious chance Leclerc missed to usurp Verstappen",
-            "Charles Leclerc admits he missed a chance against Max Verstappen – but not the obvious one"
+            "Toni Nadal completely disagrees with Carlos Alcaraz’s recent complaint in Shanghai",
+            "Rafael Nadal disagrees with what some say about Carlos Alcaraz",
+            "Rafael Nadal praises Carlos Alcaraz and disagrees with what some say about him, ‘makes no sense’",
+            "Rafael Nadal praises Carlos Alcaraz and disagrees with what some say about him, ‘makes no sense’"
           ],
           "text": {
-            "source": "Autosport",
-            "url": "https://www.autosport.com/f1/news/charles-leclerc-admits-he-missed-a-chance-against-max-verstappen-but-not-the-obvious-one/10864639/?utm_source=RSS&utm_medium=referral&utm_campaign=RSS-F1&utm_term=News&utm_content=uk",
-            "text": "When Charles Leclerc had a better start than Max Verstappen and claimed the inside line for Turn 1, many in the media centre thought the Monegasque should have held his ground to take the lead. However, Verstappen was on the outside, on the normal racing line that offered slightly more grip, and the Dutchman was prepared to take every risk. Verstappen had already told Autosport a day earlier that second or third place in the drivers' championship would mean nothing to him and that he simply wanted to go all-in for race victories. In other words, Verstappen was willing to risk everything, although that was not even the main reason why Leclerc was unable to complete the move. The reference points drivers use under braking – such as the 150-metre and 100-metre boards – are on the right-hand side approaching Turn 1, but Leclerc could not see them because he was alongside Verstappen. The Ferrari driver had to choose his braking point by instinct and tried to judge it as well as possible. As a result, he does not regard it as a missed opportunity, adding: \"I would have done exactly the same.\" No regrets in that respect, then, although Leclerc admits that he did let an opportunity to"
+            "source": "Tennis365",
+            "url": "https://www.tennis365.com/tennis-news/toni-nadal-disagrees-carlos-alcaraz-complaint",
+            "text": "Carlos Alcaraz issued a very loud complaint about the quality of the tennis balls during his Shanghai Masters defeat to Zizou Bergs. During the first set, which he lost 7-5, Alcaraz was loudly communicating with his box about his struggles at the penultimate Masters tournament on the ATP Tour calendar. “How can one ball bounce and another slide right over me?” was heard shouting during his match with Bergs. “I can’t play like this, I don’t understand it. I can’t play by intuition.” The quality of the balls on the ATP Tour have long been complained about by the top stars, but Toni Nadal is not in favour of players complaining about outside interferences. As reported by Jose Morgado , Nadal used his time coaching Rafael Nadal as a reason why he doesn't believe that players should complain about tennis balls. Carlos Alcaraz and Jannik Sinner told they ‘lack ambition’ after difficult 2026 season Carlos Alcaraz said to be protesting ‘behind the scenes’ at the Shanghai Masters Nadal said: “A few years ago, we were at the US Open with Rafa , and that year he wasn't getting any spin off the balls. We were playing, and it was a disaster. Every day, when we went out to practise, he'd say,"
+          }
+        },
+        {
+          "subject": "Carlos Alcaraz",
+          "care": "die-hard",
+          "headline": "Andy Roddick Thinks He Has Identified Big Issue Carlos Alcaraz and Jannik Sinner Are Dealing With: \"There Is Always a Bill to Pay\"",
+          "sport": "tennis",
+          "outlets": [
+            "FirstSportz",
+            "Tennishead"
+          ],
+          "n": 2,
+          "date": 1792012212000,
+          "url": "https://news.google.com/rss/articles/CBMijAFBVV95cUxQT1Q3MExkUG1maHBFSGUxNTBDdGt1SS1takdUMXRBVS1CSlBmS2c5STF1Ql9zb0dtTFdSOVZtcHYzUUE4MU54UzUtbml4ak9jYmZwNTJiS21vVXd3cFVPRG5hcGlCQUxXV212NUpoWXhrWXdrVTdtN3l3Z0N5ZzFIYXRBaUpYX19yb2d4cQ?oc=5",
+          "reports": [],
+          "links": [
+            {
+              "source": "FirstSportz",
+              "url": "https://news.google.com/rss/articles/CBMijAFBVV95cUxQT1Q3MExkUG1maHBFSGUxNTBDdGt1SS1takdUMXRBVS1CSlBmS2c5STF1Ql9zb0dtTFdSOVZtcHYzUUE4MU54UzUtbml4ak9jYmZwNTJiS21vVXd3cFVPRG5hcGlCQUxXV212NUpoWXhrWXdrVTdtN3l3Z0N5ZzFIYXRBaUpYX19yb2d4cQ?oc=5"
+            },
+            {
+              "source": "Tennishead",
+              "url": "https://news.google.com/rss/articles/CBMizAFBVV95cUxNS3JCYmxGX3o2Z2JmeU5vUFdpazFpNE5fNjlWRy1TQzRFSWgzbmtvcUJpOXpqQVpoS0Ezd3B4enA0aUNqVFVVOXpXWnRMUHFQYjFwU2tRNHYzaGZRd3IwV2N5d2xhSjZ4R3lBUmU2NUwzbUJEU3lpbk1BeDZlaVhROENTdXZ4dEUzeGFfd3JFN3BOZlVFSS1NU0ljN1g0Zjcyc21vNlgtenExWWFWS1VybWRfREtjNC1uNjFacnpNdi00SnJQMjBHS1ZLbi0?oc=5"
+            }
+          ],
+          "titles": [
+            "Andy Roddick Thinks He Has Identified Big Issue Carlos Alcaraz and Jannik Sinner Are Dealing With: \"There Is Always a Bill to Pay\"",
+            "Andy Roddick identifies issue Jannik Sinner and Carlos Alcaraz are having as they chase multiple Grand Slams"
+          ],
+          "text": {
+            "source": "FirstSportz",
+            "url": "https://firstsportz.com/andy-roddick-big-issue-carlos-alcaraz-jannik-sinner-dealing/",
+            "text": "Carlos Alcaraz won the Australian Open, while Jannik Sinner took home the Wimbledon title this season. In background: Carlos Alcaraz and Jannik Sinner; In circle: Andy Roddick (Image via ATP Tour) Injuries have derailed Carlos Alcaraz and Jannik Sinner 's 2026 seasons. First, Alcaraz succumbed to a wrist injury that forced him to withdraw from quite a few big events, including the French Open and Wimbledon. When he recovered and returned to action at the US Open, many thought they would finally see the arch-rivals in the same draw, but Sinner injured his knee and skipped the New York Major. He later ended his 2026 season. Andy Roddick believes Sinner and Alcaraz's bodies are struggling to withstand the physical demands over the long term. And this, Roddick believes, could stop them from breaking the records of Roger Federer , Rafael Nadal , and Novak Djokovic . But also, Sinner's body went AWOL at the French Open for a different reason. He was able to win Wimbledon, so we know what his top level looks like. But in order to get to the pantheon of what he has deserved, the speculation for, your body has to hold up for a really long time. Roddick then praised the Big 3 as well as"
           }
         },
         {
@@ -529,49 +606,65 @@
               "url": "https://news.google.com/rss/articles/CBMilgFBVV95cUxPVU03MU5waG1MbllYZWwwWXl0ZDFldnlyQXEyOHczMTFPcGlEQmxHZTk0M1VxY2l5NGcwT1Vkcm9TSWpCRjBpYVRHVUFqZUlhZzlGQlY3ejJKMG9tQ00ydTlsTHFpLXFPT1BZa1duZWZkZUpNS1pvTUhUejZxUnpPRFFNaUtHVzFGZ3NxVHV5SkFJT3prOVE?oc=5"
             },
             {
+              "source": "Tennis365",
+              "url": "https://news.google.com/rss/articles/CBMilgFBVV95cUxPVU03MU5waG1MbllYZWwwWXl0ZDFldnlyQXEyOHczMTFPcGlEQmxHZTk0M1VxY2l5NGcwT1Vkcm9TSWpCRjBpYVRHVUFqZUlhZzlGQlY3ejJKMG9tQ00ydTlsTHFpLXFPT1BZa1duZWZkZUpNS1pvTUhUejZxUnpPRFFNaUtHVzFGZ3NxVHV5SkFJT3prOVE?oc=5"
+            },
+            {
+              "source": "Daily Express",
+              "url": "https://news.google.com/rss/articles/CBMikgFBVV95cUxQcnE0aEpGaDBXU1hVRXV1VHhoc3RiRUhuZFRUb25yc2ZIUTFlVEpjMnRDandvb2ROaXQxYnFNS1hQWVFXbU9yWmlxQmtrbE1CeTgtT1NiR2ZWNXNNS3RUXzM0MUNBbllTQXM4ckd0Ql9Pc3VUYXowd3VZYktNc0xfTk5xVXFMLTVOTm9fQS1wRlJmd9IBlwFBVV95cUxQRUNucm5ZU0xoUUczbk9Cc3VYcGx6X2FGbUJHMUlDTTNPNFA5cldoOHlsLW90UTBTSmVwbzdxcnJhUGkyNHFYNndtdmlFWlRiTVNVa2NxeFdfWFF2UWU4S2lCa3JzdmsyRWhLdE1NcHJUZEM4Rmo2R1BkeG1qQzMydXJmcE5FaDVIcWJTMG4wQy1OLW9EY3M4?oc=5"
+            },
+            {
               "source": "Daily Express",
               "url": "https://news.google.com/rss/articles/CBMikgFBVV95cUxQcnE0aEpGaDBXU1hVRXV1VHhoc3RiRUhuZFRUb25yc2ZIUTFlVEpjMnRDandvb2ROaXQxYnFNS1hQWVFXbU9yWmlxQmtrbE1CeTgtT1NiR2ZWNXNNS3RUXzM0MUNBbllTQXM4ckd0Ql9Pc3VUYXowd3VZYktNc0xfTk5xVXFMLTVOTm9fQS1wRlJmd9IBlwFBVV95cUxQRUNucm5ZU0xoUUczbk9Cc3VYcGx6X2FGbUJHMUlDTTNPNFA5cldoOHlsLW90UTBTSmVwbzdxcnJhUGkyNHFYNndtdmlFWlRiTVNVa2NxeFdfWFF2UWU4S2lCa3JzdmsyRWhLdE1NcHJUZEM4Rmo2R1BkeG1qQzMydXJmcE5FaDVIcWJTMG4wQy1OLW9EY3M4?oc=5"
             }
           ],
           "titles": [
             "Carlos Alcaraz told Novak Djokovic copycat move ‘f***** up’ his wrist",
+            "Carlos Alcaraz told Novak Djokovic copycat move ‘f***** up’ his wrist",
+            "Novak Djokovic and Carlos Alcaraz told tournament is postponed as major statement released",
             "Novak Djokovic and Carlos Alcaraz told tournament is postponed as major statement released"
           ],
           "text": {
-            "source": "Daily Express",
-            "url": "https://www.express.co.uk/sport/tennis/2257266/Six-Kings-Slam-postponed-Djokovic-Alcaraz",
-            "text": "Saudi Arabian chief Turki Al Alshikh has confirmed that the Six Kings Slam has been postponed 'due to logistical reasons' at very short notice. The tournament was slated to include Carlos Alcaraz , Novak Djokovic , Alexander Zverev , Taylor Fritz , Alex de Minaur and Learner Tien in an exhibition-style event, with £1.14million awarded to each competitor in Riyadh. There had been uncertainty that the competition, originally scheduled for October 21-24, would go ahead as a result of unrest in the Middle East and the recent bombing of an international airport in Saudi Arabia's capital . As many as 13 people were killed and over 300 injured following an attack on the King Khalid International Airport. You agree you are 18 or over. We use your sign-up to provide content in ways you've consented to and to improve our understanding of you. This may include adverts from us and third parties based on our knowledge of you. You can unsubscribe at any time. More Info . Several sporting events have been cancelled or postponed in the region in recent months, with governments advising foreign tourists against travelling to Riyadh. Tennis has followed suit, pushing back the highly lucrative"
+            "source": "Tennis365",
+            "url": "https://www.tennis365.com/tennis-news/carlos-alcaraz-novak-djokovic-copycat-move-f-up-wrist",
+            "text": "Rennae Stubbs believes that Carlos Alcaraz 's Novak Djokovic-esque serve motion played a big role in his wrist injury. Ahead of this year's Australian Open , even Alcaraz admitted his new serve was quite similar to 24-time major winner Djokovic's. When asked about it ahead of the tournament, the Spaniard quipped, \"You wanted to say it's really similar to Djokovic serve (smiling). I know you want to. I wasn't thinking about making the same serve as Djokovic. But at the end, I can even see the similarities. \"I think everyone has to make changes, small details. For me, the serve is something that I really want to be better every year, in every tournament. I'm just putting constant work on the serve.\" It certainly seemed to help as Alcaraz beat Djokovic to claim his first Australian Open crown, as the Spaniard completed the career Grand Slam at the age of 22. Carlos Alcaraz's schedule complaints to be tested as Six Kings Slam postponed Toni Nadal completely disagrees with Carlos Alcaraz's recent complaint in Shanghai Want more from Tennis365? Add us as a preferred source on Google to your favourites list for tennis coverage you can trust. A few months later, however, Alcaraz was"
           }
         },
         {
           "subject": "Carlos Alcaraz",
           "care": "die-hard",
-          "headline": "Novak Djokovic's wife Jelena sends rare message as Alexander Zverev benefits from Carlos Alcaraz's Shanghai Masters heartbreak",
+          "headline": "Casper Ruud joins Jannik Sinner and Carlos Alcaraz on elite list after latest win in Shanghai",
           "sport": "tennis",
           "outlets": [
-            "Sportskeeda"
+            "Tennis365",
+            "Yahoo Sports"
           ],
-          "n": 1,
-          "date": 1791893880000,
-          "url": "https://news.google.com/rss/articles/CBMi7wFBVV95cUxQelJEeUdIQWlQcjJIenUwTWVRVjk3ODNQWkZ1bF81Y2ZuMGFXNFNWYlczSlNGSnVxN05aTENJSUJxby1lOXg1WTNqOEVGbG9VY2QwRDkwZ005b01tRHV3LTBlMVZnbVAyazZQbXZYcl9VYVprZzRoX2gwWjJlcEwzamlRYWJYUm1lalo3b016c0VrVXRkTzFXX1E1VTYwbHFubDhpLWQ2MDhSSTFnMF90SmZFVEFMRm1tOFZELXYzQUwzdzlfN3cxYUpPeTFKYVE4VkVpa2pBYTVxRThqc01raGRvdEFYbDNWbkw1MzI1OA?oc=5",
+          "n": 2,
+          "date": 1792001201000,
+          "url": "https://news.google.com/rss/articles/CBMikAFBVV95cUxNNmhGcDBsTWpIQkF6RTYtLUM3NC04dUVjNHNFMFFDVHF6WHFiOTlRN2prRklZUFdLUlBVQVNvMFNteGdHQWs2VDBWNkczZDZ5TFJobU95cHNidFJoWTlmSmkzcXdSY1VIME9zMWY3LWlDcEJNS0Q0d0ZtNjFrc2g4M29WZndVZ0gxbmxwZ2FXaDY?oc=5",
           "reports": [],
           "links": [
             {
-              "source": "Sportskeeda",
-              "url": "https://news.google.com/rss/articles/CBMi7wFBVV95cUxQelJEeUdIQWlQcjJIenUwTWVRVjk3ODNQWkZ1bF81Y2ZuMGFXNFNWYlczSlNGSnVxN05aTENJSUJxby1lOXg1WTNqOEVGbG9VY2QwRDkwZ005b01tRHV3LTBlMVZnbVAyazZQbXZYcl9VYVprZzRoX2gwWjJlcEwzamlRYWJYUm1lalo3b016c0VrVXRkTzFXX1E1VTYwbHFubDhpLWQ2MDhSSTFnMF90SmZFVEFMRm1tOFZELXYzQUwzdzlfN3cxYUpPeTFKYVE4VkVpa2pBYTVxRThqc01raGRvdEFYbDNWbkw1MzI1OA?oc=5"
+              "source": "Tennis365",
+              "url": "https://news.google.com/rss/articles/CBMikAFBVV95cUxNNmhGcDBsTWpIQkF6RTYtLUM3NC04dUVjNHNFMFFDVHF6WHFiOTlRN2prRklZUFdLUlBVQVNvMFNteGdHQWs2VDBWNkczZDZ5TFJobU95cHNidFJoWTlmSmkzcXdSY1VIME9zMWY3LWlDcEJNS0Q0d0ZtNjFrc2g4M29WZndVZ0gxbmxwZ2FXaDY?oc=5"
+            },
+            {
+              "source": "Yahoo Sports",
+              "url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxNVHE5c1dTR01EcVhKdklNeENaR3NTNzdSRDBEVnd1U3g0cWdxSFNtMTFXR1dtM2RtRGxvV1NnRmdYVVZFbjdNVFYwMlRjZm83SWRhaDIweTBCTU5nNVFqY29XZXBKM2JZMWRiRHd5d1E5OXVzTC1LUVZvMmpEbjZTSDQ0XzJmMVNO?oc=5"
             }
           ],
           "titles": [
-            "Novak Djokovic's wife Jelena sends rare message as Alexander Zverev benefits from Carlos Alcaraz's Shanghai Masters heartbreak"
+            "Casper Ruud joins Jannik Sinner and Carlos Alcaraz on elite list after latest win in Shanghai",
+            "Rafael Jodar joins Jannik Sinner and Alexander Zverev on exclusive list after latest Shanghai win"
           ],
           "text": {
-            "source": "Sportskeeda",
-            "url": "https://www.sportskeeda.com/tennis/news-novak-djokovic-s-wife-jelena-sends-rare-message-alexander-zverev-benefits-carlos-alcaraz-s-shanghai-masters-heartbreak",
-            "text": "Alexander Zverev recently benefited from Carlos Alcaraz's Shanghai Masters heartbreak, with the Spaniard's loss confirming that the two-time Grand Slam champion would end the 2026 season as the World No. 1. Reacting to this, Novak Djokovic's wife Jelena penned a rare message for Zverev, congratulating the German for his achievement.Zverev began the year ranked No. 3 in the world behind Carlos Alcaraz and Jannik Sinner. The 29-year-old experienced a brief dip in his position early in the season, but he recovered quickly, regaining the No. 3 rank by late March before rising to the World No. 2 spot in July.Now, with Jannik Sinner forgoing the remainder of the season due to a knee injury, and Carlos Alcaraz making an early exit at the Shanghai Masters, Alexander Zverev is guaranteed to end the year as the World No. 1. Announcing the news on Instagram, the official Instagram account of the ATP Tour wrote,“Sascha's year. @alexzverev123 clinches ATP Year-End No. 1 presented by PIF honours, the first German to do so.” View this post on Instagram Instagram PostReacting to this, Novak Djokovic's wife Jelena congratulated the German and his family for the accomplishment,"
+            "source": "Tennis365",
+            "url": "https://www.tennis365.com/tennis-news/casper-ruud-jannik-sinner-carlos-alcaraz-shanghai",
+            "text": "Casper Ruud earned his place in the quarterfinals of the Shanghai Masters in unfortunate circumstances, as Felix Auger-Aliassime was forced to retire from the match. The Norwegian was 5-2 up against the Canadian in the first set when Auger-Aliassime was forced to vacate the match with a knee injury. Ruud will advance to play Rafael Jodar in the last eight of the Shanghai Masters, where he is looking to continue his quest to qualify for the ATP Finals at the end of the year. The star has an outside shot of qualification and will likely need a victory at either the Shanghai Masters or the Paris Masters in order to stake his claim. Rafael Jodar has just proved Novak Djokovic receives preferential treatment in tennis Daniil Medvedev makes U-turn after thinking ‘what is Novak Djokovic talking about?’ at Shanghai Masters Having made the quarterfinals of the Shanghai Masters, Ruud has now made the last eight of all nine Masters events on the ATP Tour calendar. The star joins an elite list of active players to have achieved the feat, with only Jannik Sinner , Carlos Alcaraz , Marin Cilic , Daniil Medvedev , Novak Djokovic , Andrey Rublev , Hubert Hurkacz , Grigor Dimitrov , Alexander"
           }
         }
       ],
-      "words": 887,
+      "words": 902,
       "name": "Your teams",
       "about": "Each die-hard item, highest stake first: the result, how it happened, what it means (table, series, standings), what is next."
     },
@@ -579,7 +672,7 @@
       "id": "follow",
       "items": [
         "nba-401898718",
-        "fb-401912627-Cristiano Ronaldo",
+        "fb-al-nassr-2026-10-12-Cristiano Ronaldo",
         "nba-401898399"
       ],
       "news": [
@@ -603,6 +696,10 @@
               "url": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxOYnAyOGdiQkd2eTdnUlN5LUFzUFp2cHlxZUd1YTdPZUJrYkJ2YnZEU0VlUzQ0S2R1S052ZGdfV285bTg1anREVHBkUmd0Z0JPWmxSdnlKcF9zSHpYRDEySGNMWmNlOTdicDJtUGJrWXlXNjh3X1J6ODhmOEFZWDdsRndNdy0zaEZJcV9z?oc=5"
             },
             {
+              "source": "Yahoo Sports",
+              "url": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxOYnAyOGdiQkd2eTdnUlN5LUFzUFp2cHlxZUd1YTdPZUJrYkJ2YnZEU0VlUzQ0S2R1S052ZGdfV285bTg1anREVHBkUmd0Z0JPWmxSdnlKcF9zSHpYRDEySGNMWmNlOTdicDJtUGJrWXlXNjh3X1J6ODhmOEFZWDdsRndNdy0zaEZJcV9z?oc=5"
+            },
+            {
               "source": "Tennis365",
               "url": "https://news.google.com/rss/articles/CBMivwFBVV95cUxNMXd5ZlMxNmZTRlVsTEZzSlNDT01iTVlYS1k3Ym5TZ1VMenJZMG9rejB6Y1FveTk2Y0xRYzU1QWc0ZDk1aXpZaVpxLXRHV2FYRHJZZERZWTJramc0NUpHd2E5NzVubC12Nk0wZUhTN2dCbGphMVVCSUVQUEFWN1hSXzQ4N183ZWpNdjJvQ2t0TkIxTEF2OWw4NUVKbEZwUENQaTJyT2lNNTRpVmxxVkM0cnQ4R3I1Z3FpS0UtTzVDYw?oc=5"
             },
@@ -612,6 +709,7 @@
             }
           ],
           "titles": [
+            "Daniil Medvedev Changes His Tune on Novak Djokovic’s Shanghai Masters Claim - “What Is He Talking About?”",
             "Daniil Medvedev Changes His Tune on Novak Djokovic’s Shanghai Masters Claim - “What Is He Talking About?”",
             "Daniil Medvedev makes U-turn after thinking 'what is Novak Djokovic talking about?' at Shanghai Masters",
             "Daniil Medvedev left stunned after asking Novak Djokovic 'what are you talking about?'"
@@ -628,9 +726,11 @@
           "headline": "Why Novak Djokovic will be cheering on Alexander Zverev when he plays Alex de Minaur in Shanghai",
           "sport": "tennis",
           "outlets": [
-            "Tennishead"
+            "Tennishead",
+            "Tennis.com",
+            "tennismajors.com"
           ],
-          "n": 1,
+          "n": 3,
           "date": 1792000800000,
           "url": "https://news.google.com/rss/articles/CBMivAFBVV95cUxPQnFISXFnNTZrc1RtZ1NlSXhZcXU2NHd2WWJwa29HX05lelpCQ1A3a3ljbnBfZkpfWWlHOFFvOHdKVjlnREVSM2h5SVBhMXJrUUx1YkRHVG94ZzdFeVFkY2dQRVd4UEpMTGZZQUhYcW9pSmhnd0oyUlNfaVdrMVJSdXVzQ2pYazdyd3Juc3BsSWhZbEtCWFVwS1pPdGdjc3dxaFRNQkIyT1VSZG5TMlFJNFJmbzZMQXBDVHcyUw?oc=5",
           "reports": [],
@@ -638,10 +738,20 @@
             {
               "source": "Tennishead",
               "url": "https://news.google.com/rss/articles/CBMivAFBVV95cUxPQnFISXFnNTZrc1RtZ1NlSXhZcXU2NHd2WWJwa29HX05lelpCQ1A3a3ljbnBfZkpfWWlHOFFvOHdKVjlnREVSM2h5SVBhMXJrUUx1YkRHVG94ZzdFeVFkY2dQRVd4UEpMTGZZQUhYcW9pSmhnd0oyUlNfaVdrMVJSdXVzQ2pYazdyd3Juc3BsSWhZbEtCWFVwS1pPdGdjc3dxaFRNQkIyT1VSZG5TMlFJNFJmbzZMQXBDVHcyUw?oc=5"
+            },
+            {
+              "source": "Tennis.com",
+              "url": "https://news.google.com/rss/articles/CBMiogFBVV95cUxQRm5VSkFmdEoyWjV4RUwtdjFHbV8xZG5NMTJRM2Jja1RIWFl1bU5FQTdJWjZNYy1VTmRCdFdGVU9GeExBbUNNc1FIMVdqd3BXVHBaTHAwQXhmc192U21rbmxUS3RJRHczbFRLZ0JZUEdaZlczRl95cXJTcTIyZVZVN0FzOWtnZXFoWmNJaWpZZndETDVwX2J3RGhWV0pSWUpxT0E?oc=5"
+            },
+            {
+              "source": "tennismajors.com",
+              "url": "https://news.google.com/rss/articles/CBMiogFBVV95cUxPbGZjaHgtck4yR0w4TW5JQ0xNQV8taTg0ZlJDR29jVUJ5QVd2cWhXZVpYNE42ek5xaXhpR01xNHBLQVdQSUo2eFhxbVFzTF8zbkk3QWU0QzhwekJWQldXVmFiZEdneHFMWGVCOHVvSC02bEVQLXZNazBxN1o4MUlMYXpDbUQ0VVhjMWR2bURHbzJCU0paVVF3MVduWC1VZ1NBREE?oc=5"
             }
           ],
           "titles": [
-            "Why Novak Djokovic will be cheering on Alexander Zverev when he plays Alex de Minaur in Shanghai"
+            "Why Novak Djokovic will be cheering on Alexander Zverev when he plays Alex de Minaur in Shanghai",
+            "Alexander Zverev vs Alex de Minaur · Quarterfinal · ATP Shanghai",
+            "Alexander Zverev vs Alex de Minaur - Match ATP - Rolex Shanghai Masters 1970 - Quarter-final"
           ],
           "text": {
             "source": "Tennishead",
@@ -652,72 +762,96 @@
         {
           "subject": "Golden State Warriors",
           "care": "follow",
-          "headline": "Golden State Warriors Trying To Tread Water Until Reinforcements Return",
+          "headline": "Kristaps Porzingis Updates 'Frustrating' Health-Related Matter as Warriors Star Out Indefinitely",
           "sport": "basketball",
           "outlets": [
-            "WKYC",
-            "kare11.com",
-            "whas11.com",
-            "WBIR",
-            "Geo Super"
+            "Bleacher Report",
+            "SFGATE",
+            "Bozeman Daily Chronicle",
+            "Your Valley",
+            "Oskaloosa Herald",
+            "Yahoo Sports",
+            "Eurohoops",
+            "Yahoo"
           ],
-          "n": 5,
-          "date": 1791980820000,
-          "url": "https://news.google.com/rss/articles/CBMijwJBVV95cUxPVlZDRVV1VnVNV18tZVdBQXV5bHM1OWw4LS1EQVVrVXJsbDByUVZJcGZYSHhqQ3hJOUxqWkdXX0x1WENtYWlMZ0lDeFdSMVAzRW80Wnd4dFEtUnZ4bi1VOWNINzltYkpmT0lFbHhiWWxjSW0zUnpHVEpheG5EdUdNbHVJOGhoUkE4WHZCLUgteWZUQ204ZTh3MWxQN3V4SlRPRXlteC0xdTRvN1k2bVJzaGlDd1FyVXV4SThWZkFhMFI4dU1vMGo0eEZacS1XSEpCYnNNbTZKSUdqcUpveU5ORWtjWTJkUm9pdU1Nb2FmaDFoeDdOMzRPWW1KRUNNVVBNY0toT2p5cFNUOGNqWDQw?oc=5",
+          "n": 8,
+          "date": 1792017000000,
+          "url": "https://news.google.com/rss/articles/CBMi0gFBVV95cUxNUUtGWXBaZ3l2X01Gb3RqbGV6ZmFOWDQzbVZlV09sSkJIWmduUmZlUjJ4dEx0aExsSVBtZTNScUtIWjhhZldNSGpkd2Z6ZDNtU1p2RkFIRTYxd2NKbGtrMzNZVVJ4NHNrNk9hRmhlbVYySGcxLTlsOWZocksxZGc4VzZieFpQUnJiM25uMVB0TVNXbzlMZlNFQ282eklmUDV5YnMzMkI5c2JrZFFWZ1FBM2daVUw2Wm1SbTdudW5WdnhycWpfVS1rY1JJTUNNanFhTUE?oc=5",
           "reports": [],
           "links": [
             {
-              "source": "WKYC",
-              "url": "https://news.google.com/rss/articles/CBMijwJBVV95cUxPVlZDRVV1VnVNV18tZVdBQXV5bHM1OWw4LS1EQVVrVXJsbDByUVZJcGZYSHhqQ3hJOUxqWkdXX0x1WENtYWlMZ0lDeFdSMVAzRW80Wnd4dFEtUnZ4bi1VOWNINzltYkpmT0lFbHhiWWxjSW0zUnpHVEpheG5EdUdNbHVJOGhoUkE4WHZCLUgteWZUQ204ZTh3MWxQN3V4SlRPRXlteC0xdTRvN1k2bVJzaGlDd1FyVXV4SThWZkFhMFI4dU1vMGo0eEZacS1XSEpCYnNNbTZKSUdqcUpveU5ORWtjWTJkUm9pdU1Nb2FmaDFoeDdOMzRPWW1KRUNNVVBNY0toT2p5cFNUOGNqWDQw?oc=5"
+              "source": "Bleacher Report",
+              "url": "https://news.google.com/rss/articles/CBMi0gFBVV95cUxNUUtGWXBaZ3l2X01Gb3RqbGV6ZmFOWDQzbVZlV09sSkJIWmduUmZlUjJ4dEx0aExsSVBtZTNScUtIWjhhZldNSGpkd2Z6ZDNtU1p2RkFIRTYxd2NKbGtrMzNZVVJ4NHNrNk9hRmhlbVYySGcxLTlsOWZocksxZGc4VzZieFpQUnJiM25uMVB0TVNXbzlMZlNFQ282eklmUDV5YnMzMkI5c2JrZFFWZ1FBM2daVUw2Wm1SbTdudW5WdnhycWpfVS1rY1JJTUNNanFhTUE?oc=5"
             },
             {
-              "source": "kare11.com",
-              "url": "https://news.google.com/rss/articles/CBMikgJBVV95cUxOWkVhMHFGaFlETWRySnNLbDRvNUVlVS1SRElYVFZtRnprV0JrdFlELVk0M1lJT3ZWYVRtb3B3eEJ0d09NeW5zcEtpbEJkSWtVZ01zRmtnVl9LcXpFNHBWdlM2dFh4RERVLTZfSmh4Um1WeHlxVUliTk9fM1lpX25oWnUtdjhzd2oxWWpjWldEQ0NpQjNGcnlIX1Axd3hvZ0lOZHMzbExKbms1Z0RWOHFiUlRvZU9LVzNULXhHWVVOQWl4bDFxeWhfS1pNX0FVLXl0ajdkXy1za3FucEVBZlNmRHZJR1I4dzMta2dzR3hGU3JmSmkyMFdnN3lzcE9yREl5anZqOHlzemZfd0NsaVZyOFdn?oc=5"
+              "source": "SFGATE",
+              "url": "https://news.google.com/rss/articles/CBMilAFBVV95cUxOdkRqQ1R4X3E5VlhLWTdOc3Rpc3ppQzZpak1ZTDItWVlPdGxNOG9aZ2RBbDNGQ0RXaDE4ZHI1a2I3YkJycEs0dnZ4YkdybzRTUGFVQWtWRnpFdjlpNnJ1bGczbEtsa1hBV0tSSDB6bTljZzliWEswcmwxUzRFN1ZXUF9jeUFtVFhGelZaNnJwQjB6WXlq?oc=5"
             },
             {
-              "source": "whas11.com",
-              "url": "https://news.google.com/rss/articles/CBMikgJBVV95cUxQTzdacFROU0N5WGU4TTg3clZWR2JTa3I0Y3kycVhtRXJKNzl6UnkwNmxhakgzWVhmZGc4YVNORG5uTGg2NVdpU2xKUGJTSzAta21rSnZqQVBHMTBveWRNZ043MGJLN0tFa1ZTXy1pa3VGN1QxcjZvN2haV1JhRG9KSDJ6Tkg1VUIyYVFRR2NqS29sbGM5a1M3bzlwbDEtWmJVTXF5N1ZUNTJZNjQteUw0UDBGYWJTTUR0R0NqbkZBVFRqYmw1cnFfNTV1UTdDQ3pnN19EN0pQQTlWUkF1QVRUR0JUcmdmR3UyeGlNTEhUdndEZkZxLWVkTjJOS3JOLUtqUV90U0VROGZSU093RklDaG1B?oc=5"
+              "source": "Bozeman Daily Chronicle",
+              "url": "https://news.google.com/rss/articles/CBMiowJBVV95cUxNYlBRaUE0TUVyS3dHTVpBOTY4R1JoTzVjbjZTUUhGV252RUhJVGRrWkZfVzBZTFlnWG5YLXdtaDBFSHZzdHNDU3h4VHRwRVpfQmZJMWFlbktZejU5SHZmT002V0Y5b3dfb0ZMMTMycnhLWERKNmRReEEyOXhjQVh3QjRsampFOVh3aXRiY3pvbnVZd1dTSFdhS0hTNGpaY3E4R1BCLS1DeVY2S2JfeEdLVTFuTHlaQmVMSWpteDR6Mk8wd2J2VDE4aXN2SGhrRkNHUG1KRnNHOV9VR1NsejNVYzV2NDhiRExDWWQ4ajMxWUNWZVUwNHVMS1o4Y1hoSkdsUDdOelBIeUNzUXN1T1NBNDk2MHZrRjBoODZSQ251akU0elk?oc=5"
             },
             {
-              "source": "WBIR",
-              "url": "https://news.google.com/rss/articles/CBMijwJBVV95cUxQcTVxVHpUNE4yVFNsQ2drcnFUb0RRM194WktwMnJydE9ERFhqVWpxQ0tVMlp5YXQ4ME82UXdOSEkyTVpuemVlOXczWVVpYWN5OFVnd0p6MzdXUkdkNDBHWGpfeFpHUWpzVnR1bXk2aFkzYlg2dTJOZzhmU1NWWmRQUUFhZ09rWjhGN2g4eW1hQ3doamtGT0NLaVhSWjJiV1MxbmlKdGZhLVlDZVR3SDFQVEhsdU8zTkw2UzdrbE1xRHQzcnFtQlZaaWVRbFBXZHZnX19oRXkxSHJFSFhsVVFaVEhQc3VyRGJpdlBhUElRcGxXTWZiWTVMaGVqOEo2SGFvQVFfNG9sREJJbURIdTdz?oc=5"
+              "source": "Your Valley",
+              "url": "https://news.google.com/rss/articles/CBMizAFBVV95cUxOdUREXzRmQThZYkxKRnNZdTN5eTQ4a093NFlJUW5MUHNhQzROcjh0VkdVNTJDem9kTUVhNjk5Z1dSU1dYNzBUR3RUYk9aTTlra0FPUzJ0dm5MWXV3YVViamFzckViNzBkTURsanBGMFh0d1Q0T1pCdm5NUW0yUS0wODhYdFkxbHY4dmVFUnpIVDc3OTdjNDdSZjhEaENhYUs4WmVXLUxUSWFHd0g5c1M4akc5eVV4T0VSYWxjeFVXMFhRemJmSU1uaklwWmE?oc=5"
             },
             {
-              "source": "Geo Super",
-              "url": "https://news.google.com/rss/articles/CBMipgFBVV95cUxNN215a0RXbUtESEhkRFIwZThwbXNRMUxZZGZhMlFmVVlvalZkWEZZRV9zQUpqSEVic1RDT01XYUszZ2VGcVcyVkJxWXpwalJJbHFwVHBuV1VTMnQzN1U0TWVTYXpaM193OWIxVnZsWE5HdWMyWFdleUdmWFhnY3hqYmdmQjBGQ29pWWsycEpBZkVxOUpybkViVlVWRzBNcGZqUU02M2Zn0gGiAUFVX3lxTE8xV3NMLW9JVkpzSzZzcmh0VmVxYm1OOXBpSjhUYVpHcFY2SENza0NZUGNVVDFjVENnay1CTDVHNng5aUVfNkhacXZXRkUtNGd2RWpncDRjVExlN3BnbHB1aFZmdG1uRnRaY3RrN01oNWkyMjZXbUozNzNlRkh5ak8wdGNSZ2NQa3EyYlNRMm8zOTRYYVdDUVlxbmtwNW5tS1p6dw?oc=5"
+              "source": "Oskaloosa Herald",
+              "url": "https://news.google.com/rss/articles/CBMiogJBVV95cUxOZFBKN3I0eGNEYkUwVmpvYmtRbW8xM01IaEVMX3JjOWtzNlhnZENtcUVadlhFR0oxZ1VzVFd1eC1LLWNSNXdBZWJsZXVZTmNJNXQ3NWlNM2lVcmg0T0VuRTVBSlppazNHeUR6TzRVQTRiWEd2ZzB3aGNuUEFXWWFfREdIMkUzZ0ZnaXZzMHJVUmg5WDVxa3ByV3oyRnRoU0NkdjNET3JaMWhmT3laS180WER0NHBnYllQTzBPeVVrbzJ3MV9feWMxWDJQN2ZPVU1aMmdLSDVUaTVXZ3pTRmxKRlBDQnBhdGo4RGdWYlJzdklxSHRDTDBTWkhCeTF4ckItamIzSV9kb1B0OE1vNG9BZEVFdjF3SG9DbjhZa2JIazVlUQ?oc=5"
+            },
+            {
+              "source": "Yahoo Sports",
+              "url": "https://news.google.com/rss/articles/CBMimwFBVV95cUxNSVRoemd6Mm91dDIxVjVyY1lUdC12U3I0RUZOVElVT0djc1g4UVowUHluZUthei1BSU1FdUNOMnBiWndBSGhIMDhhQUhkZXBxd3ZHRXc2Z3BIUTlwbk13UDlFR0wzUnh6RVJhMjJVMXFkUmg3LWZpTVFTR0FUd2NKTGhmbHZTanU2OXRyclRNLTZIYldfRVk0LUIyaw?oc=5"
+            },
+            {
+              "source": "Eurohoops",
+              "url": "https://news.google.com/rss/articles/CBMi3AFBVV95cUxOR25SQWNTNlc0M2RCQklKRk9faWduX01mWnZ3WjR2MUJBdWNWVk83SGM1VmdoQnA4V0FiVGZ6dmZydjlfUnpheDdiWEo4ajhmRkIybTVjV2FpaFp3eDlEVUZGaFpOY1l4Uml6VE1pTWEzU3BEOE9wZXpVcWdpS3FyamV2WXJVY1B2Z21QNkRIdkVCZ0RCdHZONF9kdlQ0X0RsV3dYVGw4STZXakZFcTVTczhSdlE2ZUg2d1dYVkhUT3Y1UEQ1Qkk3Zms5SkUzc05RblB0VEN2a2N6dHJr?oc=5"
+            },
+            {
+              "source": "Yahoo Sports",
+              "url": "https://news.google.com/rss/articles/CBMiiAJBVV95cUxNdzhodTVkdkcyTVk5WTRlOXhyTV9OUEVCa3lQWjdyNnp4Zk95YVJBT1M3ZnJ5Wm0tTUZrM21DV25FUUlHOGJPdFdScVJvRmxyMzE5NmN1aTd6VnhHTGtUSkp5a3k2dTY3OF9jcnU1cDZ6ZXpvZzFqOEQ4WDIwNGRBUk9rbUJ5OWJlcEU1R2R6Nml0VnFlTVBNOHRhRDQydjBxanowenRyNHBrY3h6bm5BOVk2bnlVb3I4cDNYZldfckptZ2ZBSHJUZWh6Q1R2ckN5YjA4RTNFc05hdWJHYUFCWkNmemd1Q0RsTVpqN28yLTMwd1lsVGJYLU5uMDBvTUxxZENSSUQzdWE?oc=5"
+            },
+            {
+              "source": "Yahoo",
+              "url": "https://news.google.com/rss/articles/CBMi7gFBVV95cUxOTlUtVzNleGF1cTlKN3ZJUlR0RDd5Yy10amJYSmFGNFRNY3A3UUVEN0pHek1zNUZWcFFnYkEtODdmcHRHR3U5dFlZTzdWdFU1SWNDazRNS3pLeDNwdWZwT1lPUV9GcHBtcUFmcGVBWmN6cUtRS1ltVGhRbVJucHNtblhmYjI3Ml9XN2J1akdZU01qNWlLQm9Tcm9NUU9zd0gxb19zSmdteGR3WEpWczBaRjlVWG1YdUN1NmFGdlZkRG5iazh1cm42T2dkQlFuY1djR2ZkRm53N2lxYVNZb1Y2bFVHNmhLcm5Rb1U4TmR3?oc=5"
             }
           ],
           "titles": [
-            "Golden State Warriors Trying To Tread Water Until Reinforcements Return",
-            "Golden State Warriors Trying To Tread Water Until Reinforcements Return",
-            "Golden State Warriors Trying To Tread Water Until Reinforcements Return",
-            "Golden State Warriors Trying To Tread Water Until Reinforcements Return",
-            "Kristaps Porzingis set to return to Golden State Warriors facility"
+            "Kristaps Porzingis Updates 'Frustrating' Health-Related Matter as Warriors Star Out Indefinitely",
+            "Warriors' Kristaps Porzingis remains out indefinitely, says he's seeing doctors to figure out health",
+            "Warriors' Kristaps Porzingis remains out indefinitely, says he's seeing doctors to figure out health",
+            "Warriors' Kristaps Porzingis remains out indefinitely, says he's seeing doctors to figure out health",
+            "Warriors' Kristaps Porzingis remains out indefinitely, says he's seeing doctors to figure out health",
+            "Warriors’ Kristaps Porzingis out indefinitely for start of 2026-27 season amid health problems",
+            "Warriors’ Kristaps Porzingis out indefinitely for the start of the season amid health problems",
+            "Kristaps Porziņģis is 'getting better and better,' but Warriors say he will remain out indefinitely due to 'health-related matter'",
+            "Warriors' Kristaps Porziņģis will remain out indefinitely due to 'health-related matter' but will be around team"
           ],
-          "text": null
+          "text": {
+            "source": "Bleacher Report",
+            "url": "https://bleacherreport.com/articles/25510294-kristaps-porzingis-updates-frustrating-health-related-matter-warriors-star-out-indefinitely",
+            "text": "Golden State Warriors Kristaps Porziņģis provided an update on his health after the team said in a statement on Wednesday he would \"remain out indefinitely\" with the same \"health-related matter\" that has kept him out of training camp and the preseason. \"Hello people, I'm working with doctors and experts to figure out how to be fully back to good health ASAP,\" the veteran big man wrote on social media . \"Honestly, I'm getting better and better. I just have to stay patient, and I believe I'll be feeling great again soon. It has definitely been frustrating dealing with some health stuff that you can't exactly pinpoint, on top of injuries throughout my career, so it has added up for sure, but we will get through it. Health is wealth. Thank you for all the support. I appreciate all the Internet doctors trying to diagnose and help, but I'm in the best hands. So everyone can relax now, and I don't have HIV or AIDS.\" Porzingis, 31, has played in just 74 games over the past two seasons, limited by postural orthostatic tachycardia syndrome (POTS) that caused him to suffer an elevated heart rate and extreme fatigue. \"It hit me, and it hit me like a truck,\" Porziņģis told The Athletic's Fred"
+          }
         },
         {
           "subject": "Golden State Warriors",
           "care": "follow",
-          "headline": "Kristaps Porziņģis remains out indefinitely with health-related matter",
+          "headline": "Kristaps Porziņģis issues unusual statement addressing rumors amid health frustrations",
           "sport": "basketball",
           "outlets": [
             "The Athletic",
-            "Golden State of Mind"
+            "Yahoo Sports",
+            "San Francisco Chronicle",
+            "Sports Illustrated"
           ],
-          "n": 2,
+          "n": 4,
           "date": 1792015445000,
           "url": "https://www.nytimes.com/athletic/7690853/2026/10/14/kristaps-porzingis-warriors-health-update-out-indefinitely/",
           "reports": [
             {
               "source": "The Athletic",
-              "title": "Kristaps Porziņģis remains out indefinitely with health-related matter",
+              "title": "Kristaps Porziņģis issues unusual statement addressing rumors amid health frustrations",
               "summary": "The Warriors hoped that the big man's preseason absence would only keep him out for a short time, but that hope is now gone."
-            },
-            {
-              "source": "Golden State of Mind",
-              "title": "Kristaps Porziņģis is out indefinitely",
-              "summary": "Act One of What’s The Matter with Kristaps Porziņģis? has concluded with a cliffhanger some of you might’ve seen coming. This afternoon, the Warriors released a statement on their long-absent Latvian: If you’ve got that site blocked, here it is again, but with the most important part bolded: Golden State Warriors forward/center Kristaps Porziņģis, who […]"
             }
           ],
           "links": [
@@ -726,90 +860,100 @@
               "url": "https://www.nytimes.com/athletic/7690853/2026/10/14/kristaps-porzingis-warriors-health-update-out-indefinitely/"
             },
             {
-              "source": "Golden State of Mind",
-              "url": "https://www.goldenstateofmind.com/warriors-news/112625/kristaps-porzingis-is-out-indefinitely-private-health-reason-question-mark-porzingis-twitter-statement"
+              "source": "Yahoo Sports",
+              "url": "https://news.google.com/rss/articles/CBMilgFBVV95cUxNQWprLWhvOWJTVzdWNTdqeXN1dWJSbUE1MTFYVURvMGNNaHV3NXNRSzdQb2pTSjV3Tk9VaEtaOXZPM09QRGZDMVB3UW5PeWo5QmxwZmdkZGZZMFpUTEhyNUM2LXZzNnpSUDIzamZkNVoxUFlDeF8zeW1Eb0dyc0V3WG02RzV6UTdyNW5ZOElLN3F1WlA1V0E?oc=5"
+            },
+            {
+              "source": "San Francisco Chronicle",
+              "url": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxNZGhHZTRnbjM4NVVQMFpXMkpPZ2MwdlhSVTdYWVNuRTl5WV9VdEdQNFhWNThtSXVnVWllVDJsbXRqTHhJQnNwNDZqeW9pdVYzQ3NkOFYyeHg1Wm1INnpSSU0xd3pOTmR5ZWdrVkZlYXhLRnJXTzBMVl84NHpTWFJUZG04cmV2Z1QtMmh4TkJsb0FzOGpzVnhKaFRHb1BjNklkUU0xRlJPelY3VDQ?oc=5"
+            },
+            {
+              "source": "Sports Illustrated",
+              "url": "https://news.google.com/rss/articles/CBMirAFBVV95cUxQZDB6OXd2OE96V1BMek92bkdfV204Vkw4dWF2YjItSXFOYnN1aTEwekhUWExNQndnUDlDM1lCTk00TWpaZExEVFg5LUZPak0tUkVoN0F3TGtDTWtNQjh2SWFhUjJ3MkR6c3huby1NUk1EMXptVHROWGZuakZaU2ozTXhaenY4azBpVms3SkZLLW1oeW9pZmQ4MFphS0I0d0M4R3hiMUtzREVfaFFh?oc=5"
+            },
+            {
+              "source": "Sports Illustrated",
+              "url": "https://news.google.com/rss/articles/CBMirAFBVV95cUxQZDB6OXd2OE96V1BMek92bkdfV204Vkw4dWF2YjItSXFOYnN1aTEwekhUWExNQndnUDlDM1lCTk00TWpaZExEVFg5LUZPak0tUkVoN0F3TGtDTWtNQjh2SWFhUjJ3MkR6c3huby1NUk1EMXptVHROWGZuakZaU2ozTXhaenY4azBpVms3SkZLLW1oeW9pZmQ4MFphS0I0d0M4R3hiMUtzREVfaFFh?oc=5"
             }
           ],
           "titles": [
-            "Kristaps Porziņģis remains out indefinitely with health-related matter",
-            "Kristaps Porziņģis is out indefinitely"
+            "Kristaps Porziņģis issues unusual statement addressing rumors amid health frustrations",
+            "Warriors' Kristaps Porzingis breaks silence on his health issues",
+            "Kristaps Porzingis breaks silence after Warriors announce he’s out indefinitely",
+            "Warriors' Kristaps Porzingis Breaks Silence on Health Issue",
+            "Warriors' Kristaps Porzingis Breaks Silence on Health Issue"
           ],
           "text": {
-            "source": "Golden State of Mind",
-            "url": "https://www.goldenstateofmind.com/warriors-news/112625/kristaps-porzingis-is-out-indefinitely-private-health-reason-question-mark-porzingis-twitter-statement",
-            "text": "Act One of What’s The Matter with Kristaps Porziņģis? has concluded with a cliffhanger some of you might’ve seen coming. This afternoon, the Warriors released a statement on their long-absent Latvian: [Media: https://twitter.com/WarriorsPR/status/2110470609725722838] If you’ve got that site blocked, here it is again, but with the most important part bolded: > Golden State Warriors forward/center Kristaps Porziņģis, who missed training camp and the team’s first five (5) preseason games due to a health-related matter, returned to the Warriors’ practice facility yesterday and met with Warriors General Manager Mike Dunleavy and Vice President of Player Health & Performance Dr. Rick Celebrini. The specific contents of that meeting will remain private. Porziņģis will remain out indefinitely due to the same health-related matter but will be around the team. > An update on his status, including the potential resumption of practice, playing status or timeline, will be provided when available and appropriate. Gosh. I don’t know. If I didn’t want to make this story more than “out indefinitely,” then I might’ve chosen some less suspicious phrasing. The other day, Brady made a very reasonable"
+            "source": "Yahoo Sports",
+            "url": "https://sports.yahoo.com/articles/warriors-kristaps-porzingis-breaks-silence-214542900.html",
+            "text": "Kristaps Porzingis took to social media to give fans an update about his ongoing health"
           }
         },
         {
           "subject": "Cristiano Ronaldo",
           "care": "big-moments",
-          "headline": "Cristiano Ronaldo pledges allegiance to Saudi Arabia after missile alert delays Al-Nassr with bold gesture",
+          "headline": "Harry Kane Threatens a Historic Record of Cristiano Ronaldo in the Champions League",
           "sport": "football",
           "outlets": [
-            "MARCA",
-            "BBC",
-            "IndulgExpress",
-            "GujaratSamachar English",
-            "LiveScore",
-            "Goal.com",
-            "News18"
+            "beIN SPORTS",
+            "Sports Illustrated",
+            "Forza Football",
+            "FotMob",
+            "Chase Your Sport",
+            "Yahoo",
+            "World Soccer Talk"
           ],
           "n": 7,
-          "date": 1791925557000,
-          "url": "https://news.google.com/rss/articles/CBMi6AFBVV95cUxNM1hVbElFUW5jMjJrZS1CWUNIUEw2TVQyMW1veDlzdWZOQm1feDJVZnV2ZFItUmcyYzRHVm1BNHhka1hTdUx6UTBaMVRpNDdfRVdsWDc1Rk9EOUstOEl1R29vYkxuam1PeGM1Y1ZEejkwRFJabUFuM3VzWktIVVJ6VmQyeTJtLW5ZU0Q4cHBoNzI1V0o5anZtaWloNzVOcWwxTUZRQmo3dmtqUzVLa0NydUR4Y3FYWmpNX3gxdUdPV1NIUUxwNXZBSFpKZ3VyQUdfNGwzZ3Z5OUlEVF9SZ2twLWRMWUxWNWcx0gHoAUFVX3lxTFBmZW9aOXpaN3pJY2JkYU5SOGcwOGN1ZktReGJoekhPd3lPTDFZM2JNYi1zMzJvVFM5MXFGeVAtVXVxdndIOXBTazQ1Q2FxeGl0NWF2bkRUTGdsUVRPZERYbTVsaW5OaXZrN3dJMmEwUHdUODJWaWN6S3Z3SHAyZ2s1MElkOFJPZmFIVFNOS1kwaHZ4a1F3d0V4Nnd4cHJUTkQ1SmFyN29lUG9IZTFZVUh0djZUZjF5THR6aURsLWljRGNBb1JwcWU4U1RIVjJfeXI5cmoteDZJbG9wTDhFaE92dGprYjk5RkI?oc=5",
+          "date": 1791999922000,
+          "url": "https://news.google.com/rss/articles/CBMi6gFBVV95cUxQWmhDRDRBQUEwekE3U09RMWRlY2xzYzI1VEhlRGZFOVNXMWh2MC1aYmxmNUkzdGY0cFh0N0dQQkJOdWh5ai1KN29KSjhXWWt0TXhlZXBkVjZybzVEVHFsaDQyWGVObklYajdDTnRpcG9DQUxHM19ZTldybWZLcHBxVmVqcG05UEZ3VDVUWU5hZmVubk5IbnVUMXBzZkJ6ejhTb2NhR3pzWkU5WmlaNExTVXpmdnFUbWpCVm9uZGRPTHI3V0JvTkpJVTJvQjJSODl5ZFNQSTkybmdkSmJNRG42T2JpSWZKdC14N0E?oc=5",
           "reports": [],
           "links": [
             {
-              "source": "MARCA",
-              "url": "https://news.google.com/rss/articles/CBMi6AFBVV95cUxNM1hVbElFUW5jMjJrZS1CWUNIUEw2TVQyMW1veDlzdWZOQm1feDJVZnV2ZFItUmcyYzRHVm1BNHhka1hTdUx6UTBaMVRpNDdfRVdsWDc1Rk9EOUstOEl1R29vYkxuam1PeGM1Y1ZEejkwRFJabUFuM3VzWktIVVJ6VmQyeTJtLW5ZU0Q4cHBoNzI1V0o5anZtaWloNzVOcWwxTUZRQmo3dmtqUzVLa0NydUR4Y3FYWmpNX3gxdUdPV1NIUUxwNXZBSFpKZ3VyQUdfNGwzZ3Z5OUlEVF9SZ2twLWRMWUxWNWcx0gHoAUFVX3lxTFBmZW9aOXpaN3pJY2JkYU5SOGcwOGN1ZktReGJoekhPd3lPTDFZM2JNYi1zMzJvVFM5MXFGeVAtVXVxdndIOXBTazQ1Q2FxeGl0NWF2bkRUTGdsUVRPZERYbTVsaW5OaXZrN3dJMmEwUHdUODJWaWN6S3Z3SHAyZ2s1MElkOFJPZmFIVFNOS1kwaHZ4a1F3d0V4Nnd4cHJUTkQ1SmFyN29lUG9IZTFZVUh0djZUZjF5THR6aURsLWljRGNBb1JwcWU4U1RIVjJfeXI5cmoteDZJbG9wTDhFaE92dGprYjk5RkI?oc=5"
+              "source": "beIN SPORTS",
+              "url": "https://news.google.com/rss/articles/CBMi6gFBVV95cUxQWmhDRDRBQUEwekE3U09RMWRlY2xzYzI1VEhlRGZFOVNXMWh2MC1aYmxmNUkzdGY0cFh0N0dQQkJOdWh5ai1KN29KSjhXWWt0TXhlZXBkVjZybzVEVHFsaDQyWGVObklYajdDTnRpcG9DQUxHM19ZTldybWZLcHBxVmVqcG05UEZ3VDVUWU5hZmVubk5IbnVUMXBzZkJ6ejhTb2NhR3pzWkU5WmlaNExTVXpmdnFUbWpCVm9uZGRPTHI3V0JvTkpJVTJvQjJSODl5ZFNQSTkybmdkSmJNRG42T2JpSWZKdC14N0E?oc=5"
             },
             {
-              "source": "MARCA",
-              "url": "https://news.google.com/rss/articles/CBMi3gFBVV95cUxPVGh0V21IaERWUXdzRGZvMmdkTFltbUpnQ1c5c1c5T2xuUkdtT0xBVUw1NVBGdGR0WThDUlNEVmc3bnZXQ0JkU2x3SlN5cmVlYXlUb3FmN3NfdWZ1TUxlSk5XM0hMcFBrT3Q2eHEtNHl3cVE1dFVpSE5HcjU4QnlNOWdaV1V2M2lNN21ZeEpYSVQxN1RDd1hOUGtBeTlJYThvVjlwclJJSE1UcnI3M0J5MXZjb3VsNURiTDAxT3g3OVM1WmJUcm05bE9PV2RzcFctWUl2WldQakxFQ1RuRGfSAd4BQVVfeXFMTVdXekxPeUR6UFVxWmg2dV8wQklNMHZxNG0tX3J0MzlUVjRieTlJTVlmbG9rLVNnWlI1SVNFRnl1cVFINWNZSEFuVVBvMkllNmlTQzFyYnN3OEdJNUxzdjh0V1pNUzk3YnoxbExhN3JER0FsUnVQOWJiR0dsRkdvb19jVm1iVWh3akozMkV0QnhVbUZFSjU5b1F1SXhJRm94T2tIOVhkcEg0RVNvY3NtamZmdkJLa0VPM21TUUpteTJhaGpuSkRDaXBGejBQcUE1X0w3azM5SmRFQldiZ29B?oc=5"
+              "source": "Sports Illustrated",
+              "url": "https://news.google.com/rss/articles/CBMioAFBVV95cUxQVk9hSE1BSi1sSm10WHBINGYwSVFVeW9EZnZBMlptQ1ZZbFBHSEZial9ramZlV25WLWxwZHpaMHg2MVhQak1YRG0wU0g5UnExVUh5d1pINTBpZi1WQ296dnN1X1BCLVVNSkxKLWo0Zmtzem90ek43TVhzOG5NeTlVcV8xSDlWQUNiR01QWTdFTjM2amNGOVVmSkpBTVdiclVY?oc=5"
             },
             {
-              "source": "BBC",
-              "url": "https://news.google.com/rss/articles/CBMiaEFVX3lxTE40dGh3cmxPbXgzVDNRVkN1RVdtNk5hcUVLaWY4NVB4OUo1c1lZRG5VbHNUSnJZUEpLVHk5YVo0U195QUx4Mm9PNGV5ZHdETW56T3dMLWpoN3NKUUZJc2l4dVZmMVBvYzhM?oc=5"
+              "source": "Forza Football",
+              "url": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxOMUMwcnh1b3d6eUlCanVKSVFoWlh0TUZOZk1fNG04X3pzVW9HemwzdUhuY1NTSFNxM1RYa1UwdHFNSjlaaDI3a1hQOGZyc09WZERFb2lpRE4tenE2dWY3SEtBOW1oVl9yZVhqeUhvZi1jSjBPRi1kWC01dTduc2tSVnllU0NubEhjeWhwR0c1ZDhKSDJLWVVIMF9QS1R6djFDT1RDU01mc09MY1NhR0hCSGFnY004SzNqOVVPQXJkNWw?oc=5"
             },
             {
-              "source": "IndulgExpress",
-              "url": "https://news.google.com/rss/articles/CBMiywFBVV95cUxQVFZQQXA1cDVYYmFrMHVWU1czaGF6NWlxMjI3VFhBYTFfX3BjaDlNMDM3Sk8zTENmbHFFZ2hST1dNTTFlN1U3Uk56NGs3UTBBbU93MlExbE1OU2NET29kUmJ2ZFNMWjVGekxQSEVvNDlTaGt2c25YZkpRMXdJVHJvRWJaWGZiVlNQV3ZDbEVNVUZBVFR5Q1ZCUlZJSUdmSDllM1prOW9PMEowbS1PdzZqM2h3Ukg1UDZRc2lmdzFuejFOWkxyaXBycEhjVdIB2AFBVV95cUxNNmRMcEJSLUh3YkxJNC0zWmVnVVFyV2pnU1pQOWhtS1IzZjk1bXltQ1Vvc2MyR2hOSEI4RGtKQVFQMzZ6TW5jek5RSGlmdkRQcjBYY2FDRHdaVjIydkcyV3lobTBfVzVzVXh6eDY1YjI5bURDWXpSQlRDNENnTEhtZ1JFU3puZTlmcTN4WjM4NGhhYlNtOExvaC1oaFA3Rjc2dlQtNmtuVDh3dUtHYm9PZDNCczJOclpRUUxQa054M01NeEVzTjZGdkU1SEFIU2pWcjlpbEkwbVI?oc=5"
+              "source": "FotMob",
+              "url": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxOTnYtd2YtcVQ4VTBqTXYtaUFoNUNMMUJtUmlvbGNVX2ZDdkVZeEdVZGdCcGJBWXFSZVNRSk14czJ5OXZuWUJQcU1fczF6X3VLY1ZYTUVYcUZKWFlscjNCNkdmV0ZQV1RSdkNHNVRndnlEQU96ZU9yMVVvTnZXbWFXV05CdzFYcWZhWlBVdVh0VjF2MDhoWkM4bWZWV21oN2xrM1BKTDNSMGFxQVB1TU54bnpKR2pqZzU2ZmE3ZE5xZHM?oc=5"
             },
             {
-              "source": "GujaratSamachar English",
-              "url": "https://news.google.com/rss/articles/CBMinAFBVV95cUxQZXRTeE10U21yMWEwUXpqazZELUxLWnpmUHBQMm9kakRFRnBLYmxicEdDUW5DSEFWODE4SnFHNWhES0V5TmVQVHM2bjV3MFJ4RFNUckdmYzBCMDFKOFJMNkJ6VXY4ODZjdEhnc3pEMzBoRTQzZzk1YTgwV1RDdVdoazc5NWJLZGNneDM0MThzZ252U2pnUG8xMnR0YmY?oc=5"
+              "source": "Chase Your Sport",
+              "url": "https://news.google.com/rss/articles/CBMikgFBVV95cUxONFV5RHltZjJzVlFmaW5wcDMwSFB4T2swOTFvc1pDeDBKUHl2aldfNldKU1AtMDNJM2YzVUJaTFN5bTRSTTNjd1JCYVNLaWxmbGlieUxtdGpGYVFwTi0yYnBkcWJpdktrSkJQbFFxaUNWaFhTMkNyWnU3OFY4Sy1uSGJDRS1wQXVXeU5FY2E1WXNsQQ?oc=5"
             },
             {
-              "source": "LiveScore",
-              "url": "https://news.google.com/rss/articles/CBMisAJBVV95cUxOMUtBdmJMTXlwNVFvQUN1dVIxZm9MLWlQVmx4SWw2UHNwLUxDTWJnMnZiX3UwS1lIbW41eGxhTUJfYlVXdkUyRkdfMkQxNkIyVXFISmkwdXRTNXBPNHc3dlRYdnUyRmZMRVVpdS1uQXdYQ0duTlVTVXpLZVdJYndrRXhuNFJKREcyN1JCMGZubUE1bGozVjJ3Mm92UUtaRmNXcFJLY19objNwdUVfbzljelBzeEZjSkxReFZRYWlkdWNjV0F4M20tbThQTEhvb3NJNWk1QXlhMjV5M0swQTMtRlpTVC1vRldnejYzNFVHNE8wQ2o5ZWZmd3BvTmw4c1BtaUlTSXJhMWpRYUVDUThRNkpGdWY0MUQzbUVuN0UwQTJVeHgzTWJkUWlCd2l5V3Jq?oc=5"
+              "source": "Yahoo",
+              "url": "https://news.google.com/rss/articles/CBMiigFBVV95cUxOdlRtM1piS3NQMjNkNUVldE9iS0ZEZGpHQldpQXJaZ210ako0eWx2Tm9QSXRlYU9XLXpjWGN6Q29JakRsRFEtcFpkREp2eGxCU0hTbmNJajZKdkVHSV84cDlBeWFpYTZ5ZFR2Tnk1ekhsWFBLM1ZqTEM2MnlINlRDSGpmT3NDMnhBT3c?oc=5"
             },
             {
-              "source": "Goal.com",
-              "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxQV0F3akUxcEdTR1VIb3RtOFhhMTdIQW5WZjY1azctaVVJaWFmUk5IS3BSZWZrUEx4Q1lUeGdsY3V0blFFTmVQZ1NhT3RHNnAtTXpLV2pCcmtBSDVhWEtBcFJTMmRoOHJjZzhHUWVsYVBxNC1ZZlFNR2xlaXNZQ3ZYQjMxTWZ0Yjk0cTlyMWloRjBnN3lzdUhqWnpESHhPdE84SVIwTXZFamJaMXBYNFdQdXBFYW1xUQ?oc=5"
-            },
-            {
-              "source": "News18",
-              "url": "https://news.google.com/rss/articles/CBMi9AFBVV95cUxPVEhwYUpZbUlHUTY5Y3hNVHJSSGtWOVVhekE3cE9fZ05VNzNDREN6eWxaVVVnVk1OU3dJdkZKLWU3cUpZazdQekVrN2FLTmhXUHFhZ1JIQmJfcGthb1ppRFo2NW0xeDVlcktsbGFfelpNNGJuVWR3ZGxFYnpyaGhEY3ZpNmdSUUM4bkl2RE5DZlNzZ0puWE1EYnVoV3A0emZLbkFWczduUXlBdVFPTnA3QlB1VDQ2THFNUlNqZUJLUTRReV91cTNudnY4ME5pRDBYRnNPTFJmdjR2Y21wTEhNeWVEV1FzNS1ZS1hzeldDZnVqVEZH0gH6AUFVX3lxTE82eHVBTGdSUFdTeHdTa2NIU0c0WXd4Y1pVMTNkSU96Q1pKVkphTjBBQXBncWlNYlQ4b3ZscmprVDcyZjJfZmcyRS1MM01CTDk4OUdFSC1EeWk5VHlnVkU4bFY5RTc1b2lFMjI0NU1HQmo2bmJGbmVHT3ZHY2xJcWc4NmdZZmw3N0tSN2Z6UjUteU83SWJ2Rzl0eno4Mnd4czNBX1NSVXlvVFRHdkJKRnMzUER5X2xkem5TcVJiamlYQm44MFFWVzVKbUMxRDN0R01uRUpQVkE0RHNsQkRXUnUzcHhrNGROeWs1QTlZT1RZSHZoeTZ4NFRvUHc?oc=5"
+              "source": "World Soccer Talk",
+              "url": "https://news.google.com/rss/articles/CBMi0wFBVV95cUxOZy0yYWM1a2VUanZSNXAtSEtFUEUyZWNRQ0VjVWdFYzZRX1BFQllvYnJkQUFKWXdTSnBQQmxRZElQd0NMQVltdXktdVdnVlRZaHN6RmZueVhjTFZZU2Q1V2kwaUlVZVk4QUdaT2NSSDIwaS01LUppODRJWldId2dITXNzMGtaejBlVjRxaHRCR3ZYRVNOX3Q3djBVNS0weXVDWG5kZHZ1Y1pHR3VlRjVxa1F6R1d6OG84MlNwR0FZMHhwMDZlXy1udG9zeGRLaTJsSDdZ0gHXAUFVX3lxTE12ZDRoVmRUVG10Z1JrLTd1MUlnNnNFQ0x0TEExZXdMQkM1T0JUYlR2ek1NcERrWEtFc1BsR0lYRFhIU0d0dlpNTmxUbmdiODl0eTdNTFNqdTNWSWFyX3JWeElPTkh3Zy1YMnpEcExSeVB5YmxORVpfZDJwQ2tmOWtQeU1GNVF6d2JfUmRnWnhnbUdPdHVUQzAzNlV6by1HYm9yZEpRRTIyWnNXMFlfMHpnNXRUTUczQTJXWmRyNzNHMFlCTHRqeFVlZjVDQm9Sc3FVRHRPUzRB?oc=5"
             }
           ],
           "titles": [
-            "Cristiano Ronaldo pledges allegiance to Saudi Arabia after missile alert delays Al-Nassr with bold gesture",
-            "Cristiano Ronaldo waves Saudi flag scarf after missile alert delays Al-Nassr match in Riyadh",
-            "Cristiano Ronaldo scores in Al-Nassr win after match delayed by missile alert",
-            "Cristiano Ronaldo’s Al-Nassr match delayed by missile alert in Riyadh before 3–1 win",
-            "Cristiano Ronaldo’s Al-Nassr Match Delayed by Missile Alert in Riyadh, Club Wins 3–1",
-            "Cristiano Ronaldo pledges allegiance to Saudi Arabia with emotional scarf gesture in AFC Champions League win after netting 981st career goal",
-            "Cristiano Ronaldo pledges allegiance to Saudi Arabia with emotional scarf gesture in AFC Champions League win after netting 981st career goal",
-            "Cristiano Ronaldo Scores 981st Goal Of Career After Missile Strike Delays Asian Champions League Match"
+            "Harry Kane Threatens a Historic Record of Cristiano Ronaldo in the Champions League",
+            "Harry Kane Surpasses Lionel Messi Landmark to Close on Cristiano Ronaldo Record",
+            "Harry Kane Surpasses Lionel Messi Landmark to Close on Cristiano Ronaldo Record",
+            "Harry Kane Surpasses Lionel Messi Landmark to Close on Cristiano Ronaldo Record",
+            "Harry Kane Closes in on Cristiano Ronaldo’s Champions League Record",
+            "Harry Kane closes in on Cristiano Ronaldo’s legendary UEFA Champions League scoring record",
+            "Harry Kane joins Cristiano Ronaldo and Lionel Messi among the Champions League’s all-time top 10 scorers"
           ],
           "text": {
-            "source": "MARCA",
-            "url": "https://www.marca.com/en/football/2026/10/13/cristiano-ronaldo-pledges-allegiance-to-saudi-arabia-after-missile-alert-delays-nassr-with-bold-gesture.html",
-            "text": "Cristiano Ronaldo has shown his connection to Saudi Arabia with a gesture that carried added significance after a tense night in Riyadh. The Portuguese forward waved a scarf featuring the Saudi flag following Al-Nassr's 3-1 victory over FC Neftchi Fergana in the AFC Champions League Elite, reaffirming his bond with the country and its fans who welcomed him when his career was under scrutiny. There has also been speculation that he could end his playing career in Saudi Arabia. The match was delayed by an hour after an aerial missile alert and explosions were reported across the city. Yemen-based Houthi rebels launched ballistic missiles targeting Riyadh, while Saudi-led coalition forces intercepted and destroyed the incoming projectiles. The fixture went ahead once authorities confirmed the danger had passed. Ronaldo scored Al-Nassr's second goal in the 42nd minute, taking his career tally to 981 goals during the match in Riyadh. Despite the security concerns surrounding the fixture, Al-Nassr maintained their composure to secure a 3-1 win and claim three points in the continental competition. The 41-year-old's celebrations then shifted the focus from the result to his connection"
+            "source": "beIN SPORTS",
+            "url": "https://www.beinsports.com/en-us/soccer/bundesliga/articles/harry-kane-threatens-a-historic-record-of-cristiano-ronaldo-in-the-champions-league-2026-10-14",
+            "text": "Harry Kane , game by game, makes it clear why he is the most important man for Bayern Munich. The English forward was the star in the last match, where he scored a brace in the 3-3 draw, a result that felt underwhelming after being down 2-0. A complete performance that, however, was not enough to take the three points. 450 goals and a record that threatens Cristiano Beyond the result, the night left crazy numbers. Kane reached 450 goals as a professional, a historic figure in his career. Of the total, 154 were scored with Bayern, 280 with Tottenham, nine with Millwall, five with Leyton Orient, and two with Leicester. In the Champions League , the Englishman has scored in nine consecutive matches. Only Cristiano Ronaldo surpasses him, with 11. Moreover, Kane has already made it into the top eight all-time scorers of the tournament: he has 57 goals, tied with Thomas Müller and ahead of Ruud van Nistelrooy (56). And he has accumulated 14 goals and five assists in 13 matches between Bayern and the English national team. Self-criticism and the obsession with the Ballon d'Or Still, despite his performance, Kane was not satisfied. He lamented the draw and considered that Olise's"
           }
         }
       ],
-      "words": 268,
+      "words": 258,
       "name": "Also on your list",
       "about": "Follow and big-moment items, brisk: a result and one line of why it matters."
     },
@@ -881,14 +1025,14 @@
       "considered": [
         "Villarreal 3-1 Napoli (drama 5: Napoli beaten by Villarreal)",
         "3rd T20I, Sri Lanka tour of Pakistan, 2026: Sri Lanka won by 8 wkts (drama 6: Sri Lanka (tier 2) beat Pakistan (tier 1))",
+        "Gaël Monfils' tennis retirement: French legend quietly appears on list of inactive players (drama 4: 2 outlets)",
         "Manchester City 2-4 Paris Saint-Germain (drama 3: a big match won by two or more)",
         "LASK Linz 3-6 Liverpool (drama 3: 9 goals)",
         "Atlético Madrid 2-0 Manchester United (drama 3: a big match won by two or more)",
         "Viking FK 3-3 Bayern Munich (drama 3: Bayern Munich held by Viking FK)",
-        "Liverpool 0-3 Manchester City (drama 5: Liverpool lost by 3, a big match won by two or more)",
-        "1st Test, Australia tour of South Africa, 2026: Australia won by 214 runs (drama 5: by 214 runs)"
+        "Liverpool 0-3 Manchester City (drama 5: Liverpool lost by 3, a big match won by two or more)"
       ],
-      "words": 66,
+      "words": 63,
       "name": "Around the grounds",
       "about": "The Wider Pitch and The Sidelines: football and other sport that several outlets are leading with. Quick hits."
     },
@@ -931,7 +1075,7 @@
           "venue": "Santiago Bernabéu"
         }
       ],
-      "words": 41,
+      "words": 39,
       "name": "Coming up",
       "about": "The listener's fixtures in the next seven days, in their time zone, with what is at stake."
     },
@@ -944,7 +1088,7 @@
   ],
   "items": [
     {
-      "id": "fb-401915414-love",
+      "id": "fb-real-madrid-2026-10-14-love",
       "sport": "football",
       "kind": "result",
       "subject": "Real Madrid",
@@ -1000,28 +1144,120 @@
       "score": 3.9,
       "reports": [
         {
-          "headline": "Real Madrid produce a wild comeback against Roma: How did they do it again?",
-          "outlets": [
-            "The Athletic",
-            "The Guardian"
-          ]
-        },
-        {
           "headline": "Real Madrid stun Roma after dramatic late comeback",
           "outlets": [
             "BBC Sport",
+            "Managing Madrid",
+            "Goal.com",
+            "Yahoo Sports"
+          ]
+        },
+        {
+          "headline": "Real Madrid produce a wild comeback against Roma: How did they do it again?",
+          "outlets": [
+            "The Athletic",
+            "The Guardian",
+            "Goal.com"
+          ]
+        },
+        {
+          "headline": "Roma vs Real Madrid quotes: Jose Mourinho, Antonio Rudiger, Endrick, and Federico Valverde on 4-3 UCL win",
+          "outlets": [
+            "Goal.com",
+            "Yahoo Sports"
+          ]
+        },
+        {
+          "headline": "3 burning questions from Real Madrid's dramatic 4-3 comeback win vs Roma",
+          "outlets": [
+            "The Real Champs",
+            "Arab News"
+          ]
+        },
+        {
+          "headline": "Real Madrid come from 3-1 down to beat Roma on Champions League travels",
+          "outlets": [
+            "Al Jazeera",
+            "Opta Analyst"
+          ]
+        },
+        {
+          "headline": "Mourinho: ‘Real Madrid impossible to stop, Roma players were dead’ for 4-3 defeat",
+          "outlets": [
+            "Yahoo Sports",
+            "Universidad de Córdoba (UCO)"
+          ]
+        },
+        {
+          "headline": "Penalty and offside: was Real Madrid wronged twice in Roma's third goal?",
+          "outlets": [
+            "Goal.com",
+            "Universidad de Córdoba (UCO)"
+          ]
+        },
+        {
+          "headline": "Mourinho: “The cat is out of the bag with the federation”",
+          "outlets": [
             "Managing Madrid"
+          ]
+        },
+        {
+          "headline": "Real Madrid star wins Man of the Match award for performance off the bench vs Roma",
+          "outlets": [
+            "Yahoo Sports"
+          ]
+        },
+        {
+          "headline": "Real Madrid claim extraordinary win over AS Roma, with De Roon and Malen scoring for Roma",
+          "outlets": [
+            "Goal.com"
+          ]
+        },
+        {
+          "headline": "UCL | Roma 3-4 Real Madrid: Mourinho inflicts corner kick nightmare on Gasp",
+          "outlets": [
+            "Football Italia"
+          ]
+        },
+        {
+          "headline": "‘This isn’t normal’ – Real Madrid fans turn on Vinícius Jr. during Roma clash",
+          "outlets": [
+            "Yahoo Sports"
+          ]
+        },
+        {
+          "headline": "Roma vs Real Madrid: Kylian Mbappe overtakes Lionel Messi 100 appearances in Champions League record books",
+          "outlets": [
+            "Livemint"
+          ]
+        },
+        {
+          "headline": "On video: De Roon shatters Batistuta's legend at Real Madrid's expense",
+          "outlets": [
+            "Goal.com"
+          ]
+        },
+        {
+          "headline": "☑︎!+! [ＬＩＶＥ ＯＮ VEDIO] ☑︎ AS Roma vs Real Madrid 𝐋𝐈𝐕𝐄 𝐒𝐭𝐫𝐞𝐚𝐦𝐢𝐧𝐠 Ｔｖ Ｃｈａｎｎｅｌ 15 October 2026",
+          "outlets": [
+            "Universidad de Córdoba (UCO)"
+          ]
+        },
+        {
+          "headline": "#&![WatchLive]TV@@] Today:Real Madrid vs Roma 𝐋𝐈𝐕𝐄 Ｓｔｒｅａｍｓ Ｆｒｅｅ ＯＮ Ｔｖ Ｃｈａｎｎｅｌ free",
+          "outlets": [
+            "Universidad de Córdoba (UCO)"
           ]
         }
       ],
       "report": {
-        "source": "The Guardian",
-        "url": "https://www.theguardian.com/football/2026/oct/14/champions-league-mourinhos-real-madrid-stage-crazy-comeback-on-roma-return",
-        "text": "José Mourinho enjoyed a Roma reunion to remember as Real Madrid completed an astonishing comeback by scoring three late goals to claim a 4-3 away win in the Champions League on Wednesday. Marten de Roon gave the hosts a deserved opener before Kylian Mbappé struck back on his 100th Champions League appearance to level the scores at the break. Two Donyell Malen strikes in the space of six minutes early in the second half seemed to take the game away from the 15-time European champions as Roma ran rampant. But Madrid scored three goals in the final six minutes, all stemming from corners, to turn the game on its head as Carlos Espí, Endrick and the former Roma defender Antonio Rüdiger struck at a stunned Stadio Olimpico. “You could say there were two games in one,” Mourinho said. “Roma were better in all aspects early on. When it was 3-1 everyone probably thought the game was over.” Mourinho was a popular figure as he led Roma to the Conference League title and Europa League final during two-and-a-half years in charge. The Portuguese coach was honoured with banners and chants by the home crowd in Roma’s first home Champions League match in more than seven years. Fredrik Sjøvold’s"
+        "source": "BBC Sport",
+        "url": "https://www.bbc.co.uk/sport/football/videos/cmx239x97ddvo?at_medium=RSS&at_campaign=rss",
+        "text": "Real Madrid complete their latest dramatic Champions League comeback by scoring three goals in the final seven minutes to earn manager Jose Mourinho a win on his return to"
       }
     },
     {
-      "id": "fb-401912627-Cristiano Ronaldo",
+      "id": "fb-al-nassr-2026-10-12-Cristiano Ronaldo",
       "sport": "football",
       "kind": "result",
       "subject": "Cristiano Ronaldo",
@@ -1073,41 +1309,51 @@
       "score": 0.5,
       "reports": [
         {
-          "headline": "981st! Ronaldo Scores in Al Nassr’s 3-1 Win Over Neftchi as Portugal Suspension Row Continues",
+          "headline": "Ronaldo scores as Al-Nassr win after missile safety delay",
           "outlets": [
-            "Open Magazine",
+            "NST Online",
+            "Newsband",
+            "Al Jazeera",
+            "The Annapurna Express",
+            "The Business Standard",
             "India.com",
-            "The News Mill",
-            "ANI News"
+            "The News Mill"
           ]
         },
         {
           "headline": "Why Ronaldo's Al Nassr AFC Champions League Elite match was delayed by an hour",
           "outlets": [
             "The Indian Express",
-            "India Today",
-            "football360.com.au"
+            "Middle East Online",
+            "OneFootball",
+            "Kashmir Sports Watch",
+            "Ratopati",
+            "ASHARQ AL-AWSAT English",
+            "News18"
           ]
         },
         {
-          "headline": "Cristiano Ronaldo scores as Al-Nassr beat Neftchi after security delay",
+          "headline": "Cristiano Ronaldo scores in Al-Nassr win after match delayed by missile alert",
           "outlets": [
-            "Geo Super",
-            "Khaleej Times"
+            "BBC",
+            "IndulgExpress",
+            "Outlook India",
+            "Khaleej Times",
+            "Sportstar"
           ]
         },
         {
-          "headline": "Cristiano Ronaldo's 981st goal helps Al Nassr win as Al Ain go top of AFC Champions League",
+          "headline": "Portugal share post for suspended Ronaldo after he scores for Al-Nassr | Al-Nassr defeated Neftchi Fergana 3-1",
           "outlets": [
-            "The National",
-            "Livemint"
+            "Inshorts",
+            "Open Magazine"
           ]
         }
       ],
       "report": {
-        "source": "Open Magazine",
-        "url": "https://openthemagazine.com/sports/981st-ronaldo-scores-in-al-nassrs-3-1-win-over-neftchi-as-portugal-suspension-row-continues",
-        "text": "Cristiano Ronaldo scored his 981st professional goal, across club and country, as Al Nassr beat Neftchi 3-1 in the AFC Champions League Elite on Monday. The strike keeps him on course for his target of 1,000 career goals. The goal came amid a row over his future with Portugal. The 41-year-old has been provisionally suspended by the Portuguese Football Federation (FPF) after leaving the national camp during the UEFA Nations League, and disciplinary proceedings have been opened against him. His rift with head coach Jorge Jesus has deepened. THE MATCH Angelo Gabriel put Al Nassr ahead in the 33rd minute, and Ronaldo added the second nine minutes later. Alisher Odilov pulled one back for Neftchi in the 51st minute. An own goal by Anvarjon Gofurov in the 78th minute gave Al Nassr a two-goal cushion, and the scoreline stayed the same until the end. After the game, Ronaldo posted on Instagram: “Important win tonight. We keep building.” THE SUSPENSION The FPF’s disciplinary council has suspended Ronaldo on a non-automatic basis and classified the case as “urgent”. According to Goal.com, this is the first sanction against him while the investigation is pending, before any final penalty."
+        "source": "NST Online",
+        "url": "https://www.nst.com.my/amp/sports/football/2026/10/1554813/ronaldo-scores-al-nassr-win-after-missile-safety-delay",
+        "text": "RIYADH: Cristiano Ronaldo scored Al-Nassr's second goal as the Saudi Pro League champions overcame an hour-long security delay to beat Uzbekistan's Neftchi 3-1 in the Asian Champions League Elite on Monday. Kick-off was delayed after Saudi Arabia's Civil Defence issued a safety warning 15 minutes before the scheduled start time in Riyadh, which has been targeted by missiles fired from Yemen-based Houthis in recent days. Ange Postecoglou's side shook off the interruption and went ahead through Angelo in the 33rd minute with a deflected strike, before Ronaldo doubled the lead nine minutes later. The 41-year-old struck after Sadio Mane delivered a looping cross from the left that Aiman Yahya directed into Ronaldo's path with his chest, and the Portuguese forward lashed the ball into the bottom corner with a shot on the turn. Alisher Odilov pulled one back for Neftchi six minutes into the second half, but Ikromjon Alibaev's red card for a foul on Mohamed Simakan in the 65th minute, and an own goal by Anvarjon Gofurov 13 minutes later sealed the win for Al-Nassr. Meanwhile, defending champions Al-Ahli scored twice in the second half to pick up their first win of the new campaign as"
       }
     },
     {
@@ -1140,52 +1386,13 @@
       "score": 1.5,
       "reports": [
         {
-          "headline": "Arshdeep and Abhishek power India to 2-1 lead",
-          "outlets": [
-            "ESPNcricinfo",
-            "ESPNcricinfo, India"
-          ]
-        }
-      ],
-      "report": null
-    },
-    {
-      "id": "cr-151598",
-      "sport": "cricket",
-      "kind": "result",
-      "subject": "India men",
-      "stance": "love",
-      "care": "die-hard",
-      "when": "2026-10-14T13:30:00.000Z",
-      "when_local": "Wed 14 Oct, 19:00",
-      "competition": "West Indies tour of India, 2026",
-      "stage": "league",
-      "line": "4th T20I v West Indies, Hyderabad: West Indies won by 24 runs",
-      "scorecard": "WI 247/3 (20 ov) · IND 223 (19.3 ov)",
-      "series": "T20 series: India 2, West Indies 2 after 4 of 5; next 5th T20I, Sat 17 Oct, 19:00, Bengaluru",
-      "facts": {
-        "won": false,
-        "lost": true,
-        "drew": false,
-        "big": false,
-        "close": false,
-        "stage": "league",
-        "preseason": false,
-        "title": false
-      },
-      "source": "Cricbuzz",
-      "mood": "gutted",
-      "intensity": 3,
-      "score": 3,
-      "reports": [
-        {
           "headline": "Shai Hope’s 102 gives West Indies series-leveling win over India in fourth cricket T20",
           "outlets": [
-            "myMotherLode.com",
-            "Al Jazeera",
+            "Bozeman Daily Chronicle",
             "Oskaloosa Herald",
             "ABC News - Breaking News, Latest News and Videos",
-            "The Daily Star"
+            "The Daily Star",
+            "Devdiscourse"
           ]
         },
         {
@@ -1236,27 +1443,22 @@
           ]
         },
         {
+          "headline": "Arshdeep and Abhishek power India to 2-1 lead",
+          "outlets": [
+            "ESPNcricinfo",
+            "ESPNcricinfo, India"
+          ]
+        },
+        {
           "headline": "Sanju Samson press conference: On India's loss vs West Indies and the turning moment",
           "outlets": [
             "The Times of India"
           ]
         },
         {
-          "headline": "Hope Unstoppable, India Left Searching for Answers in Hyderabad",
-          "outlets": [
-            "Rediff"
-          ]
-        },
-        {
           "headline": "Samson Reaches 100 T20I Sixes, India Achieve Big Feat During 4th Match vs West Indies",
           "outlets": [
             "NDTV Sports"
-          ]
-        },
-        {
-          "headline": "Cricket-Hope ton powers Windies to series-levelling win over India",
-          "outlets": [
-            "Devdiscourse"
           ]
         },
         {
@@ -1276,6 +1478,48 @@
           "outlets": [
             "The Indian Express"
           ]
+        }
+      ],
+      "report": {
+        "source": "Bozeman Daily Chronicle",
+        "url": "https://www.bozemandailychronicle.com/wire/sports/shai-hope-s-102-gives-west-indies-series-leveling-win-over-india-in-fourth-cricket/article_89d445fe-8ce7-5705-b565-53dfd5902097.html",
+        "text": "HYDERABAD, India (AP) — Shai Hope set a West Indies record by reaching 102 not out as West Indies beat India by 24 runs Wednesday in the fourth cricket T20 to level the five-match series at 2-2.Hope hit nine sixes and four fours in his third T20 century – the most for a West Indies batter – as the visitors piled up 247-3 in 20 overs. India had won the toss and opted to bowl.It was the second-highest first innings total in T20s against India, trailing England’s 257-3 in Southampton this year.In reply, Sanju Samson hit 56 off 23 balls but India was down to 130-5 and the chase never took off. It finished with 223 in 19.3 overs.Keemo Paul picked 5-41 for his second five-wicket haul in T20s.Bengaluru will host the deciding T20 on Saturday.Put into bat, Hope gave West Indies a flying by putting on 52 off 26 balls with Jewel Andrew (21). Axar Patel trapped Andrew lbw in the fifth over but West Indies still got 79-1 in the powerplay.Hope then added another 58 off 24 balls with Shimron Hetmyer, reaching 50 off 28 balls with the help of five sixes. He sped to a second hundred in the series with another four sixes.Hope also became only the fifth batter to score multiple hundreds in a"
+      }
+    },
+    {
+      "id": "cr-151598",
+      "sport": "cricket",
+      "kind": "result",
+      "subject": "India men",
+      "stance": "love",
+      "care": "die-hard",
+      "when": "2026-10-14T13:30:00.000Z",
+      "when_local": "Wed 14 Oct, 19:00",
+      "competition": "West Indies tour of India, 2026",
+      "stage": "league",
+      "line": "4th T20I v West Indies, Hyderabad: West Indies won by 24 runs",
+      "scorecard": "WI 247/3 (20 ov) · IND 223 (19.3 ov)",
+      "series": "T20 series: India 2, West Indies 2 after 4 of 5; next 5th T20I, Sat 17 Oct, 19:00, Bengaluru",
+      "facts": {
+        "won": false,
+        "lost": true,
+        "drew": false,
+        "big": false,
+        "close": false,
+        "stage": "league",
+        "preseason": false,
+        "title": false
+      },
+      "source": "Cricbuzz",
+      "mood": "gutted",
+      "intensity": 3,
+      "score": 3,
+      "reports": [
+        {
+          "headline": "Hope Unstoppable, India Left Searching for Answers in Hyderabad",
+          "outlets": [
+            "Rediff"
+          ]
         },
         {
           "headline": "Explained: Why India could keep only four fielders outside 30-yard cirlce in 20th over as WI post 247 runs in Hyderabad",
@@ -1291,9 +1535,9 @@
         }
       ],
       "report": {
-        "source": "myMotherLode.com",
-        "url": "https://mymotherlode.com/news/world/11221930/shai-hopes-102-gives-west-indies-series-leveling-win-over-india-in-fourth-cricket-t20.html/amp",
-        "text": "West Indies' Keemo Paul, left, celebrate with captain Shai Hope the wicket of India's Sanju Samson during the fourth T20 cricket match between India and West Indies in Hyderabad, India, Wednesday, Oct. 14, 2026. (AP Photo/Mahesh Kumar A.) HYDERABAD, India (AP) — Shai Hope set a West Indies record by reaching 102 not out as West Indies beat India by 24 runs Wednesday in the fourth cricket T20 to level the five-match series at 2-2. Hope hit nine sixes and four fours in his third T20 century – the most for a West Indies batter – as the visitors piled up 247-3 in 20 overs. India had won the toss and opted to bowl. It was the second-highest first innings total in T20s against India, trailing England’s 257-3 in Southampton this year. In reply, Sanju Samson hit 56 off 23 balls but India was down to 130-5 and the chase never took off. It finished with 223 in 19.3 overs. Keemo Paul picked 5-41 for his second five-wicket haul in T20s. Put into bat, Hope gave West Indies a flying by putting on 52 off 26 balls with Jewel Andrew (21). Axar Patel trapped Andrew lbw in the fifth over but West Indies still got 79-1 in the powerplay. Hope then added another 58 off 24 balls with Shimron Hetmyer,"
+        "source": "Rediff",
+        "url": "https://www.rediff.com/cricket/report/4th-t20i-india-vs-wi-hope-unstoppable-india-left-searching-for-answers-in-hyderabad-as-wi-level-series/20261015.htm",
+        "text": "Shai Hope struck his second T20I century of the India tour before Keemo Pauls five-wicket haul derailed Indias chase of 248 in the fourth T20I to level the series 2-2.ScorecardIMAGE: Shai Hope celebrates his century against India in the 4th T20I in Hyderabad on Wednesday. Photograph: ANI Photo Key PointsShai Hope scored a magnificent unbeaten century (102 off 50 balls) for West Indies, his second T20I century of the India tour.Keemo Paul delivered a crucial five-wicket haul (5/41), dismantling Indias chase.West Indies posted a formidable total of 247 for three, with Sherfane Rutherford contributing an unbeaten 49.Indias chase, despite a fifty from Sanju Samson (56) and strong contributions from Tilak Varma (43) and Nitish Kumar Reddy (41), fell short by 24 runs.The victory levels the five-match T20I series between India and West Indies at 2-2, setting up a decider. A magnificent century by an unstoppable Shai Hope and a five-wicket haul by Keemo Paul helped West Indies secure a 24-run win over India in the fourth T20I of the five-match series at Hyderabad on Wednesday. Hope struck another century as West Indies beat India to level the five-match series at 2-2.Pauls Dominant"
       }
     },
     {
@@ -1333,22 +1577,22 @@
       "score": 1.5,
       "reports": [
         {
-          "headline": "George Russell calls Red Bull \"the team to beat\" in F1, but Kimi Antonelli adds a key caveat",
+          "headline": "Toto Wolff Warns Mercedes of Red Bull Threat After Verstappen Wins",
           "outlets": [
-            "Motorsport.com"
+            "Yahoo Sports"
           ]
         },
         {
-          "headline": "Fans can't get enough of Max Verstappen's floral race boots after Singapore win",
+          "headline": "George Russell calls Red Bull \"the team to beat\" in F1, but Kimi Antonelli adds a key caveat",
           "outlets": [
             "Motorsport.com"
           ]
         }
       ],
       "report": {
-        "source": "Motorsport.com",
-        "url": "https://www.motorsport.com/f1/news/george-russell-calls-red-bull-the-team-to-beat-in-f1-but-kimi-antonelli-adds-a-key-caveat/10864572/?utm_source=RSS&utm_medium=referral&utm_campaign=RSS-F1&utm_term=News&utm_content=www",
-        "text": "Formula 1’s Asian triple-header has gone particularly well for Max Verstappen. The Red Bull driver finished 0.196 seconds behind Russell in Baku before going on to claim convincing victories in Malaysia and Singapore. On both sides of the equation – at Red Bull and Mercedes – this is linked to major upgrades introduced during the recent triple-header. Red Bull brought its final major package for the RB22 to Baku and immediately made a significant step forward. Read Also: Formula 1Who slept best last night: Max Verstappen At Mercedes, the reality has proved more complicated. The Silver Arrows introduced their long-awaited upgrade for the W17 in Malaysia, but it did not immediately provide the answers they were looking for – partly because of the unusual characteristics of the Sepang International Circuit, with its extremely rough tarmac. In Singapore, Russell ran the old spec while Antonelli used the new one to gather comparative data and find answers. The preliminary conclusion is that the upgrade does indeed offer greater potential, but the operating window in which that potential can be unlocked is extremely narrow. \"The numbers say it's performing as we expect, but obviously"
+        "source": "Yahoo Sports",
+        "url": "https://sports.yahoo.com/articles/toto-wolff-warns-mercedes-red-015016765.html",
+        "text": "The Mercedes director acknowledges Red Bull's resurgence and warns that the title fight will be much harder in"
       }
     },
     {
@@ -1382,11 +1626,140 @@
         {
           "headline": "Carlos Alcaraz's Shanghai Masters upset loss to Zizou Bergs was all about the serve",
           "outlets": [
-            "The Athletic"
+            "The Athletic",
+            "Magzter",
+            "Sportscape Magazine",
+            "سانا",
+            "The Sentinel - of this Land, for its People",
+            "Tennis.com"
+          ]
+        },
+        {
+          "headline": "Alcaraz exits Shanghai Masters in straight-sets loss",
+          "outlets": [
+            "Oman Observer",
+            "CGTN",
+            "The Express Tribune",
+            "The Peninsula Qatar",
+            "香港電台"
+          ]
+        },
+        {
+          "headline": "Bergs stuns Alcaraz in Shanghai",
+          "outlets": [
+            "Ahmedabad Mirror",
+            "Sportscape Magazine",
+            "tennismajors.com",
+            "Firstpost"
+          ]
+        },
+        {
+          "headline": "Carlos Alcaraz's Shanghai defeat exposed a problem Zizou Bergs was brave enough to exploit",
+          "outlets": [
+            "Tennisuptodate.com",
+            "beIN SPORTS",
+            "Tennis World USA"
+          ]
+        },
+        {
+          "headline": "Carlos Alcaraz reveals what went wrong in surprise Shanghai exit",
+          "outlets": [
+            "Tennis World USA",
+            "Khel Now"
+          ]
+        },
+        {
+          "headline": "“I Don’t Want To Make Excuses” – Carlos Alcaraz Makes Concerning Claim About Shanghai Conditions After Frustration In Shock Exit",
+          "outlets": [
+            "AOL.co.uk",
+            "Yahoo Sports"
+          ]
+        },
+        {
+          "headline": "Moment: “I can’t play like this man” — Alcaraz anger at balls during his defeat to Bergs",
+          "outlets": [
+            "The Daily Telegraph",
+            "Sportskeeda"
+          ]
+        },
+        {
+          "headline": "“Carlos Alcaraz Is David Beckham, Except Better” – Andy Roddick Boldly Compares Spaniard’s New Look To $1 Billion Soccer Icon After Shanghai Exit",
+          "outlets": [
+            "AOL.com"
+          ]
+        },
+        {
+          "headline": "Carlos Alcaraz told what he needs to work on in the off-season after suffering shock defeat to Zizou Bergs",
+          "outlets": [
+            "Yahoo"
+          ]
+        },
+        {
+          "headline": "Alexander Zverev on the cusp of equalling Carlos Alcaraz’s Masters record after latest win",
+          "outlets": [
+            "Tennis365"
+          ]
+        },
+        {
+          "headline": "Carlos Alcaraz Questions Ball Conditions After Shanghai Masters Defeat",
+          "outlets": [
+            "Sportscape Magazine"
+          ]
+        },
+        {
+          "headline": "Tennis/ Alcaraz eliminated, nervous Spaniard loses to Bergs, Zverev number 1 ATP for 2026",
+          "outlets": [
+            "Balkanweb.com"
+          ]
+        },
+        {
+          "headline": "Knockout on the Court and Duel with Alcaraz: What the Belgian Zizou Bergs is Known For",
+          "outlets": [
+            "open.kg"
+          ]
+        },
+        {
+          "headline": "Tennis365 wants Shanghai to change its balls. Zizou Bergs, who beat Alcaraz with them, has the better case",
+          "outlets": [
+            "Pundit Feed"
+          ]
+        },
+        {
+          "headline": "Zizou Bergs offers blunt response to Carlos Alcaraz’s ball complaints",
+          "outlets": [
+            "Tennis365"
+          ]
+        },
+        {
+          "headline": "Ben Shelton Stuns Carlos Alcaraz in Marathon Match",
+          "outlets": [
+            "247Sports"
+          ]
+        },
+        {
+          "headline": "Bergs stuns Alcaraz in Shanghai",
+          "outlets": [
+            "SportyTV"
+          ]
+        },
+        {
+          "headline": "Tennis: Zverev clinches year-end No. 1 ranking after Alcaraz loss and with Sinner out injured - Omni sports - Sports",
+          "outlets": [
+            "Ahram Online"
+          ]
+        },
+        {
+          "headline": "Alcaraz's shock defeat to Bergs hands Zverev year-end number one",
+          "outlets": [
+            "SportyTV"
           ]
         }
       ],
-      "report": null
+      "report": {
+        "source": "Sportscape Magazine",
+        "url": "https://www.sportscapemagazine.com/blog/carlos-alcaraz-reflects-shanghai-masters-loss-zizou-bergs",
+        "text": "Carlos Alcaraz reflected on his Shanghai Masters defeat after losing to Zizou Bergs 7-5, 7-6(4) in the round of 32 and admitted he struggled to find his best level. Carlos Alcaraz suffered a surprising defeat against Belgium’s Zizou Bergs in the round of 32 at the Shanghai Masters. Bergs won 7-5, 7-6(4) to claim one of the biggest victories of his career. Alcaraz was unhappy with his performance and admitted that he made too many mistakes. The Spaniard also gave credit to Bergs for playing well and serving strongly. Alcaraz could not find his rhythm against Bergs. The Belgian took his chances and stayed calm during the important points. He won the first set 7-5 but then bergs held his nerve in the second-set tie-break to win the match. The Spaniard felt that his own performance was below his usual level. He also said that Bergs benefited from a few lucky shots but made good use of those moments. “Today it wasn’t a good match for my side. I didn’t play good. I would say it was a really bad level for me, and it was a really good level from him,” Alcaraz said. The world-class player also explained that he struggled with his returns and made too many unforced errors. He praised Bergs"
+      }
     },
     {
       "id": "nba-401898399",
@@ -1412,7 +1785,27 @@
       "source": "ESPN",
       "mood": "happy",
       "intensity": 1,
-      "score": 0.35
+      "score": 0.35,
+      "reports": [
+        {
+          "headline": "Warriors blitz Lakers late in NBA Preseason win",
+          "outlets": [
+            "Sofascore",
+            "Sports Illustrated"
+          ]
+        },
+        {
+          "headline": "Biggest Preseason Issue the Warriors Can't Afford to Ignore (and How Lakers Exposed It)",
+          "outlets": [
+            "Sports Illustrated"
+          ]
+        }
+      ],
+      "report": {
+        "source": "Sofascore",
+        "url": "https://www.sofascore.com/news/warriors-blitz-lakers-late-in-nba-preseason-win",
+        "text": "Golden State turned a tight night into a runaway, beating the Los Angeles Lakers 152-114 at Crypto.com Arena in the NBA Preseason . The crowd of 7,471 got a little bit of everything, from hot shooting bursts to a turnover storm late. The Warriors pulled away with a ferocious fourth quarter built on pressure defense and second chances. For full box score details and play-by-play, see the game page on Sofascore . The first quarter offered balance, finishing level at 29-29. By halftime, Golden State had nudged in front 101-88 after a high-paced second period. The Warriors then kept the momentum through the third, taking a 123-101 lead into the final frame. Los Angeles needed a spark, but Golden State instead found another gear. The fourth quarter was all Warriors, 29-13, and the gap ballooned as the minutes ticked down. In short, the night started even, tilted by halftime, and then tipped decisively late. The Warriors’ closing kick separated the teams. Los Angeles could not match the pace or the possession battle over the final 12 minutes. Golden State’s bench and wings supplied timely shooting during the push. The finish made the final scoreline emphatic. If there was one number"
+      }
     },
     {
       "id": "nba-401898718",
@@ -1441,21 +1834,88 @@
       "score": 0.7,
       "reports": [
         {
-          "headline": "Take the Under on Warriors' win total",
+          "headline": "Warriors win over Lakers in Vegas, 101-89",
           "outlets": [
-            "NBC Sports"
+            "Golden State of Mind",
+            "Warriors Wire",
+            "Golden State Of Mind",
+            "NBC Sports Bay Area & California"
           ]
         },
         {
           "headline": "Golden State Warriors Best Plays vs. Los Angeles Lakers",
           "outlets": [
-            "NBA.com"
+            "NBA.com",
+            "Sports Illustrated",
+            "Flashscore.com"
           ]
         },
         {
-          "headline": "Warriors win over Lakers in Vegas, 101-89",
+          "headline": "Yaxel Lendeborg downplays twisted ankle after Warriors' win over Lakers",
           "outlets": [
-            "Golden State of Mind"
+            "Yahoo Sports",
+            "Sports Illustrated"
+          ]
+        },
+        {
+          "headline": "Brandin Podziemski's $110 Million Warriors Extension Could Be A Win-Win Deal",
+          "outlets": [
+            "Forbes",
+            "Yahoo Sports"
+          ]
+        },
+        {
+          "headline": "Warriors to re-sign one hooker but lose another as NRL deadline approaches",
+          "outlets": [
+            "NZ Herald"
+          ]
+        },
+        {
+          "headline": "H.S. FIELD HOCKEY: Warriors see win streak end with non-league draw",
+          "outlets": [
+            "The Sun Chronicle"
+          ]
+        },
+        {
+          "headline": "Warriors defeat Northeast Lauderdale 34-10",
+          "outlets": [
+            "Neshoba Democrat"
+          ]
+        },
+        {
+          "headline": "Another innings win for Warriors",
+          "outlets": [
+            "Burnett Today"
+          ]
+        },
+        {
+          "headline": "Take the Under on Warriors' win total",
+          "outlets": [
+            "Yahoo Sports"
+          ]
+        },
+        {
+          "headline": "One player down, Long Beach Vikings women’s volleyball wins against the Warriors",
+          "outlets": [
+            "El Camino College The Union"
+          ]
+        },
+        {
+          "headline": "Kessler impresses on Lakers preseason return despite Warriors defeat",
+          "outlets": [
+            "Geo Super"
+          ]
+        },
+        {
+          "headline": "Warriors rookie steals spotlight from Steph Curry and Lakers in impressive preseason comeback",
+          "outlets": [
+            "Yahoo Sports"
+          ]
+        },
+        {
+          "headline": "Takeaways from Warriors' Win Over Lakers: Yaxel Passes Kessler Test",
+          "outlets": [
+            "Sports Illustrated"
           ]
         },
         {
@@ -1463,12 +1923,30 @@
           "outlets": [
             "San Francisco Chronicle"
           ]
+        },
+        {
+          "headline": "Walker Kessler debuts, but Luka Doncic sits during Lakers’ preseason loss to Warriors",
+          "outlets": [
+            "Los Angeles Times"
+          ]
+        },
+        {
+          "headline": "Warriors Overcome 20-Point Deficit to Beat Lakers",
+          "outlets": [
+            "NBA.com"
+          ]
+        },
+        {
+          "headline": "TST Images: Warriors defeat the Lakers, 101-89, at T-Mobile Arena",
+          "outlets": [
+            "The Sporting Tribune"
+          ]
         }
       ],
       "report": {
-        "source": "NBC Sports",
-        "url": "https://www.nbcsports.com/watch/nba/why-golden-state-warriors-project-to-fall-short-of-2026-27-win-total",
-        "text": "DISCLAIMER: This site and the products offered are for entertainment purposes only, and there is no gambling offered on this site. This service is intended for adult audiences. No guarantees are made for any specific outcome. If you or someone you know has a gambling problem, please call"
+        "source": "Golden State of Mind",
+        "url": "https://www.goldenstateofmind.com/warriors-news/112614/warriors-win-over-lakers-in-vegas-101-89",
+        "text": "On a night dominated by the apparent status of Kristaps Porzingis, the absence of the Latvian big was felt at times during the Golden State Warriors’ 101-89 win over the Los Angeles Lakers at T-Mobile Arena in Las Vegas, Nevada. Steve Kerr’s intention to spread the floor in a so-called ‘5-out’ alignment banked on players who are able to space to floor — including their center. Porzingis happens to fit that profile, while also being 7-foot-3-inches. Without Porzingis — and also not having Al Horford available tonight — the Warriors were not only small, they were bereft of shooting and spacing personnel. That was apparent at times during this game, where the Warriors were able to rally back from a significant deficit, albeit during a time when both teams’ main characters’ nights were finished (one of them, Luka Doncic, did not suit up for the Lakers). Once again, it was rookie Yaxel Lendeborg who stood out. He finished with 17 points, 5 rebounds, and 4 assists in just under 24 minutes of time on the floor. He once again flashed familiarity and comfort as an offensive player within Steve Kerr’s often-intricate scheme while displaying motor and hustle that gave the Warriors a couple"
       }
     }
   ],

@@ -3,6 +3,7 @@
 // its goals (came from behind, threw a lead away, a late winner, red cards), the league table around the team, and
 // the fixtures in the next seven days.
 import { getJSON } from "../http.mjs";
+import * as sofa from "./sofascore.mjs";
 
 const ESPN = "https://site.api.espn.com/apis/site/v2/sports/soccer";
 const TABLE = league => `https://site.web.api.espn.com/apis/v2/sports/soccer/${league}/standings`;
@@ -71,16 +72,30 @@ export function arcOf(goals, final) {
   return null;
 }
 
-export async function team({ espn_id: id, name, league }, { since, until, rivals = [] }) {
-  const [past, next] = await Promise.all([getJSON(`${ESPN}/all/teams/${id}/schedule`), getJSON(`${ESPN}/all/teams/${id}/schedule?fixture=true`).catch(() => ({ events: [] }))]);
-  const played = (past.events || []).map(e => row(e, id)).filter(r => r.completed && r.us != null).sort((a, b) => a.date.localeCompare(b.date));
+// ESPN first; Sofascore when ESPN fails or has nothing (the team's sofascore_id in the profile). A result's id is the
+// team and the day, not a source's match id, so the memory of what was said holds whichever source served it.
+export async function team({ espn_id: id, sofascore_id: ssId, name, league }, { since, until, rivals = [], rivalNames = [] }) {
+  let src = "ESPN", past = [], next = [];
+  try {
+    const [p, n] = await Promise.all([getJSON(`${ESPN}/all/teams/${id}/schedule`), getJSON(`${ESPN}/all/teams/${id}/schedule?fixture=true`).catch(() => ({ events: [] }))]);
+    past = (p.events || []).map(e => row(e, id)); next = (n.events || []).map(e => row(e, id));
+    if (!past.some(r => r.completed)) throw new Error("ESPN schedule empty");
+  } catch (e) {
+    if (!ssId) throw e;
+    ({ past, next } = await sofa.teamEvents(ssId)); src = "Sofascore";
+  }
+  const played = past.filter(r => r.completed && r.us != null).sort((a, b) => a.date.localeCompare(b.date));
   const results = played.filter(r => Date.parse(r.date) >= since);
-  const fixtures = (next.events || []).map(e => row(e, id)).filter(r => !r.completed && Date.parse(r.date) <= until && Date.parse(r.date) > Date.now() - 3 * 36e5).sort((a, b) => a.date.localeCompare(b.date));
+  const fixtures = next.filter(r => !r.completed && Date.parse(r.date) <= until && Date.parse(r.date) > Date.now() - 3 * 36e5).sort((a, b) => a.date.localeCompare(b.date));
   let tbl = null;
   if (league) tbl = await table(league).catch(() => null);
   for (const r of results) {
-    const s = await getJSON(`${ESPN}/all/summary?event=${r.id}`).catch(() => null);
-    const story = storyOf(s?.keyEvents, id);
+    let keys = null;
+    if (src === "ESPN") keys = (await getJSON(`${ESPN}/all/summary?event=${r.id}`).catch(() => null))?.keyEvents;
+    if (!keys && ssId && r.ss_id) keys = await sofa.keyEvents(r, id).catch(() => null);
+    const story = storyOf(keys, id);
+    r.source = src;
+    r.uid = `${String(name).toLowerCase().replace(/\W+/g, "-")}-${r.date.slice(0, 10)}`;
     r.stage = stageOf(r.stage_text || r.competition);
     const margin = r.us - r.them, wonPens = r.shootout && r.shootout.us > r.shootout.them, lostPens = r.shootout && r.shootout.us < r.shootout.them;
     const oppRank = tbl?.find(t => t.id === r.opponent_id)?.rank ?? null, ourRank = tbl?.find(t => t.id === String(id))?.rank ?? null;
@@ -102,7 +117,7 @@ export async function team({ espn_id: id, name, league }, { since, until, rivals
       eliminated: r.stage !== "league" && r.stage !== "friendly" && /\b(2nd leg|second leg|final)\b/i.test(r.stage_text) && (margin < 0 || !!lostPens),
       title: r.stage === "final" && (margin > 0 || !!wonPens),
       stage: r.stage, preseason: r.stage === "friendly",
-      derby: rivals.includes(String(r.opponent_id)),
+      derby: rivals.includes(String(r.opponent_id)) || rivalNames.some(n => r.opponent && r.opponent.includes(n)),
       losing_run: runOf("L") >= 2, winless_run: before.slice(0, 3).length === 3 && !before.slice(0, 3).includes("W"), winning_run: runOf("W") >= 3,
     };
     r.arc = arcOf(story.goals, r.facts.won ? "won" : r.facts.lost ? "lost" : "drew");

@@ -1,0 +1,102 @@
+[
+ {
+  "for": "Tennis (Alcaraz, Djokovic)",
+  "name": "GN intitle Alcaraz",
+  "url": "https://news.google.com/rss/search?q=intitle%3AAlcaraz%20when%3A2d&hl=en-IN&gl=IN&ceid=IN:en"
+ },
+ {
+  "for": "Tennis (Alcaraz, Djokovic)",
+  "name": "GN intitle Djokovic",
+  "url": "https://news.google.com/rss/search?q=intitle%3ADjokovic%20when%3A2d&hl=en-IN&gl=IN&ceid=IN:en"
+ },
+ {
+  "for": "Tennis (Alcaraz, Djokovic)",
+  "name": "GN ATP tennis",
+  "url": "https://news.google.com/rss/search?q=ATP%20tennis%20when%3A2d&hl=en-IN&gl=IN&ceid=IN:en"
+ },
+ {
+  "for": "Tennis (Alcaraz, Djokovic)",
+  "name": "GN site:atptour.com",
+  "url": "https://news.google.com/rss/search?q=site%3Aatptour.com%20when%3A2d&hl=en-IN&gl=IN&ceid=IN:en"
+ },
+ {
+  "for": "Tennis (Alcaraz, Djokovic)",
+  "name": "GN site:tennis.com",
+  "url": "https://news.google.com/rss/search?q=site%3Atennis.com%20when%3A2d&hl=en-IN&gl=IN&ceid=IN:en"
+ },
+ {
+  "for": "Tennis (Alcaraz, Djokovic)",
+  "name": "GN site:espn.com tennis",
+  "url": "https://news.google.com/rss/search?q=tennis%20site%3Aespn.com%20when%3A2d&hl=en-US&gl=US&ceid=US:en"
+ },
+ {
+  "for": "Tennis (Alcaraz, Djokovic)",
+  "name": "GN site:reuters.com tennis",
+  "url": "https://news.google.com/rss/search?q=tennis%20site%3Areuters.com%20when%3A2d&hl=en-US&gl=US&ceid=US:en"
+ },
+ {
+  "for": "Golden State Warriors",
+  "name": "GN intitle Warriors (US)",
+  "url": "https://news.google.com/rss/search?q=intitle%3AWarriors%20%22Golden%20State%22%20when%3A2d&hl=en-US&gl=US&ceid=US:en"
+ },
+ {
+  "for": "Golden State Warriors",
+  "name": "GN site:nba.com Warriors",
+  "url": "https://news.google.com/rss/search?q=Warriors%20site%3Anba.com%20when%3A2d&hl=en-US&gl=US&ceid=US:en"
+ },
+ {
+  "for": "Golden State Warriors",
+  "name": "GN site:espn.com Warriors",
+  "url": "https://news.google.com/rss/search?q=Warriors%20site%3Aespn.com%20when%3A2d&hl=en-US&gl=US&ceid=US:en"
+ },
+ {
+  "for": "Golden State Warriors",
+  "name": "GN site:sfgate.com Warriors",
+  "url": "https://news.google.com/rss/search?q=Warriors%20site%3Asfgate.com%20when%3A2d&hl=en-US&gl=US&ceid=US:en"
+ },
+ {
+  "for": "Golden State Warriors",
+  "name": "GN site:si.com Warriors",
+  "url": "https://news.google.com/rss/search?q=Warriors%20site%3Asi.com%20when%3A2d&hl=en-US&gl=US&ceid=US:en"
+ },
+ {
+  "for": "Golden State Warriors",
+  "name": "GN site:nbcsportsbayarea.com",
+  "url": "https://news.google.com/rss/search?q=site%3Anbcsportsbayarea.com%20Warriors%20when%3A2d&hl=en-US&gl=US&ceid=US:en"
+ },
+ {
+  "for": "Cristiano Ronaldo",
+  "name": "GN intitle Ronaldo",
+  "url": "https://news.google.com/rss/search?q=intitle%3ARonaldo%20when%3A2d&hl=en-IN&gl=IN&ceid=IN:en"
+ },
+ {
+  "for": "Cristiano Ronaldo",
+  "name": "GN Ronaldo site:goal.com",
+  "url": "https://news.google.com/rss/search?q=Ronaldo%20site%3Agoal.com%20when%3A2d&hl=en-IN&gl=IN&ceid=IN:en"
+ },
+ {
+  "for": "Cristiano Ronaldo",
+  "name": "GN Ronaldo site:espn.com",
+  "url": "https://news.google.com/rss/search?q=Ronaldo%20site%3Aespn.com%20when%3A2d&hl=en-US&gl=US&ceid=US:en"
+ },
+ {
+  "for": "Cristiano Ronaldo",
+  "name": "GN Al Nassr",
+  "url": "https://news.google.com/rss/search?q=%22Al%20Nassr%22%20when%3A2d&hl=en-IN&gl=IN&ceid=IN:en"
+ },
+ {
+  "for": "Real Madrid",
+  "name": "GN Real Madrid site:espn.com",
+  "url": "https://news.google.com/rss/search?q=%22Real%20Madrid%22%20site%3Aespn.com%20when%3A2d&hl=en-US&gl=US&ceid=US:en"
+ },
+ {
+  "for": "India men's cricket",
+  "name": "GN India cricket site:espn.in",
+  "url": "https://news.google.com/rss/search?q=India%20cricket%20site%3Aespn.in%20when%3A2d&hl=en-IN&gl=IN&ceid=IN:en"
+ },
+ {
+  "for": "India men's cricket",
+  "name": "GN India cricket site:bcci.tv",
+  "url": "https://news.google.com/rss/search?q=site%3Abcci.tv%20when%3A2d&hl=en-IN&gl=IN&ceid=IN:en"
+ }
+]

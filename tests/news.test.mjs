@@ -35,3 +35,11 @@ test("matching by the profile's words: not-phrases are taken out first", async (
   assert.equal(madrid.test("Vinicius Jr to miss Barcelona game because of ban"), true);
   assert.equal(madrid.test("Sinner wins the Madrid Open"), false);
 });
+
+test("English only", async () => {
+  const { isEnglish } = await import("../engine/fetch/news.mjs");
+  assert.equal(isEnglish("Real Madrid come from 3-1 down to beat Roma"), true);
+  assert.equal(isEnglish("La remontada del Real Madrid en el Olímpico"), false);
+  assert.equal(isEnglish("Vinicius será baja en el Clásico"), false);
+  assert.equal(isEnglish("Mbappé, Bellingham and Vinicius start"), true);
+});
