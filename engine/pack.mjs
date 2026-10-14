@@ -165,12 +165,14 @@ export async function buildPack({ profile = json("profile.json"), show = json("c
 
   // ---- news: each followed name's stories, then the wider game. A story that names a rival is never used (its
   // results above are the only way a rival reaches the show).
-  const sports = new Set([...profile.follows.map(f => f.sport), ...(profile.rivals || []).map(f => f.sport)]);
+  const sports = new Set([...profile.follows.map(f => f.sport), ...(profile.rivals || []).map(f => f.sport), ...(profile.wider?.sports_wanted || [])]);
   const lang = profile.listener?.language || "en-IN";
   const deskFeeds = [...sports].flatMap(s => feeds[s] || []), names = profile.follows.filter(f => f.kind !== "all");
   const tagged = (list, sport) => list.map(f => ({ ...f, sport }));
   const pool = await safe("news", () => news.feeds([...[...sports].flatMap(s => tagged(feeds[s] || [], s)), ...tagged(feeds.general || [], null), ...[...names, ...(profile.rivals || [])].flatMap(f => (feeds.teams?.[f.name] || []).map(x => (x.google ? news.searchFeed(x.google, x.edition || lang, f.sport, { raw: true }) : { ...x, sport: f.sport }))), ...names.map(f => (/ men$/.test(f.name) ? news.searchFeed(`${f.name.replace(/ men$/, "")} cricket`, lang, f.sport, { intitle: false }) : news.searchFeed(f.search || f.name, lang, f.sport)))], W)) || [];
-  const clusters = news.cluster(pool).filter(c => { if (ledger.newsSaid(said, c)) { already.push(`news: ${c.headline}`); return false; } return true; });
+  // sports the listener never wants (profile.wider.skip_sports, matched by config/show.json sport_words)
+  const skipRx = (profile.wider?.skip_sports || []).flatMap(k => show.sport_words?.[k] || [k]).map(w => new RegExp(`\\b${w.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")}\\b`, "i"));
+  const clusters = news.cluster(pool).filter(c => !c.titles.some(t => skipRx.some(r => r.test(t)))).filter(c => { if (ledger.newsSaid(said, c)) { already.push(`news: ${c.headline}`); return false; } return true; });
   const rx = n => new RegExp(`\\b(${n})\\b`, "i");
   // how a name appears in headlines (the setup page will ask for these; for now, Parth's), and what a match is not
   // How each subject appears in headlines: the profile's aliases (plain words a listener can edit) and, for a team, its
@@ -254,7 +256,8 @@ export async function buildPack({ profile = json("profile.json"), show = json("c
   if (sports.has("cricket")) cands.push(...(await safe("elsewhere: cricket", () => elsewhere.cricket({ since, tiers: show.cricket_tiers || {}, skip: new Set(["India"]) })) || []));
   // a story many outlets lead with, not about anyone on the list or a rival
   const free = c => !used.has(c) && !c.titles.some(t => rivalRx.some(r => r.test(t)) || names.some(f => who(f).test(t)));
-  for (const c of clusters.filter(free)) { const d = elsewhere.newsDrama(c); if (d) cands.push({ id: `news-${c.headline.slice(0, 40)}`, sport: c.sport, kind: "news", line: c.headline, outlets: c.outlets, drama: d, why: [`${c.n} outlets`], cluster: c }); }
+  const country = profile.listener?.country ? new RegExp(`\\b(${profile.listener.country}|${profile.listener.country}n|${profile.listener.country}'s)\\b`, "i") : null;
+  for (const c of clusters.filter(free)) { const d = elsewhere.newsDrama(c) + (country && c.titles.some(t => country.test(t)) ? 1 : 0); if (d) cands.push({ id: `news-${c.headline.slice(0, 40)}`, sport: c.sport, kind: "news", line: c.headline, outlets: c.outlets, drama: d, why: [`${c.n} outlets`], cluster: c }); }
   // the last day's results first: an older upset has had its day (rehearsals over several days only)
   for (const c of cands) if (ledger.resultSaid(said, c.id)) c.drama = 0;
   for (const c of cands) c.rank = c.drama - (c.date && Date.parse(c.date) < now - (show.window_hours ?? 30) * 36e5 ? 2 : 0);

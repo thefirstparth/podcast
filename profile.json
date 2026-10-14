@@ -3,7 +3,8 @@
   "listener": {
     "name": "Parth",
     "tz": "Asia/Kolkata",
-    "language": "en-IN"
+    "language": "en-IN",
+    "country": "India"
   },
   "follows": [
     {
@@ -199,7 +200,11 @@
   ],
   "wider": {
     "football": "follow",
-    "other_sports": "big-moments"
+    "other_sports": "big-moments",
+    "skip_sports": [
+      "chess"
+    ],
+    "note": "Around the grounds. other_sports: how much of every other sport. skip_sports: sports never wanted (Parth, 15 Oct: chess is a no). A sport listed in sports_wanted (for example chess) brings in its own desks. A story naming the listener's country counts a little more."
   },
   "tone": {
     "emotion": "full",

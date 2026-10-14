@@ -1,10 +1,16 @@
 {
-  "note": "The sport desks' RSS feeds, by sport (taken from The House of 1400's reading list, where each was tested). A followed name also gets its own Google News search, built by engine/fetch/news.mjs, so any team or player anywhere is covered without a feed of its own. kind: lead and official outrank news; search is discovery only. English only (Parth, 15 Oct): a headline that reads as another language is dropped (engine/fetch/news.mjs isEnglish).",
+  "note": "The sport desks' RSS feeds, by sport (taken from The House of 1400's reading list, where each was tested). A followed name also gets its own Google News search, built by engine/fetch/news.mjs, so any team or player anywhere is covered without a feed of its own. kind: lead and official outrank news; search is discovery only. English only (Parth, 15 Oct): a headline that reads as another language is dropped (engine/fetch/news.mjs isEnglish). paywall: true marks a signal-only source (it counts towards how many outlets ran a story, its text is never read). The list was approved on 15 Oct (Parth: \"take a call\"); every feed checked by scripts/feed-check.mjs (research/*-results.md).",
   "football": [
     {
       "id": "bbc-football",
       "name": "BBC Sport",
       "url": "https://feeds.bbci.co.uk/sport/football/rss.xml",
+      "kind": "news"
+    },
+    {
+      "id": "bbc-ucl",
+      "name": "BBC Sport",
+      "url": "https://feeds.bbci.co.uk/sport/football/champions-league/rss.xml",
       "kind": "news"
     },
     {
@@ -14,16 +20,41 @@
       "kind": "news"
     },
     {
-      "id": "espn-fc",
-      "name": "ESPN FC",
-      "url": "https://www.espn.com/espn/rss/soccer/news",
+      "id": "sky-football",
+      "name": "Sky Sports",
+      "url": "https://www.skysports.com/rss/11095",
+      "kind": "news"
+    },
+    {
+      "id": "cbs-soccer",
+      "name": "CBS Sports",
+      "url": "https://www.cbssports.com/rss/headlines/soccer",
+      "kind": "news"
+    },
+    {
+      "id": "football-italia",
+      "name": "Football Italia",
+      "url": "https://www.football-italia.net/rss.xml",
+      "kind": "news"
+    },
+    {
+      "id": "gffn",
+      "name": "Get French Football News",
+      "url": "https://www.getfootballnewsfrance.com/feed/",
+      "kind": "news"
+    },
+    {
+      "id": "independent-football",
+      "name": "The Independent",
+      "url": "https://www.independent.co.uk/sport/football/rss",
       "kind": "news"
     },
     {
       "id": "athletic-football",
       "name": "The Athletic",
       "url": "https://www.nytimes.com/athletic/rss/football/",
-      "kind": "lead"
+      "kind": "lead",
+      "paywall": true
     }
   ],
   "f1": [
@@ -34,21 +65,9 @@
       "kind": "official"
     },
     {
-      "id": "motorsport-f1",
-      "name": "Motorsport.com",
-      "url": "https://www.motorsport.com/rss/f1/news/",
-      "kind": "news"
-    },
-    {
       "id": "the-race",
       "name": "The Race",
       "url": "https://www.the-race.com/rss/",
-      "kind": "news"
-    },
-    {
-      "id": "autosport-f1",
-      "name": "Autosport",
-      "url": "https://www.autosport.com/rss/f1/news/",
       "kind": "news"
     },
     {
@@ -58,23 +77,95 @@
       "kind": "news"
     },
     {
-      "id": "sbn-f1",
-      "name": "SB Nation, Formula One",
-      "url": "https://www.sbnation.com/rss/formula-one/index.xml",
+      "id": "motorsport-f1",
+      "name": "Motorsport.com",
+      "url": "https://www.motorsport.com/rss/f1/news/",
       "kind": "news"
+    },
+    {
+      "id": "autosport-f1",
+      "name": "Autosport",
+      "url": "https://www.autosport.com/rss/f1/news/",
+      "kind": "news"
+    },
+    {
+      "id": "racefans",
+      "name": "RaceFans",
+      "url": "https://www.racefans.net/feed/",
+      "kind": "news"
+    },
+    {
+      "id": "rn365",
+      "name": "RacingNews365",
+      "url": "https://racingnews365.com/feed/news.xml",
+      "kind": "news"
+    },
+    {
+      "id": "bbc-f1",
+      "name": "BBC Sport",
+      "url": "https://feeds.bbci.co.uk/sport/formula1/rss.xml",
+      "kind": "news"
+    },
+    {
+      "id": "sky-f1",
+      "name": "Sky Sports",
+      "url": "https://www.skysports.com/rss/12433",
+      "kind": "news"
+    },
+    {
+      "id": "guardian-f1",
+      "name": "The Guardian",
+      "url": "https://www.theguardian.com/sport/formulaone/rss",
+      "kind": "news"
+    },
+    {
+      "id": "fia",
+      "name": "FIA",
+      "url": "https://www.fia.com/rss/press-release",
+      "kind": "official"
     }
   ],
   "cricket": [
     {
-      "id": "cricinfo",
-      "name": "ESPNcricinfo",
-      "url": "https://www.espncricinfo.com/rss/content/story/feeds/0.xml",
+      "id": "ht-cricket",
+      "name": "Hindustan Times",
+      "url": "https://www.hindustantimes.com/feeds/rss/cricket/rssfeed.xml",
       "kind": "news"
     },
     {
-      "id": "cricinfo-india",
-      "name": "ESPNcricinfo, India",
-      "url": "https://www.espncricinfo.com/rss/content/story/feeds/6.xml",
+      "id": "ie-cricket",
+      "name": "The Indian Express",
+      "url": "https://indianexpress.com/section/sports/cricket/feed/",
+      "kind": "news"
+    },
+    {
+      "id": "toi-cricket",
+      "name": "Times of India",
+      "url": "https://timesofindia.indiatimes.com/rssfeeds/54829575.cms",
+      "kind": "news"
+    },
+    {
+      "id": "hindu-cricket",
+      "name": "The Hindu",
+      "url": "https://www.thehindu.com/sport/cricket/feeder/default.rss",
+      "kind": "news"
+    },
+    {
+      "id": "sportstar-cricket",
+      "name": "Sportstar",
+      "url": "https://sportstar.thehindu.com/cricket/feeder/default.rss",
+      "kind": "news"
+    },
+    {
+      "id": "wisden",
+      "name": "Wisden",
+      "url": "https://www.wisden.com/feed",
+      "kind": "news"
+    },
+    {
+      "id": "guardian-cricket",
+      "name": "The Guardian",
+      "url": "https://www.theguardian.com/sport/cricket/rss",
       "kind": "news"
     },
     {
@@ -84,10 +175,18 @@
       "kind": "news"
     },
     {
-      "id": "ht-cricket",
-      "name": "Hindustan Times",
-      "url": "https://www.hindustantimes.com/feeds/rss/cricket/rssfeed.xml",
-      "kind": "news"
+      "id": "cricinfo-india",
+      "name": "ESPNcricinfo",
+      "url": "https://www.espncricinfo.com/rss/content/story/feeds/6.xml",
+      "kind": "news",
+      "paywall": true
+    },
+    {
+      "id": "cricinfo",
+      "name": "ESPNcricinfo",
+      "url": "https://www.espncricinfo.com/rss/content/story/feeds/0.xml",
+      "kind": "news",
+      "paywall": true
     }
   ],
   "tennis": [
@@ -104,18 +203,64 @@
       "kind": "news"
     },
     {
+      "id": "guardian-tennis",
+      "name": "The Guardian",
+      "url": "https://www.theguardian.com/sport/tennis/rss",
+      "kind": "news"
+    },
+    {
+      "id": "tennis365",
+      "name": "Tennis365",
+      "url": "https://www.tennis365.com/feed/",
+      "kind": "news"
+    },
+    {
+      "id": "ubitennis",
+      "name": "Ubitennis",
+      "url": "https://www.ubitennis.net/feed/",
+      "kind": "news"
+    },
+    {
+      "id": "sky-tennis",
+      "name": "Sky Sports",
+      "url": "https://www.skysports.com/rss/12110",
+      "kind": "news"
+    },
+    {
       "id": "athletic-tennis",
       "name": "The Athletic",
       "url": "https://www.nytimes.com/athletic/rss/tennis/",
-      "kind": "lead"
+      "kind": "lead",
+      "paywall": true
     }
   ],
   "basketball": [
     {
+      "id": "cbs-nba",
+      "name": "CBS Sports",
+      "url": "https://www.cbssports.com/rss/headlines/nba",
+      "kind": "news"
+    },
+    {
       "id": "athletic-nba",
       "name": "The Athletic",
       "url": "https://www.nytimes.com/athletic/rss/nba/",
-      "kind": "lead"
+      "kind": "lead",
+      "paywall": true
+    },
+    {
+      "id": "realgm",
+      "name": "RealGM",
+      "url": "https://basketball.realgm.com/rss/wiretap/0/0.xml",
+      "kind": "news",
+      "paywall": true
+    },
+    {
+      "id": "yahoo-nba",
+      "name": "Yahoo Sports",
+      "url": "https://sports.yahoo.com/nba/rss.xml",
+      "kind": "news",
+      "paywall": true
     }
   ],
   "general": [
@@ -128,7 +273,7 @@
     {
       "id": "guardian-sport",
       "name": "The Guardian",
-      "url": "https://www.theguardian.com/uk/sport/rss",
+      "url": "https://www.theguardian.com/sport/rss",
       "kind": "news"
     },
     {
@@ -142,6 +287,38 @@
       "name": "The Indian Express",
       "url": "https://indianexpress.com/section/sports/feed/",
       "kind": "news"
+    },
+    {
+      "id": "hindu-other",
+      "name": "The Hindu",
+      "url": "https://www.thehindu.com/sport/other-sports/feeder/default.rss",
+      "kind": "news"
+    },
+    {
+      "id": "bbc-athletics",
+      "name": "BBC Sport",
+      "url": "https://feeds.bbci.co.uk/sport/athletics/rss.xml",
+      "kind": "news"
+    },
+    {
+      "id": "bbc-golf",
+      "name": "BBC Sport",
+      "url": "https://feeds.bbci.co.uk/sport/golf/rss.xml",
+      "kind": "news"
+    }
+  ],
+  "chess": [
+    {
+      "id": "chessbase",
+      "name": "ChessBase",
+      "url": "https://en.chessbase.com/feed",
+      "kind": "news"
+    },
+    {
+      "id": "chess-com",
+      "name": "Chess.com",
+      "url": "https://www.chess.com/rss/news",
+      "kind": "news"
     }
   ],
   "teams": {
@@ -152,19 +329,38 @@
         "name": "Managing Madrid",
         "url": "https://www.managingmadrid.com/rss/current.xml",
         "kind": "news"
+      },
+      {
+        "id": "fe-madrid",
+        "name": "Football España",
+        "url": "https://www.football-espana.net/category/la-liga/real-madrid/feed",
+        "kind": "news"
+      },
+      {
+        "id": "guardian-madrid",
+        "name": "The Guardian",
+        "url": "https://www.theguardian.com/football/realmadrid/rss",
+        "kind": "news"
+      },
+      {
+        "id": "madrid-universal",
+        "name": "Madrid Universal",
+        "url": "https://madriduniversal.com/feed/",
+        "kind": "news"
       }
     ],
     "Golden State Warriors": [
       {
         "id": "gsom",
         "name": "Golden State of Mind",
-        "url": "https://www.goldenstateofmind.com/rss/index.xml",
+        "url": "https://www.goldenstateofmind.com/rss/current.xml",
         "kind": "news"
       },
       {
-        "google": "Warriors site:sfgate.com",
-        "edition": "en-US",
-        "name": "SFGate"
+        "id": "sfgate-warriors",
+        "name": "SFGate",
+        "url": "https://www.sfgate.com/warriors/feed/golden-state-warriors-rss-feed-491.php",
+        "kind": "news"
       },
       {
         "google": "Warriors site:si.com",
@@ -175,6 +371,13 @@
         "google": "Warriors site:nbcsportsbayarea.com",
         "edition": "en-US",
         "name": "NBC Sports Bay Area"
+      },
+      {
+        "id": "athletic-warriors",
+        "name": "The Athletic",
+        "url": "https://www.nytimes.com/athletic/rss/nba/warriors/",
+        "kind": "lead",
+        "paywall": true
       }
     ],
     "Barcelona": [
@@ -182,6 +385,24 @@
         "id": "barca-blaugranes",
         "name": "Barca Blaugranes",
         "url": "https://www.barcablaugranes.com/rss/current.xml",
+        "kind": "news"
+      },
+      {
+        "id": "barca-universal",
+        "name": "Barca Universal",
+        "url": "https://barcauniversal.com/feed/",
+        "kind": "news"
+      },
+      {
+        "id": "fe-barca",
+        "name": "Football España",
+        "url": "https://www.football-espana.net/category/la-liga/barcelona/feed",
+        "kind": "news"
+      },
+      {
+        "id": "guardian-barca",
+        "name": "The Guardian",
+        "url": "https://www.theguardian.com/football/barcelona/rss",
         "kind": "news"
       }
     ],

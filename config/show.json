@@ -268,5 +268,31 @@
     "gemini-3.6-flash",
     "gemini-3.5-flash"
   ],
-  "rehearsal_requests": 3
+  "rehearsal_requests": 3,
+  "sport_words": {
+    "note": "How code tells a story's sport from its headline, for skip_sports. Plain words, editable.",
+    "chess": [
+      "chess",
+      "grandmaster",
+      "FIDE",
+      "Candidates",
+      "Gukesh",
+      "Praggnanandhaa",
+      "Erigaisi",
+      "Carlsen",
+      "Nakamura",
+      "Caruana"
+    ],
+    "golf": [
+      "golf",
+      "PGA",
+      "LIV Golf",
+      "Ryder Cup",
+      "Masters at Augusta"
+    ],
+    "kabaddi": [
+      "kabaddi",
+      "Pro Kabaddi"
+    ]
+  }
 }

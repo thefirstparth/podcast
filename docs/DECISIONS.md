@@ -34,3 +34,8 @@
 ## 15 Oct 2026 (night, later)
 - No catch-all Google News search for a sport ("ATP tennis"; Parth disagreed). The fix for a missed story was in the code: (1) one story worded many ways is grouped by rare word pairs ("six kings", "kings slam"), not only by shared words; (2) a story belongs to a subject when any of its headlines names him, not only the lead one; (3) a follower of a whole sport (Men's tennis, Formula 1) gets that sport's biggest stories of the day. The Six Kings Slam postponement (seven outlets, 14 Oct) now reaches the show.
 - A die-hard story that names the rival ("Vinicius to miss the Clasico against Barcelona") stays the die-hard's story and may be told as it is.
+
+## 15 Oct 2026 (night, last)
+- The source list is approved as proposed (Parth: "take a call"), now in config/feeds.json. ESPNcricinfo, The Athletic, RealGM and Yahoo Sports NBA are signal only (paywall: true): they count towards how many outlets ran a story, but their text is never read.
+- Chess is out for Parth (profile.wider.skip_sports). For others, a sport's relevance follows their country (profile.listener.country, sports_wanted, skip_sports); the setup page will offer it per sport.
+- Score backups: Sofascore for football (wired); OpenF1, ESPN cricket and Sofascore for tennis and the NBA still to wire. Grok's data list tested (research/data-sources.md): football-data.org is the one worth a key; OpenLigaDB, TheSportsDB and SportScore are not reliable enough.

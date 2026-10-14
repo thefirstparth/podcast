@@ -23,7 +23,7 @@ export function parseRSS(xml, feed) {
     const date = Date.parse(strip(tag(x, "pubDate")) || strip(tag(x, "dc:date")) || strip(tag(x, "published")) || strip(tag(x, "updated")) || "") || null;
     const summary = gsrc ? "" : strip(tag(x, "description") || tag(x, "summary") || tag(x, "content")).slice(0, 400);
     const url = strip(tag(x, "link")) || x.match(/<link[^>]*href="([^"]+)"/i)?.[1] || "";
-    return { title, url, date, source, summary, feed: feed.id, kind: feed.kind };
+    return { title, url, date, source, summary, feed: feed.id, kind: feed.kind, paywall: !!feed.paywall };
   }).filter(i => i.title);
 }
 
@@ -56,7 +56,7 @@ export function cluster(items) {
     const sports = c.items.map(i => i.sport).filter(Boolean), sport = sports.sort((a, b) => sports.filter(x => x === b).length - sports.filter(x => x === a).length)[0] || null;
     return { headline: lead.title, sport, outlets, n: outlets.length, date: Math.max(...c.items.map(i => i.date || 0)), url: lead.url,
       reports: c.items.filter(i => i.summary).slice(0, 3).map(i => ({ source: i.source, title: i.title, summary: i.summary })),
-      links: c.items.filter(i => i.url).map(i => ({ source: i.source, url: i.url })), titles: c.items.map(i => i.title) };
+      links: c.items.filter(i => i.url && !i.paywall).map(i => ({ source: i.source, url: i.url })), titles: c.items.map(i => i.title) };
   }).sort((a, b) => b.n - a.n || b.date - a.date);
 }
 
@@ -78,6 +78,7 @@ export function articleText(html) {
   return [...new Set(paras)].join(" ");
 }
 const metaOf = (html, prop) => decode(String(html).match(new RegExp(`<meta[^>]+(?:property|name)=["']${prop}["'][^>]+content=["']([^"']+)`, "i"))?.[1] || "");
+// (a paywalled source's link is never read: it only counts towards the outlets)
 // A Google News link's publisher address, asked of Google News the way its own page does (copied from The House of
 // 1400, lib/pool.js publisherOf, where it has run since 3 Oct 2026)
 const isGoogle = u => { try { return /(^|\.)google\.com$/.test(new URL(u).hostname); } catch { return false; } };
