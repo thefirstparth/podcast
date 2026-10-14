@@ -1,29 +1,44 @@
-# Proposed sources for Parth's show (15 Oct 2026), for approval
+# Sources for Parth's show: merged list for approval (15 Oct 2026)
 
-Every feed below was checked today by `scripts/feed-check.mjs` (full results: `research/candidates-results.md`).
-- **Text:** alive, fresh, and its articles can be read, so the writer may retell them.
-- **Signal:** alive but paywalled or blocked. It only counts towards "how many outlets ran this story", and the writer never sees its text.
+Merged from Claude's research and the lists from Grok, Gemini and ChatGPT. Every feed was checked by `scripts/feed-check.mjs`:
+- Results: `research/candidates-results.md`, `research/google-news-results.md`, `research/llm-candidates-results.md`.
+- English only.
+- **Text** = alive, fresh and its articles can be read.
+- **Signal** = paywalled or blocked: it counts towards "how many outlets ran this", and the writer never sees its text.
 
-Each subject also keeps its Google News search, now limited to headlines that name it (`intitle:`), which reaches outlets that have no feed. A `site:` search reaches one outlet that has no feed of its own (AS English works; Cricbuzz is signal only).
+Every subject also has its Google News headline search (`intitle:`).
 
-| Subject | Text | Signal | Dead (left out) |
-|---|---|---|---|
-| Real Madrid | Managing Madrid, Madrid Universal, Football España, AS English via Google News | The Athletic, ESPN via Google News | realmadrid.com; Marca and AS (Spanish) left out: English only |
-| India men's cricket | Hindustan Times, Indian Express, Times of India, The Hindu, Sportstar, CricTracker, Wisden | ESPNcricinfo (both feeds), NDTV Sports, Cricbuzz via Google News | |
-| F1 and Max | Formula 1, PlanetF1, Motorsport.com, Autosport, RaceFans, RacingNews365, BBC F1, SB Nation F1, FIA; The Race (sometimes) | | GPblog |
-| Tennis | Tennis Majors, BBC tennis, Tennis365; Google News headline searches for Alcaraz, Djokovic and "ATP tennis" (sometimes readable) | ESPN, Reuters and Tennis.com via Google News | ATP Tour, ESPN tennis feed, Tennis World USA, Tennis.com feed |
-| Warriors | Golden State of Mind; SFGate, Sports Illustrated and NBC Sports Bay Area via Google News (`site:`); Hoops Rumors (sometimes) | The Athletic, ESPN via Google News | Warriors Wire, Mercury News feed, ESPN NBA feed |
-| Ronaldo | Google News headline search for Ronaldo; "Al Nassr" search (sometimes) | ESPN via Google News | Arab News |
-| Barcelona (rival) | Barca Blaugranes, Barca Universal | | Mundo Deportivo (Spanish) |
-| World football | BBC, Guardian, Sky Sports; BBC (sometimes) | The Athletic | ESPN FC (stopped working since yesterday), Football365 |
-| Other sport | BBC Sport, Guardian sport, Sportstar, Indian Express sports | | ESPN top |
+## Proposed
 
-**English only** (Parth, 15 Oct): Spanish sources are left out, and the code drops any headline that reads as another language.
+| Subject | Text sources | Signal only |
+|---|---|---|
+| **Real Madrid** | Managing Madrid, Football España (Real Madrid), The Guardian (Real Madrid), Madrid Universal | The Athletic |
+| **India men's cricket** | Hindustan Times, Indian Express, Times of India, The Hindu, Sportstar, Wisden, The Guardian (cricket), BBC (cricket) | ESPNcricinfo (India) |
+| **F1 and Max** | Formula 1, The Race, PlanetF1, Motorsport.com, Autosport, RaceFans, RacingNews365, BBC (F1), Sky Sports (F1), The Guardian (F1), FIA | |
+| **Tennis** | Tennis Majors, BBC (tennis), The Guardian (tennis), Tennis365, Ubitennis, Sky Sports (tennis); Google News for "ATP tennis" | ESPN and Reuters through Google News |
+| **Warriors** | Golden State of Mind, SFGate (Warriors feed), CBS Sports (NBA); SI and NBC Sports Bay Area through Google News | The Athletic, RealGM, Yahoo Sports (NBA) |
+| **Ronaldo** | Google News for "Ronaldo" and "Al Nassr", plus the football desks below | |
+| **Barcelona (rival)** | Barca Blaugranes, Barca Universal, Football España (Barcelona), The Guardian (Barcelona) | |
+| **World football** | BBC (football), BBC (Champions League), The Guardian (football), Sky Sports (football), CBS Sports (soccer), Football Italia, Get French Football News; The Independent (sometimes) | The Athletic |
+| **Other sport** | BBC Sport, The Guardian (sport), Sportstar, Indian Express (sports), The Hindu (other sports), BBC (athletics), BBC (golf), ChessBase, Chess.com | |
 
-**Thin spots, filled with Google News** (results: `research/google-news-results.md`):
-- The Warriors now have four readable sources: SFGate, SI and NBC Sports Bay Area, reached by `site:` searches.
-- Tennis and Ronaldo have headline searches.
+The thin spots are filled: tennis goes from three readable sources to six, and the Warriors from one to five.
 
-Tennis is still the thinnest and is where your Gemini or ChatGPT research helps most.
+## Left out, and why
 
-Open question: ESPNcricinfo can't be read, but it is the best signal for cricket. Keep it as signal only?
+| Source | Why |
+|---|---|
+| Marca, AS, Mundo Deportivo, Diario SPORT, Bernabéu Digital, kicker, A Bola, RTP, Maisfutebol | not in English |
+| Cricbuzz "live feed" (Gemini), PortuGOAL (Gemini), Goal.com (Gemini), ESPN golf, tennis, NBA and soccer feeds, ATP Tour, Tennis World USA, Tennis.com, GPblog, Football365, Warriors Wire, Mercury News, Arab News | dead or blocked when checked |
+| Bleacher Report | alive, but one feed of everything (about 600 items) and mostly aggregation; too noisy |
+| Sports Mole | mostly previews and predictions |
+| Crash.net | readable, but no summaries; F1 already has eleven sources |
+| SB Nation's general F1 feed | thin next to the F1 specialists |
+| CricTracker, RevSportz | CricTracker: readable but mostly aggregation; RevSportz: signal only. The Indian dailies cover the same ground |
+
+Grok's "no feed" list was partly wrong: RaceFans, Autosport and Golden State of Mind all work.
+
+## Questions
+1. Approve as proposed, or add or drop anything?
+2. Keep ESPNcricinfo as signal only? It's the best cricket outlet, but its articles can't be read.
+3. Chess (ChessBase, Chess.com) for The Sidelines: in or out? Your paper covers Indian chess stars there.

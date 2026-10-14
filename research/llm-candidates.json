@@ -1,0 +1,207 @@
+[
+ {
+  "for": "Real Madrid",
+  "name": "Managing Madrid (index.xml) [Grok]",
+  "url": "https://www.managingmadrid.com/rss/index.xml"
+ },
+ {
+  "for": "Formula 1",
+  "name": "The Guardian F1 [Grok]",
+  "url": "https://www.theguardian.com/sport/formulaone/rss"
+ },
+ {
+  "for": "Tennis",
+  "name": "The Guardian tennis [Grok, Gemini, ChatGPT]",
+  "url": "https://www.theguardian.com/sport/tennis/rss"
+ },
+ {
+  "for": "Golden State Warriors",
+  "name": "BBC Sport basketball [Grok]",
+  "url": "https://feeds.bbci.co.uk/sport/basketball/rss.xml"
+ },
+ {
+  "for": "World football",
+  "name": "BBC Champions League [Grok]",
+  "url": "https://feeds.bbci.co.uk/sport/football/champions-league/rss.xml"
+ },
+ {
+  "for": "Other sport",
+  "name": "BBC athletics [Grok, ChatGPT]",
+  "url": "https://feeds.bbci.co.uk/sport/athletics/rss.xml"
+ },
+ {
+  "for": "India men's cricket",
+  "name": "Cricbuzz live feed [Gemini]",
+  "url": "http://live-feeds.cricbuzz.com/CricbuzzFeed"
+ },
+ {
+  "for": "Formula 1",
+  "name": "Formula1.com (fom-website path) [Gemini]",
+  "url": "https://www.formula1.com/content/fom-website/en/latest/all.xml"
+ },
+ {
+  "for": "Formula 1",
+  "name": "The Race F1 category [Gemini]",
+  "url": "https://the-race.com/category/formula-1/feed/"
+ },
+ {
+  "for": "Tennis",
+  "name": "Ubitennis [Gemini]",
+  "url": "https://www.ubitennis.net/feed/"
+ },
+ {
+  "for": "Golden State Warriors",
+  "name": "Golden State of Mind (current.xml) [Gemini, ChatGPT]",
+  "url": "https://www.goldenstateofmind.com/rss/current.xml"
+ },
+ {
+  "for": "Golden State Warriors",
+  "name": "RealGM Wiretap [Gemini]",
+  "url": "https://basketball.realgm.com/rss/wiretap/0/0.xml"
+ },
+ {
+  "for": "Golden State Warriors",
+  "name": "Yahoo Sports NBA [Gemini]",
+  "url": "https://sports.yahoo.com/nba/rss.xml"
+ },
+ {
+  "for": "Cristiano Ronaldo",
+  "name": "PortuGOAL [Gemini]",
+  "url": "https://portugoal.net/index.php?format=feed&type=rss"
+ },
+ {
+  "for": "Cristiano Ronaldo",
+  "name": "Goal.com English [Gemini]",
+  "url": "https://www.goal.com/feeds/en/news"
+ },
+ {
+  "for": "Barcelona (rival)",
+  "name": "Football Espa\u00f1a, Barcelona [Gemini, ChatGPT]",
+  "url": "https://www.football-espana.net/category/la-liga/barcelona/feed"
+ },
+ {
+  "for": "World football",
+  "name": "Sky Sports football (old URL) [Gemini]",
+  "url": "https://www.skysports.com/rss/0,20514,11095,00.xml"
+ },
+ {
+  "for": "World football",
+  "name": "Football Italia [Gemini]",
+  "url": "https://www.football-italia.net/rss.xml"
+ },
+ {
+  "for": "World football",
+  "name": "Get French Football News [Gemini]",
+  "url": "https://www.getfootballnewsfrance.com/feed/"
+ },
+ {
+  "for": "Other sport",
+  "name": "The Hindu other sports [Gemini]",
+  "url": "https://www.thehindu.com/sport/other-sports/feeder/default.rss"
+ },
+ {
+  "for": "Other sport",
+  "name": "ChessBase [Gemini]",
+  "url": "https://en.chessbase.com/feed"
+ },
+ {
+  "for": "Other sport",
+  "name": "Chess.com news [Gemini]",
+  "url": "https://www.chess.com/rss/news"
+ },
+ {
+  "for": "Other sport",
+  "name": "ESPN golf [Gemini]",
+  "url": "https://www.espn.com/espn/rss/golf/news"
+ },
+ {
+  "for": "Real Madrid",
+  "name": "Football Espa\u00f1a, Real Madrid [ChatGPT]",
+  "url": "https://www.football-espana.net/category/la-liga/real-madrid/feed"
+ },
+ {
+  "for": "Real Madrid",
+  "name": "The Guardian, Real Madrid [ChatGPT]",
+  "url": "https://www.theguardian.com/football/realmadrid/rss"
+ },
+ {
+  "for": "World football",
+  "name": "Sky Sports football [ChatGPT]",
+  "url": "https://www.skysports.com/rss/11095"
+ },
+ {
+  "for": "India men's cricket",
+  "name": "The Guardian cricket [ChatGPT]",
+  "url": "https://www.theguardian.com/sport/cricket/rss"
+ },
+ {
+  "for": "India men's cricket",
+  "name": "Sky Sports cricket [ChatGPT]",
+  "url": "https://www.skysports.com/rss/12123"
+ },
+ {
+  "for": "India men's cricket",
+  "name": "RevSportz [ChatGPT]",
+  "url": "https://revsportz.in/feed"
+ },
+ {
+  "for": "Formula 1",
+  "name": "Sky Sports F1 [ChatGPT]",
+  "url": "https://www.skysports.com/rss/12433"
+ },
+ {
+  "for": "Formula 1",
+  "name": "Crash.net F1 [ChatGPT]",
+  "url": "https://www.crash.net/rss/f1"
+ },
+ {
+  "for": "Tennis",
+  "name": "Sky Sports tennis [ChatGPT]",
+  "url": "https://www.skysports.com/rss/12110"
+ },
+ {
+  "for": "Golden State Warriors",
+  "name": "SFGate Warriors [ChatGPT]",
+  "url": "https://www.sfgate.com/warriors/feed/golden-state-warriors-rss-feed-491.php"
+ },
+ {
+  "for": "Golden State Warriors",
+  "name": "CBS Sports NBA [ChatGPT]",
+  "url": "https://www.cbssports.com/rss/headlines/nba"
+ },
+ {
+  "for": "Golden State Warriors",
+  "name": "Bleacher Report [ChatGPT]",
+  "url": "https://feeds.bleacherreport.com/articles"
+ },
+ {
+  "for": "World football",
+  "name": "The Independent football [ChatGPT]",
+  "url": "https://www.independent.co.uk/sport/football/rss"
+ },
+ {
+  "for": "Barcelona (rival)",
+  "name": "The Guardian, Barcelona [ChatGPT]",
+  "url": "https://www.theguardian.com/football/barcelona/rss"
+ },
+ {
+  "for": "World football",
+  "name": "CBS Sports soccer [ChatGPT]",
+  "url": "https://www.cbssports.com/rss/headlines/soccer"
+ },
+ {
+  "for": "World football",
+  "name": "Sports Mole [ChatGPT]",
+  "url": "https://www.sportsmole.co.uk/rss.xml"
+ },
+ {
+  "for": "Other sport",
+  "name": "The Guardian all sport [ChatGPT]",
+  "url": "https://www.theguardian.com/sport/rss"
+ },
+ {
+  "for": "Other sport",
+  "name": "BBC golf [ChatGPT]",
+  "url": "https://feeds.bbci.co.uk/sport/golf/rss.xml"
+ }
+]
