@@ -1,9 +1,9 @@
 {
-  "made_at": "2026-10-14T23:15:13.952Z",
+  "made_at": "2026-10-14T23:15:53.003Z",
   "tz": "Asia/Kolkata",
   "window": {
-    "from": "2026-10-10T23:15:13.952Z",
-    "to": "2026-10-14T23:15:13.952Z"
+    "from": "2026-10-10T23:15:53.003Z",
+    "to": "2026-10-14T23:15:53.003Z"
   },
   "listener": {
     "name": "Parth",
@@ -995,9 +995,10 @@
         {
           "subject": "Golden State Warriors",
           "care": "follow",
-          "headline": "Kristaps Porzingis Updates 'Frustrating' Health-Related Matter as Warriors Star Out Indefinitely",
+          "headline": "Kristaps Porziņģis is out indefinitely",
           "sport": "basketball",
           "outlets": [
+            "Golden State of Mind",
             "Bleacher Report",
             "SFGATE",
             "Bozeman Daily Chronicle",
@@ -1005,13 +1006,24 @@
             "Oskaloosa Herald",
             "Yahoo Sports",
             "ESPN",
-            "Sportsnet.ca"
+            "Sportsnet.ca",
+            "AOL.co.uk"
           ],
-          "n": 8,
+          "n": 10,
           "date": 1792017000000,
-          "url": "https://news.google.com/rss/articles/CBMi0gFBVV95cUxNUUtGWXBaZ3l2X01Gb3RqbGV6ZmFOWDQzbVZlV09sSkJIWmduUmZlUjJ4dEx0aExsSVBtZTNScUtIWjhhZldNSGpkd2Z6ZDNtU1p2RkFIRTYxd2NKbGtrMzNZVVJ4NHNrNk9hRmhlbVYySGcxLTlsOWZocksxZGc4VzZieFpQUnJiM25uMVB0TVNXbzlMZlNFQ282eklmUDV5YnMzMkI5c2JrZFFWZ1FBM2daVUw2Wm1SbTdudW5WdnhycWpfVS1rY1JJTUNNanFhTUE?oc=5",
-          "reports": [],
+          "url": "https://www.goldenstateofmind.com/warriors-news/112625/kristaps-porzingis-is-out-indefinitely-private-health-reason-question-mark-porzingis-twitter-statement",
+          "reports": [
+            {
+              "source": "Golden State of Mind",
+              "title": "Kristaps Porziņģis is out indefinitely",
+              "summary": "Act One of What’s The Matter with Kristaps Porziņģis? has concluded with a cliffhanger some of you might’ve seen coming. This afternoon, the Warriors released a statement on their long-absent Latvian: If you’ve got that site blocked, here it is again, but with the most important part bolded: Golden State Warriors forward/center Kristaps Porziņģis, who […]"
+            }
+          ],
           "links": [
+            {
+              "source": "Golden State of Mind",
+              "url": "https://www.goldenstateofmind.com/warriors-news/112625/kristaps-porzingis-is-out-indefinitely-private-health-reason-question-mark-porzingis-twitter-statement"
+            },
             {
               "source": "Bleacher Report",
               "url": "https://news.google.com/rss/articles/CBMi0gFBVV95cUxNUUtGWXBaZ3l2X01Gb3RqbGV6ZmFOWDQzbVZlV09sSkJIWmduUmZlUjJ4dEx0aExsSVBtZTNScUtIWjhhZldNSGpkd2Z6ZDNtU1p2RkFIRTYxd2NKbGtrMzNZVVJ4NHNrNk9hRmhlbVYySGcxLTlsOWZocksxZGc4VzZieFpQUnJiM25uMVB0TVNXbzlMZlNFQ282eklmUDV5YnMzMkI5c2JrZFFWZ1FBM2daVUw2Wm1SbTdudW5WdnhycWpfVS1rY1JJTUNNanFhTUE?oc=5"
@@ -1045,8 +1057,8 @@
               "url": "https://news.google.com/rss/articles/CBMipgFBVV95cUxQZ29aMXlrTHB0WHNxR1UzX0ZZekUzNlM4anp4NlFTWldrZ3A2SC12RGpsNHdNWE9CYkdxcEtLOGRoR2FFcUJRWUlmQXRrRlh1Q2lVRjVQbGk4SzNkdThYZEFWTXRQdWZXYVdyVWJqSUplY2V4X0ZxVWRsY0pnRmJaQndtdHA1ZlNHNWF6c2dCR0lPUjhZMWdiS0JITkdHelViVkVKZjV3?oc=5"
             },
             {
-              "source": "Yahoo Sports",
-              "url": "https://news.google.com/rss/articles/CBMiiAJBVV95cUxNdzhodTVkdkcyTVk5WTRlOXhyTV9OUEVCa3lQWjdyNnp4Zk95YVJBT1M3ZnJ5Wm0tTUZrM21DV25FUUlHOGJPdFdScVJvRmxyMzE5NmN1aTd6VnhHTGtUSkp5a3k2dTY3OF9jcnU1cDZ6ZXpvZzFqOEQ4WDIwNGRBUk9rbUJ5OWJlcEU1R2R6Nml0VnFlTVBNOHRhRDQydjBxanowenRyNHBrY3h6bm5BOVk2bnlVb3I4cDNYZldfckptZ2ZBSHJUZWh6Q1R2ckN5YjA4RTNFc05hdWJHYUFCWkNmemd1Q0RsTVpqN28yLTMwd1lsVGJYLU5uMDBvTUxxZENSSUQzdWE?oc=5"
+              "source": "AOL.co.uk",
+              "url": "https://news.google.com/rss/articles/CBMiigFBVV95cUxQbGNBOGl1UnJqYzNoMU81ZmhUVXg1aF9QZGQwU1NXT2ZuUzNSRVpkNUxqSmhyZkZ2dFd0bUU1WE9iNnhfTm93MFJsYXBvVlBtWUtDY3VrNDhIbTF6cmdIQzEwSzN4czFZa2p4aDFqY0Z0YXh3bkE3X2NrcXFKcjhvRVF4M2lTSlFNeHc?oc=5"
             },
             {
               "source": "Bleacher Report",
@@ -1058,6 +1070,7 @@
             }
           ],
           "titles": [
+            "Kristaps Porziņģis is out indefinitely",
             "Kristaps Porzingis Updates 'Frustrating' Health-Related Matter as Warriors Star Out Indefinitely",
             "Warriors' Kristaps Porzingis remains out indefinitely, says he's seeing doctors to figure out health",
             "Warriors' Kristaps Porzingis remains out indefinitely, says he's seeing doctors to figure out health",
@@ -1071,76 +1084,80 @@
             "Kristaps Porzingis Update Given By Warriors as Health-Related Matter Sidelines Star Indefinitely"
           ],
           "text": {
-            "source": "Bleacher Report",
-            "url": "https://bleacherreport.com/articles/25510294-kristaps-porzingis-updates-frustrating-health-related-matter-warriors-star-out-indefinitely",
-            "text": "Golden State Warriors Kristaps Porziņģis provided an update on his health after the team said in a statement on Wednesday he would \"remain out indefinitely\" with the same \"health-related matter\" that has kept him out of training camp and the preseason. \"Hello people, I'm working with doctors and experts to figure out how to be fully back to good health ASAP,\" the veteran big man wrote on social media . \"Honestly, I'm getting better and better. I just have to stay patient, and I believe I'll be feeling great again soon. It has definitely been frustrating dealing with some health stuff that you can't exactly pinpoint, on top of injuries throughout my career, so it has added up for sure, but we will get through it. Health is wealth. Thank you for all the support. I appreciate all the Internet doctors trying to diagnose and help, but I'm in the best hands. So everyone can relax now, and I don't have HIV or AIDS.\" Porzingis, 31, has played in just 74 games over the past two seasons, limited by postural orthostatic tachycardia syndrome (POTS) that caused him to suffer an elevated heart rate and extreme fatigue. \"It hit me, and it hit me like a truck,\" Porziņģis told The Athletic's Fred"
+            "source": "Golden State of Mind",
+            "url": "https://www.goldenstateofmind.com/warriors-news/112625/kristaps-porzingis-is-out-indefinitely-private-health-reason-question-mark-porzingis-twitter-statement",
+            "text": "Act One of What’s The Matter with Kristaps Porziņģis? has concluded with a cliffhanger some of you might’ve seen coming. This afternoon, the Warriors released a statement on their long-absent Latvian: [Media: https://twitter.com/WarriorsPR/status/2110470609725722838] If you’ve got that site blocked, here it is again, but with the most important part bolded: > Golden State Warriors forward/center Kristaps Porziņģis, who missed training camp and the team’s first five (5) preseason games due to a health-related matter, returned to the Warriors’ practice facility yesterday and met with Warriors General Manager Mike Dunleavy and Vice President of Player Health & Performance Dr. Rick Celebrini. The specific contents of that meeting will remain private. Porziņģis will remain out indefinitely due to the same health-related matter but will be around the team. > An update on his status, including the potential resumption of practice, playing status or timeline, will be provided when available and appropriate. Gosh. I don’t know. If I didn’t want to make this story more than “out indefinitely,” then I might’ve chosen some less suspicious phrasing. The other day, Brady made a very reasonable"
           }
         },
         {
           "subject": "Golden State Warriors",
           "care": "follow",
-          "headline": "Kristaps Porziņģis issues unusual statement addressing rumors amid health frustrations",
+          "headline": "Warriors Trade Idea Lands Rising Star Two-Way Guard Next To Stephen Curry",
           "sport": "basketball",
           "outlets": [
-            "The Athletic",
-            "Yahoo Sports",
-            "San Francisco Chronicle",
-            "Eurohoops",
-            "Sports Illustrated"
+            "Heavy.com",
+            "Oskaloosa Herald",
+            "NBA.com",
+            "Sports Illustrated",
+            "Flashscore.com"
           ],
           "n": 5,
-          "date": 1792015445000,
-          "url": "https://www.nytimes.com/athletic/7690853/2026/10/14/kristaps-porzingis-warriors-health-update-out-indefinitely/",
-          "reports": [
-            {
-              "source": "The Athletic",
-              "title": "Kristaps Porziņģis issues unusual statement addressing rumors amid health frustrations",
-              "summary": "The Warriors hoped that the big man's preseason absence would only keep him out for a short time, but that hope is now gone."
-            }
-          ],
+          "date": 1792010240000,
+          "url": "https://news.google.com/rss/articles/CBMilAFBVV95cUxPYk1xLS1RV3psdlBpVE55ckpDZWV1NF96MFZQVzdpSVpQV01rN1dhM1ZFQWNLbFZGVGpMRVdHbDROSV93cVBKczhVWXlEMEpiRVZoWnZJdENLYUxFT1RRRXNxeFZUSlVzbHdtRlp6Vjh2V25mb2h2VEI2dDRVT0U4Y2dIQy1mVzBISmRia016Vm16YVNi?oc=5",
+          "reports": [],
           "links": [
             {
-              "source": "The Athletic",
-              "url": "https://www.nytimes.com/athletic/7690853/2026/10/14/kristaps-porzingis-warriors-health-update-out-indefinitely/"
+              "source": "Heavy.com",
+              "url": "https://news.google.com/rss/articles/CBMilAFBVV95cUxPYk1xLS1RV3psdlBpVE55ckpDZWV1NF96MFZQVzdpSVpQV01rN1dhM1ZFQWNLbFZGVGpMRVdHbDROSV93cVBKczhVWXlEMEpiRVZoWnZJdENLYUxFT1RRRXNxeFZUSlVzbHdtRlp6Vjh2V25mb2h2VEI2dDRVT0U4Y2dIQy1mVzBISmRia016Vm16YVNi?oc=5"
             },
             {
-              "source": "Yahoo Sports",
-              "url": "https://news.google.com/rss/articles/CBMilgFBVV95cUxNQWprLWhvOWJTVzdWNTdqeXN1dWJSbUE1MTFYVURvMGNNaHV3NXNRSzdQb2pTSjV3Tk9VaEtaOXZPM09QRGZDMVB3UW5PeWo5QmxwZmdkZGZZMFpUTEhyNUM2LXZzNnpSUDIzamZkNVoxUFlDeF8zeW1Eb0dyc0V3WG02RzV6UTdyNW5ZOElLN3F1WlA1V0E?oc=5"
+              "source": "Oskaloosa Herald",
+              "url": "https://news.google.com/rss/articles/CBMilwJBVV95cUxPRmZUTnFjUXRHR1pTX2V4NERLdFp1ZU1JQXRPYmNlWFN0UTNRa1JFVklrWUIxMDdDWkdRWDlvYXV0TlpKVWxobUdRaVZ6MEpsYjlDOE1hcFNnOWVlb1ZXUC03Nm8ydWR0eXY5aDJ4X09DWWE3dXJRUUMwcU5keUhUcVdzcllfX1Z3eE1LWm1PWGtYZzlOMzdyUmZZT0tmVEIzOGNyWEotTThjYkh2Nkc1MGJMbXlfNDlyOWlIdXJHN1Bmc2xFTWFvaWF5ZF9VaFVwWlhic0xCYmo4V21jdFU5Qy1LMmdvYW5aUVZOaGFoX3hUZzJJa2NfbE1hOXkwMlNBMS1QOXMxekNJckdjOWNtZWxCT29BRHM?oc=5"
             },
             {
-              "source": "San Francisco Chronicle",
-              "url": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxNZGhHZTRnbjM4NVVQMFpXMkpPZ2MwdlhSVTdYWVNuRTl5WV9VdEdQNFhWNThtSXVnVWllVDJsbXRqTHhJQnNwNDZqeW9pdVYzQ3NkOFYyeHg1Wm1INnpSSU0xd3pOTmR5ZWdrVkZlYXhLRnJXTzBMVl84NHpTWFJUZG04cmV2Z1QtMmh4TkJsb0FzOGpzVnhKaFRHb1BjNklkUU0xRlJPelY3VDQ?oc=5"
+              "source": "NBA.com",
+              "url": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxPWTFKMDU1d1dHaUYycFhzMEJwWEgtWjUxNTJDSFdMSGU1Q29pVnh1cnpjUk1zeHJRNm9OcUNtZEg4NTNvYnJPMUVuRUlWc3BwMXBKYTl4RzJZcVBMZERjQ3lVTEZGaGxrVVFFMmpTZkxpcTFsNU9HN3NUc28xenhZUGFjY3ZNWUF0ZllvWGdhT0dpZTNCcmdXZ3UyUERUMHZyUkl3VVpDRjZNaWc2Yi11S0k5QUwtVGMzSVlNNTFSLVFRTnc?oc=5"
             },
             {
-              "source": "Yahoo Sports",
-              "url": "https://news.google.com/rss/articles/CBMi8wFBVV95cUxNRWpjUEVYX3FxUVJBc3FObmNWMmNGMjhJSVgxRU9qblM0b1YwMjdRT1N5RFJVcFpnNHVjc01kQ2ZSMmRvZ0k1a0JtV1pscXJOcGZqLXlxX00xWFpiNU84Q08wQXI4VWZfYTk5QXQwc3hKaEd5NHRNUjhCczdJN3F0WlJYMllaVkdHR1puLU1fcGNEYWwyR3kzSU1sNXpZc29WdHFQUU5kdzVVeGdXMnRMZ3p6Q0pnZnVTZWRMUlZEZW1pZGdvR2hLY3dKTGRUUTd6eTlHWW5yTVVFbUEtNExtQWhTUkt5aThZSnZGNDJQb0JUQ3c?oc=5"
+              "source": "NBA.com",
+              "url": "https://news.google.com/rss/articles/CBMilgFBVV95cUxNNllpelloZUFmdUNvWFk5OWJxU1VaNnp4bnpHWUd1QkFqVTlUYjJkT0RyZUFaTmFoSTQ2ek5JUHZ6akk2RWNLMzJuclVJalZGNUxHS3BsMXVTdW1GekNOYjFzSDNfY1hIMDctVHkzNE5TX3FBZGRBWUozc3lUdU5NcFhTNnRnZ052S00wUVM4bEYwOTZOWGc?oc=5"
             },
             {
-              "source": "Eurohoops",
-              "url": "https://news.google.com/rss/articles/CBMi1wFBVV95cUxQbFR3WVpMV2wtYVhYRUxKa093R0FJYXQwQVNnRWRfdzI5WEZfLTB5MGpNakctOFVScjk3UmJ2WFpUcUFzdGFXSjdFVVZ3RmhvMllucUJRU3pJalA4ajhYVUQ2RkhUaTRTOXhlamtvVVFYbVNJWUFwWERmZVRYdEJob2NHbVlzamlCNkJJMVVjSU9hNV9aVGNYS2VqSTBmamRNd0M0bjd0THZiczRYb3BkclFiYzZZMHRnZENTUlhfdlY1NGNreWJxNXUzeHgwZnVReDlzcXNzVQ?oc=5"
-            },
-            {
-              "source": "Sports Illustrated",
-              "url": "https://news.google.com/rss/articles/CBMirAFBVV95cUxQZDB6OXd2OE96V1BMek92bkdfV204Vkw4dWF2YjItSXFOYnN1aTEwekhUWExNQndnUDlDM1lCTk00TWpaZExEVFg5LUZPak0tUkVoN0F3TGtDTWtNQjh2SWFhUjJ3MkR6c3huby1NUk1EMXptVHROWGZuakZaU2ozTXhaenY4azBpVms3SkZLLW1oeW9pZmQ4MFphS0I0d0M4R3hiMUtzREVfaFFh?oc=5"
+              "source": "NBA.com",
+              "url": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxPYl8wNXFRc2t3SGJlQjM3eUdLM2djeE40dWM2SEItMUF5SHhFTWhQUDR5SEpnOWZ1Rng2MXgtSDh4akl6SVVSTzBYVThuUk8tZ1JablA0aVBFV0JHRThhVEozN1MzR3BwNVp4ODd0MkRfYmVheVc2bzYyVW10OGVZNkM1NDJfRm1Ea21JeVlHRGhBMHpRbHUtRDZQaWszYXRPWG82dDNqQVJBcnlsQzNRQnE0TXVrdjhaUU9CSEV0LVpLQ2s?oc=5"
             },
             {
               "source": "Sports Illustrated",
-              "url": "https://news.google.com/rss/articles/CBMirAFBVV95cUxQZDB6OXd2OE96V1BMek92bkdfV204Vkw4dWF2YjItSXFOYnN1aTEwekhUWExNQndnUDlDM1lCTk00TWpaZExEVFg5LUZPak0tUkVoN0F3TGtDTWtNQjh2SWFhUjJ3MkR6c3huby1NUk1EMXptVHROWGZuakZaU2ozTXhaenY4azBpVms3SkZLLW1oeW9pZmQ4MFphS0I0d0M4R3hiMUtzREVfaFFh?oc=5"
+              "url": "https://news.google.com/rss/articles/CBMid0FVX3lxTE5LVkE1enpXbW1udEVtNWtIdjdfajc0d0wweXNKUXdxNTlzYzdoUGdVV3loV3Fva3RNaDM4NGljZDhSNmpzMVB4R0lZUm9vSTNwT3RrR292YnREaVdlY1FGaE5qajFoNnIwRG9aWUhuV0piSDlwTElB?oc=5"
+            },
+            {
+              "source": "NBA.com",
+              "url": "https://news.google.com/rss/articles/CBMilwFBVV95cUxQclpPYUVFN0pNNmIxNUJVeUd0SUp3NkNoZlJ0cEIyZGtCcTgxWHVNWkZRWk1vVm9nNHVMMUZCRlRZVEFNQ0dhSmRNMTY4MUxxVTFsck16ck5VUE81cno0VEcySWVKX3JXTndJN3J1dW9TSVFFVDZKUzJnQUxzbDktNFR6MG9rMUUtOTFLQ3JaVHFndzkzYmpJ?oc=5"
+            },
+            {
+              "source": "Flashscore.com",
+              "url": "https://news.google.com/rss/articles/CBMipgFBVV95cUxPc3ZCWWJja1I5VmJ6emRjNHBHdDBnNUlnLWRBSEh6d3lZNERRbi1ZLVFhOUxUX1BIaVRYbXE2VTNtRllUdXQ5a0d2M2ZXbXlkRUFNLU4zbERkenBpOEhLaXJ4ak1udC1veVYyMWZBQmgydnVLbTVURzdGNW96bjlZTWU5UF9VQ0JlU29QV19YWHBBRW9ydG9WeUdudUwyWlpUT2tHSDhn?oc=5"
+            },
+            {
+              "source": "Sports Illustrated",
+              "url": "https://news.google.com/rss/articles/CBMiRkFVX3lxTE1Oc2VZXzg1cUZnaDR4ekxhclJEWElNTW1POEhGSG94YVRfbkhtbUdDM3VYTzBXcmpaT0JSem9GcS1ITGNxQWc?oc=5"
             }
           ],
           "titles": [
-            "Kristaps Porziņģis issues unusual statement addressing rumors amid health frustrations",
-            "Warriors' Kristaps Porzingis breaks silence on his health issues",
-            "Kristaps Porzingis breaks silence after Warriors announce he’s out indefinitely",
-            "Warriors' Kristaps Porziņģis will remain out indefinitely due to 'health-related matter' but will be around team",
-            "Warriors’ Kristaps Porzingis out indefinitely for the start of the season amid health problems",
-            "Warriors' Kristaps Porzingis Breaks Silence on Health Issue",
-            "Warriors' Kristaps Porzingis Breaks Silence on Health Issue"
+            "Warriors Trade Idea Lands Rising Star Two-Way Guard Next To Stephen Curry",
+            "With Stephen Curry leading the way, Golden State Warriors try to contend again in talented West",
+            "Golden State Warriors Best Plays vs. Los Angeles Lakers",
+            "All Possessions: Golden State Warriors @ Los Angeles Lakers",
+            "Los Angeles Lakers Best Plays vs. Golden State Warriors",
+            "Golden State Warriors vs Los Angeles Lakers Final Score & Box Score — October 13, 2026 | SI",
+            "Golden State Warriors Top Dunks vs. Los Angeles Lakers",
+            "Los Angeles Lakers - Golden State Warriors 89-101",
+            "Golden State Warriors News, Rumors & Analysis"
           ],
           "text": {
-            "source": "Yahoo Sports",
-            "url": "https://sports.yahoo.com/articles/warriors-kristaps-porzingis-breaks-silence-214542900.html",
-            "text": "Kristaps Porzingis took to social media to give fans an update about his ongoing health"
+            "source": "Heavy.com",
+            "url": "https://heavy.com/sports/nba/golden-state-warriors/trade-idea-anthony-black-stephen-curry/",
+            "text": "The Golden State Warriors could be the next landing spot for one of the best young guards in the NBA, as making a trade to add another piece to the team's current lineup might be the best way to have a better chance at competing in the Western Conference. Heading into the new season, the Warriors are dealing with injuries to Kristaps Porzingis, Jimmy Butler, and Moses Moody. There's not a lot of talent left for franchise star Stephen Curry to work with, meaning Golden State might start prowling around the trade market to find some available players to add talent. With that, Anthony Black of the Orlando Magic could become available in a trade for the Warriors, as the 22-year-old guard is coming off the best season of his career, but feels unlikely to sign a contract extension with his current team. Warriors Trade Idea Lands Anthony Black For Cheap Price After NBA insider Marc Stein's recent reports about Black's uncertain future with the Magic, Eddie Bitar, writing for FadeawayWorld.com, proposed a Warriors trade idea to land the young guard. Here's his trade proposal, and what Golden State would give up in a deal: Golden State Warriors receive: Anthony Black Orlando Magic receive:"
           }
         },
         {
@@ -1372,61 +1389,6 @@
         {
           "subject": "Men's tennis",
           "care": "follow",
-          "headline": "Zheng Qinwen's China Open win thrills home Beijing crowd, from the tennis to the karaoke",
-          "sport": "tennis",
-          "outlets": [
-            "The Athletic",
-            "BBC Sport",
-            "Tennis Majors"
-          ],
-          "n": 3,
-          "date": 1791730771000,
-          "url": "https://www.nytimes.com/athletic/7680131/2026/10/11/zheng-qinwen-tennis-china-open-mirra-andreeva/",
-          "reports": [
-            {
-              "source": "The Athletic",
-              "title": "Zheng Qinwen's China Open win thrills home Beijing crowd, from the tennis to the karaoke",
-              "summary": "The Olympic champion won her first WTA 1000 title by outlasting Mirra Andreeva in Beijing."
-            },
-            {
-              "source": "BBC Sport",
-              "title": "Karaoke-singing Zheng makes history with China Open win",
-              "summary": "Zheng Qinwen becomes the first Chinese champion of the China Open after overcoming Mirra Andreeva in straight sets."
-            },
-            {
-              "source": "Tennis Majors",
-              "title": "Wildcard Zheng stuns Andreeva to win first WTA 1000 crown on home soil in Beijing",
-              "summary": "Chinese wildcard Qinwen Zheng beat Mirra Andreeva (No. 4) 7-5, 6-4 on Sunday to win the China Open, the first WTA 1000 title of her career. The former World No. 4, who fell down the rankings after a serious right elbow injury, fought through a record 78 dropped games on her way to the trophy and celebrated with karaoke at the ceremony."
-            }
-          ],
-          "links": [
-            {
-              "source": "The Athletic",
-              "url": "https://www.nytimes.com/athletic/7680131/2026/10/11/zheng-qinwen-tennis-china-open-mirra-andreeva/"
-            },
-            {
-              "source": "BBC Sport",
-              "url": "https://www.bbc.co.uk/sport/tennis/articles/cr78pe7yjxxjo?at_medium=RSS&at_campaign=rss"
-            },
-            {
-              "source": "Tennis Majors",
-              "url": "https://www.tennismajors.com/wta-tour-news/wildcard-zheng-stuns-andreeva-to-win-first-wta-1000-crown-on-home-soil-in-beijing-863053.html"
-            }
-          ],
-          "titles": [
-            "Zheng Qinwen's China Open win thrills home Beijing crowd, from the tennis to the karaoke",
-            "Karaoke-singing Zheng makes history with China Open win",
-            "Wildcard Zheng stuns Andreeva to win first WTA 1000 crown on home soil in Beijing"
-          ],
-          "text": {
-            "source": "BBC Sport",
-            "url": "https://www.bbc.co.uk/sport/tennis/articles/cr78pe7yjxxjo?at_medium=RSS&at_campaign=rss",
-            "text": "Highlights: Zheng Qinwen beats Mirra Andreeva to become China Open champion Zheng Qinwen became the first Chinese woman to win the China Open by beating Mirra Andreeva in Beijing. Zheng, who entered the tournament as a wildcard ranked number 54 in the world, saved three set points in Sunday's opener before overcoming fourth seed Andreeva 7-5 6-4. The 24-year-old fell to the floor after converting match point and treated the raucous home crowd to some karaoke following her victory speech. \"The feeling was incredible. To win here in Beijing in front of my home crowd is one of my dreams,\" she said. For Zheng, who underwent elbow surgery last year, it was a first WTA 1000 title and her sixth title over all. The triumph brings an end to a two-year title drought for a player who has struggled with form and fitness in the past 12 months. Andreeva, 19, was on top in the early stages of both sets, but was reeled back in both times. The Russian led 2-0 in both sets and 5-4 in the first before Zheng saved three set points and won the remaining 11 points to win the opener 7-5. Andreeva continued to make mistakes in a second set that was finely poised at 4-4 before Zheng took control. The"
-          }
-        },
-        {
-          "subject": "Men's tennis",
-          "care": "follow",
           "headline": "\"Becoming a sore loser, yikes\" - Fans call out Carlos Alcaraz after Spaniard blames balls for heartbreaking Shanghai Masters loss",
           "sport": "tennis",
           "outlets": [
@@ -1455,6 +1417,39 @@
             "source": "Sportskeeda",
             "url": "https://www.sportskeeda.com/tennis/news-becoming-sore-loser-yikes-fans-call-carlos-alcaraz-spaniard-blames-balls-heartbreaking-shanghai-masters-loss",
             "text": "Carlos Alcaraz has come under scrutiny for his reaction to his unexpected loss at the 2026 Shanghai Masters. After the seven-time Grand Slam champion opened up about the issues that plagued him during his third-round encounter, tennis fans criticized him for seemingly undermining his opponent's win.Following his successful title defense at the Japan Open, Alcaraz was expected to make another deep run at the Shanghai Masters. Although he kicked off his campaign with a dominant 6-3, 6-3 victory over Juan Manuel Cerundolo, the Spaniard struggled against Zizou Bergs, who pulled off a 7-5, 7-6(4) upset in their third-round clash.During his post-match press conference, the World No. 3 admitted that he had displayed a \"bad level\" and was outplayed by Bergs. Despite acknowledging the Belgian's stellar performance, Alcaraz also expressed his belief that Bergs had gotten \"lucky\" at certain points in the match.\"I didn't play good. I would say it was a really bad level for me, and it was a really good level from him,\" he said. \"In few important moments I didn't play my best. I could say there were a few moments that he was lucky as well, that's what I think.\"\"You know, some returns, some"
+          }
+        },
+        {
+          "subject": "Men's tennis",
+          "care": "follow",
+          "headline": "Tsitsipas advances to Shanghai Masters second round and Hurkacz lines up Djokovic",
+          "sport": "tennis",
+          "outlets": [
+            "Oskaloosa Herald",
+            "SuaraGarut.ID"
+          ],
+          "n": 2,
+          "date": 1791963258000,
+          "url": "https://news.google.com/rss/articles/CBMijAJBVV95cUxNekFqZzdYYV9McHc0b25uVTY1YkUyTW9PUzEycDEwTlJXSGJGWDJsSWlXSmF5WTMxVFA0cnBjSEVFR2d3TlFLeVdsOHhrdmNmT3RvUmlVS0NUNllOa0N0LWM4V0x5cXM2RDhjN3RwMHh5cEtBZGkwNEpUaTRkSkhFSVQ4OTZjWlU4YzVRcjY4RFBhSmJCMVVYdWMxVGFIRENjZjlTa3dlbFZjdjZxLVpnTlF5T25iRHhYNVg1VlVRUTV3MVlSVWJaRGJJTFJ0YVlYbDhXRGFZci1hV0FtTG1uMk1MMGxuaUtwRFZLNUFZSzhjd21FTVhYTU9pX1FfWll1UTlNWWhzV1pEREs4?oc=5",
+          "reports": [],
+          "links": [
+            {
+              "source": "Oskaloosa Herald",
+              "url": "https://news.google.com/rss/articles/CBMijAJBVV95cUxNekFqZzdYYV9McHc0b25uVTY1YkUyTW9PUzEycDEwTlJXSGJGWDJsSWlXSmF5WTMxVFA0cnBjSEVFR2d3TlFLeVdsOHhrdmNmT3RvUmlVS0NUNllOa0N0LWM4V0x5cXM2RDhjN3RwMHh5cEtBZGkwNEpUaTRkSkhFSVQ4OTZjWlU4YzVRcjY4RFBhSmJCMVVYdWMxVGFIRENjZjlTa3dlbFZjdjZxLVpnTlF5T25iRHhYNVg1VlVRUTV3MVlSVWJaRGJJTFJ0YVlYbDhXRGFZci1hV0FtTG1uMk1MMGxuaUtwRFZLNUFZSzhjd21FTVhYTU9pX1FfWll1UTlNWWhzV1pEREs4?oc=5"
+            },
+            {
+              "source": "SuaraGarut.ID",
+              "url": "https://news.google.com/rss/articles/CBMicEFVX3lxTFBBc2pVYjlWU25ZTE9fdTktZHhwNkdyamNBSHVmekpUbkZrTE1MNG0xS1dBNWpkZ0h2bTl3RjktY1cwX1ZYeXgzcm9oYVNhWnFpN00wME9NRnBZTEZBT084YVFVcDQ4X1hVbjI5ZmFiTjE?oc=5"
+            }
+          ],
+          "titles": [
+            "Tsitsipas advances to Shanghai Masters second round and Hurkacz lines up Djokovic",
+            "Hurkacz Advances in Shanghai After Djokovic Breakthrough"
+          ],
+          "text": {
+            "source": "Oskaloosa Herald",
+            "url": "https://www.oskaloosa.com/sports/national_sports/tsitsipas-advances-to-shanghai-masters-second-round-and-hurkacz-lines-up-djokovic/article_0ab38ce1-c2ad-500b-8d64-fb42bcbf5649.html",
+            "text": "Two-time major finalist Stefanos Tsitsipas has beaten qualifier Kimmer Coppejans 6-3, 7-5 in the Shanghai Masters first round. Tsitsipas continues his slow climb back up the ATP rankings. He had a career-high No. 3 ranking and now he's 43rd. Big-serving Hubert Hurkacz won and next faces Novak Djokovic. Alexander Zverev, of Germany, leaves after losing to Novak Djokovic, of Serbia, in the men's singles quarterfinals match of the China Open tennis tournament in Beijing, Sunday, Oct. 4, 2026. Spain's Carlos Alcaraz poses with the trophy after winning the men's singles final against Czechia's Jiri Lehecka at the Japan Open tennis tournament in Tokyo, Tuesday, Oct. 6, 2026. SHANGHAI (AP) — Two-time major finalist Stefanos Tsitsipas beat qualifier Kimmer Coppejans 6-3, 7-5 in the Shanghai Masters first round on Thursday, continuing his slow climb back up the ATP rankings. Tsitsipas reached a career-high No. 3 ranking in 2021. He lost in qualifying at last week’s Japan Open. At his previous tournament, the U.S. Open, he lost in the fourth round to eventual finalist Ben Shelton. Javascript is required for you to be able to read premium content. Please enable it in your browser settings."
           }
         }
       ],
@@ -1648,6 +1643,7 @@
             "BBC Sport",
             "Managing Madrid",
             "Yahoo Sports",
+            "TOD",
             "Universidad de Córdoba (UCO)"
           ]
         },
@@ -1717,12 +1713,6 @@
           ]
         },
         {
-          "headline": "UCL | Roma 3-4 Real Madrid: Mourinho inflicts corner kick nightmare on Gasp",
-          "outlets": [
-            "Football Italia"
-          ]
-        },
-        {
           "headline": "Penalty and offside: was Real Madrid wronged twice in Roma's third goal?",
           "outlets": [
             "Goal.com"
@@ -1735,15 +1725,9 @@
           ]
         },
         {
-          "headline": "Roma vs Real Madrid: Kylian Mbappe overtakes Lionel Messi 100 appearances in Champions League record books",
+          "headline": "Roma vs Real Madrid: Kylian Mbappe overtakes Lionel Messi 100 appearances in Champions League record books with special feat",
           "outlets": [
             "Livemint"
-          ]
-        },
-        {
-          "headline": "On video: De Roon shatters Batistuta's legend at Real Madrid's expense",
-          "outlets": [
-            "Goal.com"
           ]
         },
         {
@@ -1927,17 +1911,6 @@
           ]
         },
         {
-          "headline": "Shai Hope’s 102 gives West Indies series-leveling win over India in fourth cricket T20",
-          "outlets": [
-            "Bozeman Daily Chronicle",
-            "Oskaloosa Herald",
-            "ABC News - Breaking News, Latest News and Videos",
-            "The New Indian Express",
-            "Yahoo Sports",
-            "The News Mill"
-          ]
-        },
-        {
           "headline": "Unchanged India bowl first in bid to win series, West Indies make two changes",
           "outlets": [
             "ESPNcricinfo",
@@ -1947,11 +1920,27 @@
           ]
         },
         {
+          "headline": "West Indies beat India to level T20 series as Hope continues record run",
+          "outlets": [
+            "Al Jazeera",
+            "Oskaloosa Herald",
+            "ABC News - Breaking News, Latest News and Videos"
+          ]
+        },
+        {
           "headline": "Shreyas Iyer hails India bowlers' execution of plans after 3rd T20I win vs West Indies",
           "outlets": [
             "The Indian Express",
             "The News Mill",
             "Rediff"
+          ]
+        },
+        {
+          "headline": "India vs West Indies: Shai Hope steals show once again, takes series into decider",
+          "outlets": [
+            "The New Indian Express",
+            "Yahoo Sports",
+            "The News Mill"
           ]
         },
         {
@@ -2323,17 +2312,16 @@
       "score": 0.35,
       "reports": [
         {
-          "headline": "Warriors blitz Lakers late in NBA Preseason win",
+          "headline": "Biggest Preseason Issue the Warriors Can't Afford to Ignore (and How Lakers Exposed It)",
           "outlets": [
-            "Sofascore",
             "Sports Illustrated"
           ]
         }
       ],
       "report": {
-        "source": "Sofascore",
-        "url": "https://www.sofascore.com/news/warriors-blitz-lakers-late-in-nba-preseason-win",
-        "text": "Golden State turned a tight night into a runaway, beating the Los Angeles Lakers 152-114 at Crypto.com Arena in the NBA Preseason . The crowd of 7,471 got a little bit of everything, from hot shooting bursts to a turnover storm late. The Warriors pulled away with a ferocious fourth quarter built on pressure defense and second chances. For full box score details and play-by-play, see the game page on Sofascore . The first quarter offered balance, finishing level at 29-29. By halftime, Golden State had nudged in front 101-88 after a high-paced second period. The Warriors then kept the momentum through the third, taking a 123-101 lead into the final frame. Los Angeles needed a spark, but Golden State instead found another gear. The fourth quarter was all Warriors, 29-13, and the gap ballooned as the minutes ticked down. In short, the night started even, tilted by halftime, and then tipped decisively late. The Warriors’ closing kick separated the teams. Los Angeles could not match the pace or the possession battle over the final 12 minutes. Golden State’s bench and wings supplied timely shooting during the push. The finish made the final scoreline emphatic. If there was one number"
+        "source": "Sports Illustrated",
+        "url": "https://www.si.com/nba/warriors/onsi/biggest-preseason-issue-the-warriors-can-t-afford-to-ignore-and-how-lakers-exposed-it-01m4xpyzk65a",
+        "text": "Austin Reaves exposed the Golden State Warriors defense last night while helping the Los Angeles Lakers build a 20-point third-quarter lead. That the Warriors came back to win 101-89 feels less important than Golden State's biggest preseason issue, which has been point-of-attack defense. (Note: Turning the ball over is a close second.) Let's go over how the Lakers exposed the Warriors' poor on-ball defense before addressing what they can do to fix it from a personnel perspective. In 25 minutes, Reaves had 28 points on 10-of-18 shooting with seven assists and seven turnovers. The Warriors deserve credit for swarming him into a high-turnover game, but the bigger-picture issue is how often they gave up easy drives, especially considering Reaves was the only major threat with Luka Doncic resting. The first defensive mistake came from Curry. Any time you're in a ball-screen situation at the point-of-attack defender, the first rule is to be ready if the offensive player rejects the screen. Curry was not ready: The Warriors are in zone here, but still I don't understand why Curry was so interested in getting over the screen with Podz waiting on the other side. Bassey could've defended"
       }
     },
     {
@@ -2366,9 +2354,17 @@
           "headline": "Warriors win over Lakers in Vegas, 101-89",
           "outlets": [
             "Golden State of Mind",
-            "Warriors Wire",
+            "ESPN",
             "Golden State Of Mind",
             "Sports Illustrated",
+            "ESPN India"
+          ]
+        },
+        {
+          "headline": "Warriors storm back for second half comeback in preseason win vs. Lakers, 101-89",
+          "outlets": [
+            "Warriors Wire",
+            "Sofascore",
             "NBC Sports Bay Area & California"
           ]
         },

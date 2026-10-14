@@ -32,3 +32,9 @@ export function player(matches, name, { since, until }) {
 
 // Semi-finals and finals of the tournaments on now, whoever played
 export const bigMatches = (matches, { since }) => matches.filter(m => m.state === "post" && Date.parse(m.date) >= since && /^(final|semifinal|semi-final|semifinals)$/i.test(m.round || ""));
+
+// The tour's ranked players (ESPN), so "Men's tennis" means stories about the men's tour: a story must name one of them
+export async function rankings(tour = "atp") {
+  const j = await getJSON(`${ESPN}/${tour}/rankings`);
+  return (j.rankings?.[0]?.ranks || []).map(r => r.athlete?.displayName).filter(Boolean);
+}

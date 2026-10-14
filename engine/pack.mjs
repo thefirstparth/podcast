@@ -182,6 +182,12 @@ export async function buildPack({ profile = json("profile.json"), show = json("c
     const names = await safe(`${f.name} squad (last known used)`, () => (f.sport === "basketball" ? nba.roster(f) : football.roster(f)));
     if (names?.length >= 8) squads[f.name] = { names, as_of: new Date(now).toISOString() };
   }
+  // a whole tour (Men's tennis): its ranked players stand for it, so a women's final is not men's tennis news
+  for (const f of profile.follows.filter(f => f.kind === "all" && f.sport === "tennis")) {
+    const tour = /women|wta/i.test(f.name) ? "wta" : "atp";
+    const names = await safe(`${f.name} rankings (last known used)`, () => tennis.rankings(tour));
+    if (names?.length >= 20) squads[f.name] = { names, as_of: new Date(now).toISOString() };
+  }
   ledger.saveSquads(squads);
   const matchers = new Map();
   const who = f => { if (!matchers.has(f.name)) matchers.set(f.name, buildMatcher(f, squads[f.name]?.names || [])); return matchers.get(f.name); };
@@ -217,7 +223,8 @@ export async function buildPack({ profile = json("profile.json"), show = json("c
   // more outlets ran, after the stories about the people they follow by name (15 Oct: the Six Kings Slam postponement)
   for (const f of profile.follows.filter(f => f.kind === "all")) {
     const cap = { "die-hard": 3, follow: 2, "big-moments": 1 }[care(f)] ?? 1;
-    for (const c of clusters.filter(c => !used.has(c) && c.sport === f.sport && c.n >= (care(f) === "big-moments" ? 3 : 2) && !c.titles.some(t => rivalRx.some(r => r.test(t)))).slice(0, cap)) {
+    const ok = c => (f.sport !== "tennis" || c.titles.some(t => who({ ...f, aliases: f.aliases || [/women|wta/i.test(f.name) ? "WTA" : "ATP", "Davis Cup", "Six Kings"] }).test(t)));
+    for (const c of clusters.filter(c => !used.has(c) && c.sport === f.sport && c.n >= (care(f) === "big-moments" ? 3 : 2) && ok(c) && !c.titles.some(t => rivalRx.some(r => r.test(t)))).slice(0, cap)) {
       used.add(c); news_items.push({ subject: f.name, care: care(f), ...c });
     }
   }
