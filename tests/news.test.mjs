@@ -17,3 +17,12 @@ test("reports of one story become one cluster, counted by outlet", () => {
   assert.equal(c[0].n, 2);
   assert.equal(c.length, 2);
 });
+
+test("players stand for their team in headlines", async () => {
+  const { playerAliases } = await import("../engine/pack.mjs");
+  assert.deepEqual(playerAliases("Vinícius Júnior"), ["Vinicius Junior", "Vinicius"]);
+  assert.deepEqual(playerAliases("Jude Bellingham"), ["Jude Bellingham", "Bellingham"]);
+  assert.deepEqual(playerAliases("Draymond Green"), ["Draymond Green", "Draymond"]);
+  assert.deepEqual(playerAliases("Brandon Williams"), ["Brandon Williams"]);
+  assert.deepEqual(playerAliases("Rodrygo"), ["Rodrygo"]);
+});

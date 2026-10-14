@@ -110,3 +110,9 @@ export async function team({ espn_id: id, name, league }, { since, until, rivals
   const around = tbl ? (() => { const i = tbl.findIndex(t => t.id === String(id)); return i < 0 ? null : { league, rows: tbl.slice(0, Math.max(4, i + 2)) }; })() : null;
   return { name, id: String(id), results, fixtures, table: around };
 }
+
+// The squad's names (for matching news to the team)
+export async function roster({ espn_id: id, league }) {
+  const j = await getJSON(`${ESPN}/${league || "all"}/teams/${id}/roster`);
+  return (j.athletes || []).map(a => a.displayName).filter(Boolean);
+}

@@ -13,14 +13,30 @@ import * as cricket from "./fetch/cricket.mjs";
 import * as news from "./fetch/news.mjs";
 import * as elsewhere from "./fetch/elsewhere.mjs";
 import { moodOf, intensityOf } from "./moods.mjs";
+import * as ledger from "./ledger.mjs";
 
 const H = new URL("../", import.meta.url).pathname;
+
+// The ways a player is named in headlines: the full name, a one-word name (Rodrygo, Endrick), and a surname of six or
+// more letters that is not an everyday word or a common surname (Bellingham, Porzingis; not Green, Silva, Santos)
+const COMMON = new Set("junior jr ii iii silva santos martinez garcia rodriguez fernandez lopez gonzalez perez sanchez diaz gomez navarro rivas green williams moody butler richard terry burton payton melton bassey brandon jimmy martin johnson james jones smith brown davis wilson miller".split(" "));
+export function playerAliases(name) {
+  const f = String(name).normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/[^A-Za-z' -]/g, "").trim(), w = f.split(/\s+/);
+  const out = [f.replace(/[-]/g, "[- ]")];
+  if (w.length === 1 && w[0].length >= 5) return out;
+  const last = w.at(-1).toLowerCase();
+  if (last.length >= 6 && !COMMON.has(last)) out.push(w.at(-1));
+  else if (COMMON.has(last) && w[0].length >= 6 && !COMMON.has(w[0].toLowerCase())) out.push(w[0]);
+  return [...new Set(out)];
+}
 const json = p => JSON.parse(readFileSync(`${H}${p}`, "utf8"));
 
-export async function buildPack({ profile = json("profile.json"), show = json("config/show.json"), feeds = json("config/feeds.json"), now = Date.now(), hours } = {}) {
+export async function buildPack({ profile = json("profile.json"), show = json("config/show.json"), feeds = json("config/feeds.json"), now = Date.now(), hours, said = ledger.load() } = {}) {
   const TZ = profile.listener?.tz || "UTC";
-  const since = now - (hours ?? show.window_hours ?? 30) * 36e5, until = now + 7 * 864e5, W = { since, until };
-  const items = [], fixtures = [], suppressed = [], errors = [];
+  // from the last published episode (a missed day is caught up, four days at most); else the last window_hours
+  const last = ledger.lastPublished(said);
+  const since = hours ? now - hours * 36e5 : last ? Math.max(last - 3 * 36e5, now - 4 * 864e5) : now - (show.window_hours ?? 30) * 36e5, until = now + 7 * 864e5, W = { since, until };
+  const items = [], fixtures = [], suppressed = [], errors = [], already = [];
   const at = (t, o = {}) => new Date(t).toLocaleString("en-GB", { timeZone: TZ, weekday: "short", day: "numeric", month: "short", hour: "2-digit", minute: "2-digit", hour12: false, ...o });
   const care = f => f.care || "follow";
   const weight = f => show.care_weight?.[care(f)] ?? 1;
@@ -30,6 +46,7 @@ export async function buildPack({ profile = json("profile.json"), show = json("c
   // several days only)
   const fresh = t => (Date.parse(t) >= now - (show.window_hours ?? 30) * 36e5 ? 1 : 0.5);
   const add = it => {
+    if (ledger.resultSaid(said, it.id)) { already.push(`${it.subject}: ${it.line}`); return; }
     it.mood = moodOf(it.facts, it.stance, show.mood_rules);
     if (it.stance === "rival" && !it.mood) { suppressed.push(`${it.subject}: ${it.line} (a rival's good result, never said)`); return; }
     it.intensity = intensityOf(it.care, it.facts || {});
@@ -145,12 +162,23 @@ export async function buildPack({ profile = json("profile.json"), show = json("c
   const deskFeeds = [...sports].flatMap(s => feeds[s] || []), names = profile.follows.filter(f => f.kind !== "all");
   const tagged = (list, sport) => list.map(f => ({ ...f, sport }));
   const pool = await safe("news", () => news.feeds([...[...sports].flatMap(s => tagged(feeds[s] || [], s)), ...tagged(feeds.general || [], null), ...names.flatMap(f => tagged(feeds.teams?.[f.name] || [], f.sport)), ...names.map(f => news.searchFeed(f.name.replace(/ men$/, " cricket team"), lang, f.sport))], W)) || [];
-  const clusters = news.cluster(pool);
+  const clusters = news.cluster(pool).filter(c => { if (ledger.newsSaid(said, c)) { already.push(`news: ${c.headline}`); return false; } return true; });
   const rx = n => new RegExp(`\\b(${n})\\b`, "i");
   // how a name appears in headlines (the setup page will ask for these; for now, Parth's), and what a match is not
   const ALIAS = { "Real Madrid": "Real Madrid|Madrid(?! Open)(?<!Atl[eé]tico Madrid)|Madridistas?|Bernab[eé]u", "India men": "India(?:'s)? (?:cricket|team|captain|squad|batting|bowling)|Team India|India (?:beat|lose|loses|win|wins|v |vs )|Suryakumar|Gill", "Golden State Warriors": "Warriors|Golden State|Steph Curry|Stephen Curry", "Barcelona": "Barcelona|Bar[cç]a|Camp Nou|Flick" };
   const NOT = { "India men": /\b(women|Mandhana|Harmanpreet|Ranji|U-?19|A team)\b/i };
-  const who = f => { const r = rx(ALIAS[f.name] || f.name.split(" ").at(-1)); return { test: h => r.test(h) && !NOT[f.name]?.test(h) }; };
+  // A team's players count as the team: "Vinicius Jr to miss Barcelona game because of ban" is Madrid news (15 Oct).
+  // The squads come from ESPN; a player is matched by full name, or by a surname distinctive enough to stand alone.
+  const fold = t => String(t).normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+  const squad = {};
+  for (const f of [...profile.follows, ...(profile.rivals || [])].filter(f => f.kind === "team" && (f.espn_id || f.espn_abbr))) {
+    const names = await safe(`${f.name} squad`, () => (f.sport === "basketball" ? nba.roster(f) : football.roster(f))) || [];
+    squad[f.name] = names.flatMap(playerAliases);
+  }
+  const who = f => {
+    const r = new RegExp(`\\b(${[fold(ALIAS[f.name] || f.name.split(" ").at(-1)), ...(squad[f.name] || [])].join("|")})\\b`, "i");
+    return { test: h => r.test(fold(h)) && !NOT[f.name]?.test(h) };
+  };
   const rivalRx = (profile.rivals || []).map(who);
   const used = new Set();
   const news_items = [];
@@ -174,9 +202,21 @@ export async function buildPack({ profile = json("profile.json"), show = json("c
       used.add(c); news_items.push({ subject: f.name, care: care(f), ...c });
     }
   }
+  // A rival's bad news, only when it is big (Parth, 15 Oct: "only if it is important"): a sacking, a ban, a fine, a
+  // points deduction, a crisis, booed off, knocked out; several outlets, or the rival's own desk and one more. Never an
+  // injury, an illness or anything personal, and never a match report (their results come above).
+  const RIVAL_BAD = /\b(sack(?:ed|ing)?|fired|under pressure|pressure mounts|crisis|turmoil|banned|ban|fined|fine|sanction(?:ed|s)?|points? deduction|deducted|investigat(?:ed|ion)|charged|booed|whistled|humiliat(?:ed|ion)|thrashed|knocked out|eliminated|crash out|slump|winless|debt|losses|ultimatum|walk-?out|rift|row)\b/i;
+  const PERSONAL = /\b(injur(?:y|ed|ies)|hamstring|knee|ankle|muscle|sidelined|ruled out|surgery|ill|illness|sick|hospital|died|death|dies|family|wife|girlfriend|baby|funeral|mourning|grief|mental health)\b/i;
+  const rival_news = [];
+  for (const f of profile.rivals || []) {
+    const desk = new Set((feeds.teams?.[f.name] || []).map(x => x.name));
+    const c = clusters.find(c => !used.has(c) && who(f).test(c.headline) && !names.some(n => who(n).test(c.headline)) && RIVAL_BAD.test(c.headline) && !PERSONAL.test(c.headline) && !RESULTY.test(c.headline.replace(RIVAL_BAD, "")) && (c.n >= 3 || (c.n >= 2 && c.outlets.some(o => desk.has(o)))));
+    if (c) { used.add(c); rival_news.push({ subject: f.name, care: "rival", mood: "gleeful", ...c }); }
+  }
+
   // the text behind each story and each result's best report, read by code (a few hundred words each, at most)
   for (const r of results) if (r.reports?.length) { r.reports.sort((a, b) => b.n - a.n); for (const c of r.reports.slice(0, 2)) if (!r.report) r.report = await news.readCluster(c); r.reports = r.reports.map(c => ({ headline: c.headline, outlets: c.outlets })); }
-  await Promise.all(news_items.map(async n => { n.text = await news.readCluster(n); }));
+  await Promise.all([...news_items, ...rival_news].map(async n => { n.text = await news.readCluster(n); }));
 
   // ---- Around the grounds: at most two things from outside the list that any fan of the sport would expect to hear,
   // scored by code (engine/fetch/elsewhere.mjs); nothing when nothing clears the bar
@@ -189,6 +229,7 @@ export async function buildPack({ profile = json("profile.json"), show = json("c
   const free = c => !used.has(c) && !rivalRx.some(r => r.test(c.headline)) && !names.some(f => who(f).test(c.headline) || new RegExp(`\\b${f.name.split(" ").at(-1)}\\b`, "i").test(c.headline));
   for (const c of clusters.filter(free)) { const d = elsewhere.newsDrama(c); if (d) cands.push({ id: `news-${c.headline.slice(0, 40)}`, sport: c.sport, kind: "news", line: c.headline, outlets: c.outlets, drama: d, why: [`${c.n} outlets`], cluster: c }); }
   // the last day's results first: an older upset has had its day (rehearsals over several days only)
+  for (const c of cands) if (ledger.resultSaid(said, c.id)) c.drama = 0;
   for (const c of cands) c.rank = c.drama - (c.date && Date.parse(c.date) < now - (show.window_hours ?? 30) * 36e5 ? 2 : 0);
   cands.sort((a, b) => b.rank - a.rank || Date.parse(b.date || 0) - Date.parse(a.date || 0));
   const around = cands.filter(c => c.rank >= A.min_drama).slice(0, A.max);
@@ -213,7 +254,7 @@ export async function buildPack({ profile = json("profile.json"), show = json("c
   const segs = [
     { id: "cold-open", items: open ? [open.id] : [], words: open ? 35 : 0 },
     { id: "die-hard", items: by(i => i.care === "die-hard").map(i => i.id), news: news_items.filter(n => n.care === "die-hard") },
-    { id: "rival-watch", items: by(i => i.stance === "rival").map(i => i.id) },
+    { id: "rival-watch", items: by(i => i.stance === "rival").map(i => i.id), news: rival_news },
     { id: "follow", items: by(i => i.stance !== "rival" && i.care !== "die-hard").map(i => i.id), news: news_items.filter(n => n.care !== "die-hard") },
     { id: "around", elsewhere: around, considered },
     { id: "ahead", fixtures: fixtures.filter(x => x.care !== "big-moments").sort((a, b) => a.when.localeCompare(b.when)) },
@@ -222,12 +263,17 @@ export async function buildPack({ profile = json("profile.json"), show = json("c
   for (const s of segs) if (s.words == null) s.words = (s.items || []).reduce((n, id) => n + wordsFor(items.find(i => i.id === id)), 0) + (s.news || []).length * 35 + (s.elsewhere || []).length * 45 + (s.fixtures || []).length * 14;
   const live = segs.filter(s => s.words > 0 && ((s.items || []).length || (s.news || []).length || (s.elsewhere || []).length || (s.fixtures || []).length || ["signoff"].includes(s.id)));
   let total = live.reduce((n, s) => n + s.words, 0);
-  const [lo, hi] = [(profile.length?.min ?? 4) * wpm, (profile.length?.max ?? 10) * wpm];
-  // a quiet day stays short (never padded); a big day is squeezed to the listener's longest
-  if (total > hi) { const k = hi / total; for (const s of live) s.words = Math.round(s.words * k); total = hi; }
+  // The listener's length (profile.length): a big day is brought down to the target, never past it, the cold open and
+  // sign-off untouched; a quiet day stays short (never padded). The writer's check holds the script under max.
+  const target = (profile.length?.target ?? 8) * wpm, max = (profile.length?.max ?? profile.length?.target ?? 9) * wpm;
+  if (total > target) {
+    const fixed = live.filter(s => ["cold-open", "signoff"].includes(s.id)).reduce((n, s) => n + s.words, 0), k = (target - fixed) / (total - fixed);
+    for (const s of live) if (!["cold-open", "signoff"].includes(s.id)) s.words = Math.round(s.words * k);
+    total = live.reduce((n, s) => n + s.words, 0);
+  }
   for (const s of live) { const def = show.segments.find(x => x.id === s.id); Object.assign(s, { name: def?.name, about: def?.about }); }
   return { made_at: new Date(now).toISOString(), tz: TZ, window: { from: new Date(since).toISOString(), to: new Date(now).toISOString() }, listener: profile.listener, tone: profile.tone,
-    minutes: +(total / wpm).toFixed(1), words: total, quiet: total < lo, running_order: live, items, fixtures, suppressed, errors };
+    minutes: +(total / wpm).toFixed(1), words: total, max_words: max, quiet: total < target * 0.75, running_order: live, items, fixtures, suppressed, already_said: already, errors };
 }
 
 // A person's view of the pack: what happened, the mood code gave it, and where it sits in the show
@@ -263,6 +309,7 @@ export function packMarkdown(P) {
     L.push("");
   }
   if (P.suppressed.length) L.push("## Left out on purpose", ...P.suppressed.map(x => `- ${x}`), "");
+  if (P.already_said?.length) L.push("## Already said in an earlier episode", ...P.already_said.map(x => `- ${x}`), "");
   if (P.errors.length) L.push("## Sources that failed", ...P.errors.map(x => `- ${x}`), "");
   return L.join("\n");
 }

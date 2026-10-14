@@ -1,9 +1,9 @@
 {
-  "made_at": "2026-10-14T22:44:23.343Z",
+  "made_at": "2026-10-14T22:50:52.766Z",
   "tz": "Asia/Kolkata",
   "window": {
-    "from": "2026-10-10T22:44:23.343Z",
-    "to": "2026-10-14T22:44:23.343Z"
+    "from": "2026-10-10T22:50:52.766Z",
+    "to": "2026-10-14T22:50:52.766Z"
   },
   "listener": {
     "name": "Parth",
@@ -15,8 +15,9 @@
     "rival_watch": true,
     "language": "clean"
   },
-  "minutes": 10,
-  "words": 1640,
+  "minutes": 8,
+  "words": 1312,
+  "max_words": 1476,
   "quiet": false,
   "running_order": [
     {
@@ -24,7 +25,7 @@
       "items": [
         "fb-401915414-love"
       ],
-      "words": 32,
+      "words": 35,
       "name": "Cold open",
       "about": "One or two lines on the biggest moment for the listener, said in its mood. No greeting before it."
     },
@@ -38,6 +39,57 @@
         "f1-17-race-max_verstappen"
       ],
       "news": [
+        {
+          "subject": "Real Madrid",
+          "care": "die-hard",
+          "headline": "Erling Haaland, Kylian Mbappe and the hunt for Cristiano Ronaldo's Champions League goals record",
+          "sport": "football",
+          "outlets": [
+            "The Athletic",
+            "Planet Football",
+            "The New York Times",
+            "www.thenationalnews.com"
+          ],
+          "n": 4,
+          "date": 1792005300000,
+          "url": "https://www.nytimes.com/athletic/7674397/2026/10/14/erling-haaland-kylian-mbappe-and-the-hunt-for-cristiano-ronaldos-champions-league-goals-record/",
+          "reports": [
+            {
+              "source": "The Athletic",
+              "title": "Erling Haaland, Kylian Mbappe and the hunt for Cristiano Ronaldo's Champions League goals record",
+              "summary": "The world's two greatest strikers are in pursuit of a special landmark, but will either of them get there? We crunch the numbers"
+            }
+          ],
+          "links": [
+            {
+              "source": "The Athletic",
+              "url": "https://www.nytimes.com/athletic/7674397/2026/10/14/erling-haaland-kylian-mbappe-and-the-hunt-for-cristiano-ronaldos-champions-league-goals-record/"
+            },
+            {
+              "source": "Planet Football",
+              "url": "https://news.google.com/rss/articles/CBMingFBVV95cUxPYXB3RVZZT1E2ZEhqamt5dENFaTBlNUY4T011eEVlSFhnZUthb21KUEJzRnBiVXdZYTA5SEtwN2xJNkJjbWFhR2I0UVM2cmY4QVVIZlQ2NnBoWURaaldmVEMtLTlOSHJmbG5Jc1p1THR5THVpQUN5SXR1MTlqOEszQ1lwYWVjUTdnWERVZFRBQU9sZGhzUEx4N3I2b0dyZw?oc=5"
+            },
+            {
+              "source": "The New York Times",
+              "url": "https://news.google.com/rss/articles/CBMi4AFBVV95cUxNcEdOZEpFUUIxVFNvVmF2RURWaENseVlOLThnMHRzWklxbFlndlFYSF8wdGo1UW5CTk5DWkpIZEQyZEFBRVQ3Y3VCYzBqVHNwcGF2RXBTX0t0M2hHNkgyS24yQ24yZjh0Rk1WYzRtc2ZVYmtyNzZhR29aY3BqX0lLU3N0Vk9Ua0tiQWl0S1FyS1BrVEN2WldLQk9jUGdfZXhxbzRvdldJTDVxT2RpeG1yWUhibWMzRkgwY2xsdzEtX3hubXNpa2pIZlRHX0E2SUptWjVqN182dGM5NXc5NmJYMw?oc=5"
+            },
+            {
+              "source": "www.thenationalnews.com",
+              "url": "https://news.google.com/rss/articles/CBMi5wFBVV95cUxNMFRJLURxRVRJems3TWpCRC1VTmNSVDFzZ3Q1eFc5V3pVZEVDV3dzTzF6WHVzVnFrNkdaNWdDeXV0akFLVkpJZXdlWnRuY3JIdUVfc3g3ZEpYcHdyQU9LejFReGFnNTJiaTBqQ0NBbXcwWk1xQ285dXlJMEVaSWFsT3JWNTdSd0VSNDFJcW9rcjl1R2hxLTFrR2lqN0hFYzB6VDhwcjh5eFRqT3pHY21VaEVuZlhteS0zYkM2c3Bmc25mYVdLUmQ4UnMzXzVJQ0NIdmNPVDN3VUk5czBRN1VrZHVhYXRsOEU?oc=5"
+            }
+          ],
+          "titles": [
+            "Erling Haaland, Kylian Mbappe and the hunt for Cristiano Ronaldo's Champions League goals record",
+            "Most goals in first 100 Champions League appearances: Mbappe, Messi, Ronaldo…",
+            "Erling Haaland, Kylian Mbappe and the hunt for Cristiano Ronaldo’s Champions League goals record",
+            "Haaland vs Mbappe: The race to break Cristiano Ronaldo’s historic Champions League goals record"
+          ],
+          "text": {
+            "source": "Planet Football",
+            "url": "https://www.planetfootball.com/champions-league/most-goals-first-100-champions-league-appearances",
+            "text": "Kylian Mbappe has reached the milestone of 100 Champions League appearances - but how does he rank for goals scored in that time? More than 50 players have now played 100 times or more in the Champions League, with Mbappe the latest. He's been one of the most effective in that time too, even if he's yet to win the competition. That will be much to his frustration, especially after he left Paris Saint-Germain for Real Madrid and then saw his old side win back-to-back Champions Leagues without him. What might have been. But in terms of individual numbers, Mbappe is up there with the best. Here are the players with the most goals from their first 100 Champions League games. Lewandowski has posted some insane goalscoring numbers throughout his career. He wasn't far off being a goal-a-game striker in his pomp at Bayern Munich. A 10-goal Champions League campaign in 2012-13 with runners-up Borussia Dortmund helped him become a household name. He did even better when he finally got his hands on the trophy with Bayern in 2019-20, scoring 15 times along the way. In fewer games, too. By the time of his 100th Champions League appearance, towards the twilight of his Bayern spell, Lewandowski"
+          }
+        },
         {
           "subject": "Real Madrid",
           "care": "die-hard",
@@ -95,61 +147,34 @@
         {
           "subject": "Real Madrid",
           "care": "die-hard",
-          "headline": "Madrid Daily: Cassano questions Mourinho, Comesaña responds and Sevilla lose Guridi",
+          "headline": "OFFICIAL: Vinicius will miss El Clásico, suspended four games",
           "sport": "football",
           "outlets": [
             "Managing Madrid"
           ],
           "n": 1,
-          "date": 1791998816000,
-          "url": "https://www.managingmadrid.com/latest-news/114094/madrid-daily-cassano-questions-mourinho-comesana-responds-and-sevilla-lose-guridi",
+          "date": 1791999496000,
+          "url": "https://www.managingmadrid.com/114101/vinicius-suspended-el-clasico-2026",
           "reports": [
             {
               "source": "Managing Madrid",
-              "title": "Madrid Daily: Cassano questions Mourinho, Comesaña responds and Sevilla lose Guridi",
-              "summary": "Real Madrid’s meeting with Roma has brought contrasting assessments of José Mourinho, with Antonio Cassano questioning his appointment and César Gómez backing his ability to guide the club’s younger players. The discussion surrounding Saturday’s victory over Villarreal also continues, as Santi Comesaña responds to Mourinho’s remarks about the refereeing. Meanwhile, Sevilla have another injury to ["
+              "title": "OFFICIAL: Vinicius will miss El Clásico, suspended four games",
+              "summary": "The Spanish Football Federation announced today that Real Madrid’s Vinicius Junior will miss the next four LaLiga games and therefore he won’t be available for El Clásico on October 25th. “Two-game suspension for violent conduct away from the play, with no chance of contesting the ball or during a stoppage, along with additional penalty/penalties as […]"
             }
           ],
           "links": [
             {
               "source": "Managing Madrid",
-              "url": "https://www.managingmadrid.com/latest-news/114094/madrid-daily-cassano-questions-mourinho-comesana-responds-and-sevilla-lose-guridi"
+              "url": "https://www.managingmadrid.com/114101/vinicius-suspended-el-clasico-2026"
             }
           ],
           "titles": [
-            "Madrid Daily: Cassano questions Mourinho, Comesaña responds and Sevilla lose Guridi"
+            "OFFICIAL: Vinicius will miss El Clásico, suspended four games"
           ],
           "text": {
             "source": "Managing Madrid",
-            "url": "https://www.managingmadrid.com/latest-news/114094/madrid-daily-cassano-questions-mourinho-comesana-responds-and-sevilla-lose-guridi",
-            "text": "Real Madrid’s meeting with Roma has brought contrasting assessments of José Mourinho, with Antonio Cassano questioning his appointment and César Gómez backing his ability to guide the club’s younger players. The discussion surrounding Saturday’s victory over Villarreal also continues, as Santi Comesaña responds to Mourinho’s remarks about the refereeing. Meanwhile, Sevilla have another injury to contend with before their visit to the Bernabéu on Sunday. Comesaña responds to Mourinho’s refereeing comments Santi Comesaña has questioned Madrid’s complaints about the refereeing in Saturday’s meeting with Villarreal, arguing that the home side put pressure on Isidro Díaz de Mera from the opening stages. Speaking in the mixed zone after Villarreal’s Champions League victory over Napoli, the midfielder was asked about Mourinho’s comments at his pre-match press conference in Rome. The Madrid coach had declined to discuss the Villarreal match in detail but invited reporters to watch its first minute to understand his assessment. “I saw something from the first minute. I don’t know what they’re complaining about with the referee and all that. If it’s a red card, it’s a red card. They were"
-          }
-        },
-        {
-          "subject": "Real Madrid",
-          "care": "die-hard",
-          "headline": "Mourinho to those interested in signing the Real Madrid star: forget about it completely",
-          "sport": "football",
-          "outlets": [
-            "Goal.com"
-          ],
-          "n": 1,
-          "date": 1791996768000,
-          "url": "https://news.google.com/rss/articles/CBMi1gFBVV95cUxOcWVNcGFFNnhhRUItdjI5eS0xSTFVSHlVcEhyY1BVdnJfRlhhdGhUemFpcDhIcDQyUTBMaUZkQVRUZE5HZWN6T3QxUnZRajdZRlJvcm83ZEROVHNEZi1Rcy1RVzFGNmxxQnRPWVN0eDFTRTRhbFFFa1N4QWNHUlZvdlgxMS1fRUVndUU1Tkhoa2hXVENiWVZBVm5icU5ISEg0Rlc1S3A1bFlhbDFzY3RHUW1OaXlkYnlCN3FVV1g0NDhLdHlMX1JhT0hZWXVlSTNEcmN0S1V3?oc=5",
-          "reports": [],
-          "links": [
-            {
-              "source": "Goal.com",
-              "url": "https://news.google.com/rss/articles/CBMi1gFBVV95cUxOcWVNcGFFNnhhRUItdjI5eS0xSTFVSHlVcEhyY1BVdnJfRlhhdGhUemFpcDhIcDQyUTBMaUZkQVRUZE5HZWN6T3QxUnZRajdZRlJvcm83ZEROVHNEZi1Rcy1RVzFGNmxxQnRPWVN0eDFTRTRhbFFFa1N4QWNHUlZvdlgxMS1fRUVndUU1Tkhoa2hXVENiWVZBVm5icU5ISEg0Rlc1S3A1bFlhbDFzY3RHUW1OaXlkYnlCN3FVV1g0NDhLdHlMX1JhT0hZWXVlSTNEcmN0S1V3?oc=5"
-            }
-          ],
-          "titles": [
-            "Mourinho to those interested in signing the Real Madrid star: forget about it completely"
-          ],
-          "text": {
-            "source": "Goal.com",
-            "url": "https://www.goal.com/en-in/news/mourinho-to-those-interested-in-signing-the-real-madrid-star-forget-about-it-completely/blt6331d217b029148c",
-            "text": "Jose Mourinho has sent a decisive message to the clubs circling Endrick, confirming the Real Madrid manager is determined to keep the Brazilian striker despite his limited appearances this season and the growing speculation about a departure in the winter transfer window. At 20, Endrick is among the names tipped to leave the Bernabeu in January after playing just four minutes this season. Premier League interest is led by Aston Villa, while Roma and Milan are watching from Italy. Speaking to Brazilian television before Real Madrid's meeting with Roma, Mourinho denied any intention of letting the forward go and fired a clear warning to every club monitoring the situation. The Portuguese coach said, according to the Spanish newspaper \" Mundo Deportivo \": \"They should forget about it, forget it completely. If there is a club interested in Endrick and waiting to sign him, let it sit and wait, because it will get bored of waiting.\" Injury kept Endrick out for more than a month, Mourinho explained, a spell of between four and five weeks. He spoke with the player after taking charge, but circumstances never allowed him to hand the striker enough minutes once he had recovered. Villarreal"
+            "url": "https://www.managingmadrid.com/114101/vinicius-suspended-el-clasico-2026",
+            "text": "The Spanish Football Federation announced today that Real Madrid’s Vinicius Junior will miss the next four LaLiga games and therefore he won’t be available for El Clásico on October 25th. “Two-game suspension for violent conduct away from the play, with no chance of contesting the ball or during a stoppage, along with additional penalty/penalties as stipulated by Article 5. Further, a two-game suspension for dissent toward the referee, assistant, or fourth official.“ Real Madrid’s next four games in LaLiga will be played against Sevilla (H), Barcelona (A), Racing Santander (A) and Valencia (A). Vinicius will make his return in the domestic competition when Los Blancos take on Celta Vigo on November"
           }
         },
         {
@@ -298,6 +323,41 @@
         {
           "subject": "Max Verstappen",
           "care": "die-hard",
+          "headline": "Why Laurent Mekies' Red Bull extension is vital for Max Verstappen",
+          "sport": "f1",
+          "outlets": [
+            "GPblog",
+            "AutoNext.co",
+            "Yahoo Sports"
+          ],
+          "n": 3,
+          "date": 1792004460000,
+          "url": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxPTVp0MjRBNWJaZ1NlcTQ3OUpfVzd0VENtYmY4clRKQWl0dFk0OHlWS214MDJ4dUttbUY5bzRaX3AyOEJSQTFvbVdpQVlzOEVuYlo2WHlIVW41LXRBam5WOXI1VjQydGt5ZHZuU3ptR0RYenZ1Y28yMEV6cTFhRUlMQzEtREtLMHdsUkNTZVFWT3BMbkdfOW9BeGZqdHl5TlZvNjZyMUlHY3JLT3c?oc=5",
+          "reports": [],
+          "links": [
+            {
+              "source": "GPblog",
+              "url": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxPTVp0MjRBNWJaZ1NlcTQ3OUpfVzd0VENtYmY4clRKQWl0dFk0OHlWS214MDJ4dUttbUY5bzRaX3AyOEJSQTFvbVdpQVlzOEVuYlo2WHlIVW41LXRBam5WOXI1VjQydGt5ZHZuU3ptR0RYenZ1Y28yMEV6cTFhRUlMQzEtREtLMHdsUkNTZVFWT3BMbkdfOW9BeGZqdHl5TlZvNjZyMUlHY3JLT3c?oc=5"
+            },
+            {
+              "source": "AutoNext.co",
+              "url": "https://news.google.com/rss/articles/CBMidEFVX3lxTE5BYjRrTll6LXEzODRTMUV3UnlsYUJwc3V6YzlmXzZZNUlRUTlERHViR3hVdkJITzZrRV9qdmRKOURXLWlrRE9aUHIyaDNmVS0wN1hVQllZS0w1YTU1TmhIbG5WSUZmRHc5bmtWcXBnOXJsSTNO?oc=5"
+            },
+            {
+              "source": "Yahoo Sports",
+              "url": "https://news.google.com/rss/articles/CBMifkFVX3lxTFB3b2s3VmpEZExHQU1qd1djNlZGcEV4NUY1bkY2TEI0cTF0QzZqY1Z6NV96YVdHNF9TWUQ5b3FzUTAyZlhQaHpWWEZSc0VXVFFDcGdDU0JZTXVyTThXM2puYmNkSlpHMThOcmtxWHd2ZFJXeEdSODFRNWp5VngxQQ?oc=5"
+            }
+          ],
+          "titles": [
+            "Why Laurent Mekies' Red Bull extension is vital for Max Verstappen",
+            "Red Bull signs Laurent Mekies to 2031, a season beyond Verstappen",
+            "F1 news: Red Bull and Laurent Mekies announce contract extension"
+          ],
+          "text": null
+        },
+        {
+          "subject": "Max Verstappen",
+          "care": "die-hard",
           "headline": "Kimi Antonelli says it would be very scary to have Max Verstappen as Championship rival",
           "sport": "f1",
           "outlets": [
@@ -371,39 +431,6 @@
             "source": "Motorsport.com",
             "url": "https://www.motorsport.com/f1/news/why-charles-leclerc-failed-to-outbrake-max-verstappen-in-turn-1-at-singapore-gp/10864594/?utm_source=RSS&utm_medium=referral&utm_campaign=RSS-F1&utm_term=News&utm_content=www",
             "text": "Charles Leclerc and Max Verstappen have explained what happened at the start of Formula 1’s Singapore Grand Prix, where the Ferrari driver had the best launch but failed to outdo his rival. Despite starting from the dirty side of the track – which admittedly wasn’t as dirty as usual given it had rained the day before – Leclerc had his front axle nearly alongside Verstappen’s within seconds. The four-time world champion, however, drove his opponent towards the inside, to the extent that Leclerc’s front wheels briefly exceeded the white line. The Monegasque braked earlier, and Verstappen was able to retain the lead from the outside. “You don't have much time to think in those moments,” Leclerc said. “I just saw that Max had a bit of a difficult start. I had quite a good start, so I went alongside him. Then there wasn't much space anymore, but I would have done exactly the same. “Then it's quite tricky. I was on the left, a little bit behind him, couldn't see the panels on the right, so you lose a little bit all your references because that's normally on the right that you have your references to brake. I tried to judge it in the best possible way, but Max managed to keep that first"
-          }
-        },
-        {
-          "subject": "Max Verstappen",
-          "care": "die-hard",
-          "headline": "Why Laurent Mekies' Red Bull extension is vital for Max Verstappen",
-          "sport": "f1",
-          "outlets": [
-            "GPblog",
-            "Yahoo Sports"
-          ],
-          "n": 2,
-          "date": 1792004460000,
-          "url": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxPTVp0MjRBNWJaZ1NlcTQ3OUpfVzd0VENtYmY4clRKQWl0dFk0OHlWS214MDJ4dUttbUY5bzRaX3AyOEJSQTFvbVdpQVlzOEVuYlo2WHlIVW41LXRBam5WOXI1VjQydGt5ZHZuU3ptR0RYenZ1Y28yMEV6cTFhRUlMQzEtREtLMHdsUkNTZVFWT3BMbkdfOW9BeGZqdHl5TlZvNjZyMUlHY3JLT3c?oc=5",
-          "reports": [],
-          "links": [
-            {
-              "source": "GPblog",
-              "url": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxPTVp0MjRBNWJaZ1NlcTQ3OUpfVzd0VENtYmY4clRKQWl0dFk0OHlWS214MDJ4dUttbUY5bzRaX3AyOEJSQTFvbVdpQVlzOEVuYlo2WHlIVW41LXRBam5WOXI1VjQydGt5ZHZuU3ptR0RYenZ1Y28yMEV6cTFhRUlMQzEtREtLMHdsUkNTZVFWT3BMbkdfOW9BeGZqdHl5TlZvNjZyMUlHY3JLT3c?oc=5"
-            },
-            {
-              "source": "Yahoo Sports",
-              "url": "https://news.google.com/rss/articles/CBMifkFVX3lxTFB3b2s3VmpEZExHQU1qd1djNlZGcEV4NUY1bkY2TEI0cTF0QzZqY1Z6NV96YVdHNF9TWUQ5b3FzUTAyZlhQaHpWWEZSc0VXVFFDcGdDU0JZTXVyTThXM2puYmNkSlpHMThOcmtxWHd2ZFJXeEdSODFRNWp5VngxQQ?oc=5"
-            }
-          ],
-          "titles": [
-            "Why Laurent Mekies' Red Bull extension is vital for Max Verstappen",
-            "F1 news: Red Bull and Laurent Mekies announce contract extension"
-          ],
-          "text": {
-            "source": "GPblog",
-            "url": "https://www.gpblog.com/en/analysis/red-bull-has-regained-something-with-mekies-that-is-vital-for-verstappen",
-            "text": "Laurent Mekies has extended his contract with Red Bull through the end of 2031, bringing calm and stability - a vital foundation for Max Verstappen and the"
           }
         },
         {
@@ -505,7 +532,7 @@
             },
             {
               "source": "beIN SPORTS",
-              "url": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxNU1E1bHFjaEZ6ZS1MTExlWk9XdTYzczF4SzNxVGtpazNELU9wejBxQzVwQTltM19NYXFCX0pweHJoRUNxOVVKOGVVMG80ME1qcnB3blZFZHBGMVNmVWg0N1NzSzUtV3JhRTVNYUFGSENhMEhtZUdHbFh1b0Y3bzBZcG8xcGpYZjdWdXl1QjdxOGNjN1IxZDhXM1Q4M1E3S0xMYWRJRFlGVXQ?oc=5"
+              "url": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxQQ2lMX214NlcyNUdSb05Oc3Z4WmRkalB2bzk1cy1tVDhTOF91cndQWWdBX2NURnNwWXVFRVlCc3ZNV3hneDFWZUJXU1NVOERVYUptSTFValNWXzQwZjBkbGRIa01EQTRWTHdDQVRDY2h5UU8yc1pBcGpyVUpmOEVFWnlxeTlLc0FmRGNIZ1ZpNVRvNEpWcVF1bEdxVUhqY2w2ZGZWVVZaZG8?oc=5"
             },
             {
               "source": "Tennis.com",
@@ -557,7 +584,7 @@
           }
         }
       ],
-      "words": 1130,
+      "words": 894,
       "name": "Your teams",
       "about": "Each die-hard item, highest stake first: the result, how it happened, what it means (table, series, standings), what is next."
     },
@@ -569,45 +596,6 @@
         "nba-401898399"
       ],
       "news": [
-        {
-          "subject": "Novak Djokovic",
-          "care": "follow",
-          "headline": "Daniil Medvedev Changes His Tune on Novak Djokovic’s Shanghai Masters Claim - “What Is He Talking About?”",
-          "sport": "tennis",
-          "outlets": [
-            "Athlon Sports",
-            "Tennis365",
-            "Daily Express"
-          ],
-          "n": 3,
-          "date": 1792001747000,
-          "url": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxQLV9LYTNQdUFaeEVhWDJWV2dmYXEzSHdFY0l3RDI3Q04yRjlESUJtTDM2dUloaEpiMmxHWTREVktLRDZaYWhOSGdmT0dnWkZhSUFxNzc4UDZhQTBoVVg3M1NPU05TWWxEZkJKbmRIdHFhTF9PblNURlNHa183R0ZRc1p2ei1kTTh3NTdnWW1iUENvWWtzUDllTldzLS1XOWVOVWFqbGxwZ0k?oc=5",
-          "reports": [],
-          "links": [
-            {
-              "source": "Athlon Sports",
-              "url": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxQLV9LYTNQdUFaeEVhWDJWV2dmYXEzSHdFY0l3RDI3Q04yRjlESUJtTDM2dUloaEpiMmxHWTREVktLRDZaYWhOSGdmT0dnWkZhSUFxNzc4UDZhQTBoVVg3M1NPU05TWWxEZkJKbmRIdHFhTF9PblNURlNHa183R0ZRc1p2ei1kTTh3NTdnWW1iUENvWWtzUDllTldzLS1XOWVOVWFqbGxwZ0k?oc=5"
-            },
-            {
-              "source": "Tennis365",
-              "url": "https://news.google.com/rss/articles/CBMivwFBVV95cUxNMXd5ZlMxNmZTRlVsTEZzSlNDT01iTVlYS1k3Ym5TZ1VMenJZMG9rejB6Y1FveTk2Y0xRYzU1QWc0ZDk1aXpZaVpxLXRHV2FYRHJZZERZWTJramc0NUpHd2E5NzVubC12Nk0wZUhTN2dCbGphMVVCSUVQUEFWN1hSXzQ4N183ZWpNdjJvQ2t0TkIxTEF2OWw4NUVKbEZwUENQaTJyT2lNNTRpVmxxVkM0cnQ4R3I1Z3FpS0UtTzVDYw?oc=5"
-            },
-            {
-              "source": "Daily Express",
-              "url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxPVVgtdmJqNUxnaGM3MWNxcHppT0g3V0N2ZVY5aVRJdU02Ymp1SGFoNmVkTU13UGlJdU42dUZKOUo2SS1rUU1aSExhV05ZOUNkYVJQZVpHV0RRT0lBY0RYeEpFSXlDNzFUUkE1M3JYQ3VkalRnOWtFR3NJNGxEYll1LUl5TEd3NXRLOS15WGU0SmQ1WnBjNDVhdm9MNjBwTnpqaWo4RkY4NVkxV3VfUlNmbzhJZ9IBuAFBVV95cUxNYzRESk9JX1VOM3FiV3lOVGdmclVhMlFLS3VDY1ZtR2F2SWk1N1ducEVURmZuRHBlQXhJelo0QmNkNUMxUE1BMV94bWhmdmZKcDZWQTdDY0R6Wm9KS0ZwZnJSVmNxMTc3Y1RGRzZoM2lGRGJ2dGZwTzZnd2lrS3N1cU5vQTU5aGc1NlVCMnFsYzEyWDhvcEFacktRaWhHN2Z4MG5vVFRYVTA1THhpc3NLYUh4VGFHR1E5?oc=5"
-            }
-          ],
-          "titles": [
-            "Daniil Medvedev Changes His Tune on Novak Djokovic’s Shanghai Masters Claim - “What Is He Talking About?”",
-            "Daniil Medvedev makes U-turn after thinking 'what is Novak Djokovic talking about?' at Shanghai Masters",
-            "Daniil Medvedev left stunned after asking Novak Djokovic 'what are you talking about?'"
-          ],
-          "text": {
-            "source": "Tennis365",
-            "url": "https://www.tennis365.com/tennis-news/daniil-medvedev-novak-djokovic-shanghai-masters-court-speed-claim-stefanos-tsitsipas",
-            "text": "Daniil Medvedev gave his verdict on a claim Novak Djokovic made about the Shanghai Masters court speed after his victory over Stefanos Tsitsipas. The world No 5 delivered a stellar display to prevail 6-4, 7-5 against 43rd-ranked Tsitsipas in the fourth round at the Masters 1000 tournament on Wednesday. Former world No 1 Medvedev now holds a 11-5 record against his long-time rival Tsitsipas - who is a former world No 3. Medvedev's showdown with the Greek took place on Stadium Court - which is the main show court at the Qizhong Forest Sports City Arena in Shanghai. The 30-year-old Russian's wins against Jan-Lennard Struff and Dalibor Svrcina in his first two matches in Shanghai were both played on the Grandstand 2 court. After losing his opening match in Shanghai to Hubert Hurkacz last week, Djokovic described the Stadium Court surface as \"super quick\" and said it was \"completely different\" to the main China Open court. Casper Ruud speaks out about Felix Auger-Aliassime’s retirement at the Shanghai Masters Will Carlos Alcaraz’s ‘protest’ against the ATP Tour turn into a full scale revolt? Want more from Tennis365? Add us as a preferred source on Google to your favourites list for"
-          }
-        },
         {
           "subject": "Novak Djokovic",
           "care": "follow",
@@ -627,22 +615,12 @@
               "url": "https://news.google.com/rss/articles/CBMilgFBVV95cUxPVU03MU5waG1MbllYZWwwWXl0ZDFldnlyQXEyOHczMTFPcGlEQmxHZTk0M1VxY2l5NGcwT1Vkcm9TSWpCRjBpYVRHVUFqZUlhZzlGQlY3ejJKMG9tQ00ydTlsTHFpLXFPT1BZa1duZWZkZUpNS1pvTUhUejZxUnpPRFFNaUtHVzFGZ3NxVHV5SkFJT3prOVE?oc=5"
             },
             {
-              "source": "Tennis365",
-              "url": "https://news.google.com/rss/articles/CBMilgFBVV95cUxPVU03MU5waG1MbllYZWwwWXl0ZDFldnlyQXEyOHczMTFPcGlEQmxHZTk0M1VxY2l5NGcwT1Vkcm9TSWpCRjBpYVRHVUFqZUlhZzlGQlY3ejJKMG9tQ00ydTlsTHFpLXFPT1BZa1duZWZkZUpNS1pvTUhUejZxUnpPRFFNaUtHVzFGZ3NxVHV5SkFJT3prOVE?oc=5"
-            },
-            {
-              "source": "Daily Express",
-              "url": "https://news.google.com/rss/articles/CBMikgFBVV95cUxQcnE0aEpGaDBXU1hVRXV1VHhoc3RiRUhuZFRUb25yc2ZIUTFlVEpjMnRDandvb2ROaXQxYnFNS1hQWVFXbU9yWmlxQmtrbE1CeTgtT1NiR2ZWNXNNS3RUXzM0MUNBbllTQXM4ckd0Ql9Pc3VUYXowd3VZYktNc0xfTk5xVXFMLTVOTm9fQS1wRlJmd9IBlwFBVV95cUxQRUNucm5ZU0xoUUczbk9Cc3VYcGx6X2FGbUJHMUlDTTNPNFA5cldoOHlsLW90UTBTSmVwbzdxcnJhUGkyNHFYNndtdmlFWlRiTVNVa2NxeFdfWFF2UWU4S2lCa3JzdmsyRWhLdE1NcHJUZEM4Rmo2R1BkeG1qQzMydXJmcE5FaDVIcWJTMG4wQy1OLW9EY3M4?oc=5"
-            },
-            {
               "source": "Daily Express",
               "url": "https://news.google.com/rss/articles/CBMikgFBVV95cUxQcnE0aEpGaDBXU1hVRXV1VHhoc3RiRUhuZFRUb25yc2ZIUTFlVEpjMnRDandvb2ROaXQxYnFNS1hQWVFXbU9yWmlxQmtrbE1CeTgtT1NiR2ZWNXNNS3RUXzM0MUNBbllTQXM4ckd0Ql9Pc3VUYXowd3VZYktNc0xfTk5xVXFMLTVOTm9fQS1wRlJmd9IBlwFBVV95cUxQRUNucm5ZU0xoUUczbk9Cc3VYcGx6X2FGbUJHMUlDTTNPNFA5cldoOHlsLW90UTBTSmVwbzdxcnJhUGkyNHFYNndtdmlFWlRiTVNVa2NxeFdfWFF2UWU4S2lCa3JzdmsyRWhLdE1NcHJUZEM4Rmo2R1BkeG1qQzMydXJmcE5FaDVIcWJTMG4wQy1OLW9EY3M4?oc=5"
             }
           ],
           "titles": [
             "Carlos Alcaraz told Novak Djokovic copycat move ‘f***** up’ his wrist",
-            "Carlos Alcaraz told Novak Djokovic copycat move ‘f***** up’ his wrist",
-            "Novak Djokovic and Carlos Alcaraz told tournament is postponed as major statement released",
             "Novak Djokovic and Carlos Alcaraz told tournament is postponed as major statement released"
           ],
           "text": {
@@ -652,62 +630,144 @@
           }
         },
         {
-          "subject": "Golden State Warriors",
+          "subject": "Novak Djokovic",
           "care": "follow",
-          "headline": "Kristaps Porziņģis to meet with Warriors staff Tuesday amid undisclosed illness",
-          "sport": "basketball",
+          "headline": "Is Alexander Zverev a Deserving Year-End World No. 1? German’s Records Against Jannik Sinner, Carlos Alcaraz And Novak Djokovic Raise Questions",
+          "sport": "tennis",
           "outlets": [
-            "The Athletic"
+            "The Sunday Guardian"
           ],
           "n": 1,
-          "date": 1791839836000,
-          "url": "https://www.nytimes.com/athletic/7684851/2026/10/12/kristaps-porzingis-warriors-illness-status-update/",
-          "reports": [
-            {
-              "source": "The Athletic",
-              "title": "Kristaps Porziņģis to meet with Warriors staff Tuesday amid undisclosed illness",
-              "summary": "The Warriors' big man has been away from the team due to an undisclosed health issue."
-            }
-          ],
+          "date": 1791905207000,
+          "url": "https://news.google.com/rss/articles/CBMi3gJBVV95cUxQTFpKdy1nLVoxOGtsc1Z2cVZzbVNiU2Y1VXUxalhDMWpzUldZdzllbWYtMDdoSFgyWEVrbE1LWTQ0Snpkb0tFOWdKTWpNM3ZtUGRGbUZPamdLdVdENXZZNFBIeGtuWEMwLURFMHZYY1BZWkROcUFTZ184RHhBc1ZialUyZEl6Vk0tSU1nTWxBT0RMZWNxUXpIN0xFR09tbTZOTF9tUlpyaU9pc09yQXVZQmxBN1JaTGI4ZWNVbUh5RDZaZG8tZ1RXNkJKZXk5Vk5pZ3NBell6WDAxQ3pKMERGUWN4eXQ0M3ZJZ01pWFBWdm1uOU9yY2xWejdjaVUwLXI2ek9ycnZFNFFGblZzb3J1LUJDd2FINlRqdExZeTNNMGxRZzdDdkxhSm9KY2g5aDBZb25JZmV0Q1FJRTJodVAwc0s1Q2l0cDZBLXBsbDJFa3Vxcl9sNHlBamxUM2FvUdIB4wJBVV95cUxPTjU5Y3JBOTN1Nlp2ZlVSSzgzdHFvWXQ0eWU2b1d0V0pPbkxqcGx6VDZFNnJtVlBMRnc1R3ozZ3FrYVdaSXVWYVlPMHN1RTRsOTFrTXZPUDc4NjhZa19BVk82LVo3aHFyWDJTQW1iRkMwaVRuRlhIbDhSUE1UNDBIZWFNSnNwTklPYWJwRXBEMXJJREs0ZmJCTVhUb2thQzlZWENSOGdNd2lmS0k5dDJmbGViWDV3amFDX0FNVGkyWE5CVXNEZll3SHZDcmxZVDRkVFRIazN1VTduaFlET2M0REI5UWlNM0RtYWVaRm8zRWZzOWZkcE02MVRKNE0xWjJhRXJ3MGtKMjY0cWUwYWxXWXJPbVJBSHRSLWFuWmhBV0pFZmx0Sk55aV82MnltODJWZW1xZkc4TW9rckY0ZHd5N2ljOXdVajMydDVOeG9nNHJ6U3pHR1lNVl81MEQ1UWN4MWVn?oc=5",
+          "reports": [],
           "links": [
             {
-              "source": "The Athletic",
-              "url": "https://www.nytimes.com/athletic/7684851/2026/10/12/kristaps-porzingis-warriors-illness-status-update/"
+              "source": "The Sunday Guardian",
+              "url": "https://news.google.com/rss/articles/CBMi3gJBVV95cUxQTFpKdy1nLVoxOGtsc1Z2cVZzbVNiU2Y1VXUxalhDMWpzUldZdzllbWYtMDdoSFgyWEVrbE1LWTQ0Snpkb0tFOWdKTWpNM3ZtUGRGbUZPamdLdVdENXZZNFBIeGtuWEMwLURFMHZYY1BZWkROcUFTZ184RHhBc1ZialUyZEl6Vk0tSU1nTWxBT0RMZWNxUXpIN0xFR09tbTZOTF9tUlpyaU9pc09yQXVZQmxBN1JaTGI4ZWNVbUh5RDZaZG8tZ1RXNkJKZXk5Vk5pZ3NBell6WDAxQ3pKMERGUWN4eXQ0M3ZJZ01pWFBWdm1uOU9yY2xWejdjaVUwLXI2ek9ycnZFNFFGblZzb3J1LUJDd2FINlRqdExZeTNNMGxRZzdDdkxhSm9KY2g5aDBZb25JZmV0Q1FJRTJodVAwc0s1Q2l0cDZBLXBsbDJFa3Vxcl9sNHlBamxUM2FvUdIB4wJBVV95cUxPTjU5Y3JBOTN1Nlp2ZlVSSzgzdHFvWXQ0eWU2b1d0V0pPbkxqcGx6VDZFNnJtVlBMRnc1R3ozZ3FrYVdaSXVWYVlPMHN1RTRsOTFrTXZPUDc4NjhZa19BVk82LVo3aHFyWDJTQW1iRkMwaVRuRlhIbDhSUE1UNDBIZWFNSnNwTklPYWJwRXBEMXJJREs0ZmJCTVhUb2thQzlZWENSOGdNd2lmS0k5dDJmbGViWDV3amFDX0FNVGkyWE5CVXNEZll3SHZDcmxZVDRkVFRIazN1VTduaFlET2M0REI5UWlNM0RtYWVaRm8zRWZzOWZkcE02MVRKNE0xWjJhRXJ3MGtKMjY0cWUwYWxXWXJPbVJBSHRSLWFuWmhBV0pFZmx0Sk55aV82MnltODJWZW1xZkc4TW9rckY0ZHd5N2ljOXdVajMydDVOeG9nNHJ6U3pHR1lNVl81MEQ1UWN4MWVn?oc=5"
             }
           ],
           "titles": [
-            "Kristaps Porziņģis to meet with Warriors staff Tuesday amid undisclosed illness"
+            "Is Alexander Zverev a Deserving Year-End World No. 1? German’s Records Against Jannik Sinner, Carlos Alcaraz And Novak Djokovic Raise Questions"
           ],
-          "text": null
+          "text": {
+            "source": "The Sunday Guardian",
+            "url": "https://sundayguardianlive.com/sports/tennis-news-is-alexander-zverev-a-deserving-year-end-atp-world-no-1-zverev-records-vs-jannik-sinner-carlos-alcaraz-novak-djokovic-raises-questions-alexander-zverev-shanghai-masters-tennis-updates-304998/",
+            "text": "Alexander Zverev will finish 2026 as the year-end World No. 1 for the first time in his career, capping a season in which he won the French Open and US Open to claim the first two Grand Slam titles of his career. The German’s place at the top was confirmed after Carlos Alcaraz suffered a shock defeat to Zizou Bergs at the Shanghai Masters. At the same time, Jannik Sinner’s season-ending knee injury had already weakened his challenge for the year-end honour. Zverev had secured the distinction, becoming the first German and the oldest first-time year-end No. 1. Yet the achievement comes with a compelling question for tennis fans: is Alexander Zverev a deserving World No. 1 when he has struggled against the three biggest names in his way? His trophy haul is undeniable, but his record against Sinner, Alcaraz, and Djokovic adds another dimension to the debate. Zverev’s breakthrough season finally delivered the major titles that had eluded him. He beat Flavio Cobolli in a five-set French Open final in June before defeating Ben Shelton to win the US Open in September. His year-end ranking was not secured by those titles alone: Sinner’s absence and Alcaraz’s Shanghai exit proved decisive."
+          }
         },
         {
           "subject": "Golden State Warriors",
           "care": "follow",
-          "headline": "Why Warriors, Mavs and others will miss out on West's playoff field: NBA predictions",
+          "headline": "Kristaps Porziņģis remains out indefinitely with health-related matter",
           "sport": "basketball",
           "outlets": [
-            "The Athletic"
+            "The Athletic",
+            "Golden State of Mind",
+            "The New York Times",
+            "Sportsnet.ca",
+            "Bozeman Daily Chronicle",
+            "ESPN",
+            "Yahoo Sports",
+            "Yahoo"
           ],
-          "n": 1,
-          "date": 1791799246000,
-          "url": "https://www.nytimes.com/athletic/7634319/2026/10/12/nba-season-predictions-warriors-suns-clippers/",
+          "n": 8,
+          "date": 1792015484000,
+          "url": "https://www.nytimes.com/athletic/7690853/2026/10/14/kristaps-porzingis-warriors-health-update-out-indefinitely/",
           "reports": [
             {
               "source": "The Athletic",
-              "title": "Why Warriors, Mavs and others will miss out on West's playoff field: NBA predictions",
-              "summary": "The top of the Western Conference is as strong as ever, but the middle is squishy soft."
+              "title": "Kristaps Porziņģis remains out indefinitely with health-related matter",
+              "summary": "The Warriors hoped that the big man's preseason absence would only keep him out for a short time, but that hope is now gone."
+            },
+            {
+              "source": "Golden State of Mind",
+              "title": "Kristaps Porziņģis is out indefinitely",
+              "summary": "Act One of What’s The Matter with Kristaps Porziņģis? has concluded with a cliffhanger some of you might’ve seen coming. This afternoon, the Warriors released a statement on their long-absent Latvian: If you’ve got that site blocked, here it is again, but with the most important part bolded: Golden State Warriors forward/center Kristaps Porziņģis, who […]"
             }
           ],
           "links": [
             {
               "source": "The Athletic",
-              "url": "https://www.nytimes.com/athletic/7634319/2026/10/12/nba-season-predictions-warriors-suns-clippers/"
+              "url": "https://www.nytimes.com/athletic/7690853/2026/10/14/kristaps-porzingis-warriors-health-update-out-indefinitely/"
+            },
+            {
+              "source": "Golden State of Mind",
+              "url": "https://www.goldenstateofmind.com/warriors-news/112625/kristaps-porzingis-is-out-indefinitely-private-health-reason-question-mark-porzingis-twitter-statement"
+            },
+            {
+              "source": "The New York Times",
+              "url": "https://news.google.com/rss/articles/CBMisAFBVV95cUxOalBKc1A5bFJTTDloSGx4TFdTcjlIY2k5MEYycnJDUWF5S2RjSlgxakY1ZnJwQy00blRVS1haZUctUDJlb0gtX3UzUlIyV0RnOElBM182SjRlQXJEME1mMFowNzRycjktejQxVGlLZnVPQ2dZWjV0Q0pEb29aU09zMVRORlVtdlM0d09LbjNnZ0hTMFF0X3htTldFaGlVR0JXcGNWcTJrekMtRjRxREUtaQ?oc=5"
+            },
+            {
+              "source": "Sportsnet.ca",
+              "url": "https://news.google.com/rss/articles/CBMipgFBVV95cUxQZ29aMXlrTHB0WHNxR1UzX0ZZekUzNlM4anp4NlFTWldrZ3A2SC12RGpsNHdNWE9CYkdxcEtLOGRoR2FFcUJRWUlmQXRrRlh1Q2lVRjVQbGk4SzNkdThYZEFWTXRQdWZXYVdyVWJqSUplY2V4X0ZxVWRsY0pnRmJaQndtdHA1ZlNHNWF6c2dCR0lPUjhZMWdiS0JITkdHelViVkVKZjV3?oc=5"
+            },
+            {
+              "source": "Bozeman Daily Chronicle",
+              "url": "https://news.google.com/rss/articles/CBMiowJBVV95cUxNYlBRaUE0TUVyS3dHTVpBOTY4R1JoTzVjbjZTUUhGV252RUhJVGRrWkZfVzBZTFlnWG5YLXdtaDBFSHZzdHNDU3h4VHRwRVpfQmZJMWFlbktZejU5SHZmT002V0Y5b3dfb0ZMMTMycnhLWERKNmRReEEyOXhjQVh3QjRsampFOVh3aXRiY3pvbnVZd1dTSFdhS0hTNGpaY3E4R1BCLS1DeVY2S2JfeEdLVTFuTHlaQmVMSWpteDR6Mk8wd2J2VDE4aXN2SGhrRkNHUG1KRnNHOV9VR1NsejNVYzV2NDhiRExDWWQ4ajMxWUNWZVUwNHVMS1o4Y1hoSkdsUDdOelBIeUNzUXN1T1NBNDk2MHZrRjBoODZSQ251akU0elk?oc=5"
+            },
+            {
+              "source": "ESPN",
+              "url": "https://news.google.com/rss/articles/CBMilAFBVV95cUxOR1FJMWQ0azVoQno5R0gxRWtBcERVOXJPSEJIOWNQUDlRclZEMnhDcXdEN0VfX2Noa3BMYTZRSjhLdTMyX0UwaWdjcW95SFBYeFllNmRpWGlmZlpVY0NzRHVQbXVQVGFHSndZbWRqTU80SHdqcjlkRThHRy1YdjdSV1M2UUtDT1pUZXFCYkJEek5YNDhz?oc=5"
+            },
+            {
+              "source": "Yahoo Sports",
+              "url": "https://news.google.com/rss/articles/CBMiiAJBVV95cUxNdzhodTVkdkcyTVk5WTRlOXhyTV9OUEVCa3lQWjdyNnp4Zk95YVJBT1M3ZnJ5Wm0tTUZrM21DV25FUUlHOGJPdFdScVJvRmxyMzE5NmN1aTd6VnhHTGtUSkp5a3k2dTY3OF9jcnU1cDZ6ZXpvZzFqOEQ4WDIwNGRBUk9rbUJ5OWJlcEU1R2R6Nml0VnFlTVBNOHRhRDQydjBxanowenRyNHBrY3h6bm5BOVk2bnlVb3I4cDNYZldfckptZ2ZBSHJUZWh6Q1R2ckN5YjA4RTNFc05hdWJHYUFCWkNmemd1Q0RsTVpqN28yLTMwd1lsVGJYLU5uMDBvTUxxZENSSUQzdWE?oc=5"
+            },
+            {
+              "source": "Yahoo",
+              "url": "https://news.google.com/rss/articles/CBMi7gFBVV95cUxOTlUtVzNleGF1cTlKN3ZJUlR0RDd5Yy10amJYSmFGNFRNY3A3UUVEN0pHek1zNUZWcFFnYkEtODdmcHRHR3U5dFlZTzdWdFU1SWNDazRNS3pLeDNwdWZwT1lPUV9GcHBtcUFmcGVBWmN6cUtRS1ltVGhRbVJucHNtblhmYjI3Ml9XN2J1akdZU01qNWlLQm9Tcm9NUU9zd0gxb19zSmdteGR3WEpWczBaRjlVWG1YdUN1NmFGdlZkRG5iazh1cm42T2dkQlFuY1djR2ZkRm53N2lxYVNZb1Y2bFVHNmhLcm5Rb1U4TmR3?oc=5"
             }
           ],
           "titles": [
-            "Why Warriors, Mavs and others will miss out on West's playoff field: NBA predictions"
+            "Kristaps Porziņģis remains out indefinitely with health-related matter",
+            "Kristaps Porziņģis is out indefinitely",
+            "Kristaps Porziņģis remains out indefinitely with health-related matter",
+            "Warriors, Kristaps Porzingis address ongoing 'health-related matter'",
+            "Warriors' Kristaps Porzingis remains out indefinitely, says he's seeing doctors to figure out health",
+            "Warriors' Kristaps Porzingis remains out indefinitely but will be around team",
+            "Kristaps Porziņģis is 'getting better and better,' but Warriors say he will remain out indefinitely due to 'health-related matter'",
+            "Warriors' Kristaps Porziņģis will remain out indefinitely due to 'health-related matter' but will be around team"
           ],
-          "text": null
+          "text": {
+            "source": "Golden State of Mind",
+            "url": "https://www.goldenstateofmind.com/warriors-news/112625/kristaps-porzingis-is-out-indefinitely-private-health-reason-question-mark-porzingis-twitter-statement",
+            "text": "Act One of What’s The Matter with Kristaps Porziņģis? has concluded with a cliffhanger some of you might’ve seen coming. This afternoon, the Warriors released a statement on their long-absent Latvian: [Media: https://twitter.com/WarriorsPR/status/2110470609725722838] If you’ve got that site blocked, here it is again, but with the most important part bolded: > Golden State Warriors forward/center Kristaps Porziņģis, who missed training camp and the team’s first five (5) preseason games due to a health-related matter, returned to the Warriors’ practice facility yesterday and met with Warriors General Manager Mike Dunleavy and Vice President of Player Health & Performance Dr. Rick Celebrini. The specific contents of that meeting will remain private. Porziņģis will remain out indefinitely due to the same health-related matter but will be around the team. > An update on his status, including the potential resumption of practice, playing status or timeline, will be provided when available and appropriate. Gosh. I don’t know. If I didn’t want to make this story more than “out indefinitely,” then I might’ve chosen some less suspicious phrasing. The other day, Brady made a very reasonable"
+          }
+        },
+        {
+          "subject": "Golden State Warriors",
+          "care": "follow",
+          "headline": "Warriors' Kristaps Porzingis breaks silence on prolonged absence, secret illness: 'I don't have HIV or AIDS'",
+          "sport": "basketball",
+          "outlets": [
+            "New York Post",
+            "The Mercury News"
+          ],
+          "n": 2,
+          "date": 1792018020000,
+          "url": "https://news.google.com/rss/articles/CBMi1wFBVV95cUxQSWtreEVOMVBTR000cmFSZ3FZZ0FObnpfSWdfWWpGaUJoQmExa0RUUDRHOWJJR3Qwc0F0OUtwSHpFRFpUV2t1by1odmw5RUsySGp2bmlQTjJUMU5kRnQ2dGFEN3R1bXdMWEZyMXBZV0d1TFF4R2stUXRzVjdvXzhBTGlhRDVac1pFLXlkajZaNzY4eVNaeklTZkV4cFRtTTJIVWFacHMxenhnZmx1VHRfelZaWVQ3d21ZZ1h2NWRaOVVKOTlVVTZRVy1Ra0oxTnJfQk5ScGxTSQ?oc=5",
+          "reports": [],
+          "links": [
+            {
+              "source": "New York Post",
+              "url": "https://news.google.com/rss/articles/CBMi1wFBVV95cUxQSWtreEVOMVBTR000cmFSZ3FZZ0FObnpfSWdfWWpGaUJoQmExa0RUUDRHOWJJR3Qwc0F0OUtwSHpFRFpUV2t1by1odmw5RUsySGp2bmlQTjJUMU5kRnQ2dGFEN3R1bXdMWEZyMXBZV0d1TFF4R2stUXRzVjdvXzhBTGlhRDVac1pFLXlkajZaNzY4eVNaeklTZkV4cFRtTTJIVWFacHMxenhnZmx1VHRfelZaWVQ3d21ZZ1h2NWRaOVVKOTlVVTZRVy1Ra0oxTnJfQk5ScGxTSQ?oc=5"
+            },
+            {
+              "source": "The Mercury News",
+              "url": "https://news.google.com/rss/articles/CBMimAFBVV95cUxNYmtkam5fUUp6eGlsMXBNb1U4Q1N1endjdU1uU1Nla2szbTBIMk5vcGEyemRLb0xUeWxHcm1fb1JEakZJTWZyenk2WEk2cEw3S19oTkU1MXU0UWJUNEp2VlBHbDZXSFE4a3pJN0hLeWdnQVJhR0ZsSEwwVmJZMXpodUVseDc4dGhGZURNUzJGSjlMblhJYjZGUQ?oc=5"
+            }
+          ],
+          "titles": [
+            "Warriors' Kristaps Porzingis breaks silence on prolonged absence, secret illness: 'I don't have HIV or AIDS'",
+            "Kristaps Porzingis breaks silence about health after meeting with Warriors"
+          ],
+          "text": {
+            "source": "New York Post",
+            "url": "https://nypost.com/2026/10/14/sports/warriors-kristaps-porzingis-breaks-silence-on-prolonged-absence-secret-illness-i-dont-have-hiv-or-aids/",
+            "text": "Kristaps Porzingis is out indefinitely because of a health-related matter. The Warriors have been without Porzingis throughout all of training camp and preseason contests because of the same health issue, which remains a mystery. Porzingis took to social media to address the public on the obscure matter. \"Hello people, I'm working with doctors and experts to figure out how to be fully back to good health asap. Honestly, I'm getting better and better. I just have to stay patient, and I believe I'll be feeling great again soon,\" Porzingis wrote in a post on X. \"It has definitely been frustrating dealing with some health stuff that you can't exactly pinpoint, on top of injuries throughout my career, so it has added up for sure, but we will get through it 💪🏼 Porzingis also took the time to call out internet sleuths as a theory that the Warriors center has contracted HIV or AIDS floats around social media. \"I appreciate all the internet doctors trying to diagnose and help, but I'm in the best hands. So everyone can relax now 😄🙏🏼 and I don’t have hiv or aids.\" I appreciate all the internet doctors trying to diagnose and help, but I'm in the best hands. So everyone can relax now"
+          }
         },
         {
           "subject": "Cristiano Ronaldo",
@@ -767,7 +827,7 @@
           }
         }
       ],
-      "words": 332,
+      "words": 263,
       "name": "Also on your list",
       "about": "Follow and big-moment items, brisk: a result and one line of why it matters."
     },
@@ -846,7 +906,7 @@
         "Liverpool 0-3 Manchester City (drama 5: Liverpool lost by 3, a big match won by two or more)",
         "1st Test, Australia tour of South Africa, 2026: Australia won by 214 runs (drama 5: by 214 runs)"
       ],
-      "words": 82,
+      "words": 65,
       "name": "Around the grounds",
       "about": "The Wider Pitch and The Sidelines: football and other sport that several outlets are leading with. Quick hits."
     },
@@ -889,13 +949,13 @@
           "venue": "Santiago Bernabéu"
         }
       ],
-      "words": 51,
+      "words": 40,
       "name": "Coming up",
       "about": "The listener's fixtures in the next seven days, in their time zone, with what is at stake."
     },
     {
       "id": "signoff",
-      "words": 14,
+      "words": 15,
       "name": "Sign-off",
       "about": "The fixed closing line."
     }
@@ -962,7 +1022,7 @@
           "outlets": [
             "BBC Sport",
             "Managing Madrid",
-            "Goal.com",
+            "The Real Champs",
             "Yahoo Sports"
           ]
         },
@@ -971,15 +1031,23 @@
           "outlets": [
             "The Athletic",
             "The Guardian",
-            "Goal.com"
+            "Goal.com",
+            "The New York Times"
           ]
         },
         {
-          "headline": "Real Madrid comeback stuns Roma as Mourinho enjoys happy reunion",
+          "headline": "Mourinho: ‘Real Madrid impossible to stop, Roma players were dead’ for 4-3 defeat",
           "outlets": [
-            "Arab News",
+            "Yahoo Sports",
             "TOD",
             "Universidad de Córdoba (UCO)"
+          ]
+        },
+        {
+          "headline": "Roma vs Real Madrid: The tactics board - Mourinho's late substitutions spark sensational comeback",
+          "outlets": [
+            "Goal.com",
+            "Arab News"
           ]
         },
         {
@@ -987,13 +1055,6 @@
           "outlets": [
             "Al Jazeera",
             "Opta Analyst"
-          ]
-        },
-        {
-          "headline": "Mourinho: ‘Real Madrid impossible to stop, Roma players were dead’ for 4-3 defeat",
-          "outlets": [
-            "Yahoo Sports",
-            "Universidad de Córdoba (UCO)"
           ]
         },
         {
@@ -1008,6 +1069,12 @@
           "outlets": [
             "Goal.com",
             "Universidad de Córdoba (UCO)"
+          ]
+        },
+        {
+          "headline": "Roma vs Real Madrid quotes: Jose Mourinho, Antonio Rudiger, Endrick, and Federico Valverde on 4-3 UCL win",
+          "outlets": [
+            "Goal.com"
           ]
         },
         {
@@ -1029,6 +1096,12 @@
           ]
         },
         {
+          "headline": "‘This isn’t normal’ – Real Madrid fans turn on Vinícius Jr. during Roma clash",
+          "outlets": [
+            "Yahoo Sports"
+          ]
+        },
+        {
           "headline": "Roma vs Real Madrid: Kylian Mbappe overtakes Lionel Messi 100 appearances in Champions League record books",
           "outlets": [
             "Livemint"
@@ -1047,7 +1120,7 @@
           ]
         },
         {
-          "headline": "~$!【LIVESTREAMs】AS Roma vs Real Madrid 𝙻𝙸𝚅Ｅ 𝐒𝐓𝐑𝐄𝐀𝐌",
+          "headline": "%*?[SPORT TV#]AS Roma vs Real Madrid Ｓｔｒｅａｍｓ Ｆｒｅｅ ＯＮ Ｔｖ Ｃｈａｎｎｅｌ",
           "outlets": [
             "Universidad de Córdoba (UCO)"
           ]
@@ -1458,7 +1531,56 @@
         {
           "headline": "Warriors win over Lakers in Vegas, 101-89",
           "outlets": [
-            "Golden State of Mind"
+            "Golden State of Mind",
+            "Yahoo Sports",
+            "Golden State Of Mind",
+            "NBC Sports Bay Area & California"
+          ]
+        },
+        {
+          "headline": "Golden State Warriors Best Plays vs. Los Angeles Lakers",
+          "outlets": [
+            "NBA.com",
+            "Universidad de Córdoba (UCO)",
+            "Flashscore.com"
+          ]
+        },
+        {
+          "headline": "Yaxel Lendeborg downplays twisted ankle after Warriors' win over Lakers",
+          "outlets": [
+            "Yahoo Sports",
+            "Sports Illustrated"
+          ]
+        },
+        {
+          "headline": "Brandin Podziemski's $110 Million Warriors Extension Could Be A Win-Win Deal",
+          "outlets": [
+            "Yahoo Sports",
+            "Forbes"
+          ]
+        },
+        {
+          "headline": "Warriors rookie steals spotlight from Steph Curry and Lakers in impressive preseason comeback",
+          "outlets": [
+            "Yahoo Sports"
+          ]
+        },
+        {
+          "headline": "Warriors beat Lakers but show defensive weaknesses with Draymond Green resting",
+          "outlets": [
+            "San Francisco Chronicle"
+          ]
+        },
+        {
+          "headline": "Warriors Overcome 20-Point Deficit to Beat Lakers",
+          "outlets": [
+            "NBA.com"
+          ]
+        },
+        {
+          "headline": "TST Images: Warriors defeat the Lakers, 101-89, at T-Mobile Arena",
+          "outlets": [
+            "The Sporting Tribune"
           ]
         }
       ],
@@ -1509,5 +1631,6 @@
   "suppressed": [
     "Barcelona: Galatasaray 1-4 Barcelona (a rival's good result, never said)"
   ],
+  "already_said": [],
   "errors": []
 }

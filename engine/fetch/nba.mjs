@@ -22,3 +22,8 @@ export async function team({ espn_abbr: abbr, name }, { since, until }) {
   const fixtures = all.filter(g => !g.completed && Date.parse(g.date) <= until && Date.parse(g.date) > Date.now() - 3 * 36e5);
   return { name, results, fixtures };
 }
+
+export async function roster({ espn_abbr: abbr }) {
+  const j = await getJSON(`${ESPN}/teams/${abbr}/roster`);
+  return (j.athletes || []).map(a => a.displayName).filter(Boolean);
+}
