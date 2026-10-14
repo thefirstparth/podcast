@@ -211,3 +211,10 @@ Suggested gate: friends listen on at least 4 days a week, for 3 weeks, without b
 6. Working name, and two new host names (not family).
 7. Should the new show read The House of 1400's sport desk (Layer 3) from day one, or only the public sources?
 8. Language: English only, or a little Hinglish from the Fan?
+
+## 7. Voices: who controls what (15 Oct 2026)
+- **What the engines allow.** Gemini TTS has about 30 fixed voices, each with its own timbre (male or female, deeper or brighter), plus written direction for accent, pace and character. Accent works but can drift, so it must be tested per voice (the 14:00 show: Tarun's accent 6/10 until each host was voiced alone in one take). Age can only be nudged by direction; the voice picked matters more. Kokoro, the free backup voice, has fewer voices and little emotion.
+- **A listener controls:** one host or two; for each host, the role (which is the Fan), a voice from a tested shortlist with samples (this sets gender and, roughly, age), an accent from a tested list, energy (calm to lively), a name; later, the language. Samples are made once and stored, so choosing costs nothing.
+- **A listener does not control:** the fact rules and checks, the rival rules, the listening check, or any real person's voice (no impersonation).
+- **Parth controls:** the voice catalogue and defaults (only combinations that pass a listening test), the engine, the backup voice and the voice budget per episode, the code that turns "Indian English, thirties, lively" into the engine's direction, the personas and limits (the Fan always takes the listener's side; swearing only on an explicit feed), and later which voices or languages are paid.
+- **For Parth's show:** after the script is approved, one sample set (the same lines across a handful of pairs: both male, both female, one of each with the Fan either way; Indian English and one more accent), on the rehearsal key, about two voice requests per pair.
