@@ -31,12 +31,25 @@ const words = t => new Set(String(t).toLowerCase().normalize("NFD").replace(/[̀
 const jaccard = (a, b) => { let n = 0; for (const w of a) if (b.has(w)) n++; return n / (a.size + b.size - n || 1); };
 const RANK = { official: 3, lead: 3, news: 2, signal: 1, search: 1 };
 
-// Reports of the same story, together: each cluster's outlets, its best headline and the summaries the writer may use
+// Reports of the same story, together: each cluster's outlets, its best headline and the summaries the writer may use.
+// Two headlines are one story when they share most of their words, three words that are rare in the day's news, or two
+// rare word pairs: "Six Kings Slam postponed to December" and "Carlos Alcaraz's schedule complaints to be tested as Six
+// Kings Slam postponed" share "six kings" and "kings slam", which only that story uses (15 Oct, Parth: one story in
+// seven outlets had been split into three). One shared pair is not enough: "Champions League" or "World Cup" is in
+// many stories.
 export function cluster(items) {
-  const out = [];
+  const out = [], df = new Map(), bf = new Map();
+  // word pairs in order ("six kings", "kings slam"): a pair few headlines share names one story
+  const pairs = t => { const w = String(t).toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/[^a-z0-9 ]/g, " ").split(/\s+/).filter(x => x.length > 2 && !STOP.has(x)); return new Set(w.slice(1).map((x, i) => `${w[i]} ${x}`)); };
+  for (const it of items) { for (const w of words(it.title)) df.set(w, (df.get(w) || 0) + 1); for (const p of pairs(it.title)) bf.set(p, (bf.get(p) || 0) + 1); }
+  const cap = Math.max(12, items.length * 0.01);
+  const rare = w => { const n = df.get(w) || 0; return n >= 2 && n <= cap && !/^\d+$/.test(w); };
+  const rarePair = p => { const n = bf.get(p) || 0; return n >= 2 && n <= cap && !/\d/.test(p); };
   for (const it of items.sort((a, b) => (RANK[b.kind] || 0) - (RANK[a.kind] || 0) || (b.date || 0) - (a.date || 0))) {
-    const w = words(it.title), c = out.find(c => jaccard(w, c.w) >= 0.3);
-    if (c) { c.items.push(it); for (const x of w) c.w.add(x); } else out.push({ w, items: [it] });
+    const w = words(it.title), r = new Set([...w].filter(rare)), p = new Set([...pairs(it.title)].filter(rarePair));
+    // compared with the story's first three headlines only, so one story never snowballs into several
+    const c = out.find(c => jaccard(w, c.w) >= 0.3 || [...r].filter(x => c.r.has(x)).length >= 3 || [...p].filter(x => c.p.has(x)).length >= 2);
+    if (c) { c.items.push(it); if (c.items.length <= 3) { for (const x of w) c.w.add(x); for (const x of r) c.r.add(x); for (const x of p) c.p.add(x); } } else out.push({ w, r, p, items: [it] });
   }
   return out.map(c => {
     const outlets = [...new Set(c.items.map(i => i.source))], lead = c.items[0];

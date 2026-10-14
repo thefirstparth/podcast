@@ -15,7 +15,7 @@ Every subject also has its Google News headline search (`intitle:`).
 | **Real Madrid** | Managing Madrid, Football España (Real Madrid), The Guardian (Real Madrid), Madrid Universal | The Athletic |
 | **India men's cricket** | Hindustan Times, Indian Express, Times of India, The Hindu, Sportstar, Wisden, The Guardian (cricket), BBC (cricket) | ESPNcricinfo (India) |
 | **F1 and Max** | Formula 1, The Race, PlanetF1, Motorsport.com, Autosport, RaceFans, RacingNews365, BBC (F1), Sky Sports (F1), The Guardian (F1), FIA | |
-| **Tennis** | Tennis Majors, BBC (tennis), The Guardian (tennis), Tennis365, Ubitennis, Sky Sports (tennis); Google News for "ATP tennis" | ESPN and Reuters through Google News |
+| **Tennis** | Tennis Majors, BBC (tennis), The Guardian (tennis), Tennis365, Ubitennis, Sky Sports (tennis) | ESPN and Reuters through Google News |
 | **Warriors** | Golden State of Mind, SFGate (Warriors feed), CBS Sports (NBA); SI and NBC Sports Bay Area through Google News | The Athletic, RealGM, Yahoo Sports (NBA) |
 | **Ronaldo** | Google News for "Ronaldo" and "Al Nassr", plus the football desks below | |
 | **Barcelona (rival)** | Barca Blaugranes, Barca Universal, Football España (Barcelona), The Guardian (Barcelona) | |

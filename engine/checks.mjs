@@ -20,10 +20,12 @@ export function checkScript(turns, pack, { hosts = ["Fan", "Anchor"], rivals = [
   // rivals: only in Rival Watch, a same-day double in the cold open, or the table line after a league result
   const tableHasRival = pack.items.some(i => i.table?.rows?.some(r => r.rival));
   const doubles = pack.items.some(i => i.double);
+  // a die-hard story that itself names the rival ("Vinicius to miss the Clasico against Barcelona") may be told as it is
+  const inStories = r => pack.running_order.filter(s => s.id === "die-hard").flatMap(s => s.news || []).some(n => [n.headline, n.text?.text].join(" ").includes(r.name));
   for (const r of rivals) {
     const rx = new RegExp(`\\b(${[r.name, ...(r.aliases || [])].map(fold).join("|")})\\b`, "i");
     for (const t of turns.filter(t => rx.test(fold(t.text)))) {
-      const ok = t.segment === "rival-watch" || (t.segment === "cold-open" && doubles) || (t.segment === "die-hard" && tableHasRival) || /\bclasico\b/i.test(fold(t.text)) && t.segment === "ahead";
+      const ok = t.segment === "rival-watch" || (t.segment === "die-hard" && inStories(r)) || (t.segment === "cold-open" && doubles) || (t.segment === "die-hard" && tableHasRival) || /\bclasico\b/i.test(fold(t.text)) && t.segment === "ahead";
       if (!ok) hard(`${r.name} named outside Rival Watch: "${t.text.slice(0, 80)}"`);
       if (PERSONAL.test(t.text)) hard(`a rival's personal or injury news: "${t.text.slice(0, 80)}"`);
     }

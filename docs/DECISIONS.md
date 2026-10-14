@@ -30,3 +30,7 @@
 - Rival Watch gets more colour ("Barcelona were dreadful"), within the old limits (results and big bad news, never personal).
 - The Fan feels it out loud and the facts stay plain; the Anchor is one notch calmer (Parth: "I love it").
 - The script rehearsal: .github/workflows/rehearse.yml, run by hand, the rehearsal key only, at most three writer requests, no voice; pack, script and checks committed to rehearsals/<date>/.
+
+## 15 Oct 2026 (night, later)
+- No catch-all Google News search for a sport ("ATP tennis"; Parth disagreed). The fix for a missed story was in the code: (1) one story worded many ways is grouped by rare word pairs ("six kings", "kings slam"), not only by shared words; (2) a story belongs to a subject when any of its headlines names him, not only the lead one; (3) a follower of a whole sport (Men's tennis, Formula 1) gets that sport's biggest stories of the day. The Six Kings Slam postponement (seven outlets, 14 Oct) now reaches the show.
+- A die-hard story that names the rival ("Vinicius to miss the Clasico against Barcelona") stays the die-hard's story and may be told as it is.

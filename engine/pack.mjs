@@ -201,7 +201,9 @@ export async function buildPack({ profile = json("profile.json"), show = json("c
   });
   for (const f of names) {
     const cap = { "die-hard": 4, follow: 2, "big-moments": 1 }[care(f)] ?? 1, min = care(f) === "big-moments" ? 2 : 1;
-    const mine = clusters.filter(c => who(f).test(c.headline) && c.n >= min && !rivalRx.some(r => r.test(c.headline)) && !used.has(c));
+    // a story is the subject's when any of its headlines names the subject (the lead one may not); it is shown by the
+    // headline that does. A story that also names the rival is still the subject's ("Vinicius to miss Barcelona game").
+    const mine = clusters.filter(c => !used.has(c) && c.n >= min && c.titles.some(t => who(f).test(t))).map(c => Object.assign(c, { headline: c.titles.find(t => who(f).test(t)) || c.headline }));
     for (const c of mine) {
       // a preview of a match that has since been played is old news: the result says it now
       if (results.some(i => i.subject === f.name && c.date < Date.parse(i.when) && i.line.split(/ \d+-\d+ | v |: | bt |, /).some(p => p && p.length > 3 && p !== f.name && !f.name.includes(p) && c.headline.includes(p.replace(/^AS /, ""))))) { used.add(c); continue; }
@@ -211,6 +213,15 @@ export async function buildPack({ profile = json("profile.json"), show = json("c
       used.add(c); news_items.push({ subject: f.name, care: care(f), ...c });
     }
   }
+  // A follower of a whole sport (Men's tennis, Formula 1) gets that sport's biggest stories of the day, the ones two or
+  // more outlets ran, after the stories about the people they follow by name (15 Oct: the Six Kings Slam postponement)
+  for (const f of profile.follows.filter(f => f.kind === "all")) {
+    const cap = { "die-hard": 3, follow: 2, "big-moments": 1 }[care(f)] ?? 1;
+    for (const c of clusters.filter(c => !used.has(c) && c.sport === f.sport && c.n >= (care(f) === "big-moments" ? 3 : 2) && !c.titles.some(t => rivalRx.some(r => r.test(t)))).slice(0, cap)) {
+      used.add(c); news_items.push({ subject: f.name, care: care(f), ...c });
+    }
+  }
+
   // A rival's bad news, only when it is big (Parth, 15 Oct: "only if it is important"): a sacking, a ban, a fine, a
   // points deduction, a crisis, booed off, knocked out; several outlets, or the rival's own desk and one more. Never an
   // injury, an illness or anything personal, and never a match report (their results come above).
@@ -219,7 +230,7 @@ export async function buildPack({ profile = json("profile.json"), show = json("c
   const rival_news = [];
   for (const f of profile.rivals || []) {
     const desk = new Set((feeds.teams?.[f.name] || []).map(x => x.name));
-    const c = clusters.find(c => !used.has(c) && who(f).test(c.headline) && !names.some(n => who(n).test(c.headline)) && RIVAL_BAD.test(c.headline) && !PERSONAL.test(c.headline) && !RESULTY.test(c.headline.replace(RIVAL_BAD, "")) && (c.n >= 3 || (c.n >= 2 && c.outlets.some(o => desk.has(o)))));
+    const c = clusters.find(c => !used.has(c) && who(f).test(c.headline) && !c.titles.some(t => names.some(n => who(n).test(t))) && RIVAL_BAD.test(c.headline) && !PERSONAL.test(c.headline) && !RESULTY.test(c.headline.replace(RIVAL_BAD, "")) && (c.n >= 3 || (c.n >= 2 && c.outlets.some(o => desk.has(o)))));
     if (c) { used.add(c); rival_news.push({ subject: f.name, care: "rival", mood: "gleeful", ...c }); }
   }
 
@@ -235,7 +246,7 @@ export async function buildPack({ profile = json("profile.json"), show = json("c
   if (sports.has("football")) cands.push(...(await safe("elsewhere: football", () => elsewhere.football({ since, now, big: new Set(B.football || []), leagues: B.football_leagues || ["uefa.champions"], skip })) || []));
   if (sports.has("cricket")) cands.push(...(await safe("elsewhere: cricket", () => elsewhere.cricket({ since, tiers: show.cricket_tiers || {}, skip: new Set(["India"]) })) || []));
   // a story many outlets lead with, not about anyone on the list or a rival
-  const free = c => !used.has(c) && !rivalRx.some(r => r.test(c.headline)) && !names.some(f => who(f).test(c.headline) || new RegExp(`\\b${f.name.split(" ").at(-1)}\\b`, "i").test(c.headline));
+  const free = c => !used.has(c) && !c.titles.some(t => rivalRx.some(r => r.test(t)) || names.some(f => who(f).test(t)));
   for (const c of clusters.filter(free)) { const d = elsewhere.newsDrama(c); if (d) cands.push({ id: `news-${c.headline.slice(0, 40)}`, sport: c.sport, kind: "news", line: c.headline, outlets: c.outlets, drama: d, why: [`${c.n} outlets`], cluster: c }); }
   // the last day's results first: an older upset has had its day (rehearsals over several days only)
   for (const c of cands) if (ledger.resultSaid(said, c.id)) c.drama = 0;

@@ -43,3 +43,16 @@ test("English only", async () => {
   assert.equal(isEnglish("Vinicius será baja en el Clásico"), false);
   assert.equal(isEnglish("Mbappé, Bellingham and Vinicius start"), true);
 });
+
+test("one story in many words is still one story (Six Kings Slam, 15 Oct)", async () => {
+  const { cluster } = await import("../engine/fetch/news.mjs");
+  const it = (title, source) => ({ title, source, kind: "news", date: 1 });
+  const filler = Array.from({ length: 30 }, (_, k) => it(`Unrelated match report number ${k} about football and cricket`, `X${k}`));
+  const c = cluster([...filler,
+    it("Six Kings Slam postponed to December, clashes with 2027 season", "Tennis Majors"),
+    it("Six Kings Slam featuring Carlos Alcaraz and Novak Djokovic postponed after deadly Saudi Arabia attacks", "BBC"),
+    it("Carlos Alcaraz’s schedule complaints to be tested as Six Kings Slam postponed", "Tennis365")]);
+  const six = c.find(x => /six kings/i.test(x.headline));
+  assert.equal(six.n, 3);
+  assert.ok(six.titles.some(t => /Alcaraz/.test(t)));
+});
