@@ -49,3 +49,4 @@
 ## 16 Oct 2026: voice samples, Parth's choices
 - Options before anything is made (Parth: "you need to ask me first. Give me options").
 - Two male hosts: a younger Fan and an older Anchor. Accents to hear: Indian English, British English, and a mix. A first set of up to 4 clips (one day of the rehearsal key's voice requests).
+- The first set is 3 clips (Parth chose D for the fourth): both Indian English; both British English; an Indian English Fan with a British Anchor. The fourth clip's voice requests are kept for a re-take after he hears these.
