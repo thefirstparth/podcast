@@ -9,7 +9,8 @@ Parth, 15 Oct: "a newspaper and a podcast are two very different things. Do not 
 - A host's question is answered only with what the pack says.
 - Each fact once. Never the same score twice.
 - Round honestly, never up past what it is.
-- Never a rival's win. Never a rival's injury, illness or anything personal. (A hard check: a script that does it is never voiced.)
+- Never a rival's win as news of its own. Never a rival's injury, illness or anything personal. (A hard check: a script that does it is never voiced.)
+- The rival may come up inside one of the listener's own stories when that story is about them, said plainly: "Vini misses the Clasico; Barcelona are top with ten wins from ten" (Parth, 15 Oct: "that's okay, Barcelona can be mentioned").
 - The table only after a league result.
 - Nothing about how the show is made, its sources, or anything missing.
 

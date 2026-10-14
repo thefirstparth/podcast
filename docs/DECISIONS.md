@@ -50,3 +50,8 @@
 - Options before anything is made (Parth: "you need to ask me first. Give me options").
 - Two male hosts: a younger Fan and an older Anchor. Accents to hear: Indian English, British English, and a mix. A first set of up to 4 clips (one day of the rehearsal key's voice requests).
 - The first set is 3 clips (Parth chose D for the fourth): both Indian English; both British English; an Indian English Fan with a British Anchor. The fourth clip's voice requests are kept for a re-take after he hears these.
+
+## 15 Oct 2026: Parth's review of the first rehearsal script ("I like the script, definitely")
+- Women's cricket under India men "should not have slipped through": fixed with the profile's skip list (a story that names a skip word is ruled out entirely).
+- Barcelona may be mentioned inside a Madrid story that is about them (the Clasico, the title race), said plainly. Rival Watch and the never-celebrate rule are unchanged.
+- The greeting follows the publishing time, which is still to be decided.
