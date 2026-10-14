@@ -11,15 +11,17 @@ const decode = s => String(s || "").replace(/<!\[CDATA\[([\s\S]*?)\]\]>/g, "$1")
 const strip = s => decode(decode(s)).replace(/<[^>]*>/g, " ").replace(/\s+/g, " ").trim();
 const tag = (x, t) => x.match(new RegExp(`<${t}[^>]*>([\\s\\S]*?)</${t}>`, "i"))?.[1] ?? "";
 
+// RSS (<item>) and Atom (<entry>, which every SB Nation team site uses: Managing Madrid, Golden State of Mind)
 export function parseRSS(xml, feed) {
-  return [...String(xml).matchAll(/<item[\s>][\s\S]*?<\/item>/gi)].map(([x]) => {
+  return [...String(xml).matchAll(/<(item|entry)[\s>][\s\S]*?<\/\1>/gi)].map(([x]) => {
     let title = strip(tag(x, "title")), source = feed.name;
     // Google News: "Headline - Outlet", with the outlet in <source>
     const gsrc = strip(tag(x, "source"));
     if (gsrc) { source = gsrc; title = title.replace(new RegExp(`\\s+-\\s+${gsrc.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")}$`), ""); }
-    const date = Date.parse(strip(tag(x, "pubDate")) || strip(tag(x, "dc:date")) || "") || null;
-    const summary = gsrc ? "" : strip(tag(x, "description")).slice(0, 400);
-    return { title, url: strip(tag(x, "link")), date, source, summary, feed: feed.id, kind: feed.kind };
+    const date = Date.parse(strip(tag(x, "pubDate")) || strip(tag(x, "dc:date")) || strip(tag(x, "published")) || strip(tag(x, "updated")) || "") || null;
+    const summary = gsrc ? "" : strip(tag(x, "description") || tag(x, "summary") || tag(x, "content")).slice(0, 400);
+    const url = strip(tag(x, "link")) || x.match(/<link[^>]*href="([^"]+)"/i)?.[1] || "";
+    return { title, url, date, source, summary, feed: feed.id, kind: feed.kind };
   }).filter(i => i.title);
 }
 
