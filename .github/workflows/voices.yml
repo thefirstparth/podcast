@@ -1,0 +1,33 @@
+# Voice samples (Parth, 16 Oct): made with the REHEARSAL key only, never published. The MP3s are committed to
+# rehearsals/voices/<date>/ on this branch so he can play them on his phone, and kept as a run artifact too.
+name: voices
+on:
+  workflow_dispatch:
+    inputs:
+      what: { description: "What to make", type: choice, options: [audition], default: audition }
+concurrency: { group: voices, cancel-in-progress: false }
+permissions: { contents: write }
+jobs:
+  voices:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
+        with: { node-version: 22 }
+      - run: command -v ffmpeg || (sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg >/dev/null)
+      - name: Make the clips
+        env:
+          GEMINI_KEY_REHEARSAL: ${{ secrets.GEMINI_KEY_REHEARSAL }}
+        run: node scripts/audition.mjs
+      - if: always()
+        uses: actions/upload-artifact@v4
+        with: { name: voice-clips, path: rehearsals/voices, retention-days: 7, if-no-files-found: ignore }
+      - name: Save them to the branch
+        if: always()
+        run: |
+          git config user.name "rehearsal"
+          git config user.email "rehearsal@users.noreply.github.com"
+          git add rehearsals/voices
+          git commit -m "Voice audition $(TZ=Asia/Kolkata date +%Y-%m-%d\ %H:%M) IST" || echo "nothing new"
+          git pull --rebase origin "${GITHUB_REF_NAME}" && git push origin "HEAD:${GITHUB_REF_NAME}"
