@@ -1,0 +1,10 @@
+{
+  "name": "sports-show",
+  "private": true,
+  "type": "module",
+  "engines": { "node": ">=22" },
+  "scripts": {
+    "pack": "node engine/pack.mjs",
+    "test": "node --test tests/*.test.mjs"
+  }
+}

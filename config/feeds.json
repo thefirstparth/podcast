@@ -1,0 +1,34 @@
+{
+  "note": "The sport desks' RSS feeds, by sport (taken from The House of 1400's reading list, where each was tested). A followed name also gets its own Google News search, built by engine/fetch/news.mjs, so any team or player anywhere is covered without a feed of its own. kind: lead and official outrank news; search is discovery only.",
+  "football": [
+    { "id": "bbc-football", "name": "BBC Sport", "url": "https://feeds.bbci.co.uk/sport/football/rss.xml", "kind": "news" },
+    { "id": "guardian-football", "name": "The Guardian", "url": "https://www.theguardian.com/football/rss", "kind": "news" },
+    { "id": "espn-fc", "name": "ESPN FC", "url": "https://www.espn.com/espn/rss/soccer/news", "kind": "news" },
+    { "id": "athletic-football", "name": "The Athletic", "url": "https://www.nytimes.com/athletic/rss/football/", "kind": "lead" }
+  ],
+  "f1": [
+    { "id": "f1-com", "name": "Formula 1", "url": "https://www.formula1.com/en/latest/all.xml", "kind": "official" },
+    { "id": "motorsport-f1", "name": "Motorsport.com", "url": "https://www.motorsport.com/rss/f1/news/", "kind": "news" },
+    { "id": "the-race", "name": "The Race", "url": "https://www.the-race.com/feed/", "kind": "news" },
+    { "id": "autosport-f1", "name": "Autosport", "url": "https://www.autosport.com/rss/f1/news/", "kind": "news" }
+  ],
+  "cricket": [
+    { "id": "cricinfo", "name": "ESPNcricinfo", "url": "https://www.espncricinfo.com/rss/content/story/feeds/0.xml", "kind": "news" },
+    { "id": "bbc-cricket", "name": "BBC Sport", "url": "https://feeds.bbci.co.uk/sport/cricket/rss.xml", "kind": "news" },
+    { "id": "ht-cricket", "name": "Hindustan Times", "url": "https://www.hindustantimes.com/feeds/rss/cricket/rssfeed.xml", "kind": "news" }
+  ],
+  "tennis": [
+    { "id": "tennis-majors", "name": "Tennis Majors", "url": "https://www.tennismajors.com/feed", "kind": "news" },
+    { "id": "bbc-tennis", "name": "BBC Sport", "url": "https://feeds.bbci.co.uk/sport/tennis/rss.xml", "kind": "news" },
+    { "id": "athletic-tennis", "name": "The Athletic", "url": "https://www.nytimes.com/athletic/rss/tennis/", "kind": "lead" }
+  ],
+  "basketball": [
+    { "id": "athletic-nba", "name": "The Athletic", "url": "https://www.nytimes.com/athletic/rss/nba/", "kind": "lead" }
+  ],
+  "general": [
+    { "id": "bbc-sport", "name": "BBC Sport", "url": "https://feeds.bbci.co.uk/sport/rss.xml", "kind": "news" },
+    { "id": "guardian-sport", "name": "The Guardian", "url": "https://www.theguardian.com/uk/sport/rss", "kind": "news" },
+    { "id": "sportstar", "name": "Sportstar", "url": "https://sportstar.thehindu.com/feeder/default.rss", "kind": "news" },
+    { "id": "ie-sports", "name": "The Indian Express", "url": "https://indianexpress.com/section/sports/feed/", "kind": "news" }
+  ]
+}

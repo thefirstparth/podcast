@@ -1,0 +1,824 @@
+{
+  "made_at": "2026-10-14T22:29:28.308Z",
+  "tz": "Asia/Kolkata",
+  "window": {
+    "from": "2026-10-10T22:29:28.308Z",
+    "to": "2026-10-14T22:29:28.308Z"
+  },
+  "listener": {
+    "name": "Parth",
+    "tz": "Asia/Kolkata",
+    "language": "en-IN"
+  },
+  "tone": {
+    "emotion": "full",
+    "rival_watch": true,
+    "language": "clean"
+  },
+  "minutes": 10,
+  "words": 1640,
+  "quiet": false,
+  "running_order": [
+    {
+      "id": "cold-open",
+      "items": [
+        "fb-401915414-love"
+      ],
+      "words": 33,
+      "name": "Cold open",
+      "about": "One or two lines on the biggest moment for the listener, said in its mood. No greeting before it."
+    },
+    {
+      "id": "die-hard",
+      "items": [
+        "fb-401915414-love",
+        "cr-151598",
+        "tn-184941-Carlos Alcaraz",
+        "cr-151587",
+        "f1-17-race-max_verstappen"
+      ],
+      "news": [
+        {
+          "subject": "Real Madrid",
+          "care": "die-hard",
+          "headline": "Real Madrid come from 3-1 down to beat Roma on Champions League travels",
+          "sport": "football",
+          "outlets": [
+            "Al Jazeera",
+            "Universidad de Córdoba (UCO)",
+            "Yahoo Sports",
+            "Managing Madrid"
+          ],
+          "n": 4,
+          "date": 1792014803000,
+          "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxNbllrVTZFYk9ZdDdWclBfRUFDaXZENGF6Q21rUUNlMkFUNk0tWEVpblV0b0JkQ1FMWlp5dFQ1NVVyQ24yQ3JQWFZfVzM4WWdweVpJMU5BLTljMF9xTU1jRTdUT3YxY0JQU0ZKbjFfdkFCdVp2THhIZ3I4VjZNeGcyMFJWbFJ6aVBHdE0yRzNNd2d4NmliU19fTkpXcGxlOURISWVHYzVrakR6VzB5ZTFHQW1FNkdXQdIBuwFBVV95cUxPODJVeTVoaVU0aUEwZ2k4RjF5bThTenJTUXV1dzByblNDR21HSnNId0x4cEFwWHB0eWl3aFE5VjlZLWp4MzVsVUpzV2x4ZU5xQTJjS3g4RXdDYy1jc1JiS0ctREhZMm91c3JGMzZBZHVaeE92ZmJsbjAzVW5GWTZrU3pBamdmTHNxLTJOczUtMnRZcndublMzdTVtckRyZThtUG5CVi1vdmZDOGFuc1NidDNzb1JDMmtGdklZ?oc=5",
+          "reports": []
+        },
+        {
+          "subject": "Real Madrid",
+          "care": "die-hard",
+          "headline": "Champions League: Mourinho’s Real Madrid stage crazy comeback on Roma return",
+          "sport": "football",
+          "outlets": [
+            "The Guardian",
+            "BBC Sport",
+            "Opta Analyst"
+          ],
+          "n": 3,
+          "date": 1792014420000,
+          "url": "https://www.theguardian.com/football/2026/oct/14/champions-league-mourinhos-real-madrid-stage-crazy-comeback-on-roma-return",
+          "reports": [
+            {
+              "source": "The Guardian",
+              "title": "Champions League: Mourinho’s Real Madrid stage crazy comeback on Roma return",
+              "summary": "Mourinho’s side score three late goals from 3-1 deficit Dortmund latest team beaten in Norway by Bodø/Glimt José Mourinho enjoyed a Roma reunion to remember as Real Madrid completed an astonishing comeback by scoring three late goals to claim a 4-3 away win in the Champions League on Wednesday. Marten de Roon gave the hosts a deserved opener before Kylian Mbappé struck back on his 100th Champions "
+            },
+            {
+              "source": "BBC Sport",
+              "title": "Real Madrid stun Roma after dramatic late comeback",
+              "summary": "Real Madrid complete their latest dramatic Champions League comeback by scoring three goals in the final seven minutes to earn manager Jose Mourinho a win on his return to Roma."
+            },
+            {
+              "source": "BBC Sport",
+              "title": "Real Madrid stun Roma after dramatic late comeback",
+              "summary": "Real Madrid complete their latest dramatic Champions League comeback by scoring three goals in the final seven minutes to earn manager Jose Mourinho a win on his return to Roma."
+            }
+          ]
+        },
+        {
+          "subject": "Real Madrid",
+          "care": "die-hard",
+          "headline": "Immediate Reaction: AS Roma 3-4 Real Madrid",
+          "sport": "football",
+          "outlets": [
+            "Yahoo Sports",
+            "Managing Madrid",
+            "Universidad de Córdoba (UCO)"
+          ],
+          "n": 3,
+          "date": 1792011347000,
+          "url": "https://news.google.com/rss/articles/CBMiggFBVV95cUxObW56dHRZZHJpRUNjUnRvbzF6UlEtUU53MlFVb0NTb0EydlNERFNpOU1uVF9Ubnp6R2d0SElUbkVXRV9saXo5RFRzcGppaUpOMjRlTG9pell2eDdzME9Tdk5jaHFEamFjY1FUVFpaYnZUaGFBdzNoUDR4TTE0cGk4LUx3?oc=5",
+          "reports": []
+        },
+        {
+          "subject": "India men",
+          "care": "die-hard",
+          "headline": "Shubman Gill bags record fifth ICC Player of the Month award, finishes ahead of Abhishek Sharma",
+          "sport": "cricket",
+          "outlets": [
+            "Hindustan Times"
+          ],
+          "n": 1,
+          "date": 1791887908000,
+          "url": "https://www.hindustantimes.com/cricket/shubman-gill-bags-record-fifth-icc-player-of-the-month-award-finishes-ahead-of-abhishek-sharma-101791887069447.html",
+          "reports": [
+            {
+              "source": "Hindustan Times",
+              "title": "Shubman Gill bags record fifth ICC Player of the Month award, finishes ahead of Abhishek Sharma",
+              "summary": "Shubman Gill won his record fifth ICC Player of the Month award after his September ODI heroics against West Indies, beating Abhishek Sharma and Sikandar Raza."
+            }
+          ]
+        },
+        {
+          "subject": "India men",
+          "care": "die-hard",
+          "headline": "Shubman Gill, Shafali Verma named ICC Players of the Month for September 2026",
+          "sport": null,
+          "outlets": [
+            "The Indian Express"
+          ],
+          "n": 1,
+          "date": 1791877135000,
+          "url": "https://indianexpress.com/article/sports/cricket/shafali-verma-shubman-gill-icc-players-of-month-september-2026-10919227/",
+          "reports": []
+        },
+        {
+          "subject": "India men",
+          "care": "die-hard",
+          "headline": "Abhishek Sharma breaks another record, pips former skipper Suryakumar Yadav",
+          "sport": null,
+          "outlets": [
+            "The Indian Express"
+          ],
+          "n": 1,
+          "date": 1791726990000,
+          "url": "https://indianexpress.com/article/sports/cricket/abhishek-sharma-2000-runs-fastest-balls-record-india-west-indies-10916900/",
+          "reports": []
+        },
+        {
+          "subject": "Max Verstappen",
+          "care": "die-hard",
+          "headline": "Valentino Rossi wary of Max Verstappen threat at Portimao: \"Big problem\"",
+          "sport": "f1",
+          "outlets": [
+            "Motorsport.com",
+            "RacingNews365",
+            "FormulaRapida.net",
+            "Crash.net"
+          ],
+          "n": 4,
+          "date": 1791997800000,
+          "url": "https://www.motorsport.com/f1/news/valentino-rossi-wary-of-max-verstappen-threat-at-portimao-big-problem/10865174/?utm_source=RSS&utm_medium=referral&utm_campaign=RSS-F1&utm_term=News&utm_content=www",
+          "reports": [
+            {
+              "source": "Motorsport.com",
+              "title": "Valentino Rossi wary of Max Verstappen threat at Portimao: \"Big problem\"",
+              "summary": "Two of motorsport's biggest drivers are about to share a grid this weekend, and they're both very wary of meeting each other during the race. Max Verstappen makes his GT World Challenge Europe debut at the Portimao season finale this weekend, but one of the 60-odd cars he will be racing will be driven by MotoGP legend Valentino Rossi. The nine-time motorcycle world champion has discussed with Sky "
+            }
+          ]
+        },
+        {
+          "subject": "Max Verstappen",
+          "care": "die-hard",
+          "headline": "Why Laurent Mekies' Red Bull extension is vital for Max Verstappen",
+          "sport": "f1",
+          "outlets": [
+            "GPblog",
+            "PlanetF1",
+            "Yahoo Sports"
+          ],
+          "n": 3,
+          "date": 1792004460000,
+          "url": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxPTVp0MjRBNWJaZ1NlcTQ3OUpfVzd0VENtYmY4clRKQWl0dFk0OHlWS214MDJ4dUttbUY5bzRaX3AyOEJSQTFvbVdpQVlzOEVuYlo2WHlIVW41LXRBam5WOXI1VjQydGt5ZHZuU3ptR0RYenZ1Y28yMEV6cTFhRUlMQzEtREtLMHdsUkNTZVFWT3BMbkdfOW9BeGZqdHl5TlZvNjZyMUlHY3JLT3c?oc=5",
+          "reports": []
+        },
+        {
+          "subject": "Max Verstappen",
+          "care": "die-hard",
+          "headline": "Kimi Antonelli says it would be very scary to have Max Verstappen as Championship rival",
+          "sport": "f1",
+          "outlets": [
+            "grandprix247",
+            "Goal.com",
+            "Crash.net"
+          ],
+          "n": 3,
+          "date": 1791963480000,
+          "url": "https://news.google.com/rss/articles/CBMiywFBVV95cUxQSTdzZFV1TThtaVNzOFZvMjYxRVVpbUdFcUdOV3BPMkVJZmx1MnJ0OWZwaE5fT3NnR3p5UzJPRHg2VkxROWJPY0lqSkVtOWw4MUhmOUtkT0lyaF8xY0xKYnZVZU1xTURQRm1sY3ZLeDJDbjNXTDJSREtIOW1yUVNkVUxCOWNNNXVEVzVyYWxCd2k3SmVoZWNxUTBBN0RweE1FMnlPSy1tMWNXM1RIMnEyOXFTWjRZMEpfZlBTaC0xdkhZelFyU3R0NHRFSQ?oc=5",
+          "reports": []
+        },
+        {
+          "subject": "Carlos Alcaraz",
+          "care": "die-hard",
+          "headline": "Alcaraz exits Shanghai Masters in straight-sets loss",
+          "sport": "tennis",
+          "outlets": [
+            "Oman Observer",
+            "CGTN",
+            "The Express Tribune",
+            "The Peninsula Qatar",
+            "香港電台"
+          ],
+          "n": 5,
+          "date": 1791877493000,
+          "url": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE1BOFdPMzNoU1NvblVVM0dwSzBjNXpyVG5sNS13Tm9xby14WDNIR1RjbUpaR29KenhYRTVYZFFVODJNRkt6MUFnNUhqdG5VbDlfVlBnQ202VEdNUdIBWkFVX3lxTE1BOFdPMzNoU1NvblVVM0dwSzBjNXpyVG5sNS13Tm9xby14WDNIR1RjbUpaR29KenhYRTVYZFFVODJNRkt6MUFnNUhqdG5VbDlfVlBnQ202VEdNUQ?oc=5",
+          "reports": []
+        },
+        {
+          "subject": "Carlos Alcaraz",
+          "care": "die-hard",
+          "headline": "Carlos Alcaraz's Shanghai Masters upset loss to Zizou Bergs was all about the serve",
+          "sport": "tennis",
+          "outlets": [
+            "The Athletic",
+            "Sportscape Magazine",
+            "The Sentinel - of this Land, for its People",
+            "Tennis World USA"
+          ],
+          "n": 4,
+          "date": 1791886715000,
+          "url": "https://www.nytimes.com/athletic/7683747/2026/10/12/zizou-bergs-carlos-alcaraz-shanghai-masters/",
+          "reports": [
+            {
+              "source": "The Athletic",
+              "title": "Carlos Alcaraz's Shanghai Masters upset loss to Zizou Bergs was all about the serve",
+              "summary": "As Alcaraz tried to figure out a winning strategy, Bergs produced one of the best serving performances of his career."
+            }
+          ]
+        },
+        {
+          "subject": "Carlos Alcaraz",
+          "care": "die-hard",
+          "headline": "Toni Nadal completely disagrees with Carlos Alcaraz’s recent complaint in Shanghai",
+          "sport": "tennis",
+          "outlets": [
+            "Tennis365",
+            "Tennis World USA",
+            "Yahoo Sports"
+          ],
+          "n": 3,
+          "date": 1791990700000,
+          "url": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxNRGhkbU95THJaaWZvSU5CazhkcWhDOHluZ1hQYkRVZU9IY1RSb2lIY3V4dEZwTVJNNDZBQUtlMTJ0UGptblZRVm5NVFFxdkZBZjJfR3FPZVJpZjRDUTNfUXZpVElmbFBsTVpXRzFQcHNBNkc0OEdXb1BwYlVJdlNDQW9WVGtGZGI5cHFB?oc=5",
+          "reports": []
+        }
+      ],
+      "words": 1089,
+      "name": "Your teams",
+      "about": "Each die-hard item, highest stake first: the result, how it happened, what it means (table, series, standings), what is next."
+    },
+    {
+      "id": "follow",
+      "items": [
+        "nba-401898718",
+        "fb-401912627-Cristiano Ronaldo",
+        "nba-401898399"
+      ],
+      "news": [
+        {
+          "subject": "Novak Djokovic",
+          "care": "follow",
+          "headline": "Daniil Medvedev Changes His Tune on Novak Djokovic’s Shanghai Masters Claim - “What Is He Talking About?”",
+          "sport": "tennis",
+          "outlets": [
+            "Athlon Sports",
+            "Tennis365",
+            "Daily Express"
+          ],
+          "n": 3,
+          "date": 1792001747000,
+          "url": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxQLV9LYTNQdUFaeEVhWDJWV2dmYXEzSHdFY0l3RDI3Q04yRjlESUJtTDM2dUloaEpiMmxHWTREVktLRDZaYWhOSGdmT0dnWkZhSUFxNzc4UDZhQTBoVVg3M1NPU05TWWxEZkJKbmRIdHFhTF9PblNURlNHa183R0ZRc1p2ei1kTTh3NTdnWW1iUENvWWtzUDllTldzLS1XOWVOVWFqbGxwZ0k?oc=5",
+          "reports": []
+        },
+        {
+          "subject": "Novak Djokovic",
+          "care": "follow",
+          "headline": "Novak Djokovic's wife Jelena sends rare message as Alexander Zverev benefits from Carlos Alcaraz's Shanghai Masters heartbreak",
+          "sport": "tennis",
+          "outlets": [
+            "Sportskeeda",
+            "Yahoo Sports",
+            "College Sports Network"
+          ],
+          "n": 3,
+          "date": 1791893880000,
+          "url": "https://news.google.com/rss/articles/CBMi7wFBVV95cUxQelJEeUdIQWlQcjJIenUwTWVRVjk3ODNQWkZ1bF81Y2ZuMGFXNFNWYlczSlNGSnVxN05aTENJSUJxby1lOXg1WTNqOEVGbG9VY2QwRDkwZ005b01tRHV3LTBlMVZnbVAyazZQbXZYcl9VYVprZzRoX2gwWjJlcEwzamlRYWJYUm1lalo3b016c0VrVXRkTzFXX1E1VTYwbHFubDhpLWQ2MDhSSTFnMF90SmZFVEFMRm1tOFZELXYzQUwzdzlfN3cxYUpPeTFKYVE4VkVpa2pBYTVxRThqc01raGRvdEFYbDNWbkw1MzI1OA?oc=5",
+          "reports": []
+        },
+        {
+          "subject": "Golden State Warriors",
+          "care": "follow",
+          "headline": "Kristaps Porzingis breaks silence about health after meeting with Warriors",
+          "sport": "basketball",
+          "outlets": [
+            "The Mercury News",
+            "Yahoo Sports",
+            "San Francisco Chronicle"
+          ],
+          "n": 3,
+          "date": 1792016449000,
+          "url": "https://news.google.com/rss/articles/CBMimAFBVV95cUxNYmtkam5fUUp6eGlsMXBNb1U4Q1N1endjdU1uU1Nla2szbTBIMk5vcGEyemRLb0xUeWxHcm1fb1JEakZJTWZyenk2WEk2cEw3S19oTkU1MXU0UWJUNEp2VlBHbDZXSFE4a3pJN0hLeWdnQVJhR0ZsSEwwVmJZMXpodUVseDc4dGhGZURNUzJGSjlMblhJYjZGUQ?oc=5",
+          "reports": []
+        },
+        {
+          "subject": "Golden State Warriors",
+          "care": "follow",
+          "headline": "Warriors storm back for second half comeback in preseason win vs. Lakers, 101-89",
+          "sport": "basketball",
+          "outlets": [
+            "Yahoo Sports",
+            "Golden State Of Mind",
+            "NBC Sports Bay Area & California"
+          ],
+          "n": 3,
+          "date": 1792002629000,
+          "url": "https://news.google.com/rss/articles/CBMihwFBVV95cUxPWE1PTU56VEFnTmhTSGFrX0pVNDB1Z2s5T0xTNU8zNm1XcmlyVHVfbV80eW53bzcwd19jbHFVTXRlU1g4czVoMkZFRkdBUFpiV29iRENHcWxoenprNkJTbkYtcFBTTERtUFM3N1NmdFplZjhGeTJVcXFPcm1Td2dwZXVUaUZpZm8?oc=5",
+          "reports": []
+        },
+        {
+          "subject": "Cristiano Ronaldo",
+          "care": "big-moments",
+          "headline": "Harry Kane Threatens a Historic Record of Cristiano Ronaldo in the Champions League",
+          "sport": "football",
+          "outlets": [
+            "beIN SPORTS",
+            "Sports Illustrated",
+            "Forza Football",
+            "Chase Your Sport",
+            "Yahoo",
+            "World Soccer Talk"
+          ],
+          "n": 6,
+          "date": 1791999922000,
+          "url": "https://news.google.com/rss/articles/CBMi6gFBVV95cUxQWmhDRDRBQUEwekE3U09RMWRlY2xzYzI1VEhlRGZFOVNXMWh2MC1aYmxmNUkzdGY0cFh0N0dQQkJOdWh5ai1KN29KSjhXWWt0TXhlZXBkVjZybzVEVHFsaDQyWGVObklYajdDTnRpcG9DQUxHM19ZTldybWZLcHBxVmVqcG05UEZ3VDVUWU5hZmVubk5IbnVUMXBzZkJ6ejhTb2NhR3pzWkU5WmlaNExTVXpmdnFUbWpCVm9uZGRPTHI3V0JvTkpJVTJvQjJSODl5ZFNQSTkybmdkSmJNRG42T2JpSWZKdC14N0E?oc=5",
+          "reports": []
+        }
+      ],
+      "words": 349,
+      "name": "Also on your list",
+      "about": "Follow and big-moment items, brisk: a result and one line of why it matters."
+    },
+    {
+      "id": "around",
+      "news": [
+        {
+          "headline": "Millwall’s Alex Neil criticised for his comments on stoppage for alleged racism",
+          "sport": "football",
+          "outlets": [
+            "The Guardian",
+            "BBC Sport"
+          ],
+          "n": 2,
+          "date": 1792012354000,
+          "url": "https://www.theguardian.com/football/2026/oct/14/millwall-alex-neil-criticised-by-kick-it-out-statement",
+          "reports": [
+            {
+              "source": "The Guardian",
+              "title": "Millwall’s Alex Neil criticised for his comments on stoppage for alleged racism",
+              "summary": "Kick It Out statement: managers should ‘set the tone’ Head coach said delay in Swansea game ‘killed momentum’ The Millwall head coach, Alex Neil, has been criticised by the anti-racism campaign group Kick It Out after complaining that a stoppage in play over alleged racist abuse “killed the momentum” in Tuesday’s home defeat to Swansea City. The Championship fixture was suspended for around seven "
+            },
+            {
+              "source": "The Guardian",
+              "title": "Millwall’s Alex Neil criticised for his comments on stoppage for alleged racism",
+              "summary": "Kick It Out statement: managers should ‘set the tone’ Head coach said delay in Swansea game ‘killed momentum’ The Millwall head coach, Alex Neil, has been criticised by the anti-racism campaign group Kick It Out after complaining that a stoppage in play over alleged racist abuse “killed the momentum” in Tuesday’s home defeat to Swansea City. The Championship fixture was suspended for around seven "
+            },
+            {
+              "source": "BBC Sport",
+              "title": "Millwall's Neil criticised over racial abuse stoppage comments",
+              "summary": "Anti-racism campaign group Kick It Out calls on managers to \"set the tone\" after Millwall boss Alex Neil criticises halting a game following an accusation of abuse."
+            }
+          ]
+        },
+        {
+          "headline": "Man City 2 PSG 4: A night of Champions League chaos at the Etihad as Guardiola watches on",
+          "sport": "football",
+          "outlets": [
+            "The Athletic",
+            "Sportstar"
+          ],
+          "n": 2,
+          "date": 1792011953000,
+          "url": "https://www.nytimes.com/athletic/7683976/2026/10/14/psg-man-city-champions-league-analysis-haaland-doue-guardiola/",
+          "reports": [
+            {
+              "source": "The Athletic",
+              "title": "Man City 2 PSG 4: A night of Champions League chaos at the Etihad as Guardiola watches on",
+              "summary": "City were 3-0 down at the break to PSG before Enzo Maresca's triple substitution helped them push the reigning champions in the second half"
+            },
+            {
+              "source": "Sportstar",
+              "title": "Guardiola returns to Etihad for Man City vs PSG Champions League clash amid financial rules controversy",
+              "summary": "Pep Guardiola won 20 trophies with Manchester City, and returned to the Etihad after backing his former club following its guilty verdict in the Premier League financial rules case."
+            }
+          ]
+        },
+        {
+          "headline": "Tresoldi hat-trick fires Club Brugge to victory over Inter in seven-goal thriller",
+          "sport": "football",
+          "outlets": [
+            "BBC Sport",
+            "Sportstar"
+          ],
+          "n": 2,
+          "date": 1792011652000,
+          "url": "https://www.bbc.co.uk/sport/football/videos/cqly0gnk4xkgo?at_medium=RSS&at_campaign=rss",
+          "reports": [
+            {
+              "source": "BBC Sport",
+              "title": "Tresoldi hat-trick fires Club Brugge to victory over Inter in seven-goal thriller",
+              "summary": "Club Brugge's Nicolo Tresoldi scores a hat-trick as the Belgian side edge Inter Milan 4-3, extending Inter's Champions League losing run to four matches for the first time in their history."
+            },
+            {
+              "source": "BBC Sport",
+              "title": "Tresoldi hat-trick fires Club Brugge to victory over Inter in seven-goal thriller",
+              "summary": "Club Brugge's Nicolo Tresoldi scores a hat-trick as the Belgian side edge Inter Milan 4-3, extending Inter's Champions League losing run to four matches for the first time in their history."
+            },
+            {
+              "source": "Sportstar",
+              "title": "UEFA Champions League 2026-27: Tresoldi hat-trick fires Club Brugge past Inter Milan",
+              "summary": "The reigning Italian champion and Serie A leader remains stuck on zero points and will be under immense pressure to win next week at home against Shakhtar Donetsk."
+            }
+          ]
+        }
+      ],
+      "words": 100,
+      "name": "Around the grounds",
+      "about": "The Wider Pitch and The Sidelines: football and other sport that several outlets are leading with. Quick hits."
+    },
+    {
+      "id": "ahead",
+      "fixtures": [
+        {
+          "subject": "Golden State Warriors",
+          "care": "follow",
+          "when": "2026-10-17T02:00Z",
+          "when_local": "Sat 17 Oct, 07:30",
+          "what": "Golden State Warriors v Portland Trail Blazers",
+          "competition": "Preseason"
+        },
+        {
+          "subject": "India men",
+          "care": "die-hard",
+          "when": "2026-10-17T13:30:00.000Z",
+          "when_local": "Sat 17 Oct, 19:00",
+          "what": "5th T20I v West Indies",
+          "competition": "West Indies tour of India, 2026",
+          "venue": "M.Chinnaswamy Stadium, Bengaluru"
+        },
+        {
+          "subject": "Real Madrid",
+          "care": "die-hard",
+          "when": "2026-10-18T19:00Z",
+          "when_local": "Mon 19 Oct, 00:30",
+          "what": "Real Madrid v Sevilla",
+          "competition": "LALIGA",
+          "venue": "Santiago Bernabéu"
+        },
+        {
+          "subject": "Real Madrid",
+          "care": "die-hard",
+          "when": "2026-10-21T19:00Z",
+          "when_local": "Thu 22 Oct, 00:30",
+          "what": "Real Madrid v RB Leipzig",
+          "competition": "UEFA Champions League",
+          "venue": "Santiago Bernabéu"
+        }
+      ],
+      "words": 53,
+      "name": "Coming up",
+      "about": "The listener's fixtures in the next seven days, in their time zone, with what is at stake."
+    },
+    {
+      "id": "signoff",
+      "words": 14,
+      "name": "Sign-off",
+      "about": "The fixed closing line."
+    }
+  ],
+  "items": [
+    {
+      "id": "fb-401915414-love",
+      "sport": "football",
+      "kind": "result",
+      "subject": "Real Madrid",
+      "stance": "love",
+      "care": "die-hard",
+      "when": "2026-10-14T19:00Z",
+      "when_local": "Thu 15 Oct, 00:30",
+      "competition": "UEFA Champions League",
+      "stage": "league",
+      "line": "AS Roma 3-4 Real Madrid",
+      "venue": "Olimpico",
+      "goals": [
+        "20' AS Roma: Marten de Roon, assist Matìas Soulè, 0-1",
+        "25' Real Madrid: Kylian Mbappé, assist Yan Diomande, 1-1",
+        "51' AS Roma: Donyell Malen, assist Rodrigo Mora, 1-2",
+        "57' AS Roma: Donyell Malen, assist Matìas Soulè, 1-3",
+        "83' Real Madrid: Carlos Espí, 2-3",
+        "85' Real Madrid: Endrick (header), assist Arda Güler, 3-3",
+        "90' Real Madrid: Antonio Rüdiger (volley), assist Arda Güler, 4-3"
+      ],
+      "reds": [],
+      "facts": {
+        "won": true,
+        "lost": false,
+        "drew": false,
+        "big": false,
+        "close": true,
+        "came_from_behind": true,
+        "lead_lost": false,
+        "late_decider": true,
+        "conceded_late": false,
+        "red_card": false,
+        "upset": false,
+        "eliminated": false,
+        "title": false,
+        "stage": "league",
+        "preseason": false
+      },
+      "table": {
+        "league": "esp.1",
+        "position": 4,
+        "points": 18,
+        "played": 8,
+        "points_off_top": 6,
+        "rows": [
+          {
+            "rank": 2,
+            "team": "Atlético Madrid",
+            "points": 19
+          },
+          {
+            "rank": 3,
+            "team": "Real Betis",
+            "points": 19
+          },
+          {
+            "rank": 4,
+            "team": "Real Madrid",
+            "points": 18
+          },
+          {
+            "rank": 5,
+            "team": "Sevilla",
+            "points": 14
+          }
+        ]
+      },
+      "source": "ESPN",
+      "mood": "elated",
+      "intensity": 3,
+      "score": 3.9
+    },
+    {
+      "id": "fb-401912627-Cristiano Ronaldo",
+      "sport": "football",
+      "kind": "result",
+      "subject": "Cristiano Ronaldo",
+      "stance": "love",
+      "care": "big-moments",
+      "when": "2026-10-12T19:15Z",
+      "when_local": "Tue 13 Oct, 00:45",
+      "competition": "AFC Champions League Elite",
+      "stage": "league",
+      "line": "Al Nassr 3-1 Neftchi Fergana",
+      "venue": "Al-Awwal Park",
+      "goals": [
+        "33' Al Nassr: Ângelo Gabriel, assist Nawaf Boushal, 1-0",
+        "42' Al Nassr: Cristiano Ronaldo, assist Aiman Yahya, 2-0",
+        "51' Neftchi Fergana: Alisher Odilov, 2-1",
+        "78' Al Nassr: Anvarjon G'Ofurov (own goal), 3-1"
+      ],
+      "reds": [
+        "65' Neftchi Fergana: Ikromjon Alibaev"
+      ],
+      "facts": {
+        "won": true,
+        "lost": false,
+        "drew": false,
+        "big": false,
+        "close": false,
+        "came_from_behind": false,
+        "lead_lost": false,
+        "late_decider": false,
+        "conceded_late": false,
+        "red_card": false,
+        "upset": false,
+        "eliminated": false,
+        "title": false,
+        "stage": "league",
+        "preseason": false
+      },
+      "table": null,
+      "source": "ESPN",
+      "player_note": "Cristiano Ronaldo scored once (42') for Al Nassr",
+      "mood": "happy",
+      "intensity": 1,
+      "score": 0.5
+    },
+    {
+      "id": "cr-151587",
+      "sport": "cricket",
+      "kind": "result",
+      "subject": "India men",
+      "stance": "love",
+      "care": "die-hard",
+      "when": "2026-10-11T13:30:00.000Z",
+      "when_local": "Sun 11 Oct, 19:00",
+      "competition": "West Indies tour of India, 2026",
+      "stage": "league",
+      "line": "3rd T20I v West Indies, Indore: India won by 14 runs",
+      "scorecard": "IND 223 (20 ov) · WI 209/7 (20 ov)",
+      "series": "T20 series: India 2, West Indies 2 after 4 of 5; next 5th T20I, Sat 17 Oct, 19:00, Bengaluru",
+      "facts": {
+        "won": true,
+        "lost": false,
+        "drew": false,
+        "big": false,
+        "close": true,
+        "stage": "league",
+        "preseason": false,
+        "title": false
+      },
+      "source": "Cricbuzz",
+      "mood": "happy",
+      "intensity": 3,
+      "score": 1.5
+    },
+    {
+      "id": "cr-151598",
+      "sport": "cricket",
+      "kind": "result",
+      "subject": "India men",
+      "stance": "love",
+      "care": "die-hard",
+      "when": "2026-10-14T13:30:00.000Z",
+      "when_local": "Wed 14 Oct, 19:00",
+      "competition": "West Indies tour of India, 2026",
+      "stage": "league",
+      "line": "4th T20I v West Indies, Hyderabad: West Indies won by 24 runs",
+      "scorecard": "WI 247/3 (20 ov) · IND 223 (19.3 ov)",
+      "series": "T20 series: India 2, West Indies 2 after 4 of 5; next 5th T20I, Sat 17 Oct, 19:00, Bengaluru",
+      "facts": {
+        "won": false,
+        "lost": true,
+        "drew": false,
+        "big": false,
+        "close": false,
+        "stage": "league",
+        "preseason": false,
+        "title": false
+      },
+      "source": "Cricbuzz",
+      "mood": "gutted",
+      "intensity": 3,
+      "score": 3
+    },
+    {
+      "id": "f1-17-race-max_verstappen",
+      "sport": "f1",
+      "kind": "result",
+      "subject": "Max Verstappen",
+      "stance": "love",
+      "care": "die-hard",
+      "when": "2026-10-11T12:00:00.000Z",
+      "when_local": "Sun 11 Oct, 17:30",
+      "competition": "Singapore Grand Prix",
+      "stage": "race",
+      "line": "Singapore Grand Prix race: Max Verstappen won from grid P1",
+      "top3": "1. Max Verstappen (Red Bull), 2. Charles Leclerc (Ferrari), 3. Andrea Kimi Antonelli (Mercedes)",
+      "standings": [
+        "1. Andrea Kimi Antonelli 340",
+        "2. George Russell 238",
+        "3. Lewis Hamilton 229",
+        "4. Max Verstappen 221",
+        "5. Charles Leclerc 215"
+      ],
+      "facts": {
+        "won": true,
+        "podium": true,
+        "dnf": false,
+        "finished_low": false,
+        "lost": false,
+        "drew": false,
+        "big": false,
+        "stage": "race",
+        "preseason": false
+      },
+      "source": "Jolpica",
+      "mood": "elated",
+      "intensity": 3,
+      "score": 1.5
+    },
+    {
+      "id": "tn-184941-Carlos Alcaraz",
+      "sport": "tennis",
+      "kind": "result",
+      "subject": "Carlos Alcaraz",
+      "stance": "love",
+      "care": "die-hard",
+      "when": "2026-10-12T10:10Z",
+      "when_local": "Mon 12 Oct, 15:40",
+      "competition": "Rolex Shanghai Masters",
+      "stage": "Round 3",
+      "line": "Rolex Shanghai Masters, Round 3: Zizou Bergs (BEL) bt (2) Carlos Alcaraz (ESP) 7-5 7-6 (7-4)",
+      "facts": {
+        "won": false,
+        "lost": true,
+        "drew": false,
+        "eliminated": true,
+        "title": false,
+        "big": false,
+        "upset": false,
+        "stage": "round",
+        "preseason": false
+      },
+      "source": "ESPN",
+      "mood": "gutted",
+      "intensity": 3,
+      "score": 1.65
+    },
+    {
+      "id": "nba-401898399",
+      "sport": "basketball",
+      "kind": "result",
+      "subject": "Golden State Warriors",
+      "stance": "love",
+      "care": "follow",
+      "when": "2026-10-11T00:30Z",
+      "when_local": "Sun 11 Oct, 06:00",
+      "competition": "Preseason",
+      "stage": "Preseason",
+      "line": "Preseason: Golden State Warriors 111-106 Sacramento Kings",
+      "facts": {
+        "won": true,
+        "lost": false,
+        "drew": false,
+        "big": false,
+        "close": true,
+        "stage": "league",
+        "preseason": true
+      },
+      "source": "ESPN",
+      "mood": "happy",
+      "intensity": 2,
+      "score": 0.35
+    },
+    {
+      "id": "nba-401898718",
+      "sport": "basketball",
+      "kind": "result",
+      "subject": "Golden State Warriors",
+      "stance": "love",
+      "care": "follow",
+      "when": "2026-10-14T02:00Z",
+      "when_local": "Wed 14 Oct, 07:30",
+      "competition": "Preseason",
+      "stage": "Preseason",
+      "line": "Preseason: Los Angeles Lakers 89-101 Golden State Warriors",
+      "facts": {
+        "won": true,
+        "lost": false,
+        "drew": false,
+        "big": false,
+        "close": false,
+        "stage": "league",
+        "preseason": true
+      },
+      "source": "ESPN",
+      "mood": "happy",
+      "intensity": 2,
+      "score": 0.7
+    }
+  ],
+  "fixtures": [
+    {
+      "subject": "Real Madrid",
+      "care": "die-hard",
+      "when": "2026-10-18T19:00Z",
+      "when_local": "Mon 19 Oct, 00:30",
+      "what": "Real Madrid v Sevilla",
+      "competition": "LALIGA",
+      "venue": "Santiago Bernabéu"
+    },
+    {
+      "subject": "Real Madrid",
+      "care": "die-hard",
+      "when": "2026-10-21T19:00Z",
+      "when_local": "Thu 22 Oct, 00:30",
+      "what": "Real Madrid v RB Leipzig",
+      "competition": "UEFA Champions League",
+      "venue": "Santiago Bernabéu"
+    },
+    {
+      "subject": "India men",
+      "care": "die-hard",
+      "when": "2026-10-17T13:30:00.000Z",
+      "when_local": "Sat 17 Oct, 19:00",
+      "what": "5th T20I v West Indies",
+      "competition": "West Indies tour of India, 2026",
+      "venue": "M.Chinnaswamy Stadium, Bengaluru"
+    },
+    {
+      "subject": "Golden State Warriors",
+      "care": "follow",
+      "when": "2026-10-17T02:00Z",
+      "when_local": "Sat 17 Oct, 07:30",
+      "what": "Golden State Warriors v Portland Trail Blazers",
+      "competition": "Preseason"
+    }
+  ],
+  "suppressed": [
+    "Barcelona: Galatasaray 1-4 Barcelona (a rival's good result, never said)"
+  ],
+  "errors": []
+}

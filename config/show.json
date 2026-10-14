@@ -1,0 +1,177 @@
+{
+  "note": "How the show is put together. Everything a listener can change is in profile.json; this is the show's own craft. Draft 1 (14 Oct 2026), for Parth's review.",
+  "care_weight": {
+    "die-hard": 3,
+    "follow": 2,
+    "big-moments": 1,
+    "rival": 2
+  },
+  "window_hours": 30,
+  "segments": [
+    {
+      "id": "cold-open",
+      "name": "Cold open",
+      "about": "One or two lines on the biggest moment for the listener, said in its mood. No greeting before it."
+    },
+    {
+      "id": "die-hard",
+      "name": "Your teams",
+      "about": "Each die-hard item, highest stake first: the result, how it happened, what it means (table, series, standings), what is next."
+    },
+    {
+      "id": "rival-watch",
+      "name": "Rival Watch",
+      "about": "Only on a day a rival lost, drew or went out. Short and gleeful. Left out entirely on any other day, with no line about it."
+    },
+    {
+      "id": "follow",
+      "name": "Also on your list",
+      "about": "Follow and big-moment items, brisk: a result and one line of why it matters."
+    },
+    {
+      "id": "around",
+      "name": "Around the grounds",
+      "about": "The Wider Pitch and The Sidelines: football and other sport that several outlets are leading with. Quick hits."
+    },
+    {
+      "id": "ahead",
+      "name": "Coming up",
+      "about": "The listener's fixtures in the next seven days, in their time zone, with what is at stake."
+    },
+    {
+      "id": "signoff",
+      "name": "Sign-off",
+      "about": "The fixed closing line."
+    }
+  ],
+  "words_per_minute": 164,
+  "moods": {
+    "elated": "elated, loud, laughing with relief and joy",
+    "happy": "happy and warm",
+    "relieved": "relieved, a big exhale, then smiling",
+    "proud": "proud and warm",
+    "frustrated": "frustrated, clipped, a bit exasperated",
+    "gutted": "gutted, slower and quieter, no laughter",
+    "angry": "angry and blunt, short sentences, no laughter",
+    "heartbroken": "heartbroken, slow and quiet, no laughter",
+    "nervous": "nervous and excited",
+    "gleeful": "gleeful, enjoying it, a grin in the voice",
+    "smug": "smug and dry",
+    "neutral": "easy and interested"
+  },
+  "mood_rules": {
+    "note": "Read top to bottom; the first rule that matches sets the mood. Facts the rules use are worked out by code from the data (engine/moods.mjs).",
+    "love": [
+      {
+        "if": "title",
+        "mood": "elated"
+      },
+      {
+        "if": "won && (stage == 'final' || stage == 'knockout') ",
+        "mood": "elated"
+      },
+      {
+        "if": "won && came_from_behind",
+        "mood": "elated"
+      },
+      {
+        "if": "won && late_decider",
+        "mood": "relieved"
+      },
+      {
+        "if": "won && close && conceded_late",
+        "mood": "relieved"
+      },
+      {
+        "if": "won && big",
+        "mood": "elated"
+      },
+      {
+        "if": "won && stage == 'race'",
+        "mood": "elated"
+      },
+      {
+        "if": "won && podium",
+        "mood": "happy"
+      },
+      {
+        "if": "won",
+        "mood": "happy"
+      },
+      {
+        "if": "podium",
+        "mood": "happy"
+      },
+      {
+        "if": "eliminated && stage == 'final'",
+        "mood": "heartbroken"
+      },
+      {
+        "if": "eliminated && upset",
+        "mood": "angry"
+      },
+      {
+        "if": "eliminated",
+        "mood": "gutted"
+      },
+      {
+        "if": "lost && (big || lead_lost || upset || red_card)",
+        "mood": "angry"
+      },
+      {
+        "if": "lost",
+        "mood": "gutted"
+      },
+      {
+        "if": "dnf",
+        "mood": "angry"
+      },
+      {
+        "if": "drew && lead_lost",
+        "mood": "frustrated"
+      },
+      {
+        "if": "drew && came_from_behind",
+        "mood": "relieved"
+      },
+      {
+        "if": "drew",
+        "mood": "frustrated"
+      },
+      {
+        "if": "finished_low",
+        "mood": "frustrated"
+      },
+      {
+        "if": "preseason",
+        "mood": "neutral"
+      },
+      {
+        "if": "true",
+        "mood": "neutral"
+      }
+    ],
+    "rival": [
+      {
+        "if": "won",
+        "mood": null
+      },
+      {
+        "if": "eliminated || (lost && big)",
+        "mood": "gleeful"
+      },
+      {
+        "if": "lost",
+        "mood": "gleeful"
+      },
+      {
+        "if": "drew",
+        "mood": "smug"
+      },
+      {
+        "if": "true",
+        "mood": null
+      }
+    ]
+  }
+}
