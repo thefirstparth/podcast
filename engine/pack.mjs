@@ -30,7 +30,8 @@ const esc = t => fold(t).replace(/[.*+?^${}()|[\]\\]/g, "\\$&").replace(/[- ]/g,
 export function buildMatcher(f, squad = []) {
   const words = [...(f.aliases?.length ? f.aliases : [f.name]), ...squad.flatMap(playerAliases)];
   const yes = new RegExp(`\\b(${words.map(esc).join("|")})\\b`, "i"), no = (f.not || []).length ? new RegExp(`\\b(${f.not.map(esc).join("|")})\\b`, "gi") : null;
-  return { test: h => yes.test(no ? fold(h).replace(no, " ") : fold(h)) };
+  const skip = (f.skip || []).length ? new RegExp(`\\b(${f.skip.map(esc).join("|")})\\b`, "i") : null;
+  return { test: h => !(skip && skip.test(fold(h))) && yes.test(no ? fold(h).replace(no, " ") : fold(h)), skips: h => !!(skip && skip.test(fold(h))) };
 }
 export function playerAliases(name) {
   const f = String(name).normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/[^A-Za-z' -]/g, "").trim(), w = f.split(/\s+/);
@@ -216,7 +217,7 @@ export async function buildPack({ profile = json("profile.json"), show = json("c
     const cap = { "die-hard": 4, follow: 2, "big-moments": 1 }[care(f)] ?? 1, min = care(f) === "big-moments" ? 2 : 1;
     // a story is the subject's when any of its headlines names the subject (the lead one may not); it is shown by the
     // headline that does. A story that also names the rival is still the subject's ("Vinicius to miss Barcelona game").
-    const mine = clusters.filter(c => !used.has(c) && c.n >= min && c.titles.some(t => who(f).test(t))).map(c => Object.assign(c, { headline: c.titles.find(t => who(f).test(t)) || c.headline }));
+    const mine = clusters.filter(c => !used.has(c) && c.n >= min && c.titles.some(t => who(f).test(t)) && !c.titles.some(t => who(f).skips(t))).map(c => Object.assign(c, { headline: c.titles.find(t => who(f).test(t)) || c.headline }));
     for (const c of mine) {
       // a preview of a match that has since been played is old news: the result says it now
       if (results.some(i => i.subject === f.name && c.date < Date.parse(i.when) && i.line.split(/ \d+-\d+ | v |: | bt |, /).some(p => p && p.length > 3 && p !== f.name && !f.name.includes(p) && c.headline.includes(p.replace(/^AS /, ""))))) { used.add(c); continue; }

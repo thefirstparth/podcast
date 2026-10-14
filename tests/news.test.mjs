@@ -56,3 +56,11 @@ test("one story in many words is still one story (Six Kings Slam, 15 Oct)", asyn
   assert.equal(six.n, 3);
   assert.ok(six.titles.some(t => /Alcaraz/.test(t)));
 });
+
+test("a skip word rules the whole story out (women's cricket is not India men, 15 Oct)", async () => {
+  const { buildMatcher } = await import("../engine/pack.mjs");
+  const india = buildMatcher({ name: "India men", aliases: ["India"], skip: ["women", "Mandhana"] });
+  assert.equal(india.test("'There are a few things we need to work on': Mandhana flags India's T20I improvement areas"), false);
+  assert.equal(india.skips("Smriti Mandhana set for new chapter as India captain"), true);
+  assert.equal(india.test("Shai Hope's 102 gives West Indies series-levelling win over India"), true);
+});

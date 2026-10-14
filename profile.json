@@ -1,5 +1,5 @@
 {
-  "note": "Who this show is for and what they follow. The only file a listener edits. care: die-hard, follow, big-moments; rivals are only ever mentioned when they lose, draw or go out. aliases: the words headlines use for the subject (a team's players are added from its squad automatically, every run); not: phrases that look like the subject but are not (taken out of a headline before it is matched). ids are the data sources' own (ESPN team ids, Jolpica driver ids); the setup page will fill them in for friends. search: the word a Google News headline search uses for the subject (intitle:). sofascore_id: the backup source's id, used when ESPN fails.",
+  "note": "Who this show is for and what they follow. The only file a listener edits. care: die-hard, follow, big-moments; rivals are only ever mentioned when they lose, draw or go out. aliases: the words headlines use for the subject (a team's players are added from its squad automatically, every run); not: phrases that look like the subject but are not (taken out of a headline before it is matched). ids are the data sources' own (ESPN team ids, Jolpica driver ids); the setup page will fill them in for friends. search: the word a Google News headline search uses for the subject (intitle:). sofascore_id: the backup source's id, used when ESPN fails. skip: words that rule a whole story out for the subject, whichever headline has them (Parth's India men: women's cricket and domestic cricket).",
   "listener": {
     "name": "Parth",
     "tz": "Asia/Kolkata",
@@ -56,22 +56,28 @@
         "Gambhir"
       ],
       "not": [
-        "India women",
         "India A",
         "India U19",
         "India Under-19",
-        "Women's",
-        "Ranji",
-        "India's women",
-        "Smriti Mandhana",
-        "Mandhana",
-        "Harmanpreet",
-        "Shafali",
-        "UNICEF India",
         "India Legends",
         "India Champions"
       ],
-      "sofascore_id": 187765
+      "sofascore_id": 187765,
+      "skip": [
+        "women",
+        "women's",
+        "Mandhana",
+        "Harmanpreet",
+        "Shafali",
+        "Jemimah",
+        "Deepti Sharma",
+        "WPL",
+        "Ranji",
+        "Duleep",
+        "Vijay Hazare",
+        "Syed Mushtaq Ali",
+        "UNICEF India"
+      ]
     },
     {
       "sport": "f1",
