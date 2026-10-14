@@ -161,7 +161,7 @@ export async function buildPack({ profile = json("profile.json"), show = json("c
   const lang = profile.listener?.language || "en-IN";
   const deskFeeds = [...sports].flatMap(s => feeds[s] || []), names = profile.follows.filter(f => f.kind !== "all");
   const tagged = (list, sport) => list.map(f => ({ ...f, sport }));
-  const pool = await safe("news", () => news.feeds([...[...sports].flatMap(s => tagged(feeds[s] || [], s)), ...tagged(feeds.general || [], null), ...names.flatMap(f => tagged(feeds.teams?.[f.name] || [], f.sport)), ...names.map(f => news.searchFeed(f.name.replace(/ men$/, " cricket team"), lang, f.sport))], W)) || [];
+  const pool = await safe("news", () => news.feeds([...[...sports].flatMap(s => tagged(feeds[s] || [], s)), ...tagged(feeds.general || [], null), ...names.flatMap(f => tagged(feeds.teams?.[f.name] || [], f.sport)), ...names.map(f => (/ men$/.test(f.name) ? news.searchFeed(`${f.name.replace(/ men$/, "")} cricket`, lang, f.sport, { intitle: false }) : news.searchFeed(f.name, lang, f.sport)))], W)) || [];
   const clusters = news.cluster(pool).filter(c => { if (ledger.newsSaid(said, c)) { already.push(`news: ${c.headline}`); return false; } return true; });
   const rx = n => new RegExp(`\\b(${n})\\b`, "i");
   // how a name appears in headlines (the setup page will ask for these; for now, Parth's), and what a match is not

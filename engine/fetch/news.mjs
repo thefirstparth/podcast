@@ -114,7 +114,10 @@ export async function feeds(list, { since }) {
   return got.flat().filter(i => (!i.date || i.date >= since) && !NOISE.test(i.title));
 }
 
-export const searchFeed = (q, lang = "en-IN", sport = null) => {
+// A Google News search as a feed (the URL format: news.google.com/rss/search?q=...&hl=&gl=&ceid=). intitle: keeps
+// only headlines that name the subject; when:2d keeps it fresh; site: reaches one outlet that has no feed of its own.
+export const searchFeed = (q, lang = "en-IN", sport = null, { intitle = true, site = null } = {}) => {
   const [hl, gl] = [lang, lang.split("-")[1] || "IN"];
-  return { sport, id: `gn-${q.toLowerCase().replace(/\W+/g, "-")}`, name: "Google News", kind: "search", url: `https://news.google.com/rss/search?q=${encodeURIComponent(`"${q}" when:2d`)}&hl=${hl}&gl=${gl}&ceid=${gl}:${hl.split("-")[0]}` };
+  const query = `${intitle ? `intitle:"${q}"` : q}${site ? ` site:${site}` : ""} when:2d`;
+  return { sport, id: `gn-${q.toLowerCase().replace(/\W+/g, "-")}${site ? `-${site}` : ""}`, name: "Google News", kind: "search", url: `https://news.google.com/rss/search?q=${encodeURIComponent(query)}&hl=${hl}&gl=${gl}&ceid=${gl}:${hl.split("-")[0]}` };
 };
