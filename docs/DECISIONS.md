@@ -83,3 +83,4 @@
 - main is created from this branch after the first good episode (Parth: "yes, main").
 - The hosts never call the listener by name (Parth: no). The writer's rule and its check stay as they are.
 - The show's title and cover art come from Parth (he is working on them with ChatGPT). The cover goes in the repo root as cover.jpg; every publish copies it to the feed.
+- The daily run starts at 12:28 IST, with a backup at 12:43 (Parth, 15 Oct: 12:17 was more margin than needed). Usually live by about 12:38; still before 13:00 after one hiccup. IST has no daylight saving and the run is scheduled in UTC, so 12:28 IST holds all year; the Gemini reset (12:30 or 13:30 IST) does not matter because the live key is used once a day.

@@ -1,5 +1,5 @@
-# The daily episode (engine/episode.mjs). Ready by 13:00 IST (Parth, 15 Oct): the run starts at 12:17 IST with a backup at
-# 12:47 IST (odd minutes: GitHub starts runs on the hour late); a run takes about six minutes. Scheduled runs are live.
+# The daily episode (engine/episode.mjs). Ready by 13:00 IST (Parth, 15 Oct): the run starts at 12:28 IST with a backup at
+# 12:43 IST (Parth, 15 Oct) (odd minutes: GitHub starts runs on the hour late); a run takes about six minutes. Scheduled runs are live.
 # The live key is used once a day, well inside its daily allowance, so the Gemini reset time does not matter here.
 # test: the rehearsal key, nothing published; the MP3, script and pack are kept as the run's artifacts.
 # live: the live key; the episode goes to GitHub Releases and the feed to the gh-pages branch (GitHub Pages).
@@ -11,8 +11,8 @@ on:
       mode: { description: "test (rehearsal key, nothing published) or live", type: choice, options: [test, live], default: test }
       force: { description: "Live only: make it again even if today's is published", type: boolean, default: false }
   schedule:
-    - cron: "47 6 * * *"   # 12:17 IST
-    - cron: "17 7 * * *"   # 12:47 IST, the backup (does nothing if the first one published)
+    - cron: "58 6 * * *"   # 12:28 IST
+    - cron: "13 7 * * *"   # 12:43 IST, the backup (does nothing if the first one published)
 concurrency: { group: episode, cancel-in-progress: false }
 permissions: { contents: write }
 jobs:
