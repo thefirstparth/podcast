@@ -55,8 +55,12 @@ export async function buildPack({ profile = json("profile.json"), show = json("c
   // series or tournament. Worked out by code every day from the sources; nothing here is remembered or typed in.
   const standing = [];
   // (show.standing switches it on; a fault in one subject's lines is logged and the rest of the pack goes on)
-  const stand = (f, fn) => {
-    if (!show.standing || !f || care(f) === "big-moments") return;
+  // How much of it depends on care (config/show.json standing_by_care; a follow may set its own "standing" list):
+  // "now" is where a series or championship stands, "next" the next match beyond the seven days, "after" the next
+  // series or tournament. Parth, 15 Oct: someone who cares less hears where the series stands, not what comes after.
+  const wants = (f, kind) => (f.standing || show.standing_by_care?.[care(f)] || []).includes(kind);
+  const stand = (f, kind, fn) => {
+    if (!show.standing || !f || !wants(f, kind)) return;
     let lines; try { lines = fn().filter(Boolean); } catch (e) { errors.push(`where things stand, ${f.name}: ${e.message}`); return; }
     if (!lines.length) return;
     const had = standing.find(x => x.subject === f.name); had ? had.lines.push(...lines) : standing.push({ subject: f.name, care: care(f), lines });
@@ -104,7 +108,7 @@ export async function buildPack({ profile = json("profile.json"), show = json("c
     if (!t) continue;
     for (const r of t.results) add(fbItem(f, "love", t, r));
     for (const x of t.fixtures) fixtures.push({ subject: f.name, care: care(f), when: x.date, when_local: at(x.date), what: `${x.home ? `${f.name} v ${x.opponent}` : `${x.opponent} v ${f.name}`}`, competition: x.competition, venue: x.venue });
-    if (!t.fixtures.length && t.next) stand(f, () => [`Next match: ${t.next.home ? `${f.name} v ${t.next.opponent}` : `${t.next.opponent} v ${f.name}`}, ${at(t.next.date)}${t.next.competition ? ` (${t.next.competition})` : ""}`]);
+    if (!t.fixtures.length && t.next) stand(f, "next", () => [`Next match: ${t.next.home ? `${f.name} v ${t.next.opponent}` : `${t.next.opponent} v ${f.name}`}, ${at(t.next.date)}${t.next.competition ? ` (${t.next.competition})` : ""}`]);
   }
   for (const f of (profile.rivals || []).filter(f => f.sport === "football")) {
     const t = await safe(f.name, () => football.team(f, W));
@@ -135,12 +139,10 @@ export async function buildPack({ profile = json("profile.json"), show = json("c
     for (const x of t.fixtures) fixtures.push({ subject: f.name, care: care(f), when: x.start, when_local: at(x.start), what: `${x.desc} v ${x.opponent}`, competition: x.series, venue: [x.ground, x.city].filter(Boolean).join(", ") });
     const side = f.name.replace(/ men$/i, ""), FMT = { T20: ["T20I", "T20Is"], ODI: ["ODI", "ODIs"], TEST: ["Test", "Tests"] }, fm = (k, n) => (FMT[k] || [k, k])[n === 1 ? 0 : 1];
     const told = new Set(t.results.map(r => `${r.series}|${r.format}`));
-    stand(f, () => [
-      // a series under way, unless today's result already says where it stands
-      ...(t.running || []).filter(s => !told.has(`${s.name}|${s.format}`)).map(s => `${fm(s.format, 1)} series v ${s.opponent}: ${side} ${s.won}, ${s.opponent} ${s.lost} after ${s.played} of ${s.total}${s.left[0] ? `; next the ${s.left[0].desc}, ${at(s.left[0].start)}${s.left[0].city ? `, ${s.left[0].city}` : ""}` : ""}`),
-      !t.fixtures.length && t.next && !(t.running || []).length ? `Next match: ${t.next.desc} v ${t.next.opponent}, ${at(t.next.start)}${t.next.city ? `, ${t.next.city}` : ""} (${t.next.series})` : null,
-      t.next_series ? `Next series: ${t.next_series.name}, ${dateOf(t.next_series.from)} to ${dateOf(t.next_series.to)}: ${Object.entries(t.next_series.counts).map(([k, n]) => `${n} ${fm(k, n)}`).join(", ")}; first the ${t.next_series.first.desc}, ${at(t.next_series.first.start)}${t.next_series.first.city ? `, ${t.next_series.first.city}` : ""}` : null,
-    ]);
+    // a series under way, unless today's result already says where it stands
+    stand(f, "now", () => (t.running || []).filter(s => !told.has(`${s.name}|${s.format}`)).map(s => `${fm(s.format, 1)} series v ${s.opponent}: ${side} ${s.won}, ${s.opponent} ${s.lost} after ${s.played} of ${s.total}${s.left[0] ? `; next the ${s.left[0].desc}, ${at(s.left[0].start)}${s.left[0].city ? `, ${s.left[0].city}` : ""}` : ""}`));
+    stand(f, "next", () => [!t.fixtures.length && t.next && !(t.running || []).length ? `Next match: ${t.next.desc} v ${t.next.opponent}, ${at(t.next.start)}${t.next.city ? `, ${t.next.city}` : ""} (${t.next.series})` : null]);
+    stand(f, "after", () => [t.next_series ? `Next series: ${t.next_series.name}, ${dateOf(t.next_series.from)} to ${dateOf(t.next_series.to)}: ${Object.entries(t.next_series.counts).map(([k, n]) => `${n} ${fm(k, n)}`).join(", ")}; first the ${t.next_series.first.desc}, ${at(t.next_series.first.start)}${t.next_series.first.city ? `, ${t.next_series.first.city}` : ""}` : null]);
   }
 
   // ---- F1: the followed driver's weekend; the season for a follower of the whole sport
@@ -167,9 +169,9 @@ export async function buildPack({ profile = json("profile.json"), show = json("c
     for (const d of drivers) {
       const me = s?.table?.find(x => x.id === d.jolpica_id);
       if (!me || !lead || raced.has(d.name)) continue;
-      stand(d, () => [me.pos === 1 ? `${d.name} leads the championship on ${me.points} points, ${me.points - s.table[1].points} ahead of ${s.table[1].driver}` : `${d.name} is ${nth(me.pos)} in the championship on ${me.points} points, ${lead.points - me.points} behind ${lead.driver}`]);
+      stand(d, "now", () => [me.pos === 1 ? `${d.name} leads the championship on ${me.points} points, ${me.points - s.table[1].points} ahead of ${s.table[1].driver}` : `${d.name} is ${nth(me.pos)} in the championship on ${me.points} points, ${lead.points - me.points} behind ${lead.driver}`]);
     }
-    if (s?.next_race && !(s.upcoming || []).length) stand(drivers[0] || allF1, () => [`Next race: round ${s.next_race.round}, the ${s.next_race.race}, ${at(s.next_race.date)}`]);
+    if (s?.next_race && !(s.upcoming || []).length) stand(drivers[0] || allF1, "next", () => [`Next race: round ${s.next_race.round}, the ${s.next_race.race}, ${at(s.next_race.date)}`]);
   }
 
   // ---- tennis: followed players, then the big matches of the tournaments on now
@@ -189,11 +191,11 @@ export async function buildPack({ profile = json("profile.json"), show = json("c
       for (const x of t.fixtures) { mine.add(x.id); fixtures.push({ subject: p.name, care: care(p), when: x.date, when_local: at(x.date), what: `${p.name} v ${x.opponent}, ${x.round}`, competition: x.tournament }); }
       // his next tournament: known only once its draw is out and he is in it
       const nextIn = !t.fixtures.length && (cal || []).find(e => Date.parse(e.start) > now && e.players.some(n => n.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase() === p.name.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase()));
-      if (nextIn) stand(p, () => [`Next tournament: in the draw at the ${nextIn.name}, from ${dateOf(nextIn.start)}`]);
+      if (nextIn) stand(p, "after", () => [`Next tournament: in the draw at the ${nextIn.name}, from ${dateOf(nextIn.start)}`]);
     }
     // the tour's next tournaments, for a follower of the whole sport (who plays them is not known until the draws)
     const coming = (cal || []).filter(e => Date.parse(e.start) > now).slice(0, 4);
-    if (allTennis && coming.length) stand(allTennis, () => [`Next on the tour: ${coming.map(e => `the ${e.name} from ${dateOf(e.start)}`).join("; ")}`]);
+    if (allTennis && coming.length) stand(allTennis, "after", () => [`Next on the tour: ${coming.map(e => `the ${e.name} from ${dateOf(e.start)}`).join("; ")}`]);
     if (allTennis && board) for (const m of tennis.bigMatches(board, W).filter(m => !mine.has(m.id)))
       add({ id: `tn-${m.id}`, sport: "tennis", kind: "result", subject: m.tournament, stance: "neutral", care: care(allTennis), when: m.date, when_local: at(m.date), competition: m.tournament, stage: m.round, line: `${m.tournament}, ${m.round}: ${m.note || m.players.map(p => p.name).join(" v ")}`, facts: { stage: /final$/i.test(m.round) && !/semi/i.test(m.round) ? "final" : "knockout" }, source: "ESPN" });
   }
@@ -204,7 +206,7 @@ export async function buildPack({ profile = json("profile.json"), show = json("c
     for (const g of t?.results || []) add({ id: uid("nba", f.name, g.date), sport: "basketball", kind: "result", subject: f.name, stance: "love", care: care(f), when: g.date, when_local: at(g.date), competition: g.kind, stage: g.kind,
       line: `${g.kind}: ${g.home ? `${f.name} ${g.us}-${g.them} ${g.opponent}` : `${g.opponent} ${g.them}-${g.us} ${f.name}`}`, facts: g.facts, source: t.source || "ESPN" });
     for (const x of t?.fixtures || []) fixtures.push({ subject: f.name, care: care(f), when: x.date, when_local: at(x.date), what: `${x.home ? `${f.name} v ${x.opponent}` : `${x.opponent} v ${f.name}`}`, competition: x.kind });
-    if (t && !(t.fixtures || []).length && t.next) stand(f, () => [`Next game: ${t.next.home ? `${f.name} v ${t.next.opponent}` : `${t.next.opponent} v ${f.name}`}, ${at(t.next.date)}${t.next.kind ? ` (${t.next.kind})` : ""}`]);
+    if (t && !(t.fixtures || []).length && t.next) stand(f, "next", () => [`Next game: ${t.next.home ? `${f.name} v ${t.next.opponent}` : `${t.next.opponent} v ${f.name}`}, ${at(t.next.date)}${t.next.kind ? ` (${t.next.kind})` : ""}`]);
   }
 
   // ---- news: each followed name's stories, then the wider game. A story that names a rival is never used (its

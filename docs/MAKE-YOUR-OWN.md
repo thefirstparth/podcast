@@ -38,7 +38,7 @@ Sports covered: football (clubs and national sides), cricket (international side
 - `owner`: your name and email, for the feed
 - `hosts`: their names, voices and accents. To hear the voices first, set up a round in `config/voices.json` and run the voices workflow.
 - `pronounce`: names the voices get wrong, spelled the way they sound
-- `standing`: `true` to hear where each series or championship stands and what is next
+- `standing`: `true` to hear where each series or championship stands and what is next. `standing_by_care` sets how much for each care level: `now` (where a series or championship stands), `next` (the next match beyond the coming week) and `after` (the next series or tournament). By default a die-hard gets all three, a follow only `now`, and big moments nothing. One entry in `profile.json` can set its own list with `"standing": ["now", "after"]`.
 
 For a cover, put a square `cover.jpg` (3000 by 3000) in the root. `design/cover.mjs` draws the capsule one. Change its balls and title for your sports.
 

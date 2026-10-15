@@ -270,6 +270,7 @@
   ],
   "title": "Side Effects of Sports",
   "standing": false,
+  "standing_by_care": { "die-hard": ["now", "next", "after"], "follow": ["now"], "big-moments": [] },
   "signoff": "That's Side Effects of Sports for today. Same time tomorrow.",
   "text_models": [
     "gemini-3.8-flash",
