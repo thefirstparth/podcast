@@ -29,6 +29,17 @@ function nudge(why, show) {
   summary(`## No episode today\n${why}\n\nThe next episode will catch up on everything since the last one. Please tell Parth, so he can look at it:\n- [Open a pre-filled note on GitHub](https://github.com/thefirstparth/podcast/issues/new?title=${title}&body=${body}) (GitHub emails him)\n- [Or email him](mailto:${show.owner?.email || ""}?subject=${title}&body=${body})\n`);
 }
 
+// The site's front page: the cover, what the show is, and the feed link to paste into a podcast app (not indexed)
+export function siteHTML({ show, base, image }) {
+  const title = show.title || "Sports show", feed = `${base}/feed.xml`;
+  return `<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex"><title>${esc(title)}</title>
+<style>body{font:17px/1.55 system-ui,sans-serif;max-width:34rem;margin:2.5rem auto;padding:0 1rem;color:#1d1f1e;background:#fbfaf7}img{width:100%;max-width:22rem;border-radius:12px;display:block;margin:0 0 1.5rem}code{display:block;padding:.8rem;border-radius:8px;background:#ecebe6;word-break:break-all;font-size:15px}@media(prefers-color-scheme:dark){body{color:#ecebe6;background:#111312}code{background:#222524}}</style></head>
+<body>${image ? `<img src="${esc(image)}" alt="${esc(title)} cover">` : ""}<h1>${esc(title)}</h1><p>${esc(show.description || "")}</p>
+<p>To listen, add this link in your podcast app (Apple Podcasts: Library, then Follow a Show by URL):</p><code>${esc(feed)}</code></body></html>
+`;
+}
+
 // The feed: every kept episode, newest first (episodes are GitHub Releases tagged ep-YYYY-MM-DD; the release text
 // carries the episode's record as JSON)
 export function feedXML({ show, base, episodes, image }) {
@@ -120,7 +131,10 @@ async function main() {
   }).filter(Boolean);
   const [owner, name] = process.env.GITHUB_REPOSITORY.split("/"), base = `https://${owner}.github.io/${name}`;
   mkdirSync(`${H}.out/site`, { recursive: true });
-  writeFileSync(`${H}.out/site/feed.xml`, feedXML({ show, base, episodes, image: existsSync(`${H}cover.jpg`) ? `${base}/cover.jpg` : null }));
+  const image = existsSync(`${H}cover.jpg`) ? `${base}/cover.jpg` : null;
+  writeFileSync(`${H}.out/site/feed.xml`, feedXML({ show, base, episodes, image }));
+  writeFileSync(`${H}.out/site/index.html`, siteHTML({ show, base, image }));
+  writeFileSync(`${H}.out/site/.nojekyll`, "");
   ledger.record(P, { published_at: meta.published, turns, fan: show.hosts.find(h => h.role === "fan")?.id });
   log(`feed: ${episodes.length} episode(s) -> ${base}/feed.xml`);
 }
