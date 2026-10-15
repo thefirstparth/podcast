@@ -42,7 +42,9 @@ export function checkScript(turns, pack, { hosts = ["Fan", "Anchor"], rivals = [
   }
   for (const w of BIG) { const k = (fold(all).match(new RegExp(`\\b${w}\\b`, "g")) || []).length; if (k > 1) soft(`"${w}" used ${k} times: once an episode, earned`); }
   // every name the hosts use must be in the pack (a capitalised word not at the start of a sentence)
-  const known = fold(JSON.stringify(pack)), skip = new Set(["I", "I'm", "I've", "I'd", "OK", "Okay", "Oh", "Right", "Yes", "No", "God", "Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Champions", "League", "Grand", "Prix", ...hosts]);
+  // what the writer was given (pack.known), not the whole pack: a name that sits only in a story left out (15 Oct: a
+  // hat-trick given to the wrong player, his name only in a match not used) is still a name the writer added
+  const known = fold(pack.known || JSON.stringify(pack)), skip = new Set(["I", "I'm", "I've", "I'd", "OK", "Okay", "Oh", "Right", "Yes", "No", "God", "Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Champions", "League", "Grand", "Prix", ...hosts]);
   const unknown = new Set();
   for (const t of turns) for (const m of t.text.matchAll(/(?<![.!?]\s|^)\b([A-Z][a-zà-ÿ'’]+)/g)) { const w = m[1].replace(/['’]s$/, ""); if (!skip.has(w) && w.length > 2 && !known.includes(fold(w))) unknown.add(w); }
   if (unknown.size) soft(`names not in the pack (never add a fact or a name): ${[...unknown].slice(0, 10).join(", ")}`);

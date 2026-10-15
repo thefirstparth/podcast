@@ -33,3 +33,8 @@ test("what is not known is left out, never announced", () => {
   const ok = [...base]; ok[3] = t("die-hard", "Fan", "elated", "The decider is on Saturday in Bengaluru. Nothing like a decider.");
   assert.doesNotMatch(checkScript(ok, pack, { rivals }).map(x => x.msg).join(" | "), /not known/);
 });
+test("a name the writer was not given goes back, even if it is somewhere in the pack", () => {
+  const s = [...base]; s[3] = t("die-hard", "Fan", "elated", "And Barcola scored a hat-trick for them.");
+  const p = { ...pack, considered: ["Manchester City 2-4 PSG: Barcola hat-trick"], known: JSON.stringify({ items: pack.items }) };
+  assert.match(checkScript(s, p, { rivals }).map(x => x.msg).join(" | "), /names not in the pack.*Barcola/);
+});
