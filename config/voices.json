@@ -5,7 +5,8 @@
     "fan": "Zubenelgenubi",
     "accent": {
       "fan": "indian",
-      "anchor": "indian"
+      "anchor": "indian",
+      "note": "Approved from clip 1 (both Indian English). The British and mixed clips are parked, not cancelled (Parth, 15 Oct): made by the next run of round 3 after the voice limits reset, for him to hear."
     }
   },
   "rounds": [
@@ -66,7 +67,7 @@
     },
     {
       "id": "round-3",
-      "made": "2026-10-15",
+      "made": null,
       "note": "The chosen pair (Zubenelgenubi as the Fan, Algenib as the Anchor) in three accents: both Indian English, both British, and an Indian English Fan with a British Anchor. Parth's choice of 15 Oct. Run 1 (06:07 IST, before the 12:30 IST reset) made only clip 1; the two others are made by the next run.",
       "pairs": [
         [
@@ -102,7 +103,7 @@
         "gutted": "a young man, a sports fan, disappointed and quiet"
       },
       "anchor_style": "an older man, a calm, experienced sports broadcaster",
-      "verdict": "Parth: approved, clip 1 (both Indian English). The British and mixed clips were not needed and were not made."
+      "verdict": "Parth: clip 1 (both Indian English) approved. Clips 2 and 3 (British, and the mix) are parked for the next run after the reset, not cancelled."
     }
   ],
   "accents": {

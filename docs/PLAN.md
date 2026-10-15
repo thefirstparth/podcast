@@ -112,7 +112,7 @@ The weight sets three things at once: **order** (the lead is the item with the h
 - **The Fan** carries your allegiances and your emotions. Elated, gutted, angry, gleeful. They are effectively you.
 - **The Anchor** keeps the facts straight, explains the table, asks "hang on, why?", and teases the Fan a little. The contrast is what makes the emotion believable. One voice being angry for ten minutes is tiring. One angry voice next to a calm one is radio.
 - A single-host "quick" mode is cheaper (one voice request) and suits people who want 3 minutes. The engine supports both from one setting.
-- New names and voices, never family. You pick from samples, as with Ashu and Tarun.
+- New names and voices. You pick from samples, as with the 14:00 show's hosts.
 
 ## 2. How the facts are gathered
 
@@ -208,7 +208,7 @@ Suggested gate: friends listen on at least 4 days a week, for 3 weeks, without b
 3. Care levels: is the draft profile right? Djokovic at Follow? Warriors at Follow? Ronaldo at Big moments?
 4. Other rivals: Atletico? In F1, McLaren, Norris or Hamilton? In tennis, Sinner? In cricket, Pakistan or Australia? In the NBA, the Lakers or the Celtics?
 5. Swearing: clean, or mildly salty? Salty means the feed is marked explicit.
-6. Working name, and two new host names (not family).
+6. Working name, and two new host names.
 7. Should the new show read The House of 1400's sport desk (Layer 3) from day one, or only the public sources?
 8. Language: English only, or a little Hinglish from the Fan?
 
