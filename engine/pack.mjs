@@ -130,7 +130,7 @@ export async function buildPack({ profile = json("profile.json"), show = json("c
     for (const r of t.results) {
       const s = t.series.find(s => s.name === r.series && s.format === r.format);
       add({ id: uid("cr", f.name, r.start), sport: "cricket", kind: "result", subject: f.name, stance: "love", care: care(f), when: r.start, when_local: at(r.start), competition: r.series, stage: r.facts.stage,
-        line: `${r.desc} v ${r.opponent}${r.city ? `, ${r.city}` : ""}: ${r.status}`, scorecard: r.score, series: s ? `${s.format} series: India ${s.won}, ${r.opponent} ${s.lost} after ${s.played} of ${s.total}${s.left.length ? `; next ${s.left[0].desc}, ${at(s.left[0].start)}${s.left[0].city ? `, ${s.left[0].city}` : ""}` : ""}` : null, facts: r.facts, source: t.source });
+        line: `${r.desc} v ${r.opponent}${r.city ? `, ${r.city}` : ""}: ${r.status}`, scorecard: r.score, series: s ? `${s.format} series: ${f.name.replace(/ men$/i, "")} ${s.won}, ${r.opponent} ${s.lost} after ${s.played} of ${s.total}${s.left.length ? `; next ${s.left[0].desc}, ${at(s.left[0].start)}${s.left[0].city ? `, ${s.left[0].city}` : ""}` : ""}` : null, facts: r.facts, source: t.source });
     }
     for (const x of t.fixtures) fixtures.push({ subject: f.name, care: care(f), when: x.start, when_local: at(x.start), what: `${x.desc} v ${x.opponent}`, competition: x.series, venue: [x.ground, x.city].filter(Boolean).join(", ") });
     const side = f.name.replace(/ men$/i, ""), FMT = { T20: ["T20I", "T20Is"], ODI: ["ODI", "ODIs"], TEST: ["Test", "Tests"] }, fm = (k, n) => (FMT[k] || [k, k])[n === 1 ? 0 : 1];
@@ -309,7 +309,7 @@ export async function buildPack({ profile = json("profile.json"), show = json("c
   const skip = new Set([...profile.follows, ...(profile.rivals || [])].flatMap(f => [f.name, String(f.espn_id || "")]).filter(Boolean));
   const cands = [];
   if (sports.has("football")) cands.push(...(await safe("elsewhere: football", () => elsewhere.football({ since, now, big: new Set(B.football || []), leagues: B.football_leagues || ["uefa.champions"], skip })) || []));
-  if (sports.has("cricket")) cands.push(...(await safe("elsewhere: cricket", () => elsewhere.cricket({ since, tiers: show.cricket_tiers || {}, skip: new Set(["India"]) })) || []));
+  if (sports.has("cricket")) cands.push(...(await safe("elsewhere: cricket", () => elsewhere.cricket({ since, tiers: show.cricket_tiers || {}, skip: new Set(profile.follows.filter(f => f.sport === "cricket").map(f => f.name.replace(/ (men|women)$/i, ""))) })) || []));
   // a story many outlets lead with, not about anyone on the list or a rival
   const free = c => !used.has(c) && !c.titles.some(t => rivalRx.some(r => r.test(t)) || names.some(f => who(f).test(t)));
   const country = profile.listener?.country ? new RegExp(`\\b(${profile.listener.country}|${profile.listener.country}n|${profile.listener.country}'s)\\b`, "i") : null;
@@ -359,7 +359,7 @@ export async function buildPack({ profile = json("profile.json"), show = json("c
   }
   for (const s of live) { const def = show.segments.find(x => x.id === s.id); Object.assign(s, { name: def?.name, about: def?.about }); }
   return { made_at: new Date(now).toISOString(), tz: TZ, window: { from: new Date(since).toISOString(), to: new Date(now).toISOString() }, listener: profile.listener, tone: profile.tone,
-    minutes: +(total / wpm).toFixed(1), words: total, max_words: max, quiet: total < target * 0.75, running_order: live, items, fixtures, standing, suppressed, already_said: already, previously: ledger.lastCalls(said), errors };
+    minutes: +(total / wpm).toFixed(1), words: total, max_words: max, quiet: total < target * 0.75, running_order: live, items, fixtures, standing, cast: { rival: profile.rivals?.[0]?.name || null, example: profile.follows.filter(f => care(f) === "die-hard")[1]?.name.replace(/ (men|women)$/i, "") || null }, suppressed, already_said: already, previously: ledger.lastCalls(said), errors };
 }
 
 // A person's view of the pack: what happened, the mood code gave it, and where it sits in the show

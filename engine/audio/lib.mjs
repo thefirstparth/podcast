@@ -2,7 +2,6 @@
 // show since 12 Oct 2026: numbers and symbols said as words, a host's single-voice take cut back into lines (by its
 // pauses, or at the listening model's word times), and the WebVTT transcript.
 
-const TZ = "Asia/Kolkata";
 const ONES = ["zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "ten", "eleven", "twelve", "thirteen", "fourteen", "fifteen", "sixteen", "seventeen", "eighteen", "nineteen"];
 const TENS = ["", "", "twenty", "thirty", "forty", "fifty", "sixty", "seventy", "eighty", "ninety"];
 

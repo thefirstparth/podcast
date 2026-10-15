@@ -30,6 +30,10 @@ export function forWriter(P) {
   };
 }
 
+// the hosts' English, from their accents in config/show.json (both Indian: "Indian English")
+const ACCENT = { indian: "Indian", british: "British", american: "American", australian: "Australian", irish: "Irish", scottish: "Scottish", "south african": "South African" };
+const accent = show => { const a = [...new Set((show.hosts || []).map(h => h.accent).filter(Boolean))]; return a.length === 1 && ACCENT[a[0]] ? `${ACCENT[a[0]]} English` : "English, each host in their own accent"; };
+
 export function prompt(P, show) {
   const [A, B] = show.hosts;
   return `You write the script of ${show.title ? `"${show.title}", ` : ""}a daily sports podcast made for one listener, from the facts below. Two hosts talk it through like friends who follow sport closely. It is radio, made to be heard: short spoken sentences, real reactions, never a bulletin read aloud.
@@ -40,12 +44,12 @@ THE HOSTS
 ${show.dynamic ? `Their dynamic: ${show.dynamic}` : ""}${P.previously?.length ? `
 What ${A.id} said in the last episode (${B.id} may quote one of these back to him, word for word, when today's facts prove him right or wrong; never invent anything he said):
 ${P.previously.map(x => `- "${x}"`).join("\n")}` : ""}
-They speak natural Indian English (the listener is in ${P.listener?.tz === "Asia/Kolkata" ? "Bengaluru, India" : "their own city"}). Never address the listener by name.
+They speak natural ${accent(show)} (the listener is in ${P.listener?.city || (P.listener?.tz === "Asia/Kolkata" ? "Bengaluru, India" : "their own city")}). Never address the listener by name.
 
 THE SHOW, in exactly this order (segments from RUNNING ORDER; a segment not listed is left out entirely, with no line about it)
 - cold-open: one or two lines on the biggest moment, said in its mood. No greeting before it. Then a one-line hello.
 - die-hard: each result in order. Follow its "mood", "strength" (1 to 5) and "shape": if the shape says they were 1-3 down, the turn starts in dread and ends in joy. Tell how it happened from the goals or the scorecard, what it means ("form_before", "series", "standings"), what is next. A "table" is said only after that result. Then the stories, each retold from its "text".
-- rival-watch: the rival's slip, with more colour and enjoyment ("Barcelona were dreadful" is fine). Results and big bad news only. Never an injury or anything personal.
+- rival-watch: the rival's slip, with more colour and enjoyment ("${P.cast?.rival || "Barcelona"} were dreadful" is fine). Results and big bad news only. Never an injury or anything personal.
 - follow: brisk, a result and one line of why it matters.
 - around: quick hits from "elsewhere", told with what made it notable.
 - ahead: ${P.standing?.length ? 'first "where_things_stand" for each team or player, one short spoken line each (where a series or championship stands, the next match, the next series or tournament), then ' : ""}the fixtures, times said the twelve-hour way, what is at stake.${P.standing?.length ? " Never say who plays a tournament unless it is given." : ""}
@@ -64,7 +68,7 @@ FACTS (strict)
 
 SOUND
 - Words people say out loud. Never: pivotal, underscores, testament, landscape, delve, navigate, robust, seamless, notably, showcases.
-- Never "Turning to", "In other news", "Moving on", "Let's look at", "Meanwhile", "Stay tuned". Change the subject the way friends do ("Right, India. Not a good night.").
+- Never "Turning to", "In other news", "Moving on", "Let's look at", "Meanwhile", "Stay tuned". Change the subject the way friends do ("Right, ${P.cast?.example || "India"}. Not a good night.").
 - Mix longer turns with many quick reactions of two to eight words. At least five real questions between the hosts.
 - Never copy a sentence from a report; retell it.
 - A short wrap at the end of a segment is fine.
