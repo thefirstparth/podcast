@@ -68,3 +68,7 @@
 - The Fan's voice is Zubenelgenubi (round 2); the Anchor is Algenib.
 - No practice episode: the first scheduled run is the first real episode (Parth). Before it, one technical test of the voice and mixing code on the rehearsal key, checked by Claude, not listened to by Parth.
 - Round 3 (ready): the chosen pair in three accents (both Indian English, both British, Indian English Fan with a British Anchor).
+
+## 15 Oct 2026: the voices are settled
+- Both hosts speak Indian English (Parth approved round 3's clip 1). Fan: Zubenelgenubi; Anchor: Algenib; the accent direction is the 14:00 show's proven description. The British and mixed clips were dropped.
+- Names: Parth is asking ChatGPT (research/PROMPT-NAMES.md); not decided yet.

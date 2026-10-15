@@ -2,7 +2,11 @@
   "note": "Voice auditions (scripts/audition.mjs, workflow 'voices'). Each round pairs Fan candidates with Anchor candidates, two voices a request, on the rehearsal key. Parth's verdicts are kept here so the next round builds on them.",
   "chosen": {
     "anchor": "Algenib",
-    "fan": "Zubenelgenubi"
+    "fan": "Zubenelgenubi",
+    "accent": {
+      "fan": "indian",
+      "anchor": "indian"
+    }
   },
   "rounds": [
     {
@@ -62,7 +66,7 @@
     },
     {
       "id": "round-3",
-      "made": null,
+      "made": "2026-10-15",
       "note": "The chosen pair (Zubenelgenubi as the Fan, Algenib as the Anchor) in three accents: both Indian English, both British, and an Indian English Fan with a British Anchor. Parth's choice of 15 Oct. Run 1 (06:07 IST, before the 12:30 IST reset) made only clip 1; the two others are made by the next run.",
       "pairs": [
         [
@@ -98,7 +102,7 @@
         "gutted": "a young man, a sports fan, disappointed and quiet"
       },
       "anchor_style": "an older man, a calm, experienced sports broadcaster",
-      "verdict": null
+      "verdict": "Parth: approved, clip 1 (both Indian English). The British and mixed clips were not needed and were not made."
     }
   ],
   "accents": {
