@@ -3,28 +3,31 @@
 // candidate and an Anchor candidate; Gemini voices two speakers in one take), so seven voices cost four requests of the
 // rehearsal key's day. Nothing is published: the MP3s go to rehearsals/voices/<date>/ for him to play.
 //   GEMINI_KEY_REHEARSAL=... node scripts/audition.mjs
-import { writeFileSync, mkdirSync, rmSync } from "node:fs";
+import { writeFileSync, mkdirSync, rmSync, readFileSync } from "node:fs";
 import { execFileSync } from "node:child_process";
 
 const KEY = process.env.GEMINI_KEY_REHEARSAL;
 if (!KEY) { console.error("audition: GEMINI_KEY_REHEARSAL is needed"); process.exit(1); }
-const H = new URL("../", import.meta.url).pathname, day = new Date().toLocaleDateString("en-CA", { timeZone: "Asia/Kolkata" }), OUT = `${H}rehearsals/voices/${day}`;
+// the round to make: config/voices.json, the first one not made yet (or --round=<id>)
+const H = new URL("../", import.meta.url).pathname, day = new Date().toLocaleDateString("en-CA", { timeZone: "Asia/Kolkata" });
+const V = JSON.parse(readFileSync(`${H}config/voices.json`, "utf8")), want = process.argv.find(a => a.startsWith("--round="))?.split("=")[1];
+const ROUND = want ? V.rounds.find(r => r.id === want) : V.rounds.find(r => !r.made);
+if (!ROUND) { console.error("audition: no round to make (config/voices.json)"); process.exit(1); }
+const OUT = `${H}rehearsals/voices/${ROUND.id}`;
 mkdirSync(OUT, { recursive: true });
 const GEM = "https://generativelanguage.googleapis.com/v1beta/models";
 const MODELS = ["gemini-3.8-flash-tts", "gemini-3.1-flash-tts-preview", "gemini-2.5-flash-preview-tts"]; // the 14:00 show's, in order
 const CAP = 6; // requests in all, retries included: the rest of the day's ten stay free
 
 const FAN = [
-  { text: "Three goals in seven minutes. Seven! I had completely given up on that one.", style: "an excited sports fan, thrilled" },
-  { text: "India lost by twenty-four runs. Honestly, that one hurts.", style: "a sports fan, gutted and quiet" },
+  { text: "Three goals in seven minutes. Seven! I had completely given up on that one.", style: ROUND.fan_style?.excited || "an excited sports fan" },
+  { text: "India lost by twenty-four runs. Honestly, that one hurts.", style: ROUND.fan_style?.gutted || "a sports fan, gutted and quiet" },
 ];
 const ANCHOR = [
   { text: "West Indies made two hundred and forty-seven for three, and the series is level at two-all.", style: "a calm, experienced sports broadcaster" },
   { text: "So it all comes down to Saturday in Bengaluru. Can India bounce back?", style: "a calm, experienced sports broadcaster, curious" },
 ];
-// Fan candidates: Fenrir ("excitable"), Puck ("upbeat"), Sadachbia ("lively"); Anchor candidates: Algenib ("gravelly"),
-// Charon ("informative"), Sadaltager ("knowledgeable"), Orus ("firm"). Google's own descriptions.
-const PAIRS = [["Fenrir", "Algenib"], ["Puck", "Charon"], ["Sadachbia", "Sadaltager"], ["Fenrir", "Orus"]];
+const PAIRS = ROUND.pairs;
 
 let asks = 0;
 async function voice(fan, anchor) {
@@ -54,9 +57,10 @@ for (const [i, [fan, anchor]] of PAIRS.entries()) {
     made.push({ i: i + 1, fan, anchor, name, model, secs: Math.round(pcm.length / 2 / rate(mime)) });
   } catch (e) { console.log(`audition: pair ${i + 1} not made: ${e.message}`); if (asks >= CAP) break; }
 }
-const L = [`# Voice audition, ${day}`, "", "No accent was asked for, so each voice is heard as it is. The Fan says two lines (excited, then gutted), then the Anchor says two (calm, then a question). Fenrir is heard twice, with two different Anchors.", "",
+const L = [`# Voice audition, ${ROUND.id} (${day})`, "", `No accent was asked for, so each voice is heard as it is. The Fan says two lines (${FAN.map(l => l.style).join("; then ")}), then the Anchor says two (calm, then a question).`, ROUND.note || "", "",
   "| Clip | Fan voice | Anchor voice | Length | Listen |", "|---|---|---|---|---|", ...made.map(m => `| ${m.i} | ${m.fan} | ${m.anchor} | ${m.secs} s | [${m.name}](${encodeURIComponent(m.name)}) |`), "",
-  `Made with ${made[0]?.model || "no model"}, ${asks} voice request(s) of the rehearsal key.`, "", "Google's own descriptions: Fenrir excitable, Puck upbeat, Sadachbia lively; Algenib gravelly, Charon informative, Sadaltager knowledgeable, Orus firm."];
+  `Made with ${made[0]?.model || "no model"}, ${asks} voice request(s) of the rehearsal key.`, "", "Google's own one-word descriptions: Fenrir excitable, Puck upbeat, Sadachbia lively, Umbriel easy-going, Zubenelgenubi casual, Algieba smooth; Algenib gravelly, Charon informative, Sadaltager knowledgeable, Orus firm."];
 writeFileSync(`${OUT}/README.md`, L.join("\n"));
+if (made.length) { ROUND.made = day; writeFileSync(`${H}config/voices.json`, JSON.stringify(V, null, 2) + "\n"); }
 console.log(`audition: ${made.length} clip(s), ${asks} request(s) -> rehearsals/voices/${day}/`);
 if (!made.length) process.exit(1);

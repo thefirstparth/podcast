@@ -58,3 +58,7 @@
 
 ## 16 Oct 2026
 - Sports for everyone is parked again (Parth). The review and its four open decisions stay in docs/PARKED.md, untouched until he picks it up.
+
+## 15 Oct 2026 (night): voice audition, round 1
+- The Anchor is Algenib (Parth: "very mature"). Every Fan voice was too excited: Fenrir hated, Puck slightly too excited but better, Sadachbia slightly too excited. Charon "very bland", Sadaltager too bland, Orus not liked.
+- Round 2 is proposed, not run: the Anchor stays Algenib; the Fan candidates are Puck, Umbriel, Zubenelgenubi and Algieba, with the Fan's direction toned down ("happy and animated but natural, not shouting"). Round 1 asked for "excited, thrilled", which pushed every voice over the top. Auditions now run in rounds from config/voices.json, with Parth's verdicts kept there.
