@@ -93,7 +93,7 @@ async function main() {
   // 4. the studio: two mics when each line is its own piece; the transcript from the studio's own timing
   const L = layout({ turns, pieces: v.pieces || null, take: v.take || null, date: day, pan: show.pan || {}, music: false });
   const mp3 = `${out}/episode.mp3`; mix(L, out, mp3);
-  const vtt = L.cues ? vttOf(turns.map(t => ({ ...t, speaker: show.hosts.find(h => h.id === t.speaker)?.name || t.speaker })), L.cues) : null;
+  const vtt = L.cues ? vttOf(turns, L.cues) : null;
   if (vtt) writeFileSync(`${out}/episode.vtt`, vtt);
   const seconds = Math.round(L.seconds), bytes = statSync(mp3).size;
   log(`studio: ${v.form}, ${Math.floor(seconds / 60)} min ${seconds % 60} s, ${Math.round(bytes / 1024)} KB`);
@@ -121,7 +121,7 @@ async function main() {
   const [owner, name] = process.env.GITHUB_REPOSITORY.split("/"), base = `https://${owner}.github.io/${name}`;
   mkdirSync(`${H}.out/site`, { recursive: true });
   writeFileSync(`${H}.out/site/feed.xml`, feedXML({ show, base, episodes, image: existsSync(`${H}cover.jpg`) ? `${base}/cover.jpg` : null }));
-  ledger.record(P, { published_at: meta.published });
+  ledger.record(P, { published_at: meta.published, turns, fan: show.hosts.find(h => h.role === "fan")?.id });
   log(`feed: ${episodes.length} episode(s) -> ${base}/feed.xml`);
 }
 

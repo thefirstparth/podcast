@@ -36,6 +36,9 @@ export function prompt(P, show) {
 THE HOSTS
 - ${A.id}: ${A.about}
 - ${B.id}: ${B.about}
+${show.dynamic ? `Their dynamic: ${show.dynamic}` : ""}${P.previously?.length ? `
+What ${A.id} said in the last episode (${B.id} may quote one of these back to him, word for word, when today's facts prove him right or wrong; never invent anything he said):
+${P.previously.map(x => `- "${x}"`).join("\n")}` : ""}
 They speak natural Indian English (the listener is in ${P.listener?.tz === "Asia/Kolkata" ? "Bengaluru, India" : "their own city"}). Never address the listener by name.
 
 THE SHOW, in exactly this order (segments from RUNNING ORDER; a segment not listed is left out entirely, with no line about it)
@@ -103,8 +106,9 @@ export async function writeScript(P, { show = json("config/show.json"), profile 
       if (!problems.length) break;
     } catch (e) {
       log(`writer ${m}: ${e.message}`);
-      // busy or out of requests: the next model (the request still counted against the cap)
-      if (!model) { models.shift(); if (!models.length) break; }
+      // busy (503, a 429 that is not the day's limit): a minute's wait; then the next model if the first never answered
+      if (e.http === 503 || (e.http === 429 && !/per ?day|limit: 0/i.test(e.message))) await new Promise(r => setTimeout(r, 60000));
+      if (!model) { models.shift(); if (!models.length) break; } else if (models.length > 1) { model = models.find(x => x !== m) || model; }
     }
   }
   return { best: bestOf(tries), tries, requests: asks };

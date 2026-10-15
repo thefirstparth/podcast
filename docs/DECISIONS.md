@@ -75,3 +75,9 @@
 
 ## 15 Oct 2026 (afternoon)
 - The repo is public (Parth). Checked before: no secrets in it, and no family details.
+
+## 15 Oct 2026 (morning): Kylo and Dhruv; the first episode today
+- The hosts (Parth, locked): **Kylo**, the Fan: warm, casual, emotionally invested; Madrid wins, Barcelona misery and Verstappen magic all hit him personally. **Dhruv**, the Anchor: older in temperament, gravelly, precise and composed; keeps the facts straight and quietly exposes Kylo's nonsense. Their dynamic: Kylo feels the result; Dhruv remembers what Kylo said before it happened. Built in: each published episode keeps Kylo's calls (his lines about what is coming), and the next episode's writer may have Dhruv quote one back, word for word, only from those.
+- The first real episode is today, ready by 13:00 IST (Parth). The schedule is on: 12:17 IST, backup 12:47 IST; scheduled runs use the live key and publish. The live key is used only by the scheduled run and a redo Parth asks for, capped at 4 writer and 6 voice requests a run.
+- The technical test (06:19 IST, rehearsal key) proved the pack, the writer, Kylo's voice, the cut by ear and the listening check (25 of 25 lines heard as written). It found two faults, both fixed: the older voice models refuse per-line speech metadata (they now get the conversation as one labelled text), and a busy writer is now waited out for a minute and the next model tried. Dhruv's take was not reached (the rehearsal key's voice limit was used up), so the first live run is also the first full run; Claude watches it and has time for a redo before 13:00.
+- main is created from this branch after the first good episode (Parth: "yes, main").

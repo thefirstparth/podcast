@@ -28,9 +28,9 @@ export async function voiceScript(turns, { key, show, voices, out, log = console
   let asks = 0;
   const ask = async (model, body) => {
     if (asks >= cap) throw new Error(`the run's ${cap} voice requests are used`);
-    asks++;
     const r = await fetch(`${GEM}/${model}:generateContent`, { method: "POST", headers: { "x-goog-api-key": key, "content-type": "application/json" }, body: JSON.stringify(body), signal: AbortSignal.timeout(300000) });
     const j = await r.json().catch(() => ({}));
+    if (r.status !== 400) asks++; // a refused format (400) is not a voice made and costs nothing
     const part = j.candidates?.[0]?.content?.parts?.find(p => p.inlineData?.data);
     if (!r.ok || !part) throw new Error(`${model} ${r.status}: ${(j.error?.message || j.candidates?.[0]?.finishReason || "no audio").slice(0, 200)}`);
     return pcmOf(Buffer.from(part.inlineData.data, "base64"));
@@ -54,8 +54,11 @@ export async function voiceScript(turns, { key, show, voices, out, log = console
     const r = JSON.parse(readFileSync(res, "utf8"));
     return r.ok ? cutAt(take, r.cuts, { start: r.start, end: r.end }) : null;
   };
-  // 1. solo: each host alone, one take each
-  for (const model of models) {
+  // speech metadata per line is the 3.8 voice model's form; the older models take the conversation as one text with
+  // "Name: line" labels (15 Oct test: "Speech metadata is not supported for this model")
+  const metadataModel = m => /3\.8/.test(m);
+  // 1. solo: each host alone, one take each (the 3.8 model only)
+  for (const model of models.filter(metadataModel)) {
     try {
       const pieces = new Map();
       for (const h of hosts) {
@@ -77,7 +80,9 @@ export async function voiceScript(turns, { key, show, voices, out, log = console
   // 2. one two-voice take of the whole conversation (no cuts, so no listening check is needed; one mic)
   for (const model of models) {
     try {
-      const body = { contents: [{ role: "user", parts: turns.map((t, i) => ({ text: texts[i], speech_metadata: { speaker: t.speaker, style: byId[t.speaker].describe } })) }], generationConfig: { responseModalities: ["AUDIO"], speechConfig: speakers } };
+      const body = metadataModel(model)
+        ? { contents: [{ role: "user", parts: turns.map((t, i) => ({ text: texts[i], speech_metadata: { speaker: t.speaker, style: byId[t.speaker].describe } })) }], generationConfig: { responseModalities: ["AUDIO"], speechConfig: speakers } }
+        : { contents: [{ role: "user", parts: [{ text: `${hosts.map(h => `${h.id}: ${h.describe}`).join(" ")} Read this conversation exactly as written, each line in its speaker's voice:\n\n${turns.map((t, i) => `${t.speaker}: ${texts[i]}`).join("\n")}` }] }], generationConfig: { responseModalities: ["AUDIO"], speechConfig: speakers } };
       const take = await ask(model, body), words = texts.join(" ").split(/\s+/).length;
       if (take.length / 48000 < (words / 230) * 60) throw new Error(`came back cut short (${Math.round(take.length / 48000)} s for ${words} words)`);
       log(`voice: one two-voice take on ${model}`);

@@ -252,20 +252,20 @@
   },
   "hosts": [
     {
-      "id": "Fan",
-      "name": null,
+      "id": "Kylo",
+      "role": "fan",
       "voice": "Zubenelgenubi",
       "accent": "indian",
       "voice_style": "A young man in his twenties, a sports fan, warm and casual; animated when he is happy, quiet when he is disappointed, always natural, never shouting.",
-      "about": "carries the listener's loyalties and feels every result out loud, at the strength the pack gives: elated, gutted, angry, gleeful. Tells the listener's teams' stories. Names and voice come later (Parth picks)."
+      "about": "the Fan. Warm, casual, emotionally invested: Madrid wins, Barcelona misery and Verstappen magic all hit him personally. He carries the listener's loyalties and feels every result out loud, at the strength the pack gives, in his own reactions; he makes bold calls about what will happen next."
     },
     {
-      "id": "Anchor",
-      "name": null,
+      "id": "Dhruv",
+      "role": "anchor",
       "voice": "Algenib",
       "accent": "indian",
       "voice_style": "An older man, a calm and experienced sports broadcaster with a mature, gravelly voice.",
-      "about": "calm and exact, one notch below the Fan's mood; keeps the facts straight, explains the table and the series, asks the 'hang on, why?' a listener would, and teases the Fan a little. Leads Around the grounds and Coming up."
+      "about": "the Anchor. Older in temperament, gravelly, precise and composed. Keeps the facts straight, explains the table and the series, asks the question a listener would, and quietly exposes Kylo's nonsense. Leads Around the grounds and Coming up."
     }
   ],
   "title": "Sports show (working title)",
@@ -310,8 +310,8 @@
   ],
   "verify_model": "base.en",
   "pan": {
-    "Fan": -0.12,
-    "Anchor": 0.12
+    "Kylo": -0.12,
+    "Dhruv": 0.12
   },
   "live_requests": {
     "writer": 4,
@@ -336,5 +336,6 @@
     "name": "Parth Bhatia",
     "email": "parth@bhatia.page"
   },
-  "description": "A daily sports show made for one fan: what happened to his teams and players, felt the way he feels it, and what is coming next."
+  "description": "A daily sports show made for one fan: what happened to his teams and players, felt the way he feels it, and what is coming next.",
+  "dynamic": "Kylo feels the result. Dhruv remembers what Kylo said before it happened."
 }
