@@ -38,3 +38,8 @@ test("a name the writer was not given goes back, even if it is somewhere in the 
   const p = { ...pack, considered: ["Manchester City 2-4 PSG: Barcola hat-trick"], known: JSON.stringify({ items: pack.items }) };
   assert.match(checkScript(s, p, { rivals }).map(x => x.msg).join(" | "), /names not in the pack.*Barcola/);
 });
+test("a script well past its planned length goes back for a trim", () => {
+  const long = [...base, ...Array.from({ length: 4 }, () => t("die-hard", "Anchor", "happy", "Rüdiger in the ninetieth minute. Four three to Madrid. And what a night it was in Rome for everyone there."))];
+  assert.match(checkScript(long, { ...pack, words: 120 }, { rivals }).map(x => x.msg).join(" | "), /over the planned 120: trim/);
+  assert.doesNotMatch(checkScript(base, pack, { rivals }).map(x => x.msg).join(" | "), /trim/);
+});

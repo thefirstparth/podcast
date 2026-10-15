@@ -17,6 +17,8 @@ export function checkScript(turns, pack, { hosts = ["Fan", "Anchor"], rivals = [
   const all = turns.map(t => t.text).join(" "), n = words(all).length;
   if (n > pack.max_words) hard(`${n} words, over the ${pack.max_words} maximum: cut quick items to a line each`);
   if (n < pack.words * 0.6) soft(`${n} words, well short of the planned ${pack.words}: give the die-hard results their full time`);
+  // the plan is the length (Parth, 15 Oct: 8 minutes planned, 9 min 46 s on air): well past it goes back for a trim
+  else if (n > pack.words * 1.1) soft(`${n} words, over the planned ${pack.words}: trim to about ${pack.words}, keeping the die-hard results whole and cutting quick items first`);
   if (turns.some(t => !hosts.includes(t.speaker))) hard(`speakers must be ${hosts.join(" and ")}`);
   // rivals: only in Rival Watch, a same-day double in the cold open, or the table line after a league result
   const tableHasRival = pack.items.some(i => i.table?.rows?.some(r => r.rival));
