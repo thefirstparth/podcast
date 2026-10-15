@@ -5,14 +5,15 @@
 - **The data, all code, no AI:** results from ESPN, Cricbuzz and Jolpica, each with a keyless backup (Sofascore, f1api.dev, ESPN cricket); news from an approved, checked, English-only source list; squads and rankings refreshed every run; a memory of what was said.
 - **The structure and moods** (`docs/STRUCTURE.md`): running order approved; moods with a shape, a strength and context; Rival Watch; Around the grounds by drama score.
 - **The writer** (`docs/WRITER.md`): rules for the ear, not the page. First rehearsal script approved ("I like the script, definitely!!!"); its two issues fixed (women's cricket ruled out; Barcelona may be mentioned inside a Madrid story).
-- **Voices, round 1:** the Anchor is **Algenib** ("very mature").
+- **Voices:** Fan **Zubenelgenubi**, Anchor **Algenib**, both Indian English (rounds 1 to 3).
+- **Publishing time:** ready by 13:00 IST.
+- **The episode run** (`engine/episode.mjs`, workflow `episode`): pack, script, voices (each host alone, every cut heard by the listening check), the 14:00 show's two-mic studio, the MP3 and transcript, then in live mode the GitHub Release, the feed (gh-pages) and the memory of what was said. No backup voice: a failed day nudges the listener to tell Parth. Live mode and the schedule are switched off until agreed.
 
 ## Next, in order
-1. **Voice round 2** (ready; Parth runs it): the Anchor stays Algenib, and four calmer Fan candidates are tried with the Fan's direction toned down. Puck comes back once, to hear whether the calmer direction alone fixes him; the others are Umbriel ("easy-going"), Zubenelgenubi ("casual") and Algieba ("smooth"). It costs 4 voice requests on the rehearsal key. Run: Actions, then voices, then Run workflow. The clips go in `rehearsals/voices/round-2/`.
-2. **Accent clips** with the chosen pair: Indian English, British English, and an Indian English Fan with a British Anchor (3 clips, 6 requests).
-3. **Host names** (on air; never family names).
-4. **A full rehearsal episode**: the approved script voiced, mixed and listened to, using the 14:00 show's voice, listening check and studio.
-5. **Publishing time** (IST), the repo made public, the feed (GitHub Pages and Releases), and the switch to `GEMINI_KEY_LIVE` (to be discussed first).
+1. **Host names**: Parth is asking ChatGPT (`research/PROMPT-NAMES.md`).
+2. **Technical test** (built, waiting for the voice limits to reset at 12:30 IST): Actions, then episode, then Run workflow with mode **test**. The full run on the rehearsal key, nothing published, about 3 writer and up to 6 voice requests. Claude checks it; Parth may listen to the MP3 in the run's artifacts.
+3. **Before the first real episode** (Parth's steps, one at a time): make the repo public; turn on GitHub Pages (source: the gh-pages branch); agree how `GEMINI_KEY_LIVE` is used (it moves into a GitHub environment that only the daily run can open). Then the daily schedule is switched on: the run starts at 12:17 IST, the episode is ready by 13:00, and the first scheduled run is the first episode.
+4. **Cover art** (needed before the feed is added to a podcast app) and the show's title.
 
 ## Parked
 - Sports for everyone (`docs/PARKED.md`).

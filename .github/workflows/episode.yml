@@ -1,0 +1,69 @@
+# The daily episode (engine/episode.mjs). Ready by 13:00 IST (Parth, 15 Oct): the run starts about 12:17 IST with a
+# backup at 12:47 IST, on odd minutes because GitHub starts runs on the hour late.
+# test: the rehearsal key, nothing published; the MP3, script and pack are kept as the run's artifacts.
+# live: the live key; the episode goes to GitHub Releases and the feed to the gh-pages branch (GitHub Pages).
+# The schedule and live mode are switched OFF until Parth and Claude agree how the live key is used.
+name: episode
+on:
+  workflow_dispatch:
+    inputs:
+      mode: { description: "test (rehearsal key, nothing published) or live", type: choice, options: [test, live], default: test }
+      force: { description: "Live only: make it again even if today's is published", type: boolean, default: false }
+  # schedule:
+  #   - cron: "47 6 * * *"   # 12:17 IST
+  #   - cron: "17 7 * * *"   # 12:47 IST, the backup (does nothing if the first one published)
+concurrency: { group: episode, cancel-in-progress: false }
+permissions: { contents: write }
+jobs:
+  episode:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
+        with: { node-version: 22 }
+      - run: command -v ffmpeg || (sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg >/dev/null)
+      # the listening check: open-source speech-to-text on the runner (the model, about 150 MB, is cached)
+      - uses: actions/setup-python@v6
+        with: { python-version: "3.12", cache: pip, cache-dependency-path: engine/audio/requirements-verify.txt }
+      - uses: actions/cache@v4
+        with: { path: ~/.cache/huggingface, key: whisper-base-en-v1 }
+      - name: Install the listening check
+        run: |
+          python3 -m pip install -q -r engine/audio/requirements-verify.txt
+          python3 -c "from faster_whisper import WhisperModel; WhisperModel('base.en', device='cpu', compute_type='int8'); print('listening check ready')"
+      - name: Make the episode
+        env:
+          GEMINI_KEY_REHEARSAL: ${{ inputs.mode != 'live' && secrets.GEMINI_KEY_REHEARSAL || '' }}
+          GEMINI_KEY_LIVE: ${{ inputs.mode == 'live' && secrets.GEMINI_KEY_LIVE || '' }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: node engine/episode.mjs --mode=${{ inputs.mode || 'test' }} ${{ inputs.force && '--force' || '' }}
+      - if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: episode
+          path: |
+            .out/*/episode.mp3
+            .out/*/episode.vtt
+            .out/*/script.md
+            .out/*/pack.md
+            .out/*/*-take.wav
+          retention-days: 7
+          if-no-files-found: ignore
+          include-hidden-files: true
+      - name: Publish the feed and remember what was said
+        if: ${{ success() && inputs.mode == 'live' && hashFiles('.out/site/feed.xml') != '' }}
+        run: |
+          git config user.name "episode"
+          git config user.email "episode@users.noreply.github.com"
+          git add ledger
+          git commit -m "Episode $(TZ=Asia/Kolkata date +%Y-%m-%d): what was said" || echo "nothing new"
+          git pull --rebase origin "${GITHUB_REF_NAME}" && git push origin "HEAD:${GITHUB_REF_NAME}"
+          cp -r .out/site /tmp/site && { [ -f cover.jpg ] && cp cover.jpg /tmp/site/ || true; }
+          rm -rf .out
+          git fetch origin gh-pages || true
+          if git rev-parse --verify origin/gh-pages >/dev/null 2>&1; then git checkout -B gh-pages origin/gh-pages; else git checkout --orphan gh-pages; fi
+          git rm -rq --cached . 2>/dev/null || true
+          find . -mindepth 1 -maxdepth 1 ! -name .git -exec rm -rf {} +
+          cp -r /tmp/site/. .
+          git add -A && git commit -m "Feed $(TZ=Asia/Kolkata date +%Y-%m-%d)" && git push origin gh-pages

@@ -253,10 +253,18 @@
   "hosts": [
     {
       "id": "Fan",
+      "name": null,
+      "voice": "Zubenelgenubi",
+      "accent": "indian",
+      "voice_style": "A young man in his twenties, a sports fan, warm and casual; animated when he is happy, quiet when he is disappointed, always natural, never shouting.",
       "about": "carries the listener's loyalties and feels every result out loud, at the strength the pack gives: elated, gutted, angry, gleeful. Tells the listener's teams' stories. Names and voice come later (Parth picks)."
     },
     {
       "id": "Anchor",
+      "name": null,
+      "voice": "Algenib",
+      "accent": "indian",
+      "voice_style": "An older man, a calm and experienced sports broadcaster with a mature, gravelly voice.",
       "about": "calm and exact, one notch below the Fan's mood; keeps the facts straight, explains the table and the series, asks the 'hang on, why?' a listener would, and teases the Fan a little. Leads Around the grounds and Coming up."
     }
   ],
@@ -294,5 +302,39 @@
       "kabaddi",
       "Pro Kabaddi"
     ]
-  }
+  },
+  "tts_models": [
+    "gemini-3.8-flash-tts",
+    "gemini-3.1-flash-tts-preview",
+    "gemini-2.5-flash-preview-tts"
+  ],
+  "verify_model": "base.en",
+  "pan": {
+    "Fan": -0.12,
+    "Anchor": 0.12
+  },
+  "live_requests": {
+    "writer": 4,
+    "voice": 6
+  },
+  "keep_episodes": 30,
+  "pronounce": {
+    "T20I": "T twenty international",
+    "T20Is": "T twenty internationals",
+    "ODI": "O D I",
+    "ODIs": "O D Is",
+    "UCL": "Champions League",
+    "GP": "Grand Prix",
+    "F1": "F one",
+    "NBA": "N B A",
+    "ATP": "A T P",
+    "IST": "",
+    "Bernabeu": "Bernabeu",
+    "Mbappé": "Mbappay"
+  },
+  "owner": {
+    "name": "Parth Bhatia",
+    "email": "parth@bhatia.page"
+  },
+  "description": "A daily sports show made for one fan: what happened to his teams and players, felt the way he feels it, and what is coming next."
 }
