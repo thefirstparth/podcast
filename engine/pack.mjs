@@ -171,6 +171,10 @@ export async function buildPack({ profile = json("profile.json"), show = json("c
       if (!me || !lead || raced.has(d.name)) continue;
       stand(d, "now", () => [me.pos === 1 ? `${d.name} leads the championship on ${me.points} points, ${me.points - s.table[1].points} ahead of ${s.table[1].driver}` : `${d.name} is ${nth(me.pos)} in the championship on ${me.points} points, ${lead.points - me.points} behind ${lead.driver}`]);
     }
+    // F1 as a whole: the title race as it stands (unless a race today already gave the standings)
+    const tb = s?.table || [];
+    if (allF1 && tb.length >= 2 && !items.some(i => i.sport === "f1" && (i.standings || (i.subject === "Formula 1" && i.kind === "result"))))
+      stand(allF1, "now", () => [`${tb[0].driver} leads the championship on ${tb[0].points} points, ${tb[0].points - tb[1].points} ahead of ${tb[1].driver}${tb[2] ? `, with ${tb[2].driver} third on ${tb[2].points}` : ""}`]);
     if (s?.next_race && !(s.upcoming || []).length) stand(drivers[0] || allF1, "next", () => [`Next race: round ${s.next_race.round}, the ${s.next_race.race}, ${at(s.next_race.date)}`]);
   }
 
