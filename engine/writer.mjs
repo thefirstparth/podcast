@@ -102,7 +102,7 @@ export async function writeScript(P, { show = json("config/show.json"), profile 
     try {
       const turns = await gemini(m, key, text);
       model = m;
-      const problems = checkScript(turns, { ...P, known: JSON.stringify(forWriter(P)) }, opts);
+      const problems = checkScript(turns, { ...P, known: JSON.stringify([forWriter(P), show.title, show.signoff, P.previously]) }, opts);
       log(`writer ${m}, request ${asks}: ${turns.length} turns, ${problems.length ? problems.map(p => (p.hard ? "HARD " : "") + p.msg).join("; ") : "no problems"}`);
       last = { turns, problems, model: m, request: asks };
       tries.push(last);

@@ -27,7 +27,8 @@ export function record(pack, { file = FILE, published_at = new Date().toISOStrin
   const L = load(file), cut = Date.now() - KEEP_DAYS * 864e5;
   const results = [...pack.running_order.flatMap(s => s.items || []), ...pack.running_order.flatMap(s => (s.elsewhere || []).map(c => c.id))];
   const urls = pack.running_order.flatMap(s => [...(s.news || []), ...(s.elsewhere || [])]).flatMap(n => [...(n.links || []).map(l => l.url), n.text?.url, n.report?.url]).filter(Boolean);
-  const fan_said = turns.filter(t => t.speaker === fan && (t.segment === "ahead" || CALLS.test(t.text)) && t.text.split(/\s+/).length >= 5).map(t => t.text).slice(-8);
+  // a call is a claim, never a question (15 Oct: "What is on our calendar?" was kept, and quoted back as if it were one)
+  const fan_said = turns.filter(t => t.speaker === fan && !/\?\s*$/.test(t.text) && (t.segment === "ahead" || CALLS.test(t.text)) && t.text.split(/\s+/).length >= 5).map(t => t.text).slice(-8);
   L.episodes = [...L.episodes.filter(e => Date.parse(e.published_at) > cut), { published_at, results, urls, fan_said }];
   write(file, L);
   return L;
