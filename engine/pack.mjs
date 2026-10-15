@@ -253,13 +253,15 @@ export async function buildPack({ profile = json("profile.json"), show = json("c
   // A report of a match already in the pack (it names the opponent, or reads like a result) is colour for that result,
   // not a story of its own: the writer gets its text with the result.
   const results = items.filter(i => i.kind === "result" && i.stance !== "rival");
-  // (written after the match started, and naming the opponent, a scorer or reading like a result)
+  // (written after the match started, and naming the opponent, a scorer or reading like a result; one that only reads
+  // like a result needs two outlets: 15 Oct, "Region 9 football: Tigers, Mustangs, Warriors win big" joined the
+  // Warriors' report)
   const RESULTY = /\b(\d+-\d+|beat|beats|beaten|win|wins|won|lose|loses|lost|loss|draw|drew|comeback|defeat|exit|exits|out of|stun|stuns|shock|upset|thriller|knocked|crash)\b/i;
   const reportOf = (c, f) => results.find(i => {
     // a report names the opponent or a scorer (within four days of the match) or reads like a result (within 40 hours)
     if (i.subject !== f.name || c.date < Date.parse(i.when) || c.date - Date.parse(i.when) > 96 * 36e5) return false;
     const names = [...i.line.split(/ \d+-\d+ | v |: | bt |, | won by .*$/), ...(i.goals || []).map(g => g.split(": ")[1]?.split(/[,(]/)[0]?.trim().split(" ").at(-1))].map(p => p && p.replace(/^AS |\(\w+\)|\(\d+\)/g, "").trim()).filter(p => p && p.length > 3 && p !== f.name && !f.name.includes(p));
-    return names.some(p => c.headline.includes(p)) || (RESULTY.test(c.headline) && c.date - Date.parse(i.when) <= 40 * 36e5);
+    return names.some(p => c.headline.includes(p)) || (RESULTY.test(c.headline) && c.n >= 2 && c.date - Date.parse(i.when) <= 40 * 36e5);
   });
   for (const f of names) {
     const cap = { "die-hard": 4, follow: 2, "big-moments": 1 }[care(f)] ?? 1, min = care(f) === "big-moments" ? 2 : 1;
