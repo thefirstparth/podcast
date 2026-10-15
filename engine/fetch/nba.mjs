@@ -20,7 +20,7 @@ export async function team({ espn_abbr: abbr, name }, { since, until }) {
     g.facts = { won: m > 0, lost: m < 0, drew: false, big: Math.abs(m) >= 15, close: Math.abs(m) <= 5, stage: /playoff/i.test(g.kind) ? "knockout" : "league", preseason: /pre/i.test(g.kind || "") };
   }
   const fixtures = all.filter(g => !g.completed && Date.parse(g.date) <= until && Date.parse(g.date) > Date.now() - 3 * 36e5);
-  return { name, results, fixtures };
+  return { name, results, fixtures, next: all.find(g => !g.completed && Date.parse(g.date) > Date.now() - 3 * 36e5) || null };
 }
 
 export async function roster({ espn_abbr: abbr }) {

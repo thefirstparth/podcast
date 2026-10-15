@@ -1,6 +1,6 @@
 # Parked: Sports for everyone (Parth, 15 Oct 2026)
 
-**Status: parked again on 16 Oct (Parth).** To pick up after the podcast is done. Nothing is built for it yet. The review of /sport and the four open decisions below are kept as they are.
+**Status: parked again on 15 Oct (Parth).** To pick up after the podcast is done. Nothing is built for it yet. The review of /sport and the four open decisions below are kept as they are.
 
 ## What Parth asked
 Look at The House of 1400's sport app (https://house14.vercel.app/sport) and answer two things:

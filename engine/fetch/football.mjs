@@ -123,7 +123,9 @@ export async function team({ espn_id: id, sofascore_id: ssId, name, league }, { 
     r.arc = arcOf(story.goals, r.facts.won ? "won" : r.facts.lost ? "lost" : "drew");
   }
   const around = tbl ? (() => { const i = tbl.findIndex(t => t.id === String(id)); return i < 0 ? null : { league, rows: tbl.slice(0, Math.max(4, i + 2)) }; })() : null;
-  return { name, id: String(id), results, fixtures, table: around };
+  // the next match whatever its date (an international break leaves the seven days empty)
+  const nextMatch = next.filter(r => !r.completed && Date.parse(r.date) > Date.now() - 3 * 36e5).sort((a, b) => a.date.localeCompare(b.date))[0] || null;
+  return { name, id: String(id), results, fixtures, next: nextMatch, table: around };
 }
 
 // The squad's names (for matching news to the team)

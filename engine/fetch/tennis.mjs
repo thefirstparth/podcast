@@ -30,6 +30,22 @@ export function player(matches, name, { since, until }) {
   return { name, results, fixtures: next };
 }
 
+// The tournaments starting in the next three weeks (ESPN's scoreboard by date), with the players in each draw once it
+// is out. Before the draw, nobody is listed: no free source says who has entered, so a player's next tournament is
+// known only from the draw.
+export async function calendar(tour = "atp", weeks = 3) {
+  const day = d => new Date(Date.now() + d * 864e5).toISOString().slice(0, 10).replace(/-/g, "");
+  const boards = await Promise.all(Array.from({ length: weeks + 1 }, (_, k) => getJSON(`${ESPN}/${tour}/scoreboard?dates=${day(k * 7)}`).catch(() => ({ events: [] }))));
+  const ev = new Map();
+  for (const j of boards) for (const e of j.events || []) {
+    if (ev.has(e.name)) continue;
+    const players = new Set();
+    for (const g of e.groupings || []) if (/singles/i.test(g.grouping?.displayName || "")) for (const c of g.competitions || []) for (const x of c.competitors || []) if (x.athlete?.displayName) players.add(x.athlete.displayName);
+    ev.set(e.name, { name: e.name, start: e.date, end: e.endDate || null, players: [...players] });
+  }
+  return [...ev.values()].sort((a, b) => a.start.localeCompare(b.start));
+}
+
 // Semi-finals and finals of the tournaments on now, whoever played
 export const bigMatches = (matches, { since }) => matches.filter(m => m.state === "post" && Date.parse(m.date) >= since && /^(final|semifinal|semi-final|semifinals)$/i.test(m.round || ""));
 

@@ -269,6 +269,7 @@
     }
   ],
   "title": "Side Effects of Sports",
+  "standing": false,
   "signoff": "That's Side Effects of Sports for today. Same time tomorrow.",
   "text_models": [
     "gemini-3.8-flash",

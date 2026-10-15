@@ -128,9 +128,18 @@ export async function team({ cricbuzz_id: id = 2, sofascore_id: ssId, name }, { 
   const fixtures = all.filter(m => m.state !== "done" && Date.parse(m.start) <= until && Date.parse(m.start) > Date.now() - 12 * 36e5);
   // the series each result belongs to, as played so far
   // (one format at a time: a tour of Tests and T20Is is two series to a listener)
-  const series = [...new Map(results.map(r => [`${r.series}|${r.format}`, r])).values()].map(r => {
-    const s = r.series, ms = all.filter(m => m.series === s && m.format === r.format), done = ms.filter(m => m.state === "done");
-    return { name: s, format: r.format, played: done.length, total: ms.length, won: done.filter(m => m.won === true).length, lost: done.filter(m => m.won === false).length, left: ms.filter(m => m.state !== "done").map(m => ({ desc: m.desc, start: m.start, city: m.city })) };
-  });
-  return { name, results, fixtures, series, source: src };
+  const sum = (s, format) => {
+    const ms = all.filter(m => m.series === s && m.format === format), done = ms.filter(m => m.state === "done");
+    return { name: s, format, opponent: ms[0]?.opponent || null, played: done.length, total: ms.length, won: done.filter(m => m.won === true).length, lost: done.filter(m => m.won === false).length, left: ms.filter(m => m.state !== "done").map(m => ({ desc: m.desc, start: m.start, city: m.city })) };
+  };
+  const series = [...new Map(results.map(r => [`${r.series}|${r.format}`, r])).values()].map(r => sum(r.series, r.format));
+  // Where things stand, whatever the window (Parth, 15 Oct: always know the series score, the next match and the
+  // next series): the series under way (some played, some left), then the first series after them
+  const keys = [...new Set(all.map(m => `${m.series}|${m.format}`))].map(k => k.split("|"));
+  const running = keys.map(([s, f]) => sum(s, f)).filter(s => s.played > 0 && s.left.length);
+  const busy = new Set(running.map(s => s.name)), soon = all.filter(m => m.state !== "done" && Date.parse(m.start) > Date.now() - 12 * 36e5);
+  const nextName = soon.find(m => !busy.has(m.series))?.series || null, nm = soon.filter(m => m.series === nextName);
+  const counts = {}; for (const m of nm) counts[m.format] = (counts[m.format] || 0) + 1;
+  const nextSeries = nextName ? { name: nextName, opponent: nm[0].opponent, from: nm[0].start, to: nm.at(-1).start, counts, first: { desc: nm[0].desc, start: nm[0].start, city: nm[0].city } } : null;
+  return { name, results, fixtures, series, running, next: soon[0] || null, next_series: nextSeries, source: src };
 }
