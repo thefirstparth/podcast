@@ -103,3 +103,4 @@
   3. The writer is told that two stories can be one piece of news in other words, to be told once.
 
   Same window afterwards: 7.2 minutes planned, no wrong Warriors, Vienna under Alcaraz only.
+- **Quiet days keep their stories** (Parth, 15 Oct: "keep as it is"): up to 4 stories per die-hard and 2 per follow, so a day with no results is still about 7 minutes of news, where things stand and the coming week.
