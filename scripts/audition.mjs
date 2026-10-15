@@ -3,7 +3,7 @@
 // candidate and an Anchor candidate; Gemini voices two speakers in one take), so seven voices cost four requests of the
 // rehearsal key's day. Nothing is published: the MP3s go to rehearsals/voices/<date>/ for him to play.
 //   GEMINI_KEY_REHEARSAL=... node scripts/audition.mjs
-import { writeFileSync, mkdirSync, rmSync, readFileSync } from "node:fs";
+import { writeFileSync, mkdirSync, rmSync, readFileSync, existsSync, readdirSync } from "node:fs";
 import { execFileSync } from "node:child_process";
 
 const KEY = process.env.GEMINI_KEY_REHEARSAL;
@@ -50,19 +50,25 @@ async function voice(fan, anchor, opt = {}) {
 
 const rate = mime => Number(String(mime || "").match(/rate=(\d+)/)?.[1]) || 24000;
 const made = [];
+// a clip already made by an earlier run of this round is kept and not made again (15 Oct: round 3's first run hit
+// the day's voice limit after one clip)
+const kept = [];
 for (const [i, [fan, anchor, opt = {}]] of PAIRS.entries()) {
+  const name = `${i + 1}-fan-${fan}-anchor-${anchor}${opt.label ? `-${opt.label.toLowerCase().replace(/\W+/g, "-")}` : ""}.mp3`;
+  const label = { i: i + 1, fan: `${fan}${opt.fan ? ` (${opt.fan})` : ""}`, anchor: `${anchor}${opt.anchor ? ` (${opt.anchor})` : ""}`, name };
+  if (existsSync(`${OUT}/${name}`)) { kept.push({ ...label, model: "an earlier run", secs: null }); continue; }
   try {
-    const { pcm, model, mime } = await voice(fan, anchor, opt), raw = `${OUT}/take.pcm`, name = `${i + 1}-fan-${fan}-anchor-${anchor}${opt.label ? `-${opt.label.toLowerCase().replace(/\W+/g, "-")}` : ""}.mp3`;
+    const { pcm, model, mime } = await voice(fan, anchor, opt), raw = `${OUT}/take.pcm`;
     writeFileSync(raw, pcm);
     execFileSync("ffmpeg", ["-loglevel", "error", "-y", "-f", "s16le", "-ar", String(rate(mime)), "-ac", "1", "-i", raw, "-af", "loudnorm=I=-16:TP=-1.5", "-ar", "44100", "-codec:a", "libmp3lame", "-b:a", "96k", `${OUT}/${name}`]);
     rmSync(raw);
-    made.push({ i: i + 1, fan: `${fan}${opt.fan ? ` (${opt.fan})` : ""}`, anchor: `${anchor}${opt.anchor ? ` (${opt.anchor})` : ""}`, name, model, secs: Math.round(pcm.length / 2 / rate(mime)) });
+    made.push({ ...label, model, secs: Math.round(pcm.length / 2 / rate(mime)) });
   } catch (e) { console.log(`audition: pair ${i + 1} not made: ${e.message}`); if (asks >= CAP) break; }
 }
 const L = [`# Voice audition, ${ROUND.id} (${day})`, "", `${PAIRS.some(p => p[2]) ? "Accents as labelled." : "No accent was asked for, so each voice is heard as it is."} The Fan says two lines (${FAN.map(l => l.style).join("; then ")}), then the Anchor says two (calm, then a question).`, ROUND.note || "", "",
-  "| Clip | Fan voice | Anchor voice | Length | Listen |", "|---|---|---|---|---|", ...made.map(m => `| ${m.i} | ${m.fan} | ${m.anchor} | ${m.secs} s | [${m.name}](${encodeURIComponent(m.name)}) |`), "",
+  "| Clip | Fan voice | Anchor voice | Length | Listen |", "|---|---|---|---|---|", ...[...kept, ...made].sort((a, b) => a.i - b.i).map(m => `| ${m.i} | ${m.fan} | ${m.anchor} | ${m.secs == null ? "" : `${m.secs} s`} | [${m.name}](${encodeURIComponent(m.name)}) |`), "",
   `Made with ${made[0]?.model || "no model"}, ${asks} voice request(s) of the rehearsal key.`, "", "Google's own one-word descriptions: Fenrir excitable, Puck upbeat, Sadachbia lively, Umbriel easy-going, Zubenelgenubi casual, Algieba smooth; Algenib gravelly, Charon informative, Sadaltager knowledgeable, Orus firm."];
 writeFileSync(`${OUT}/README.md`, L.join("\n"));
-if (made.length) { ROUND.made = day; writeFileSync(`${H}config/voices.json`, JSON.stringify(V, null, 2) + "\n"); }
+if (kept.length + made.length === PAIRS.length) { ROUND.made = day; writeFileSync(`${H}config/voices.json`, JSON.stringify(V, null, 2) + "\n"); }
 console.log(`audition: ${made.length} clip(s), ${asks} request(s) -> rehearsals/voices/${day}/`);
-if (!made.length) process.exit(1);
+if (!made.length && !kept.length) process.exit(1);
