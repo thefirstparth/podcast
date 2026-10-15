@@ -84,4 +84,5 @@
 - The hosts never call the listener by name (Parth: no). The writer's rule and its check stay as they are.
 - The show's title and cover art come from Parth (he is working on them with ChatGPT). The cover goes in the repo root as cover.jpg; every publish copies it to the feed.
 - The daily run starts at 12:28 IST, with a backup at 12:43 (Parth, 15 Oct: 12:17 was more margin than needed). Usually live by about 12:38; still before 13:00 after one hiccup. IST has no daylight saving and the run is scheduled in UTC, so 12:28 IST holds all year; the Gemini reset (12:30 or 13:30 IST) does not matter because the live key is used once a day.
-- The show is called **Side Effects of Sport** (Parth, for now). It is the feed's title, the writer knows it, and the sign-off is "That's Side Effects of Sport for today. Same time tomorrow."
+- The show is called **Side Effects of Sports** (Parth, 15 Oct: "Sports is better" than Sport). It is the feed's title, the writer knows it, and the sign-off is "That's Side Effects of Sports for today. Same time tomorrow."
+- The cover (Parth chose it from Claude's drafts): a capsule on pitch green, one half an F1 hairpin, the other half a cricket ball, a football, a basketball and a tennis ball; "Take daily" with no time, so a friend with another time can use it. `cover.jpg` in the root, 3000 x 3000, made by `design/cover.mjs`.

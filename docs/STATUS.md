@@ -10,10 +10,11 @@
 - **The episode run** (`engine/episode.mjs`, workflow `episode`): pack, script, voices (each host alone, every cut heard by the listening check), the 14:00 show's two-mic studio, the MP3 and transcript, then in live mode the GitHub Release, the feed (gh-pages) and the memory of what was said. No backup voice: a failed day nudges the listener to tell Parth. Live mode and the schedule are switched off until agreed.
 
 ## Next, in order
-1. **Host names**: Parth is asking ChatGPT (`research/PROMPT-NAMES.md`).
-2. **Technical test** (built, waiting for the voice limits to reset at 12:30 IST): Actions, then episode, then Run workflow with mode **test**. The full run on the rehearsal key, nothing published, about 3 writer and up to 6 voice requests. Claude checks it; Parth may listen to the MP3 in the run's artifacts.
-3. **Before the first real episode** (Parth's steps, one at a time): make the repo public; turn on GitHub Pages (source: the gh-pages branch); agree how `GEMINI_KEY_LIVE` is used (it moves into a GitHub environment that only the daily run can open). Then the daily schedule is switched on: the run starts at 12:17 IST, the episode is ready by 13:00, and the first scheduled run is the first episode.
-4. **Cover art** (needed before the feed is added to a podcast app) and the show's title.
+1. **The first real episode**: today, 15 Oct, at 12:28 IST (backup 12:43), live by 13:00. Claude watches it.
+2. **Parth's verdict** on Kylo, Dhruv and the episode, turned into rules.
+3. **main** is created from this branch after the first good episode.
+
+Done: host names (Kylo and Dhruv), the title (Side Effects of Sports) and the cover (`cover.jpg`, made by `design/cover.mjs`).
 
 ## Parked
 - Sports for everyone (`docs/PARKED.md`).
