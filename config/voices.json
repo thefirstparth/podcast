@@ -1,20 +1,63 @@
 {
   "note": "Voice auditions (scripts/audition.mjs, workflow 'voices'). Each round pairs Fan candidates with Anchor candidates, two voices a request, on the rehearsal key. Parth's verdicts are kept here so the next round builds on them.",
-  "chosen": { "anchor": "Algenib", "fan": null },
+  "chosen": {
+    "anchor": "Algenib",
+    "fan": null
+  },
   "rounds": [
     {
       "id": "round-1",
       "made": "2026-10-15",
-      "pairs": [["Fenrir", "Algenib"], ["Puck", "Charon"], ["Sadachbia", "Sadaltager"], ["Fenrir", "Orus"]],
-      "fan_style": { "excited": "an excited sports fan, thrilled", "gutted": "a sports fan, gutted and quiet" },
+      "pairs": [
+        [
+          "Fenrir",
+          "Algenib"
+        ],
+        [
+          "Puck",
+          "Charon"
+        ],
+        [
+          "Sadachbia",
+          "Sadaltager"
+        ],
+        [
+          "Fenrir",
+          "Orus"
+        ]
+      ],
+      "fan_style": {
+        "excited": "an excited sports fan, thrilled",
+        "gutted": "a sports fan, gutted and quiet"
+      },
       "verdict": "Parth: Algenib liked, very mature (Anchor chosen). Fenrir hated, too excited. Puck slightly too excited, somewhat better. Sadachbia still slightly too excited. Charon hated, very bland. Sadaltager too bland. Orus not liked."
     },
     {
       "id": "round-2",
-      "made": null,
+      "made": "2026-10-15",
       "note": "Proposed 15 Oct, not run yet: the Anchor stays Algenib; four calmer Fan candidates, and the Fan's direction toned down (round 1 asked for 'excited, thrilled', which pushed every voice over the top). Puck comes back once, to hear whether the calmer direction alone fixes him.",
-      "pairs": [["Puck", "Algenib"], ["Umbriel", "Algenib"], ["Zubenelgenubi", "Algenib"], ["Algieba", "Algenib"]],
-      "fan_style": { "excited": "a young sports fan, happy and animated but natural, not shouting", "gutted": "a young sports fan, disappointed and quiet" },
+      "pairs": [
+        [
+          "Puck",
+          "Algenib"
+        ],
+        [
+          "Umbriel",
+          "Algenib"
+        ],
+        [
+          "Zubenelgenubi",
+          "Algenib"
+        ],
+        [
+          "Algieba",
+          "Algenib"
+        ]
+      ],
+      "fan_style": {
+        "excited": "a young sports fan, happy and animated but natural, not shouting",
+        "gutted": "a young sports fan, disappointed and quiet"
+      },
       "verdict": null
     }
   ]
