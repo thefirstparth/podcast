@@ -15,7 +15,7 @@
 3. **main** is created from this branch after the first good episode.
 4. **Where things stand** (built 15 Oct, switched off for the first episode): turn `standing` on in config/show.json after it, then a rehearsal shows how the writer says it.
 
-Done: host names (Kylo and Dhruv), the title (Side Effects of Sports) and the cover (`cover.jpg`, made by `design/cover.mjs`).
+Done: host names (Kylo and Dhruv), the title (Side Effects of Sports), the cover (the green capsule, `cover.jpg`, made by `design/cover.mjs`), the feed site with a front page, one story told once, the guide for friends (`docs/MAKE-YOUR-OWN.md`, `scripts/find-ids.mjs`) and the Sports for everyone plan (`docs/SPORTS-FOR-EVERYONE.md`, decisions waiting in its section 12).
 
 ## Parked
 - Sports for everyone (`docs/PARKED.md`).
