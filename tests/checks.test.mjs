@@ -27,3 +27,9 @@ test("a name not in the pack goes back", () => {
   const s = [...base]; s[5] = t("die-hard", "Anchor", "happy", "And Ancelotti would have loved it.");
   assert.match(checkScript(s, pack, { rivals }).map(x => x.msg).join(" | "), /Ancelotti/);
 });
+test("what is not known is left out, never announced", () => {
+  const s = [...base]; s[3] = t("die-hard", "Fan", "elated", "And Alcaraz? No news yet on where he plays next.");
+  assert.match(checkScript(s, pack, { rivals }).map(x => x.msg).join(" | "), /not known/);
+  const ok = [...base]; ok[3] = t("die-hard", "Fan", "elated", "The decider is on Saturday in Bengaluru. Nothing like a decider.");
+  assert.doesNotMatch(checkScript(ok, pack, { rivals }).map(x => x.msg).join(" | "), /not known/);
+});

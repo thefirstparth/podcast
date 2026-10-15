@@ -6,6 +6,7 @@ const fold = t => String(t).normalize("NFD").replace(/[̀-ͯ]/g, "").toLowerCase
 const CONNECTORS = /\b(turning to|in other news|moving on|let'?s look at|let us look at|meanwhile|stay tuned)\b/i;
 const WRITTEN = /\b(pivotal|underscores?|testament|landscape|delve|navigat(e|es|ing)|robust|seamless(ly)?|notably|showcas(e|es|ing))\b/i;
 const BIG = ["stunning", "incredible", "historic", "sensational", "unbelievable", "masterclass", "nightmare", "epic", "extraordinary", "remarkable", "astonishing"];
+const ABSENT = /\b(no (?:news|word|update|data|information|details) (?:yet |so far )?(?:on|about|from)|nothing (?:yet|so far) (?:on|about|from)|(?:not|isn't|hasn't been|haven't been|yet to be) (?:announced|confirmed|known) yet|yet to be (?:announced|confirmed)|we don't (?:know|have) (?:yet|anything)|no idea (?:yet )?(?:where|when|which)|nothing to report)\b/i;
 const PROCESS = /\b(sources?|the pack|data pack|script|prompt|rundown|we checked|according to our|feeds?)\b/i;
 const PERSONAL = /\b(injur(y|ed|ies)|hamstring|knee|ankle|surgery|ill|illness|sick|hospital|died|death|family|wife|baby|funeral|grief)\b/i;
 const SAD = new Set(["gutted", "angry", "heartbroken", "frustrated"]);
@@ -35,6 +36,8 @@ export function checkScript(turns, pack, { hosts = ["Fan", "Anchor"], rivals = [
     if (CONNECTORS.test(t.text)) soft(`stock connector "${t.text.match(CONNECTORS)[0]}": change the subject the way friends do`);
     if (WRITTEN.test(t.text)) soft(`"${t.text.match(WRITTEN)[0]}" is a written word nobody says out loud`);
     if (PROCESS.test(t.text)) soft(`talks about how the show is made ("${t.text.match(PROCESS)[0]}")`);
+    // what is not known is left out, never announced (Parth, 15 Oct: no data, no line)
+    if (ABSENT.test(t.text)) soft(`talks about something not known ("${t.text.match(ABSENT)[0]}"): leave it out`);
     if (listener && new RegExp(`\\b${listener}\\b`, "i").test(t.text)) soft("the listener is addressed by name");
   }
   for (const w of BIG) { const k = (fold(all).match(new RegExp(`\\b${w}\\b`, "g")) || []).length; if (k > 1) soft(`"${w}" used ${k} times: once an episode, earned`); }

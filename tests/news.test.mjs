@@ -64,3 +64,20 @@ test("a skip word rules the whole story out (women's cricket is not India men, 1
   assert.equal(india.skips("Smriti Mandhana set for new chapter as India captain"), true);
   assert.equal(india.test("Shai Hope's 102 gives West Indies series-levelling win over India"), true);
 });
+
+test("one story in pieces is told once; a shared name or competition never joins two stories", async () => {
+  const { storyIndex, sameStory } = await import("../engine/fetch/news.mjs");
+  const c = (...titles) => ({ titles });
+  const sixA = c("Six Kings Slam 2026 postponed to December amid Houthi attacks on Saudi Arabia", "Saudi tennis 'slam' with Alcaraz, Djokovic postponed amid Houthi attacks");
+  const sixB = c("Six Kings Slam postponed to December, clashes with 2027 season", "Carlos Alcaraz's schedule complaints to be tested as Six Kings Slam postponed");
+  const sixC = c("Six Kings Slam exhibition event postponed for 'logistical reasons' amid Riyadh airstrikes", "Six Kings Slam postponed amid Riyadh security concerns as Alcaraz and Djokovic affected");
+  const gpA = c("Tom Hart to stand in as Max Verstappen's race engineer at the United States Grand Prix");
+  const gpB = c("Lando Norris eyes the title at the United States Grand Prix");
+  const clA = c("Kane threatens a Champions League record of Cristiano Ronaldo"), clB = c("What to watch in the UEFA Champions League: all eyes on City");
+  const all = [sixA, sixB, sixC, gpA, gpB, clA, clB];
+  const ix = storyIndex(all, ["Carlos Alcaraz", "Novak Djokovic", "Max Verstappen", "Cristiano Ronaldo"]);
+  assert.equal(sameStory(sixA, sixB, ix), true);
+  assert.equal(sameStory(sixA, sixC, ix), true);
+  assert.equal(sameStory(gpA, gpB, ix), false);
+  assert.equal(sameStory(clA, clB, ix), false);
+});

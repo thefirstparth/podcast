@@ -240,6 +240,10 @@ export async function buildPack({ profile = json("profile.json"), show = json("c
   const rivalRx = (profile.rivals || []).map(who);
   const used = new Set();
   const news_items = [];
+  // one story in pieces is folded together (a fault here never stops the pack: the pieces stay as they were)
+  let stories = null;
+  try { stories = news.storyIndex(clusters, [...profile.follows, ...(profile.rivals || [])].flatMap(f => [f.name, ...(f.aliases || [])])); } catch (e) { errors.push(`story folding: ${e.message}`); }
+  const same = (a, b) => { try { return !!stories && news.sameStory(a, b, stories); } catch { return false; } };
   // A report of a match already in the pack (it names the opponent, or reads like a result) is colour for that result,
   // not a story of its own: the writer gets its text with the result.
   const results = items.filter(i => i.kind === "result" && i.stance !== "rival");
@@ -261,6 +265,9 @@ export async function buildPack({ profile = json("profile.json"), show = json("c
       if (results.some(i => i.subject === f.name && c.date < Date.parse(i.when) && i.line.split(/ \d+-\d+ | v |: | bt |, /).some(p => p && p.length > 3 && p !== f.name && !f.name.includes(p) && c.headline.includes(p.replace(/^AS /, ""))))) { used.add(c); continue; }
       const r = reportOf(c, f);
       if (r) { used.add(c); (r.reports ||= []).push(c); continue; }
+      // the same story as one already chosen for this subject: its outlets join that one (it takes no slot)
+      const twin = news_items.find(n => n.subject === f.name && same(n, c));
+      if (twin) { used.add(c); news.fold(twin, c); continue; }
       if (news_items.filter(n => n.subject === f.name).length >= cap) continue;
       used.add(c); news_items.push({ subject: f.name, care: care(f), ...c });
     }
@@ -270,8 +277,13 @@ export async function buildPack({ profile = json("profile.json"), show = json("c
   for (const f of profile.follows.filter(f => f.kind === "all")) {
     const cap = { "die-hard": 3, follow: 2, "big-moments": 1 }[care(f)] ?? 1;
     const ok = c => (f.sport !== "tennis" || c.titles.some(t => who({ ...f, aliases: f.aliases || [/women|wta/i.test(f.name) ? "WTA" : "ATP", "Davis Cup", "Six Kings"] }).test(t)));
-    for (const c of clusters.filter(c => !used.has(c) && c.sport === f.sport && c.n >= (care(f) === "big-moments" ? 3 : 2) && ok(c) && !c.titles.some(t => rivalRx.some(r => r.test(t)))).slice(0, cap)) {
-      used.add(c); news_items.push({ subject: f.name, care: care(f), ...c });
+    let took = 0;
+    for (const c of clusters.filter(c => !used.has(c) && c.sport === f.sport && c.n >= (care(f) === "big-moments" ? 3 : 2) && ok(c) && !c.titles.some(t => rivalRx.some(r => r.test(t))))) {
+      // a story already told for someone in this sport (the Six Kings Slam under Alcaraz) is not told twice
+      const twin = news_items.find(n => profile.follows.find(x => x.name === n.subject)?.sport === f.sport && same(n, c));
+      if (twin) { used.add(c); news.fold(twin, c); continue; }
+      if (took >= cap) break;
+      used.add(c); took++; news_items.push({ subject: f.name, care: care(f), ...c });
     }
   }
 

@@ -60,6 +60,41 @@ export function cluster(items) {
   }).sort((a, b) => b.n - a.n || b.date - a.date);
 }
 
+// One story that the first pass left in pieces (15 Oct: the Six Kings Slam postponement came out as three Alcaraz
+// stories, because a big story's own words are too common that day to count as rare). Two clusters are one story when
+// their headlines share two distinctive phrases, one of them three words or more ("six kings slam" and "postponed
+// december"). A phrase is distinctive when few of the day's clusters use it and it is not a followed name ("carlos
+// alcaraz", "real madrid"): a competition's name alone ("United States Grand Prix") never joins two stories.
+const tokens = t => String(t).toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/[^a-z0-9 ]/g, " ").split(/\s+/).filter(x => x.length > 2 && !STOP.has(x));
+const pairsIn = titles => new Set(titles.flatMap(t => { const w = tokens(t); return w.slice(1).map((x, i) => `${w[i]} ${x}`); }));
+export function storyIndex(clusters, names = []) {
+  const df = new Map(), ignore = new Set(names.flatMap(tokens));
+  for (const c of clusters) for (const p of pairsIn(c.titles)) df.set(p, (df.get(p) || 0) + 1);
+  return { df, ignore, lim: Math.max(6, Math.round(clusters.length * 0.008)) };
+}
+export function sameStory(a, b, { df, ignore, lim }) {
+  const pb = pairsIn(b.titles);
+  const shared = [...pairsIn(a.titles)].filter(p => pb.has(p) && (df.get(p) || 0) <= lim && !/\d/.test(p) && !p.split(" ").some(w => ignore.has(w)));
+  if (shared.length < 2) return false;
+  // phrases: overlapping pairs ("six kings", "kings slam") make one phrase
+  const root = shared.map((_, i) => i), find = i => (root[i] === i ? i : (root[i] = find(root[i])));
+  for (let i = 0; i < shared.length; i++) for (let j = i + 1; j < shared.length; j++) { const [a1, b1] = shared[i].split(" "), [a2, b2] = shared[j].split(" "); if (b1 === a2 || b2 === a1) root[find(i)] = find(j); }
+  const size = new Map(); for (let i = 0; i < shared.length; i++) size.set(find(i), (size.get(find(i)) || 0) + 1);
+  if (size.size >= 3 || (size.size >= 2 && [...size.values()].some(n => n >= 2))) return true;
+  // one long phrase is enough when it says what happened, not only whose or where: four words or more with an
+  // ordinary (lower-case) word in both headlines ("Six Kings Slam postponed amid"), never a name alone ("United States
+  // Grand Prix")
+  const low = titles => new Set(titles.flatMap(t => t.normalize("NFD").replace(/[\u0300-\u036f]/g, "").split(/[^A-Za-z0-9]+/).filter(w => /^[a-z]/.test(w) && w.length > 2 && !STOP.has(w))));
+  const la = low(a.titles), lb = low(b.titles);
+  return [...size.entries()].some(([r, n]) => n >= 3 && shared.some((p, i) => find(i) === r && p.split(" ").some(w => la.has(w) && lb.has(w))));
+}
+// fold cluster b into a (a keeps its headline)
+export function fold(a, b) {
+  a.titles = [...a.titles, ...b.titles]; a.outlets = [...new Set([...a.outlets, ...b.outlets])]; a.n = a.outlets.length; a.date = Math.max(a.date || 0, b.date || 0);
+  a.links = [...(a.links || []), ...(b.links || [])]; a.reports = [...(a.reports || []), ...(b.reports || [])].slice(0, 3);
+  return a;
+}
+
 // An article's text: the JSON-LD articleBody when the page has one, else its paragraphs. Copied from The House of
 // 1400 (lib/pool.js articleText), where it reads the day's pool. Only the opening is kept: enough for the writer to
 // tell the story in its own words, never to read it out.
