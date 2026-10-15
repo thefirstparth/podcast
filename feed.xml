@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd" xmlns:podcast="https://podcastindex.org/namespace/1.0">
+<channel>
+  <title>Side Effects of Sports</title>
+  <link>https://thefirstparth.github.io/podcast</link>
+  <description>A daily sports show made for one fan: what happened to his teams and players, felt the way he feels it, and what is coming next.</description>
+  <language>en-in</language>
+  <itunes:author>Parth Bhatia</itunes:author>
+  <itunes:owner><itunes:name>Parth Bhatia</itunes:name><itunes:email>parth@bhatia.page</itunes:email></itunes:owner>
+  <itunes:block>Yes</itunes:block>
+  <itunes:category text="Sports"/>
+  <itunes:explicit>false</itunes:explicit>
+  <itunes:image href="https://thefirstparth.github.io/podcast/cover.jpg"/>
+
+</channel>
+</rss>
