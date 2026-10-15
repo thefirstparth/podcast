@@ -31,7 +31,7 @@ export function forWriter(P) {
 
 export function prompt(P, show) {
   const [A, B] = show.hosts;
-  return `You write the script of a daily sports podcast made for one listener, from the facts below. Two hosts talk it through like friends who follow sport closely. It is radio, made to be heard: short spoken sentences, real reactions, never a bulletin read aloud.
+  return `You write the script of ${show.title ? `"${show.title}", ` : ""}a daily sports podcast made for one listener, from the facts below. Two hosts talk it through like friends who follow sport closely. It is radio, made to be heard: short spoken sentences, real reactions, never a bulletin read aloud.
 
 THE HOSTS
 - ${A.id}: ${A.about}

@@ -268,8 +268,8 @@
       "about": "the Anchor. Older in temperament, gravelly, precise and composed. Keeps the facts straight, explains the table and the series, asks the question a listener would, and quietly exposes Kylo's nonsense. Leads Around the grounds and Coming up."
     }
   ],
-  "title": "Sports show (working title)",
-  "signoff": "That's the show. Same time tomorrow.",
+  "title": "Side Effects of Sport",
+  "signoff": "That's Side Effects of Sport for today. Same time tomorrow.",
   "text_models": [
     "gemini-3.8-flash",
     "gemini-3.7-flash",
