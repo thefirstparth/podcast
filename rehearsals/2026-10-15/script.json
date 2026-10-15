@@ -2,358 +2,232 @@
   "best": {
     "turns": [
       {
-        "speaker": "Fan",
-        "segment": "cold-open",
-        "mood": "elated",
-        "text": "Real Madrid were dead and buried at three-one down against AS Roma. Then three goals in seven manic minutes! Absolute madness."
-      },
-      {
-        "speaker": "Anchor",
-        "segment": "cold-open",
-        "mood": "calm",
-        "text": "Good morning. What an unbelievable finish in the Champions League."
-      },
-      {
-        "speaker": "Fan",
+        "speaker": "Kylo",
         "segment": "die-hard",
-        "mood": "elated",
-        "text": "I still cannot wrap my head around that Madrid match. My heart was in my mouth when Malen made it three-one."
+        "mood": "astonished",
+        "text": "Three goals in the final six minutes. I swear, my heart cannot take this team anymore."
       },
       {
-        "speaker": "Anchor",
+        "speaker": "Dhruv",
         "segment": "die-hard",
-        "mood": "curious",
-        "text": "How on earth did they turn that around from three-one down?"
+        "mood": "composed",
+        "text": "Down 3-1 at the Stadio Olimpico, and they still walked out 4-3 winners. How did they pull that off?"
       },
       {
-        "speaker": "Fan",
+        "speaker": "Kylo",
         "segment": "die-hard",
         "mood": "passionate",
-        "text": "Pure Champions League madness! AS Roma took the lead at twenty minutes through Marten de Roon from Matìas Soulè. Kylian Mbappé leveled five minutes later from Yan Diomande. But early in the second half, AS Roma tore through our defence. Donyell Malen scored in the fifty-first from Rodrigo Mora, and struck again in the fifty-seventh, Soulè setting him up again. Three-one down. Madrid had three straight wins coming in, but we looked done."
+        "text": "Pure madness! Marten de Roon scored first for Roma, but Kylian Mbappé pulled it back before the break on his hundredth Champions League appearance. Then early in the second half, Donyell Malen scored twice in six minutes. At 3-1, Roma were running rampant."
       },
       {
-        "speaker": "Anchor",
+        "speaker": "Dhruv",
         "segment": "die-hard",
-        "mood": "impressed",
-        "text": "Then the eighty-third minute arrived."
+        "mood": "analytical",
+        "text": "It looked completely out of reach. José Mourinho was back in Rome for their first home Champions League fixture in more than seven years. The crowd had banners and chants honoring his two and a half years there, winning the Conference League and reaching the Europa League final."
       },
       {
-        "speaker": "Fan",
+        "speaker": "Kylo",
         "segment": "die-hard",
         "mood": "elated",
-        "text": "Carlos Espí scores to make it two-three. Two minutes later, Arda Güler crosses and Endrick heads home the equalizer! Then in the ninetieth, Güler finds Antonio Rüdiger for a volleyed winner! Four-three!"
+        "text": "And then his substitutions changed everything. Endrick came on in the fifty-ninth minute and set up Carlos Espí with a header. Then Endrick scored the equaliser himself, and Antonio Rüdiger bundled in the winner against his old club. Three corners, three goals in six minutes."
       },
       {
-        "speaker": "Anchor",
-        "segment": "die-hard",
-        "mood": "analytical",
-        "text": "Jose Mourinho gets a dramatic win on his return against AS Roma. He said afterwards that Real Madrid were impossible to stop and AS Roma's players were dead."
-      },
-      {
-        "speaker": "Fan",
-        "segment": "die-hard",
-        "mood": "excited",
-        "text": "They could not stop that surge! It was Mbappé’s hundredth Champions League appearance too. But the massive headache right now is off the pitch."
-      },
-      {
-        "speaker": "Anchor",
-        "segment": "die-hard",
-        "mood": "curious",
-        "text": "You mean the Vinicius Junior suspension?"
-      },
-      {
-        "speaker": "Fan",
-        "segment": "die-hard",
-        "mood": "angry",
-        "text": "Four matches! He misses El Clasico against Barcelona on October twenty-fifth!"
-      },
-      {
-        "speaker": "Anchor",
-        "segment": "die-hard",
-        "mood": "surprised",
-        "text": "Four games for pulling hair?"
-      },
-      {
-        "speaker": "Fan",
-        "segment": "die-hard",
-        "mood": "indignant",
-        "text": "Nathan Saliba’s hair! Against Villarreal, Vini came on in the fifty-second minute, thought he scored twenty minutes later, and then VAR intervened. Disallowed goal, red card. The committee gave him two games for violent conduct without the ball, and two extra games for arguing aggressively with the referee while teammates restrained him!"
-      },
-      {
-        "speaker": "Anchor",
-        "segment": "die-hard",
-        "mood": "exact",
-        "text": "That rules him out against Sevilla, Barcelona, Racing Santander, and Valencia."
-      },
-      {
-        "speaker": "Fan",
-        "segment": "die-hard",
-        "mood": "concerned",
-        "text": "Mourinho skipped the post-match press conference, but told TNT Sports Brazil it is only a matter of time before Vini returns to his best. He backed him completely, saying he decided to help him after the Atletico Madrid derby. Vini signed a new deal this summer, turning down Arsenal, but his form has really dipped."
-      },
-      {
-        "speaker": "Anchor",
-        "segment": "die-hard",
-        "mood": "measured",
-        "text": "The timing is brutal because authorities declared that Clasico at Spotify Camp Nou a high-risk fixture. Hansi Flick’s Barcelona sit top with ten wins from ten matches across all competitions. Real Madrid are fourth, six points back, having already lost to Real Betis and Atletico Madrid."
-      },
-      {
-        "speaker": "Fan",
-        "segment": "die-hard",
-        "mood": "sombre",
-        "text": "A loss there spells real trouble for the title race. But if Madrid brought joy, Hyderabad brought utter heartbreak."
-      },
-      {
-        "speaker": "Anchor",
-        "segment": "die-hard",
-        "mood": "serious",
-        "text": "West Indies beat India by twenty-four runs in the fourth T20 international."
-      },
-      {
-        "speaker": "Fan",
-        "segment": "die-hard",
-        "mood": "gutted",
-        "text": "I am gutted. Why did India bowl first on that pitch?"
-      },
-      {
-        "speaker": "Anchor",
+        "speaker": "Dhruv",
         "segment": "die-hard",
         "mood": "matter-of-fact",
-        "text": "India went in unchanged and chased, hoping the refreshed Uppal track would behave differently. Instead, it was that same batting paradise."
+        "text": "Espí called it absolute madness. Captain Federico Valverde praised the determination of the replacements to keep fighting. Though Vinícius Júnior has been handed a four-match ban for pulling an opponent's hair against Villarreal, which Endrick called unbelievable."
       },
       {
-        "speaker": "Fan",
-        "segment": "die-hard",
-        "mood": "gutted",
-        "text": "West Indies made two changes and smashed two hundred and forty-seven for three! Shai Hope broke Chris Gayle’s record and joined Kohli in an elite list. India fell twenty-four runs short, bowled out for two hundred and twenty-three in nineteen point three overs. Even Keemo Paul celebrating Naman Dhir's wicket stung."
-      },
-      {
-        "speaker": "Anchor",
-        "segment": "die-hard",
-        "mood": "probing",
-        "text": "That ties the five-match series at two-all heading to Saturday's decider in Bengaluru. Can India bounce back?"
-      },
-      {
-        "speaker": "Fan",
+        "speaker": "Kylo",
         "segment": "die-hard",
         "mood": "frustrated",
-        "text": "They must. In the third match, India won by fourteen runs because Abhishek Sharma smashed sixty-nine off thirty balls. Cheteshwar Pujara was on JioStar comparing Abhishek's eighteen-ball fifty to Chris Gayle! But our bowling in Hyderabad just collapsed."
+        "text": "Right, Hyderabad. That was a rough night."
       },
       {
-        "speaker": "Anchor",
+        "speaker": "Dhruv",
         "segment": "die-hard",
-        "mood": "informative",
-        "text": "On the women’s side, Smriti Mandhana begins as full-time captain on Friday in Raipur against Zimbabwe."
+        "mood": "measured",
+        "text": "A twenty-four run defeat to the West Indies. That levels the five-match series at 2-2."
       },
       {
-        "speaker": "Fan",
+        "speaker": "Kylo",
         "segment": "die-hard",
-        "mood": "hopeful",
-        "text": "Only Mithali Raj and Harmanpreet Kaur held that full-time role over the last fourteen years. Mandhana is twenty-nine now, taking over after back-to-back early exits in T20 World Cups."
+        "mood": "deflated",
+        "text": "Shai Hope took the game away. An unbeaten 102 off fifty deliveries to push them to 247 for three."
       },
       {
-        "speaker": "Anchor",
+        "speaker": "Dhruv",
         "segment": "die-hard",
-        "mood": "exact",
-        "text": "They have three T20Is and three ODIs against Zimbabwe, preparing for the Women's Champions Trophy in February 2027. Mandhana said this bilateral will establish a clear blueprint for their T20 approach."
+        "mood": "composed",
+        "text": "India came out swinging, though. Sanju Samson hit fifty-six off twenty-three balls, striking four sixes to reach 102 career sixes in T20 internationals."
       },
       {
-        "speaker": "Fan",
+        "speaker": "Kylo",
         "segment": "die-hard",
-        "mood": "content",
-        "text": "A fresh start was needed. Hopefully this sets the tone."
+        "mood": "impressed",
+        "text": "Only the sixth Indian batter to hit a hundred T20I sixes, behind Rohit, Surya, Abhishek Sharma, Hardik, and Kohli. But Keemo Paul picked up five wickets. He removed Sanju and Ishan Kishan in the fifth over, and the chase unraveled."
       },
       {
-        "speaker": "Anchor",
+        "speaker": "Dhruv",
         "segment": "die-hard",
-        "mood": "calm",
-        "text": "In Formula One, Laurent Mekies signed a contract extension to remain Red Bull CEO and Team Principal through 2031."
+        "mood": "precise",
+        "text": "Tilak Varma fought hard with forty-three off twenty-five, but Samson singled out Tilak's dismissal as the turning point. India ended on 223 in nineteen point three overs."
       },
       {
-        "speaker": "Fan",
+        "speaker": "Kylo",
         "segment": "die-hard",
-        "mood": "pleased",
-        "text": "Deserved. Mekies arrived from Racing Bulls in July 2025, worked through a tough start, and Max Verstappen just delivered back-to-back wins in Malaysia and Singapore."
+        "mood": "indignant",
+        "text": "Why bowl bouncers at the tailender when the game was already done?"
       },
       {
-        "speaker": "Anchor",
-        "segment": "die-hard",
-        "mood": "detailed",
-        "text": "That Baku upgrade in round fifteen made the RB22 predictable and driveable again. But Max faces a huge change on his pit wall."
-      },
-      {
-        "speaker": "Fan",
-        "segment": "die-hard",
-        "mood": "nostalgic",
-        "text": "GianPiero Lambiase has been Max’s race engineer since 2016! He is moving to McLaren as chief racing officer no later than 2028."
-      },
-      {
-        "speaker": "Anchor",
-        "segment": "die-hard",
-        "mood": "exact",
-        "text": "Tom Hart will stand in for Lambiase for three races starting in Austin, before taking over full-time from 2027. Hart chose Red Bull over Williams."
-      },
-      {
-        "speaker": "Fan",
-        "segment": "die-hard",
-        "mood": "eager",
-        "text": "And Max is racing in Portimão this weekend in the GT World Challenge Endurance finale, driving a Mercedes AMG GT3 EVO against Valentino Rossi in a BMW M4 GT3 EVO."
-      },
-      {
-        "speaker": "Anchor",
-        "segment": "die-hard",
-        "mood": "informative",
-        "text": "In tennis, Carlos Alcaraz and Novak Djokovic will not play the Six Kings Slam in Riyadh next week. It is postponed to late December."
-      },
-      {
-        "speaker": "Fan",
+        "speaker": "Dhruv",
         "segment": "die-hard",
         "mood": "critical",
-        "text": "Houthi attacks targeted Riyadh’s King Khalid International Airport, so safety pushed it back. But finishing on December thirtieth leaves players forty-eight hours before the 2027 season starts with the United Cup in Australia!"
+        "text": "Sunil Gavaskar was not pleased on commentary. Shamar Joseph kept firing short balls at Arshdeep Singh when the result was settled. Arshdeep got hit on the arm and retired hurt on five. Gavaskar asked why attack the batter when the stumps are right in front of you."
       },
       {
-        "speaker": "Anchor",
+        "speaker": "Kylo",
+        "segment": "die-hard",
+        "mood": "thoughtful",
+        "text": "Completely senseless. Off the track, Christian Horner has a memoir coming out on the twenty-second of October."
+      },
+      {
+        "speaker": "Dhruv",
+        "segment": "die-hard",
+        "mood": "composed",
+        "text": "His memoir Drive skips straight to Abu Dhabi 2021, when Max Verstappen won his first title level on points with Lewis Hamilton. Horner said that entire season was beyond fiction."
+      },
+      {
+        "speaker": "Kylo",
+        "segment": "die-hard",
+        "mood": "curious",
+        "text": "He also talked about that very tough period in early 2024, denying the allegations before being cleared, though he left Red Bull in July last year."
+      },
+      {
+        "speaker": "Dhruv",
         "segment": "die-hard",
         "mood": "analytical",
-        "text": "Andy Roddick noted that Alcaraz and Jannik Sinner are paying a physical bill. Alcaraz missed the French Open and Wimbledon with a wrist injury, while Sinner ended his season early with a knee issue after winning Wimbledon."
+        "text": "Tom Coronel pointed out that Red Bull's recent breakthrough shows a familiar pattern, with Hadjar told to adapt to Verstappen's faster way of driving. And Valentino Rossi says he is ready to race Max in GT3, though he expects big trouble."
       },
       {
-        "speaker": "Anchor",
-        "segment": "follow",
-        "mood": "upbeat",
-        "text": "In NBA preseason from Las Vegas, Golden State Warriors beat the Los Angeles Lakers one hundred and one to eighty-nine."
+        "speaker": "Kylo",
+        "segment": "die-hard",
+        "mood": "disappointed",
+        "text": "Carlos Alcaraz had a miserable time in Shanghai."
       },
       {
-        "speaker": "Fan",
+        "speaker": "Dhruv",
+        "segment": "die-hard",
+        "mood": "skeptical",
+        "text": "He lost in the third round to Zizou Bergs, 7-5, 7-6, and complained about inconsistent balls and the calendar. Why is he complaining about the calendar now?"
+      },
+      {
+        "speaker": "Kylo",
+        "segment": "die-hard",
+        "mood": "sympathetic",
+        "text": "Greg Rusedski told him to take control, skip mandatory events like Federer and Djokovic did, and stop complaining because he has the money. Reports say Carlos is skipping media duties in protest."
+      },
+      {
+        "speaker": "Dhruv",
+        "segment": "die-hard",
+        "mood": "precise",
+        "text": "Alexander Zverev reached the quarter-finals by beating Alexander Bublik and locked up year-end number one. If Carlos does not win the Paris Masters, he will finish a year without a Masters 1000 title for the first time since 2021. And that Six Kings Slam in Riyadh set for next week has been postponed to late December 2026."
+      },
+      {
+        "speaker": "Kylo",
         "segment": "follow",
         "mood": "curious",
-        "text": "Any bright spots without the starters?"
+        "text": "In basketball, the Golden State Warriors beat the Lakers 101-89 in Las Vegas. What did you make of Yaxel Lendeborg?"
       },
       {
-        "speaker": "Anchor",
-        "segment": "follow",
-        "mood": "appreciative",
-        "text": "Rookie Yaxel Lendeborg impressed with seventeen points, five rebounds, and four assists in under twenty-four minutes. Golden State rallied from a big deficit without Kristaps Porzingis or Al Horford, while Luka Doncic sat for the Lakers."
-      },
-      {
-        "speaker": "Fan",
-        "segment": "follow",
-        "mood": "content",
-        "text": "Kerr tried that five-out alignment, but Porzingis remains out indefinitely with an unspecified health issue. He signed that two-year, forty-million-dollar deal, missed camp, and posted that bizarre social media update dismissing online speculation."
-      },
-      {
-        "speaker": "Anchor",
-        "segment": "follow",
-        "mood": "clear",
-        "text": "At the Shanghai Masters, Daniil Medvedev beat Stefanos Tsitsipas six-four, seven-five. Medvedev is only the fourth man to reach three consecutive Shanghai quarterfinals, alongside Roger Federer, Novak Djokovic, and Andy Murray."
-      },
-      {
-        "speaker": "Fan",
-        "segment": "follow",
-        "mood": "informative",
-        "text": "Djokovic won Beijing last week for his hundred and second career title after Medvedev was defaulted in the semifinals and Alex de Minaur retired in the final with a groin injury."
-      },
-      {
-        "speaker": "Anchor",
-        "segment": "follow",
-        "mood": "neutral",
-        "text": "Also in Shanghai, twenty-year-old Rafael Jodar made the quarterfinals by beating Botic van de Zandschulp, but picked up a code violation for swearing at a ball kid for a towel."
-      },
-      {
-        "speaker": "Fan",
-        "segment": "follow",
-        "mood": "opinionated",
-        "text": "And Rennae Stubbs thinks Alcaraz’s wrist injury came from copying Djokovic’s serve motion."
-      },
-      {
-        "speaker": "Anchor",
-        "segment": "follow",
-        "mood": "informative",
-        "text": "In football, Harry Kane scored twice in Bayern Munich’s three-three draw to reach four hundred and fifty career goals. Kane has now scored in nine straight Champions League games, closing in on Cristiano Ronaldo’s record of eleven."
-      },
-      {
-        "speaker": "Fan",
+        "speaker": "Dhruv",
         "segment": "follow",
         "mood": "impressed",
-        "text": "He is tied with Thomas Müller on fifty-seven tournament goals. Yet Kane was still unhappy with the draw!"
+        "text": "The rookie stood out with seventeen points, five rebounds, and four assists in under twenty-four minutes. Steve Kerr had no Kristaps Porzingis or Al Horford for floor spacing, and Luka Doncic sat out for Los Angeles, but Lendeborg brought pure hustle."
       },
       {
-        "speaker": "Anchor",
+        "speaker": "Kylo",
         "segment": "follow",
-        "mood": "amused",
-        "text": "In Formula One, Kimi Antonelli admitted it would be scary if Verstappen were in the title fight. Antonelli could seal the championship in Austin if he outscores George Russell by twenty-three points and Lewis Hamilton by fourteen."
+        "mood": "casual",
+        "text": "Good energy from the youngster. Brandon Williams and De'Anthony Melton are also talking up a cousin-like bond in the backcourt."
       },
       {
-        "speaker": "Fan",
+        "speaker": "Kylo",
         "segment": "follow",
-        "mood": "keen",
-        "text": "Max will certainly keep sharp, tackling over sixty cars in that three-hour GT race in Portimão."
+        "mood": "surprised",
+        "text": "Did you see what Wayne Rooney said about Cristiano Ronaldo?"
       },
       {
-        "speaker": "Anchor",
-        "segment": "around",
-        "mood": "animated",
-        "text": "Elsewhere in the Champions League, Club Brugge pulled off a four-three win away against Internazionale in a seven-goal thriller."
+        "speaker": "Dhruv",
+        "segment": "follow",
+        "mood": "composed",
+        "text": "Rooney tore into him for walking out of the Portugal camp ahead of the Denmark match. Ronaldo warmed up for thirty minutes against Norway, stayed unused in a 2-1 win, and then accused Jorge Jesus of breaking his word while comparing himself to Pele and Maradona."
       },
       {
-        "speaker": "Fan",
-        "segment": "around",
-        "mood": "astonished",
-        "text": "Inter beaten at home by Brugge! What a collapse for the Italian side."
+        "speaker": "Kylo",
+        "segment": "follow",
+        "mood": "wistful",
+        "text": "Gael Monfils has officially retired after twenty-two years on tour. When asked about his toughest opponent among the Big Three, he picked Novak Djokovic, admitting he never beat him once."
       },
       {
-        "speaker": "Anchor",
-        "segment": "around",
-        "mood": "sharp",
-        "text": "And Bodo/Glimt bounced back from their thrashing at Bayern by shocking Borussia Dortmund one-nil."
+        "speaker": "Dhruv",
+        "segment": "follow",
+        "mood": "serious",
+        "text": "Andrea Stella called the clash between Norris and Piastri on the final lap of the Singapore sprint unacceptable, even though Norris apologized. Formula 1 also announced a ten-year deal to race in Rwanda starting in the early 2030s, returning to Africa for the first time since 1993."
       },
       {
-        "speaker": "Fan",
-        "segment": "around",
-        "mood": "respectful",
-        "text": "Dortmund beaten by Bodo/Glimt! European nights never fail to surprise."
-      },
-      {
-        "speaker": "Anchor",
+        "speaker": "Dhruv",
         "segment": "ahead",
-        "mood": "focused",
-        "text": "For the fixtures in Indian Standard Time, Saturday morning starts at seven-thirty AM with Golden State Warriors facing the Portland Trail Blazers in preseason."
+        "mood": "composed",
+        "text": "You asked last time, \"What is on our calendar for the next few days?\" Here is where things stand."
       },
       {
-        "speaker": "Fan",
+        "speaker": "Dhruv",
         "segment": "ahead",
-        "mood": "eager",
-        "text": "Then on Saturday at seven PM, India face the West Indies at the M. Chinnaswamy Stadium in Bengaluru for the series decider."
+        "mood": "informative",
+        "text": "India's next assignment is a tour of New Zealand featuring five T20Is, five ODIs, and two Tests, starting with the first T20 on Thursday, 22 October, at twelve-thirty in the afternoon in Christchurch."
       },
       {
-        "speaker": "Anchor",
+        "speaker": "Dhruv",
         "segment": "ahead",
-        "mood": "exact",
-        "text": "On Monday at twelve-thirty AM, Real Madrid host Sevilla in La Liga at the Santiago Bernabéu."
+        "mood": "precise",
+        "text": "Max Verstappen is fourth in the championship on 221 points, 119 behind Andrea Kimi Antonelli, with round eighteen at the United States Grand Prix coming on Monday, 26 October, at one-thirty in the morning."
       },
       {
-        "speaker": "Fan",
+        "speaker": "Kylo",
         "segment": "ahead",
-        "mood": "excited",
-        "text": "Followed by RB Leipzig visiting the Bernabéu on Thursday at twelve-thirty AM in the Champions League."
+        "mood": "wistful",
+        "text": "Can Verstappen close a gap that big?"
       },
       {
-        "speaker": "Anchor",
-        "segment": "signoff",
-        "mood": "reflective",
-        "text": "An enormous weekend ahead of us."
+        "speaker": "Dhruv",
+        "segment": "ahead",
+        "mood": "direct",
+        "text": "Almost impossible. As for fixtures, Saturday at seven-thirty in the morning brings Warriors against Portland in preseason. Saturday evening at seven, India take on the West Indies in the decider at M. Chinnaswamy Stadium."
       },
       {
-        "speaker": "Fan",
-        "segment": "signoff",
-        "mood": "anticipating",
-        "text": "Chinnaswamy on Saturday night is going to be electric."
+        "speaker": "Kylo",
+        "segment": "ahead",
+        "mood": "determined",
+        "text": "Right in Bengaluru. All on the line."
       },
       {
-        "speaker": "Anchor",
+        "speaker": "Dhruv",
+        "segment": "ahead",
+        "mood": "informative",
+        "text": "On Monday at twelve-thirty in the morning, Real Madrid host Sevilla in La Liga. Thursday, 22 October, is loaded: Real Madrid play RB Leipzig in the Champions League at twelve-thirty in the morning, the Warriors open their regular season at the Lakers at seven-thirty in the morning, and India play the first T20 against New Zealand at Hagley Oval at twelve-thirty in the afternoon."
+      },
+      {
+        "speaker": "Kylo",
         "segment": "signoff",
         "mood": "warm",
-        "text": "That's the show. Same time tomorrow."
+        "text": "Massive week coming up. Get your rest."
+      },
+      {
+        "speaker": "Dhruv",
+        "segment": "signoff",
+        "mood": "calm",
+        "text": "That's Side effects of Sports for today. Same time tomorrow."
       }
     ],
     "problems": [],
@@ -364,340 +238,244 @@
     {
       "turns": [
         {
-          "speaker": "Fan",
-          "segment": "cold-open",
-          "mood": "elated",
-          "text": "Real Madrid were dead and buried at three-one down in Rome. Then three goals in seven manic minutes! Absolute mayhem."
-        },
-        {
-          "speaker": "Anchor",
-          "segment": "cold-open",
-          "mood": "calm",
-          "text": "Good morning. What an unbelievable finish in the Champions League."
-        },
-        {
-          "speaker": "Fan",
+          "speaker": "Kylo",
           "segment": "die-hard",
-          "mood": "elated",
-          "text": "I still cannot believe that Madrid match. My heart was in my mouth when Malen made it three-one."
+          "mood": "astonished",
+          "text": "Three goals in the final six minutes. I swear, my heart cannot take this team anymore."
         },
         {
-          "speaker": "Anchor",
+          "speaker": "Dhruv",
           "segment": "die-hard",
-          "mood": "curious",
-          "text": "How did they pull that off from three-one down?"
+          "mood": "composed",
+          "text": "Down 3-1 at the Stadio Olimpico, and they still walked out 4-3 winners. How do they keep doing this?"
         },
         {
-          "speaker": "Fan",
+          "speaker": "Kylo",
           "segment": "die-hard",
           "mood": "passionate",
-          "text": "Pure Madrid Champions League magic, honestly! It started badly. Roma opened the scoring at twenty minutes through Marten de Roon from a Matìas Soulè ball. Mbappé leveled five minutes later from Yan Diomande. But early in the second half, Roma tore through us. Donyell Malen scored in the fifty-first, then again in the fifty-seventh, Soulè setting him up again. Three-one down. Madrid had three wins on the bounce before this, but we looked completely flat."
+          "text": "Pure madness! Marten de Roon scored first for Roma, but Kylian Mbappé pulled it back before the break on his hundredth Champions League appearance. Then early in the second half, Donyell Malen scored twice in six minutes. At 3-1, Roma were running rampant."
         },
         {
-          "speaker": "Anchor",
-          "segment": "die-hard",
-          "mood": "impressed",
-          "text": "Then the final ten minutes happened."
-        },
-        {
-          "speaker": "Fan",
-          "segment": "die-hard",
-          "mood": "elated",
-          "text": "Carlos Espí comes off the bench, scores in the eighty-third. Two-three. Two minutes later, Arda Güler floats one in and Endrick heads home the equalizer! And in the ninetieth, Güler again, picking out Antonio Rüdiger for a volleyed winner! Four-three!"
-        },
-        {
-          "speaker": "Anchor",
+          "speaker": "Dhruv",
           "segment": "die-hard",
           "mood": "analytical",
-          "text": "Jose Mourinho gets a wild victory on his return to Roma. He said afterwards that Real Madrid were impossible to stop and Roma’s players were dead."
+          "text": "It looked completely out of reach. José Mourinho was back in Rome for their first home Champions League fixture in more than seven years. The crowd had banners and chants honoring his two and a half years there, winning the Conference League and reaching the Europa League final."
         },
         {
-          "speaker": "Fan",
+          "speaker": "Kylo",
           "segment": "die-hard",
-          "mood": "excited",
-          "text": "They were! Though Kylian Mbappé had a milestone night too, his hundredth Champions League appearance. But the off-pitch headache is massive right now."
+          "mood": "elated",
+          "text": "And then his substitutions changed everything. Endrick came on in the fifty-ninth minute and set up Carlos Espí with a header. Then Endrick scored the equaliser himself, and Antonio Rüdiger bundled in the winner against his old club. Three corners, three goals in six minutes."
         },
         {
-          "speaker": "Anchor",
-          "segment": "die-hard",
-          "mood": "curious",
-          "text": "You mean the Vinicius Junior ban?"
-        },
-        {
-          "speaker": "Fan",
-          "segment": "die-hard",
-          "mood": "angry",
-          "text": "Four matches! He misses El Clasico on the twenty-fifth of October against Barcelona!"
-        },
-        {
-          "speaker": "Anchor",
-          "segment": "die-hard",
-          "mood": "surprised",
-          "text": "Wait, four games for pulling hair?"
-        },
-        {
-          "speaker": "Fan",
-          "segment": "die-hard",
-          "mood": "indignant",
-          "text": "Nathan Saliba’s hair! Against Villarreal, Vini came on in the fifty-second minute, thought he scored twenty minutes later, Mourinho was celebrating on the touchline, and then VAR stepped in. Disallowed the goal, red card. The competition committee gave him two games for violent conduct without playing the ball, and two extra games for confronting the referee with an aggressive attitude while his teammates had to restrain him."
-        },
-        {
-          "speaker": "Anchor",
-          "segment": "die-hard",
-          "mood": "exact",
-          "text": "That rules him out against Sevilla, Barcelona, Racing Santander, and Valencia."
-        },
-        {
-          "speaker": "Fan",
-          "segment": "die-hard",
-          "mood": "concerned",
-          "text": "Exactly. Mourinho backed him before the Roma match, telling TNT Sports Brazil it is only a matter of time before Vini returns to his best. But heading into El Clasico, it is a disaster."
-        },
-        {
-          "speaker": "Anchor",
-          "segment": "die-hard",
-          "mood": "measured",
-          "text": "Especially because authorities have declared that Clasico a high-risk fixture. Hansi Flick’s Barcelona sit top of La Liga with ten wins from ten matches across all competitions. Madrid are fourth, six points behind, with two league defeats already against Betis and Atletico."
-        },
-        {
-          "speaker": "Fan",
-          "segment": "die-hard",
-          "mood": "sombre",
-          "text": "It is going to be fierce. But if Madrid brought joy, Uppal brought utter heartbreak."
-        },
-        {
-          "speaker": "Anchor",
-          "segment": "die-hard",
-          "mood": "serious",
-          "text": "Hyderabad was brutal. West Indies beat India by twenty-four runs in the fourth T20 international."
-        },
-        {
-          "speaker": "Fan",
-          "segment": "die-hard",
-          "mood": "gutted",
-          "text": "I am gutted. Completely gutted. Why on earth did India bowl first?"
-        },
-        {
-          "speaker": "Anchor",
+          "speaker": "Dhruv",
           "segment": "die-hard",
           "mood": "matter-of-fact",
-          "text": "India went in unchanged and chose to chase, hoping the refreshed Uppal track would play differently. Instead, it was an absolute batting paradise."
+          "text": "Espí called it absolute madness. Captain Federico Valverde praised the determination of the bench to keep fighting. Though Vinícius Júnior has been handed a four-match ban for pulling an opponent's hair against Villarreal, which Endrick called unbelievable."
         },
         {
-          "speaker": "Fan",
-          "segment": "die-hard",
-          "mood": "gutted",
-          "text": "West Indies made two changes and smashed two hundred and forty-seven for three in twenty overs! Shai Hope was unreal, breaking Chris Gayle’s record and joining Virat Kohli in an elite list. India fell twenty-four runs short, bowled out for two hundred and twenty-three in nineteen point three overs. Even Keemo Paul getting Naman Dhir was celebrated like the series itself."
-        },
-        {
-          "speaker": "Anchor",
-          "segment": "die-hard",
-          "mood": "probing",
-          "text": "That ties the five-match series at two-all. Can India pull themselves together before Saturday's decider in Bengaluru?"
-        },
-        {
-          "speaker": "Fan",
+          "speaker": "Kylo",
           "segment": "die-hard",
           "mood": "frustrated",
-          "text": "They have to. They had that great third game where Abhishek Sharma hammered sixty-nine off thirty balls. Cheteshwar Pujara was even comparing Abhishek to Chris Gayle on JioStar after that eighteen-ball fifty. But yesterday the bowling just unravelled."
+          "text": "Right, Hyderabad. That was a rough night."
         },
         {
-          "speaker": "Anchor",
+          "speaker": "Dhruv",
           "segment": "die-hard",
-          "mood": "informative",
-          "text": "There is also a major milestone for the women's team. Smriti Mandhana takes charge as India's full-time captain in Raipur against Zimbabwe on Friday. Three T20 internationals followed by three ODIs, building towards the Women's Champions Trophy in February 2027."
+          "mood": "measured",
+          "text": "A twenty-four run defeat to the West Indies. That levels the five-match series at 2-2."
         },
         {
-          "speaker": "Fan",
+          "speaker": "Kylo",
           "segment": "die-hard",
-          "mood": "hopeful",
-          "text": "Massive shoes to fill after Mithali Raj and Harmanpreet Kaur, but Mandhana is the right leader to reshape that T20 approach."
+          "mood": "deflated",
+          "text": "Shai Hope took the game away. An unbeaten 102 off fifty deliveries to push them to 247 for three."
         },
         {
-          "speaker": "Anchor",
+          "speaker": "Dhruv",
           "segment": "die-hard",
-          "mood": "calm",
-          "text": "Switching to Formula One, Laurent Mekies has signed a long-term contract extension to remain Red Bull's Team Principal and CEO through 2031."
+          "mood": "composed",
+          "text": "India came out swinging, though. Sanju Samson hit fifty-six off twenty-three balls, striking four sixes to reach 102 career sixes in T20 internationals."
         },
         {
-          "speaker": "Fan",
+          "speaker": "Kylo",
           "segment": "die-hard",
-          "mood": "pleased",
-          "text": "Deserved! He came in from Racing Bulls in July 2025, and after a rough start, Max Verstappen has won back-to-back in Malaysia and Singapore."
+          "mood": "impressed",
+          "text": "Only the sixth Indian batter to hit a hundred T20I sixes, behind Rohit, Surya, Abhishek Sharma, Hardik, and Kohli. But Keemo Paul picked up five wickets. He removed Sanju and Ishan Kishan in the fifth over, and the momentum vanished."
         },
         {
-          "speaker": "Anchor",
+          "speaker": "Dhruv",
           "segment": "die-hard",
-          "mood": "detailed",
-          "text": "That Baku upgrade on the RB22 in round fifteen made the car predictable and driveable again. Max said it was the step forward he needed. But there is a huge change coming in his garage."
+          "mood": "precise",
+          "text": "Tilak Varma fought hard with forty-three off twenty-five, but Samson singled out Tilak's dismissal as the turning point. India ended on 223."
         },
         {
-          "speaker": "Anchor",
+          "speaker": "Kylo",
           "segment": "die-hard",
-          "mood": "exact",
-          "text": "GianPiero Lambiase is moving to McLaren as chief racing officer no later than 2028. Tom Hart will stand in as Max’s race engineer for three races this year, starting in Austin, before taking the job full-time from 2027."
+          "mood": "indignant",
+          "text": "Did you see that final over from Shamar Joseph?"
         },
         {
-          "speaker": "Fan",
-          "segment": "die-hard",
-          "mood": "nostalgic",
-          "text": "Lambiase has been on the radio since 2016! That bond will be missed. And Max is also racing this weekend in Portimão, driving a Mercedes AMG GT3 EVO against Valentino Rossi in a BMW M4 GT3 EVO."
-        },
-        {
-          "speaker": "Anchor",
-          "segment": "die-hard",
-          "mood": "informative",
-          "text": "Over in tennis, Carlos Alcaraz will not be playing Riyadh next week. The Six Kings Slam exhibition has been postponed from late October to December twenty-seventh to thirtieth after Houthi attacks targeted Riyadh’s King Khalid International Airport."
-        },
-        {
-          "speaker": "Fan",
+          "speaker": "Dhruv",
           "segment": "die-hard",
           "mood": "critical",
-          "text": "That rescheduling is wild. It finishes forty-eight hours before the 2027 season opens with the United Cup in Australia! Andy Roddick pointed out recently that both Alcaraz and Jannik Sinner are paying a physical bill with their injuries. Alcaraz missed the French Open and Wimbledon with that wrist problem, and Sinner ended his season early with a knee issue."
+          "text": "Sunil Gavaskar was not pleased on commentary. Shamar kept firing short balls at Arshdeep Singh when the result was already decided. Arshdeep got hit on the arm and retired hurt on five. Gavaskar asked why you would attack the batter when the stumps are right in front of you."
         },
         {
-          "speaker": "Anchor",
-          "segment": "follow",
-          "mood": "upbeat",
-          "text": "Right, NBA preseason in Las Vegas. Golden State Warriors took down the Los Angeles Lakers one hundred and one to eighty-nine."
+          "speaker": "Kylo",
+          "segment": "die-hard",
+          "mood": "intrigued",
+          "text": "Unnecessary stuff. Off the track, Christian Horner has a memoir coming out on the twenty-second of October."
         },
         {
-          "speaker": "Fan",
+          "speaker": "Dhruv",
+          "segment": "die-hard",
+          "mood": "composed",
+          "text": "He opens 'Drive' straight with Abu Dhabi 2021, when Max Verstappen won his first title level on points with Lewis Hamilton. Horner said that entire season was beyond fiction."
+        },
+        {
+          "speaker": "Kylo",
+          "segment": "die-hard",
+          "mood": "thoughtful",
+          "text": "He also talked about that very tough period in early 2024. He denied all the allegations, was cleared, but left Red Bull in July last year after a disappointing start to 2025."
+        },
+        {
+          "speaker": "Dhruv",
+          "segment": "die-hard",
+          "mood": "analytical",
+          "text": "Tom Coronel pointed out that Red Bull's recent breakthrough shows a familiar pattern, with Isack Hadjar told to adapt to Max's driving style. And Valentino Rossi says he is ready to race Max in GT3, though he expects big trouble."
+        },
+        {
+          "speaker": "Kylo",
+          "segment": "die-hard",
+          "mood": "disappointed",
+          "text": "Carlos Alcaraz had a miserable time in Shanghai."
+        },
+        {
+          "speaker": "Dhruv",
+          "segment": "die-hard",
+          "mood": "skeptical",
+          "text": "He lost in the third round to Zizou Bergs, 7-5, 7-6, and complained about inconsistent balls and the calendar. Why is he complaining about the calendar now?"
+        },
+        {
+          "speaker": "Kylo",
+          "segment": "die-hard",
+          "mood": "sympathetic",
+          "text": "Greg Rusedski told him to take control, skip mandatory events like Federer and Djokovic did, and stop complaining because he has the money. Reports say Carlos is skipping media duties in protest."
+        },
+        {
+          "speaker": "Dhruv",
+          "segment": "die-hard",
+          "mood": "precise",
+          "text": "Alexander Zverev reached the quarter-finals by beating Alexander Bublik and locked up year-end number one. If Carlos does not win the Paris Masters, he will finish a year without a Masters 1000 title for the first time since 2021. And that Six Kings Slam in Riyadh set for next week has been postponed to late December 2026."
+        },
+        {
+          "speaker": "Kylo",
           "segment": "follow",
           "mood": "curious",
-          "text": "Did you see who stood out for the Warriors?"
+          "text": "In basketball, the Golden State Warriors beat the Lakers 101-89 in Las Vegas. What did you make of the rookie Yaxel Lendeborg?"
         },
         {
-          "speaker": "Anchor",
-          "segment": "follow",
-          "mood": "appreciative",
-          "text": "Rookie Yaxel Lendeborg. He put up seventeen points, five rebounds, and four assists in under twenty-four minutes."
-        },
-        {
-          "speaker": "Fan",
-          "segment": "follow",
-          "mood": "content",
-          "text": "The Warriors rallied from a heavy deficit without Kristaps Porzingis or Al Horford, while Luka Doncic sat out for the Lakers. Porzingis is out indefinitely with an unspecified health problem. He signed a two-year forty-million-dollar deal, missed camp, and then posted that strange update on social media making that crude joke dismissing online speculation."
-        },
-        {
-          "speaker": "Anchor",
-          "segment": "follow",
-          "mood": "clear",
-          "text": "Elsewhere in tennis, Daniil Medvedev took down Stefanos Tsitsipas six-four, seven-five to reach the Shanghai Masters quarterfinals. He joins Roger Federer, Novak Djokovic, and Andy Murray as the only men to reach three straight Shanghai quarterfinals."
-        },
-        {
-          "speaker": "Fan",
-          "segment": "follow",
-          "mood": "informative",
-          "text": "Remember Djokovic won Beijing last week for his hundred and second career title after Medvedev was defaulted in their semifinal and De Minaur retired in the final."
-        },
-        {
-          "speaker": "Anchor",
-          "segment": "follow",
-          "mood": "neutral",
-          "text": "Also in Shanghai, young Spaniard Rafael Jodar reached the last eight, beating Botic van de Zandschulp in three sets, but got penalized for shouting in Spanish at a ball kid for a towel."
-        },
-        {
-          "speaker": "Fan",
-          "segment": "follow",
-          "mood": "opinionated",
-          "text": "And Rennae Stubbs had a theory on Alcaraz’s wrist, claiming his Djokovic-style serve motion caused the damage."
-        },
-        {
-          "speaker": "Anchor",
-          "segment": "follow",
-          "mood": "informative",
-          "text": "Over in football, Harry Kane scored a brace in Bayern Munich’s three-three draw to reach four hundred and fifty career goals. He has now scored in nine straight Champions League games, chasing Cristiano Ronaldo’s record of eleven."
-        },
-        {
-          "speaker": "Anchor",
-          "segment": "follow",
-          "mood": "calm",
-          "text": "Kane was still frustrated with the draw despite that scoring milestone."
-        },
-        {
-          "speaker": "Fan",
+          "speaker": "Dhruv",
           "segment": "follow",
           "mood": "impressed",
-          "text": "That relentless drive is why he keeps scoring! And in Portimão, Verstappen will have over sixty cars to battle in that three-hour GT endurance test."
+          "text": "He stood out with seventeen points, five rebounds, and four assists in under twenty-four minutes. Steve Kerr had no Kristaps Porzingis or Al Horford for floor spacing, and Luka Doncic sat out for Los Angeles, but Lendeborg brought pure hustle."
         },
         {
-          "speaker": "Anchor",
+          "speaker": "Kylo",
           "segment": "follow",
-          "mood": "amused",
-          "text": "Kimi Antonelli admitted he is relieved Max Verstappen is not in the Formula One title hunt. Antonelli could seal the crown in Austin if he outscores George Russell by twenty-three points and Lewis Hamilton by fourteen."
+          "mood": "casual",
+          "text": "Good to see. Brandon Williams and De'Anthony Melton are also talking up a cousin-like bond in the backcourt."
         },
         {
-          "speaker": "Anchor",
-          "segment": "around",
-          "mood": "animated",
-          "text": "Champions League nights always bring shocks. Club Brugge went to San Siro and edged Internazionale four-three in a wild seven-goal classic!"
+          "speaker": "Dhruv",
+          "segment": "follow",
+          "mood": "composed",
+          "text": "Wayne Rooney has torn into Cristiano Ronaldo for walking out of the Portugal camp ahead of the Denmark match."
         },
         {
-          "speaker": "Fan",
-          "segment": "around",
-          "mood": "astonished",
-          "text": "Inter beaten at home by Brugge, incredible! Seven goals in that one."
+          "speaker": "Kylo",
+          "segment": "follow",
+          "mood": "surprised",
+          "text": "Can you believe Wayne Rooney went after him so publicly? Ronaldo warmed up for thirty minutes against Norway, stayed unused in a 2-1 win, and then accused Jorge Jesus of breaking his word while comparing himself to Pele and Maradona."
         },
         {
-          "speaker": "Anchor",
-          "segment": "around",
-          "mood": "sharp",
-          "text": "And in Norway, Bodo/Glimt bounced back from their heavy Bayern defeat by beating Borussia Dortmund one-nil. Dortmund beaten away from home."
+          "speaker": "Dhruv",
+          "segment": "follow",
+          "mood": "matter-of-fact",
+          "text": "Gael Monfils has officially retired after twenty-two years on tour. When asked about his toughest opponent among the Big Three, he picked Novak Djokovic, admitting he never beat him once."
         },
         {
-          "speaker": "Fan",
-          "segment": "around",
-          "mood": "respectful",
-          "text": "What a night for Bodo/Glimt. European football at its unpredictable best."
+          "speaker": "Kylo",
+          "segment": "follow",
+          "mood": "intrigued",
+          "text": "McLaren are still having discussions after that Singapore sprint collision."
         },
         {
-          "speaker": "Anchor",
-          "segment": "ahead",
-          "mood": "focused",
-          "text": "Looking at the schedule over the next few days in Indian Standard Time."
-        },
-        {
-          "speaker": "Fan",
-          "segment": "ahead",
-          "mood": "eager",
-          "text": "Saturday morning starts early. Seven-thirty AM, Warriors face Portland Trail Blazers in preseason."
-        },
-        {
-          "speaker": "Anchor",
-          "segment": "ahead",
+          "speaker": "Dhruv",
+          "segment": "follow",
           "mood": "serious",
-          "text": "Then at seven PM on Saturday, India take on the West Indies at the M. Chinnaswamy Stadium in Bengaluru for the series decider."
+          "text": "Andrea Stella called the clash between Norris and Piastri on the final lap unacceptable, even though Norris apologized. Formula 1 also announced a ten-year deal to race in Rwanda starting in the early 2030s, returning to Africa for the first time since 1993."
         },
         {
-          "speaker": "Fan",
+          "speaker": "Dhruv",
           "segment": "ahead",
-          "mood": "excited",
-          "text": "Then Monday, twelve-thirty AM, Real Madrid host Sevilla in La Liga, followed by RB Leipzig visiting the Bernabéu at twelve-thirty AM on Thursday."
+          "mood": "composed",
+          "text": "You asked last time, \"What is on our calendar for the next few days?\" Here is where things stand."
         },
         {
-          "speaker": "Anchor",
-          "segment": "signoff",
-          "mood": "reflective",
-          "text": "A massive week of sport ahead."
+          "speaker": "Dhruv",
+          "segment": "ahead",
+          "mood": "informative",
+          "text": "India's next assignment is a tour of New Zealand featuring five T20Is, five ODIs, and two Tests, starting with the first T20 on Thursday, 22 October, at twelve-thirty in the afternoon in Christchurch."
         },
         {
-          "speaker": "Fan",
-          "segment": "signoff",
-          "mood": "anticipating",
-          "text": "Saturday night at Chinnaswamy will be electric."
+          "speaker": "Dhruv",
+          "segment": "ahead",
+          "mood": "precise",
+          "text": "Max Verstappen is fourth in the championship on 221 points, 119 behind Andrea Kimi Antonelli, with round eighteen at the United States Grand Prix coming on Monday, 26 October, at one-thirty in the morning."
         },
         {
-          "speaker": "Anchor",
+          "speaker": "Kylo",
+          "segment": "ahead",
+          "mood": "wistful",
+          "text": "Is there any way back for him in the championship? That deficit is massive."
+        },
+        {
+          "speaker": "Dhruv",
+          "segment": "ahead",
+          "mood": "direct",
+          "text": "Almost impossible. As for fixtures, Saturday at seven-thirty in the morning brings Warriors against Portland in preseason. Saturday evening at seven, India take on the West Indies in the decider at M. Chinnaswamy Stadium."
+        },
+        {
+          "speaker": "Kylo",
+          "segment": "ahead",
+          "mood": "determined",
+          "text": "Right in Bengaluru. All on the line."
+        },
+        {
+          "speaker": "Dhruv",
+          "segment": "ahead",
+          "mood": "informative",
+          "text": "On Monday at twelve-thirty in the morning, Real Madrid host Sevilla in La Liga. Thursday, 22 October, is loaded: Real Madrid play RB Leipzig in the Champions League at twelve-thirty in the morning, the Warriors open their regular season at the Lakers at seven-thirty in the morning, and India play the first T20 against New Zealand at Hagley Oval at twelve-thirty in the afternoon."
+        },
+        {
+          "speaker": "Kylo",
           "segment": "signoff",
           "mood": "warm",
-          "text": "That's the show. Same time tomorrow."
+          "text": "A massive week ahead. Get your rest."
+        },
+        {
+          "speaker": "Dhruv",
+          "segment": "signoff",
+          "mood": "calm",
+          "text": "That's Side Effects of Sports for today. Same time tomorrow."
         }
       ],
       "problems": [
         {
           "hard": false,
-          "msg": "names not in the pack (never add a fact or a name): Rome, Virat, Siro, Norway"
+          "msg": "names not in the pack (never add a fact or a name): Drive', Isack, Effects"
         }
       ],
       "model": "gemini-3.8-flash",
@@ -706,358 +484,232 @@
     {
       "turns": [
         {
-          "speaker": "Fan",
-          "segment": "cold-open",
-          "mood": "elated",
-          "text": "Real Madrid were dead and buried at three-one down against AS Roma. Then three goals in seven manic minutes! Absolute madness."
-        },
-        {
-          "speaker": "Anchor",
-          "segment": "cold-open",
-          "mood": "calm",
-          "text": "Good morning. What an unbelievable finish in the Champions League."
-        },
-        {
-          "speaker": "Fan",
+          "speaker": "Kylo",
           "segment": "die-hard",
-          "mood": "elated",
-          "text": "I still cannot wrap my head around that Madrid match. My heart was in my mouth when Malen made it three-one."
+          "mood": "astonished",
+          "text": "Three goals in the final six minutes. I swear, my heart cannot take this team anymore."
         },
         {
-          "speaker": "Anchor",
+          "speaker": "Dhruv",
           "segment": "die-hard",
-          "mood": "curious",
-          "text": "How on earth did they turn that around from three-one down?"
+          "mood": "composed",
+          "text": "Down 3-1 at the Stadio Olimpico, and they still walked out 4-3 winners. How did they pull that off?"
         },
         {
-          "speaker": "Fan",
+          "speaker": "Kylo",
           "segment": "die-hard",
           "mood": "passionate",
-          "text": "Pure Champions League madness! AS Roma took the lead at twenty minutes through Marten de Roon from Matìas Soulè. Kylian Mbappé leveled five minutes later from Yan Diomande. But early in the second half, AS Roma tore through our defence. Donyell Malen scored in the fifty-first from Rodrigo Mora, and struck again in the fifty-seventh, Soulè setting him up again. Three-one down. Madrid had three straight wins coming in, but we looked done."
+          "text": "Pure madness! Marten de Roon scored first for Roma, but Kylian Mbappé pulled it back before the break on his hundredth Champions League appearance. Then early in the second half, Donyell Malen scored twice in six minutes. At 3-1, Roma were running rampant."
         },
         {
-          "speaker": "Anchor",
+          "speaker": "Dhruv",
           "segment": "die-hard",
-          "mood": "impressed",
-          "text": "Then the eighty-third minute arrived."
+          "mood": "analytical",
+          "text": "It looked completely out of reach. José Mourinho was back in Rome for their first home Champions League fixture in more than seven years. The crowd had banners and chants honoring his two and a half years there, winning the Conference League and reaching the Europa League final."
         },
         {
-          "speaker": "Fan",
+          "speaker": "Kylo",
           "segment": "die-hard",
           "mood": "elated",
-          "text": "Carlos Espí scores to make it two-three. Two minutes later, Arda Güler crosses and Endrick heads home the equalizer! Then in the ninetieth, Güler finds Antonio Rüdiger for a volleyed winner! Four-three!"
+          "text": "And then his substitutions changed everything. Endrick came on in the fifty-ninth minute and set up Carlos Espí with a header. Then Endrick scored the equaliser himself, and Antonio Rüdiger bundled in the winner against his old club. Three corners, three goals in six minutes."
         },
         {
-          "speaker": "Anchor",
-          "segment": "die-hard",
-          "mood": "analytical",
-          "text": "Jose Mourinho gets a dramatic win on his return against AS Roma. He said afterwards that Real Madrid were impossible to stop and AS Roma's players were dead."
-        },
-        {
-          "speaker": "Fan",
-          "segment": "die-hard",
-          "mood": "excited",
-          "text": "They could not stop that surge! It was Mbappé’s hundredth Champions League appearance too. But the massive headache right now is off the pitch."
-        },
-        {
-          "speaker": "Anchor",
-          "segment": "die-hard",
-          "mood": "curious",
-          "text": "You mean the Vinicius Junior suspension?"
-        },
-        {
-          "speaker": "Fan",
-          "segment": "die-hard",
-          "mood": "angry",
-          "text": "Four matches! He misses El Clasico against Barcelona on October twenty-fifth!"
-        },
-        {
-          "speaker": "Anchor",
-          "segment": "die-hard",
-          "mood": "surprised",
-          "text": "Four games for pulling hair?"
-        },
-        {
-          "speaker": "Fan",
-          "segment": "die-hard",
-          "mood": "indignant",
-          "text": "Nathan Saliba’s hair! Against Villarreal, Vini came on in the fifty-second minute, thought he scored twenty minutes later, and then VAR intervened. Disallowed goal, red card. The committee gave him two games for violent conduct without the ball, and two extra games for arguing aggressively with the referee while teammates restrained him!"
-        },
-        {
-          "speaker": "Anchor",
-          "segment": "die-hard",
-          "mood": "exact",
-          "text": "That rules him out against Sevilla, Barcelona, Racing Santander, and Valencia."
-        },
-        {
-          "speaker": "Fan",
-          "segment": "die-hard",
-          "mood": "concerned",
-          "text": "Mourinho skipped the post-match press conference, but told TNT Sports Brazil it is only a matter of time before Vini returns to his best. He backed him completely, saying he decided to help him after the Atletico Madrid derby. Vini signed a new deal this summer, turning down Arsenal, but his form has really dipped."
-        },
-        {
-          "speaker": "Anchor",
-          "segment": "die-hard",
-          "mood": "measured",
-          "text": "The timing is brutal because authorities declared that Clasico at Spotify Camp Nou a high-risk fixture. Hansi Flick’s Barcelona sit top with ten wins from ten matches across all competitions. Real Madrid are fourth, six points back, having already lost to Real Betis and Atletico Madrid."
-        },
-        {
-          "speaker": "Fan",
-          "segment": "die-hard",
-          "mood": "sombre",
-          "text": "A loss there spells real trouble for the title race. But if Madrid brought joy, Hyderabad brought utter heartbreak."
-        },
-        {
-          "speaker": "Anchor",
-          "segment": "die-hard",
-          "mood": "serious",
-          "text": "West Indies beat India by twenty-four runs in the fourth T20 international."
-        },
-        {
-          "speaker": "Fan",
-          "segment": "die-hard",
-          "mood": "gutted",
-          "text": "I am gutted. Why did India bowl first on that pitch?"
-        },
-        {
-          "speaker": "Anchor",
+          "speaker": "Dhruv",
           "segment": "die-hard",
           "mood": "matter-of-fact",
-          "text": "India went in unchanged and chased, hoping the refreshed Uppal track would behave differently. Instead, it was that same batting paradise."
+          "text": "Espí called it absolute madness. Captain Federico Valverde praised the determination of the replacements to keep fighting. Though Vinícius Júnior has been handed a four-match ban for pulling an opponent's hair against Villarreal, which Endrick called unbelievable."
         },
         {
-          "speaker": "Fan",
-          "segment": "die-hard",
-          "mood": "gutted",
-          "text": "West Indies made two changes and smashed two hundred and forty-seven for three! Shai Hope broke Chris Gayle’s record and joined Kohli in an elite list. India fell twenty-four runs short, bowled out for two hundred and twenty-three in nineteen point three overs. Even Keemo Paul celebrating Naman Dhir's wicket stung."
-        },
-        {
-          "speaker": "Anchor",
-          "segment": "die-hard",
-          "mood": "probing",
-          "text": "That ties the five-match series at two-all heading to Saturday's decider in Bengaluru. Can India bounce back?"
-        },
-        {
-          "speaker": "Fan",
+          "speaker": "Kylo",
           "segment": "die-hard",
           "mood": "frustrated",
-          "text": "They must. In the third match, India won by fourteen runs because Abhishek Sharma smashed sixty-nine off thirty balls. Cheteshwar Pujara was on JioStar comparing Abhishek's eighteen-ball fifty to Chris Gayle! But our bowling in Hyderabad just collapsed."
+          "text": "Right, Hyderabad. That was a rough night."
         },
         {
-          "speaker": "Anchor",
+          "speaker": "Dhruv",
           "segment": "die-hard",
-          "mood": "informative",
-          "text": "On the women’s side, Smriti Mandhana begins as full-time captain on Friday in Raipur against Zimbabwe."
+          "mood": "measured",
+          "text": "A twenty-four run defeat to the West Indies. That levels the five-match series at 2-2."
         },
         {
-          "speaker": "Fan",
+          "speaker": "Kylo",
           "segment": "die-hard",
-          "mood": "hopeful",
-          "text": "Only Mithali Raj and Harmanpreet Kaur held that full-time role over the last fourteen years. Mandhana is twenty-nine now, taking over after back-to-back early exits in T20 World Cups."
+          "mood": "deflated",
+          "text": "Shai Hope took the game away. An unbeaten 102 off fifty deliveries to push them to 247 for three."
         },
         {
-          "speaker": "Anchor",
+          "speaker": "Dhruv",
           "segment": "die-hard",
-          "mood": "exact",
-          "text": "They have three T20Is and three ODIs against Zimbabwe, preparing for the Women's Champions Trophy in February 2027. Mandhana said this bilateral will establish a clear blueprint for their T20 approach."
+          "mood": "composed",
+          "text": "India came out swinging, though. Sanju Samson hit fifty-six off twenty-three balls, striking four sixes to reach 102 career sixes in T20 internationals."
         },
         {
-          "speaker": "Fan",
+          "speaker": "Kylo",
           "segment": "die-hard",
-          "mood": "content",
-          "text": "A fresh start was needed. Hopefully this sets the tone."
+          "mood": "impressed",
+          "text": "Only the sixth Indian batter to hit a hundred T20I sixes, behind Rohit, Surya, Abhishek Sharma, Hardik, and Kohli. But Keemo Paul picked up five wickets. He removed Sanju and Ishan Kishan in the fifth over, and the chase unraveled."
         },
         {
-          "speaker": "Anchor",
+          "speaker": "Dhruv",
           "segment": "die-hard",
-          "mood": "calm",
-          "text": "In Formula One, Laurent Mekies signed a contract extension to remain Red Bull CEO and Team Principal through 2031."
+          "mood": "precise",
+          "text": "Tilak Varma fought hard with forty-three off twenty-five, but Samson singled out Tilak's dismissal as the turning point. India ended on 223 in nineteen point three overs."
         },
         {
-          "speaker": "Fan",
+          "speaker": "Kylo",
           "segment": "die-hard",
-          "mood": "pleased",
-          "text": "Deserved. Mekies arrived from Racing Bulls in July 2025, worked through a tough start, and Max Verstappen just delivered back-to-back wins in Malaysia and Singapore."
+          "mood": "indignant",
+          "text": "Why bowl bouncers at the tailender when the game was already done?"
         },
         {
-          "speaker": "Anchor",
-          "segment": "die-hard",
-          "mood": "detailed",
-          "text": "That Baku upgrade in round fifteen made the RB22 predictable and driveable again. But Max faces a huge change on his pit wall."
-        },
-        {
-          "speaker": "Fan",
-          "segment": "die-hard",
-          "mood": "nostalgic",
-          "text": "GianPiero Lambiase has been Max’s race engineer since 2016! He is moving to McLaren as chief racing officer no later than 2028."
-        },
-        {
-          "speaker": "Anchor",
-          "segment": "die-hard",
-          "mood": "exact",
-          "text": "Tom Hart will stand in for Lambiase for three races starting in Austin, before taking over full-time from 2027. Hart chose Red Bull over Williams."
-        },
-        {
-          "speaker": "Fan",
-          "segment": "die-hard",
-          "mood": "eager",
-          "text": "And Max is racing in Portimão this weekend in the GT World Challenge Endurance finale, driving a Mercedes AMG GT3 EVO against Valentino Rossi in a BMW M4 GT3 EVO."
-        },
-        {
-          "speaker": "Anchor",
-          "segment": "die-hard",
-          "mood": "informative",
-          "text": "In tennis, Carlos Alcaraz and Novak Djokovic will not play the Six Kings Slam in Riyadh next week. It is postponed to late December."
-        },
-        {
-          "speaker": "Fan",
+          "speaker": "Dhruv",
           "segment": "die-hard",
           "mood": "critical",
-          "text": "Houthi attacks targeted Riyadh’s King Khalid International Airport, so safety pushed it back. But finishing on December thirtieth leaves players forty-eight hours before the 2027 season starts with the United Cup in Australia!"
+          "text": "Sunil Gavaskar was not pleased on commentary. Shamar Joseph kept firing short balls at Arshdeep Singh when the result was settled. Arshdeep got hit on the arm and retired hurt on five. Gavaskar asked why attack the batter when the stumps are right in front of you."
         },
         {
-          "speaker": "Anchor",
+          "speaker": "Kylo",
+          "segment": "die-hard",
+          "mood": "thoughtful",
+          "text": "Completely senseless. Off the track, Christian Horner has a memoir coming out on the twenty-second of October."
+        },
+        {
+          "speaker": "Dhruv",
+          "segment": "die-hard",
+          "mood": "composed",
+          "text": "His memoir Drive skips straight to Abu Dhabi 2021, when Max Verstappen won his first title level on points with Lewis Hamilton. Horner said that entire season was beyond fiction."
+        },
+        {
+          "speaker": "Kylo",
+          "segment": "die-hard",
+          "mood": "curious",
+          "text": "He also talked about that very tough period in early 2024, denying the allegations before being cleared, though he left Red Bull in July last year."
+        },
+        {
+          "speaker": "Dhruv",
           "segment": "die-hard",
           "mood": "analytical",
-          "text": "Andy Roddick noted that Alcaraz and Jannik Sinner are paying a physical bill. Alcaraz missed the French Open and Wimbledon with a wrist injury, while Sinner ended his season early with a knee issue after winning Wimbledon."
+          "text": "Tom Coronel pointed out that Red Bull's recent breakthrough shows a familiar pattern, with Hadjar told to adapt to Verstappen's faster way of driving. And Valentino Rossi says he is ready to race Max in GT3, though he expects big trouble."
         },
         {
-          "speaker": "Anchor",
-          "segment": "follow",
-          "mood": "upbeat",
-          "text": "In NBA preseason from Las Vegas, Golden State Warriors beat the Los Angeles Lakers one hundred and one to eighty-nine."
+          "speaker": "Kylo",
+          "segment": "die-hard",
+          "mood": "disappointed",
+          "text": "Carlos Alcaraz had a miserable time in Shanghai."
         },
         {
-          "speaker": "Fan",
+          "speaker": "Dhruv",
+          "segment": "die-hard",
+          "mood": "skeptical",
+          "text": "He lost in the third round to Zizou Bergs, 7-5, 7-6, and complained about inconsistent balls and the calendar. Why is he complaining about the calendar now?"
+        },
+        {
+          "speaker": "Kylo",
+          "segment": "die-hard",
+          "mood": "sympathetic",
+          "text": "Greg Rusedski told him to take control, skip mandatory events like Federer and Djokovic did, and stop complaining because he has the money. Reports say Carlos is skipping media duties in protest."
+        },
+        {
+          "speaker": "Dhruv",
+          "segment": "die-hard",
+          "mood": "precise",
+          "text": "Alexander Zverev reached the quarter-finals by beating Alexander Bublik and locked up year-end number one. If Carlos does not win the Paris Masters, he will finish a year without a Masters 1000 title for the first time since 2021. And that Six Kings Slam in Riyadh set for next week has been postponed to late December 2026."
+        },
+        {
+          "speaker": "Kylo",
           "segment": "follow",
           "mood": "curious",
-          "text": "Any bright spots without the starters?"
+          "text": "In basketball, the Golden State Warriors beat the Lakers 101-89 in Las Vegas. What did you make of Yaxel Lendeborg?"
         },
         {
-          "speaker": "Anchor",
-          "segment": "follow",
-          "mood": "appreciative",
-          "text": "Rookie Yaxel Lendeborg impressed with seventeen points, five rebounds, and four assists in under twenty-four minutes. Golden State rallied from a big deficit without Kristaps Porzingis or Al Horford, while Luka Doncic sat for the Lakers."
-        },
-        {
-          "speaker": "Fan",
-          "segment": "follow",
-          "mood": "content",
-          "text": "Kerr tried that five-out alignment, but Porzingis remains out indefinitely with an unspecified health issue. He signed that two-year, forty-million-dollar deal, missed camp, and posted that bizarre social media update dismissing online speculation."
-        },
-        {
-          "speaker": "Anchor",
-          "segment": "follow",
-          "mood": "clear",
-          "text": "At the Shanghai Masters, Daniil Medvedev beat Stefanos Tsitsipas six-four, seven-five. Medvedev is only the fourth man to reach three consecutive Shanghai quarterfinals, alongside Roger Federer, Novak Djokovic, and Andy Murray."
-        },
-        {
-          "speaker": "Fan",
-          "segment": "follow",
-          "mood": "informative",
-          "text": "Djokovic won Beijing last week for his hundred and second career title after Medvedev was defaulted in the semifinals and Alex de Minaur retired in the final with a groin injury."
-        },
-        {
-          "speaker": "Anchor",
-          "segment": "follow",
-          "mood": "neutral",
-          "text": "Also in Shanghai, twenty-year-old Rafael Jodar made the quarterfinals by beating Botic van de Zandschulp, but picked up a code violation for swearing at a ball kid for a towel."
-        },
-        {
-          "speaker": "Fan",
-          "segment": "follow",
-          "mood": "opinionated",
-          "text": "And Rennae Stubbs thinks Alcaraz’s wrist injury came from copying Djokovic’s serve motion."
-        },
-        {
-          "speaker": "Anchor",
-          "segment": "follow",
-          "mood": "informative",
-          "text": "In football, Harry Kane scored twice in Bayern Munich’s three-three draw to reach four hundred and fifty career goals. Kane has now scored in nine straight Champions League games, closing in on Cristiano Ronaldo’s record of eleven."
-        },
-        {
-          "speaker": "Fan",
+          "speaker": "Dhruv",
           "segment": "follow",
           "mood": "impressed",
-          "text": "He is tied with Thomas Müller on fifty-seven tournament goals. Yet Kane was still unhappy with the draw!"
+          "text": "The rookie stood out with seventeen points, five rebounds, and four assists in under twenty-four minutes. Steve Kerr had no Kristaps Porzingis or Al Horford for floor spacing, and Luka Doncic sat out for Los Angeles, but Lendeborg brought pure hustle."
         },
         {
-          "speaker": "Anchor",
+          "speaker": "Kylo",
           "segment": "follow",
-          "mood": "amused",
-          "text": "In Formula One, Kimi Antonelli admitted it would be scary if Verstappen were in the title fight. Antonelli could seal the championship in Austin if he outscores George Russell by twenty-three points and Lewis Hamilton by fourteen."
+          "mood": "casual",
+          "text": "Good energy from the youngster. Brandon Williams and De'Anthony Melton are also talking up a cousin-like bond in the backcourt."
         },
         {
-          "speaker": "Fan",
+          "speaker": "Kylo",
           "segment": "follow",
-          "mood": "keen",
-          "text": "Max will certainly keep sharp, tackling over sixty cars in that three-hour GT race in Portimão."
+          "mood": "surprised",
+          "text": "Did you see what Wayne Rooney said about Cristiano Ronaldo?"
         },
         {
-          "speaker": "Anchor",
-          "segment": "around",
-          "mood": "animated",
-          "text": "Elsewhere in the Champions League, Club Brugge pulled off a four-three win away against Internazionale in a seven-goal thriller."
+          "speaker": "Dhruv",
+          "segment": "follow",
+          "mood": "composed",
+          "text": "Rooney tore into him for walking out of the Portugal camp ahead of the Denmark match. Ronaldo warmed up for thirty minutes against Norway, stayed unused in a 2-1 win, and then accused Jorge Jesus of breaking his word while comparing himself to Pele and Maradona."
         },
         {
-          "speaker": "Fan",
-          "segment": "around",
-          "mood": "astonished",
-          "text": "Inter beaten at home by Brugge! What a collapse for the Italian side."
+          "speaker": "Kylo",
+          "segment": "follow",
+          "mood": "wistful",
+          "text": "Gael Monfils has officially retired after twenty-two years on tour. When asked about his toughest opponent among the Big Three, he picked Novak Djokovic, admitting he never beat him once."
         },
         {
-          "speaker": "Anchor",
-          "segment": "around",
-          "mood": "sharp",
-          "text": "And Bodo/Glimt bounced back from their thrashing at Bayern by shocking Borussia Dortmund one-nil."
+          "speaker": "Dhruv",
+          "segment": "follow",
+          "mood": "serious",
+          "text": "Andrea Stella called the clash between Norris and Piastri on the final lap of the Singapore sprint unacceptable, even though Norris apologized. Formula 1 also announced a ten-year deal to race in Rwanda starting in the early 2030s, returning to Africa for the first time since 1993."
         },
         {
-          "speaker": "Fan",
-          "segment": "around",
-          "mood": "respectful",
-          "text": "Dortmund beaten by Bodo/Glimt! European nights never fail to surprise."
-        },
-        {
-          "speaker": "Anchor",
+          "speaker": "Dhruv",
           "segment": "ahead",
-          "mood": "focused",
-          "text": "For the fixtures in Indian Standard Time, Saturday morning starts at seven-thirty AM with Golden State Warriors facing the Portland Trail Blazers in preseason."
+          "mood": "composed",
+          "text": "You asked last time, \"What is on our calendar for the next few days?\" Here is where things stand."
         },
         {
-          "speaker": "Fan",
+          "speaker": "Dhruv",
           "segment": "ahead",
-          "mood": "eager",
-          "text": "Then on Saturday at seven PM, India face the West Indies at the M. Chinnaswamy Stadium in Bengaluru for the series decider."
+          "mood": "informative",
+          "text": "India's next assignment is a tour of New Zealand featuring five T20Is, five ODIs, and two Tests, starting with the first T20 on Thursday, 22 October, at twelve-thirty in the afternoon in Christchurch."
         },
         {
-          "speaker": "Anchor",
+          "speaker": "Dhruv",
           "segment": "ahead",
-          "mood": "exact",
-          "text": "On Monday at twelve-thirty AM, Real Madrid host Sevilla in La Liga at the Santiago Bernabéu."
+          "mood": "precise",
+          "text": "Max Verstappen is fourth in the championship on 221 points, 119 behind Andrea Kimi Antonelli, with round eighteen at the United States Grand Prix coming on Monday, 26 October, at one-thirty in the morning."
         },
         {
-          "speaker": "Fan",
+          "speaker": "Kylo",
           "segment": "ahead",
-          "mood": "excited",
-          "text": "Followed by RB Leipzig visiting the Bernabéu on Thursday at twelve-thirty AM in the Champions League."
+          "mood": "wistful",
+          "text": "Can Verstappen close a gap that big?"
         },
         {
-          "speaker": "Anchor",
-          "segment": "signoff",
-          "mood": "reflective",
-          "text": "An enormous weekend ahead of us."
+          "speaker": "Dhruv",
+          "segment": "ahead",
+          "mood": "direct",
+          "text": "Almost impossible. As for fixtures, Saturday at seven-thirty in the morning brings Warriors against Portland in preseason. Saturday evening at seven, India take on the West Indies in the decider at M. Chinnaswamy Stadium."
         },
         {
-          "speaker": "Fan",
-          "segment": "signoff",
-          "mood": "anticipating",
-          "text": "Chinnaswamy on Saturday night is going to be electric."
+          "speaker": "Kylo",
+          "segment": "ahead",
+          "mood": "determined",
+          "text": "Right in Bengaluru. All on the line."
         },
         {
-          "speaker": "Anchor",
+          "speaker": "Dhruv",
+          "segment": "ahead",
+          "mood": "informative",
+          "text": "On Monday at twelve-thirty in the morning, Real Madrid host Sevilla in La Liga. Thursday, 22 October, is loaded: Real Madrid play RB Leipzig in the Champions League at twelve-thirty in the morning, the Warriors open their regular season at the Lakers at seven-thirty in the morning, and India play the first T20 against New Zealand at Hagley Oval at twelve-thirty in the afternoon."
+        },
+        {
+          "speaker": "Kylo",
           "segment": "signoff",
           "mood": "warm",
-          "text": "That's the show. Same time tomorrow."
+          "text": "Massive week coming up. Get your rest."
+        },
+        {
+          "speaker": "Dhruv",
+          "segment": "signoff",
+          "mood": "calm",
+          "text": "That's Side effects of Sports for today. Same time tomorrow."
         }
       ],
       "problems": [],

@@ -1,137 +1,91 @@
-# Script rehearsal, Thursday, 15 October 2026 at 04:55
+# Script rehearsal, Thursday, 15 October 2026 at 12:45
 
-Written by gemini-3.8-flash (request 2 of 2). 1367 words, about 8.3 minutes. No problems left.
-
-## Cold open
-
-**Fan** _(elated)_: Real Madrid were dead and buried at three-one down against AS Roma. Then three goals in seven manic minutes! Absolute madness.
-
-**Anchor** _(calm)_: Good morning. What an unbelievable finish in the Champions League.
+Written by gemini-3.8-flash (request 2 of 2). 1065 words, about 6.5 minutes. No problems left.
 
 ## Your teams
 
-**Fan** _(elated)_: I still cannot wrap my head around that Madrid match. My heart was in my mouth when Malen made it three-one.
+**Kylo** _(astonished)_: Three goals in the final six minutes. I swear, my heart cannot take this team anymore.
 
-**Anchor** _(curious)_: How on earth did they turn that around from three-one down?
+**Dhruv** _(composed)_: Down 3-1 at the Stadio Olimpico, and they still walked out 4-3 winners. How did they pull that off?
 
-**Fan** _(passionate)_: Pure Champions League madness! AS Roma took the lead at twenty minutes through Marten de Roon from Matìas Soulè. Kylian Mbappé leveled five minutes later from Yan Diomande. But early in the second half, AS Roma tore through our defence. Donyell Malen scored in the fifty-first from Rodrigo Mora, and struck again in the fifty-seventh, Soulè setting him up again. Three-one down. Madrid had three straight wins coming in, but we looked done.
+**Kylo** _(passionate)_: Pure madness! Marten de Roon scored first for Roma, but Kylian Mbappé pulled it back before the break on his hundredth Champions League appearance. Then early in the second half, Donyell Malen scored twice in six minutes. At 3-1, Roma were running rampant.
 
-**Anchor** _(impressed)_: Then the eighty-third minute arrived.
+**Dhruv** _(analytical)_: It looked completely out of reach. José Mourinho was back in Rome for their first home Champions League fixture in more than seven years. The crowd had banners and chants honoring his two and a half years there, winning the Conference League and reaching the Europa League final.
 
-**Fan** _(elated)_: Carlos Espí scores to make it two-three. Two minutes later, Arda Güler crosses and Endrick heads home the equalizer! Then in the ninetieth, Güler finds Antonio Rüdiger for a volleyed winner! Four-three!
+**Kylo** _(elated)_: And then his substitutions changed everything. Endrick came on in the fifty-ninth minute and set up Carlos Espí with a header. Then Endrick scored the equaliser himself, and Antonio Rüdiger bundled in the winner against his old club. Three corners, three goals in six minutes.
 
-**Anchor** _(analytical)_: Jose Mourinho gets a dramatic win on his return against AS Roma. He said afterwards that Real Madrid were impossible to stop and AS Roma's players were dead.
+**Dhruv** _(matter-of-fact)_: Espí called it absolute madness. Captain Federico Valverde praised the determination of the replacements to keep fighting. Though Vinícius Júnior has been handed a four-match ban for pulling an opponent's hair against Villarreal, which Endrick called unbelievable.
 
-**Fan** _(excited)_: They could not stop that surge! It was Mbappé’s hundredth Champions League appearance too. But the massive headache right now is off the pitch.
+**Kylo** _(frustrated)_: Right, Hyderabad. That was a rough night.
 
-**Anchor** _(curious)_: You mean the Vinicius Junior suspension?
+**Dhruv** _(measured)_: A twenty-four run defeat to the West Indies. That levels the five-match series at 2-2.
 
-**Fan** _(angry)_: Four matches! He misses El Clasico against Barcelona on October twenty-fifth!
+**Kylo** _(deflated)_: Shai Hope took the game away. An unbeaten 102 off fifty deliveries to push them to 247 for three.
 
-**Anchor** _(surprised)_: Four games for pulling hair?
+**Dhruv** _(composed)_: India came out swinging, though. Sanju Samson hit fifty-six off twenty-three balls, striking four sixes to reach 102 career sixes in T20 internationals.
 
-**Fan** _(indignant)_: Nathan Saliba’s hair! Against Villarreal, Vini came on in the fifty-second minute, thought he scored twenty minutes later, and then VAR intervened. Disallowed goal, red card. The committee gave him two games for violent conduct without the ball, and two extra games for arguing aggressively with the referee while teammates restrained him!
+**Kylo** _(impressed)_: Only the sixth Indian batter to hit a hundred T20I sixes, behind Rohit, Surya, Abhishek Sharma, Hardik, and Kohli. But Keemo Paul picked up five wickets. He removed Sanju and Ishan Kishan in the fifth over, and the chase unraveled.
 
-**Anchor** _(exact)_: That rules him out against Sevilla, Barcelona, Racing Santander, and Valencia.
+**Dhruv** _(precise)_: Tilak Varma fought hard with forty-three off twenty-five, but Samson singled out Tilak's dismissal as the turning point. India ended on 223 in nineteen point three overs.
 
-**Fan** _(concerned)_: Mourinho skipped the post-match press conference, but told TNT Sports Brazil it is only a matter of time before Vini returns to his best. He backed him completely, saying he decided to help him after the Atletico Madrid derby. Vini signed a new deal this summer, turning down Arsenal, but his form has really dipped.
+**Kylo** _(indignant)_: Why bowl bouncers at the tailender when the game was already done?
 
-**Anchor** _(measured)_: The timing is brutal because authorities declared that Clasico at Spotify Camp Nou a high-risk fixture. Hansi Flick’s Barcelona sit top with ten wins from ten matches across all competitions. Real Madrid are fourth, six points back, having already lost to Real Betis and Atletico Madrid.
+**Dhruv** _(critical)_: Sunil Gavaskar was not pleased on commentary. Shamar Joseph kept firing short balls at Arshdeep Singh when the result was settled. Arshdeep got hit on the arm and retired hurt on five. Gavaskar asked why attack the batter when the stumps are right in front of you.
 
-**Fan** _(sombre)_: A loss there spells real trouble for the title race. But if Madrid brought joy, Hyderabad brought utter heartbreak.
+**Kylo** _(thoughtful)_: Completely senseless. Off the track, Christian Horner has a memoir coming out on the twenty-second of October.
 
-**Anchor** _(serious)_: West Indies beat India by twenty-four runs in the fourth T20 international.
+**Dhruv** _(composed)_: His memoir Drive skips straight to Abu Dhabi 2021, when Max Verstappen won his first title level on points with Lewis Hamilton. Horner said that entire season was beyond fiction.
 
-**Fan** _(gutted)_: I am gutted. Why did India bowl first on that pitch?
+**Kylo** _(curious)_: He also talked about that very tough period in early 2024, denying the allegations before being cleared, though he left Red Bull in July last year.
 
-**Anchor** _(matter-of-fact)_: India went in unchanged and chased, hoping the refreshed Uppal track would behave differently. Instead, it was that same batting paradise.
+**Dhruv** _(analytical)_: Tom Coronel pointed out that Red Bull's recent breakthrough shows a familiar pattern, with Hadjar told to adapt to Verstappen's faster way of driving. And Valentino Rossi says he is ready to race Max in GT3, though he expects big trouble.
 
-**Fan** _(gutted)_: West Indies made two changes and smashed two hundred and forty-seven for three! Shai Hope broke Chris Gayle’s record and joined Kohli in an elite list. India fell twenty-four runs short, bowled out for two hundred and twenty-three in nineteen point three overs. Even Keemo Paul celebrating Naman Dhir's wicket stung.
+**Kylo** _(disappointed)_: Carlos Alcaraz had a miserable time in Shanghai.
 
-**Anchor** _(probing)_: That ties the five-match series at two-all heading to Saturday's decider in Bengaluru. Can India bounce back?
+**Dhruv** _(skeptical)_: He lost in the third round to Zizou Bergs, 7-5, 7-6, and complained about inconsistent balls and the calendar. Why is he complaining about the calendar now?
 
-**Fan** _(frustrated)_: They must. In the third match, India won by fourteen runs because Abhishek Sharma smashed sixty-nine off thirty balls. Cheteshwar Pujara was on JioStar comparing Abhishek's eighteen-ball fifty to Chris Gayle! But our bowling in Hyderabad just collapsed.
+**Kylo** _(sympathetic)_: Greg Rusedski told him to take control, skip mandatory events like Federer and Djokovic did, and stop complaining because he has the money. Reports say Carlos is skipping media duties in protest.
 
-**Anchor** _(informative)_: On the women’s side, Smriti Mandhana begins as full-time captain on Friday in Raipur against Zimbabwe.
-
-**Fan** _(hopeful)_: Only Mithali Raj and Harmanpreet Kaur held that full-time role over the last fourteen years. Mandhana is twenty-nine now, taking over after back-to-back early exits in T20 World Cups.
-
-**Anchor** _(exact)_: They have three T20Is and three ODIs against Zimbabwe, preparing for the Women's Champions Trophy in February 2027. Mandhana said this bilateral will establish a clear blueprint for their T20 approach.
-
-**Fan** _(content)_: A fresh start was needed. Hopefully this sets the tone.
-
-**Anchor** _(calm)_: In Formula One, Laurent Mekies signed a contract extension to remain Red Bull CEO and Team Principal through 2031.
-
-**Fan** _(pleased)_: Deserved. Mekies arrived from Racing Bulls in July 2025, worked through a tough start, and Max Verstappen just delivered back-to-back wins in Malaysia and Singapore.
-
-**Anchor** _(detailed)_: That Baku upgrade in round fifteen made the RB22 predictable and driveable again. But Max faces a huge change on his pit wall.
-
-**Fan** _(nostalgic)_: GianPiero Lambiase has been Max’s race engineer since 2016! He is moving to McLaren as chief racing officer no later than 2028.
-
-**Anchor** _(exact)_: Tom Hart will stand in for Lambiase for three races starting in Austin, before taking over full-time from 2027. Hart chose Red Bull over Williams.
-
-**Fan** _(eager)_: And Max is racing in Portimão this weekend in the GT World Challenge Endurance finale, driving a Mercedes AMG GT3 EVO against Valentino Rossi in a BMW M4 GT3 EVO.
-
-**Anchor** _(informative)_: In tennis, Carlos Alcaraz and Novak Djokovic will not play the Six Kings Slam in Riyadh next week. It is postponed to late December.
-
-**Fan** _(critical)_: Houthi attacks targeted Riyadh’s King Khalid International Airport, so safety pushed it back. But finishing on December thirtieth leaves players forty-eight hours before the 2027 season starts with the United Cup in Australia!
-
-**Anchor** _(analytical)_: Andy Roddick noted that Alcaraz and Jannik Sinner are paying a physical bill. Alcaraz missed the French Open and Wimbledon with a wrist injury, while Sinner ended his season early with a knee issue after winning Wimbledon.
+**Dhruv** _(precise)_: Alexander Zverev reached the quarter-finals by beating Alexander Bublik and locked up year-end number one. If Carlos does not win the Paris Masters, he will finish a year without a Masters 1000 title for the first time since 2021. And that Six Kings Slam in Riyadh set for next week has been postponed to late December 2026.
 
 ## Also on your list
 
-**Anchor** _(upbeat)_: In NBA preseason from Las Vegas, Golden State Warriors beat the Los Angeles Lakers one hundred and one to eighty-nine.
+**Kylo** _(curious)_: In basketball, the Golden State Warriors beat the Lakers 101-89 in Las Vegas. What did you make of Yaxel Lendeborg?
 
-**Fan** _(curious)_: Any bright spots without the starters?
+**Dhruv** _(impressed)_: The rookie stood out with seventeen points, five rebounds, and four assists in under twenty-four minutes. Steve Kerr had no Kristaps Porzingis or Al Horford for floor spacing, and Luka Doncic sat out for Los Angeles, but Lendeborg brought pure hustle.
 
-**Anchor** _(appreciative)_: Rookie Yaxel Lendeborg impressed with seventeen points, five rebounds, and four assists in under twenty-four minutes. Golden State rallied from a big deficit without Kristaps Porzingis or Al Horford, while Luka Doncic sat for the Lakers.
+**Kylo** _(casual)_: Good energy from the youngster. Brandon Williams and De'Anthony Melton are also talking up a cousin-like bond in the backcourt.
 
-**Fan** _(content)_: Kerr tried that five-out alignment, but Porzingis remains out indefinitely with an unspecified health issue. He signed that two-year, forty-million-dollar deal, missed camp, and posted that bizarre social media update dismissing online speculation.
+**Kylo** _(surprised)_: Did you see what Wayne Rooney said about Cristiano Ronaldo?
 
-**Anchor** _(clear)_: At the Shanghai Masters, Daniil Medvedev beat Stefanos Tsitsipas six-four, seven-five. Medvedev is only the fourth man to reach three consecutive Shanghai quarterfinals, alongside Roger Federer, Novak Djokovic, and Andy Murray.
+**Dhruv** _(composed)_: Rooney tore into him for walking out of the Portugal camp ahead of the Denmark match. Ronaldo warmed up for thirty minutes against Norway, stayed unused in a 2-1 win, and then accused Jorge Jesus of breaking his word while comparing himself to Pele and Maradona.
 
-**Fan** _(informative)_: Djokovic won Beijing last week for his hundred and second career title after Medvedev was defaulted in the semifinals and Alex de Minaur retired in the final with a groin injury.
+**Kylo** _(wistful)_: Gael Monfils has officially retired after twenty-two years on tour. When asked about his toughest opponent among the Big Three, he picked Novak Djokovic, admitting he never beat him once.
 
-**Anchor** _(neutral)_: Also in Shanghai, twenty-year-old Rafael Jodar made the quarterfinals by beating Botic van de Zandschulp, but picked up a code violation for swearing at a ball kid for a towel.
-
-**Fan** _(opinionated)_: And Rennae Stubbs thinks Alcaraz’s wrist injury came from copying Djokovic’s serve motion.
-
-**Anchor** _(informative)_: In football, Harry Kane scored twice in Bayern Munich’s three-three draw to reach four hundred and fifty career goals. Kane has now scored in nine straight Champions League games, closing in on Cristiano Ronaldo’s record of eleven.
-
-**Fan** _(impressed)_: He is tied with Thomas Müller on fifty-seven tournament goals. Yet Kane was still unhappy with the draw!
-
-**Anchor** _(amused)_: In Formula One, Kimi Antonelli admitted it would be scary if Verstappen were in the title fight. Antonelli could seal the championship in Austin if he outscores George Russell by twenty-three points and Lewis Hamilton by fourteen.
-
-**Fan** _(keen)_: Max will certainly keep sharp, tackling over sixty cars in that three-hour GT race in Portimão.
-
-## Around the grounds
-
-**Anchor** _(animated)_: Elsewhere in the Champions League, Club Brugge pulled off a four-three win away against Internazionale in a seven-goal thriller.
-
-**Fan** _(astonished)_: Inter beaten at home by Brugge! What a collapse for the Italian side.
-
-**Anchor** _(sharp)_: And Bodo/Glimt bounced back from their thrashing at Bayern by shocking Borussia Dortmund one-nil.
-
-**Fan** _(respectful)_: Dortmund beaten by Bodo/Glimt! European nights never fail to surprise.
+**Dhruv** _(serious)_: Andrea Stella called the clash between Norris and Piastri on the final lap of the Singapore sprint unacceptable, even though Norris apologized. Formula 1 also announced a ten-year deal to race in Rwanda starting in the early 2030s, returning to Africa for the first time since 1993.
 
 ## Coming up
 
-**Anchor** _(focused)_: For the fixtures in Indian Standard Time, Saturday morning starts at seven-thirty AM with Golden State Warriors facing the Portland Trail Blazers in preseason.
+**Dhruv** _(composed)_: You asked last time, "What is on our calendar for the next few days?" Here is where things stand.
 
-**Fan** _(eager)_: Then on Saturday at seven PM, India face the West Indies at the M. Chinnaswamy Stadium in Bengaluru for the series decider.
+**Dhruv** _(informative)_: India's next assignment is a tour of New Zealand featuring five T20Is, five ODIs, and two Tests, starting with the first T20 on Thursday, 22 October, at twelve-thirty in the afternoon in Christchurch.
 
-**Anchor** _(exact)_: On Monday at twelve-thirty AM, Real Madrid host Sevilla in La Liga at the Santiago Bernabéu.
+**Dhruv** _(precise)_: Max Verstappen is fourth in the championship on 221 points, 119 behind Andrea Kimi Antonelli, with round eighteen at the United States Grand Prix coming on Monday, 26 October, at one-thirty in the morning.
 
-**Fan** _(excited)_: Followed by RB Leipzig visiting the Bernabéu on Thursday at twelve-thirty AM in the Champions League.
+**Kylo** _(wistful)_: Can Verstappen close a gap that big?
+
+**Dhruv** _(direct)_: Almost impossible. As for fixtures, Saturday at seven-thirty in the morning brings Warriors against Portland in preseason. Saturday evening at seven, India take on the West Indies in the decider at M. Chinnaswamy Stadium.
+
+**Kylo** _(determined)_: Right in Bengaluru. All on the line.
+
+**Dhruv** _(informative)_: On Monday at twelve-thirty in the morning, Real Madrid host Sevilla in La Liga. Thursday, 22 October, is loaded: Real Madrid play RB Leipzig in the Champions League at twelve-thirty in the morning, the Warriors open their regular season at the Lakers at seven-thirty in the morning, and India play the first T20 against New Zealand at Hagley Oval at twelve-thirty in the afternoon.
 
 ## Sign-off
 
-**Anchor** _(reflective)_: An enormous weekend ahead of us.
+**Kylo** _(warm)_: Massive week coming up. Get your rest.
 
-**Fan** _(anticipating)_: Chinnaswamy on Saturday night is going to be electric.
-
-**Anchor** _(warm)_: That's the show. Same time tomorrow.
+**Dhruv** _(calm)_: That's Side effects of Sports for today. Same time tomorrow.
 
 ## Every try
-- Request 1, gemini-3.8-flash: names not in the pack (never add a fact or a name): Rome, Virat, Siro, Norway
+- Request 1, gemini-3.8-flash: names not in the pack (never add a fact or a name): Drive', Isack, Effects
 - Request 2, gemini-3.8-flash: no problems
