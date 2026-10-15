@@ -13,7 +13,7 @@
 1. **The first real episode**: today, 15 Oct, at 12:28 IST (backup 12:43), live by 13:00. Claude watches it.
 2. **Parth's verdict** on Kylo, Dhruv and the episode, turned into rules.
 3. **main** is created from this branch after the first good episode.
-4. **Where things stand** (built 15 Oct, switched off for the first episode): turn `standing` on in config/show.json after it, then a rehearsal shows how the writer says it.
+4. **Where things stand**: switched on after the first episode (15 Oct); a rehearsal shows how the writer says it.
 
 Done: host names (Kylo and Dhruv), the title (Side Effects of Sports), the cover (the green capsule, `cover.jpg`, made by `design/cover.mjs`), the feed site with a front page, one story told once, the guide for friends (`docs/MAKE-YOUR-OWN.md`, `scripts/find-ids.mjs`) and the Sports for everyone plan (`docs/SPORTS-FOR-EVERYONE.md`, decisions waiting in its section 12).
 
