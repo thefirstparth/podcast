@@ -2,7 +2,7 @@
   "note": "Voice auditions (scripts/audition.mjs, workflow 'voices'). Each round pairs Fan candidates with Anchor candidates, two voices a request, on the rehearsal key. Parth's verdicts are kept here so the next round builds on them.",
   "chosen": {
     "anchor": "Algenib",
-    "fan": null
+    "fan": "Zubenelgenubi"
   },
   "rounds": [
     {
@@ -35,7 +35,7 @@
     {
       "id": "round-2",
       "made": "2026-10-15",
-      "note": "Proposed 15 Oct, not run yet: the Anchor stays Algenib; four calmer Fan candidates, and the Fan's direction toned down (round 1 asked for 'excited, thrilled', which pushed every voice over the top). Puck comes back once, to hear whether the calmer direction alone fixes him.",
+      "note": "The Anchor stays Algenib; four calmer Fan candidates, and the Fan's direction toned down (round 1 asked for 'excited, thrilled', which pushed every voice over the top). Puck came back once, to hear whether the calmer direction alone fixed him.",
       "pairs": [
         [
           "Puck",
@@ -58,7 +58,52 @@
         "excited": "a young sports fan, happy and animated but natural, not shouting",
         "gutted": "a young sports fan, disappointed and quiet"
       },
+      "verdict": "Parth: Zubenelgenubi for the Fan."
+    },
+    {
+      "id": "round-3",
+      "made": null,
+      "note": "The chosen pair (Zubenelgenubi as the Fan, Algenib as the Anchor) in three accents: both Indian English, both British, and an Indian English Fan with a British Anchor. Parth's choice of 15 Oct.",
+      "pairs": [
+        [
+          "Zubenelgenubi",
+          "Algenib",
+          {
+            "fan": "indian",
+            "anchor": "indian",
+            "label": "both Indian English"
+          }
+        ],
+        [
+          "Zubenelgenubi",
+          "Algenib",
+          {
+            "fan": "british",
+            "anchor": "british",
+            "label": "both British"
+          }
+        ],
+        [
+          "Zubenelgenubi",
+          "Algenib",
+          {
+            "fan": "indian",
+            "anchor": "british",
+            "label": "Indian English Fan, British Anchor"
+          }
+        ]
+      ],
+      "fan_style": {
+        "excited": "a young man, a sports fan, happy and animated but natural, not shouting",
+        "gutted": "a young man, a sports fan, disappointed and quiet"
+      },
+      "anchor_style": "an older man, a calm, experienced sports broadcaster",
       "verdict": null
     }
-  ]
+  ],
+  "accents": {
+    "note": "Accent directions (the Indian one is the 14:00 show's, proven on air).",
+    "indian": "speaks Indian English the way an educated North Indian from the Hindi belt does: an even, syllable-timed rhythm, soft dental t and d, a lightly tapped r, w close to v, and Indian vowels, never American or British. Natural and relaxed, never exaggerated.",
+    "british": "speaks British English with a natural, standard southern English accent, never American. Natural and relaxed, never exaggerated."
+  }
 }

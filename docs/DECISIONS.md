@@ -62,3 +62,9 @@
 ## 15 Oct 2026 (night): voice audition, round 1
 - The Anchor is Algenib (Parth: "very mature"). Every Fan voice was too excited: Fenrir hated, Puck slightly too excited but better, Sadachbia slightly too excited. Charon "very bland", Sadaltager too bland, Orus not liked.
 - Round 2 is proposed, not run: the Anchor stays Algenib; the Fan candidates are Puck, Umbriel, Zubenelgenubi and Algieba, with the Fan's direction toned down ("happy and animated but natural, not shouting"). Round 1 asked for "excited, thrilled", which pushed every voice over the top. Auditions now run in rounds from config/voices.json, with Parth's verdicts kept there.
+
+## 15 Oct 2026: publishing time and the Fan's voice
+- The episode is ready by 13:00 IST (Parth chose the recommendation): every overnight result is final by noon (the latest regular finishes are West Coast Warriors games and the Las Vegas GP, about 11:30 IST), the recaps are written by then, and it lands an hour before the paper. The run starts about 12:20 IST, with a backup run about 12:50. The Gemini reset (midnight Pacific: 12:30 IST to 31 Oct, 13:30 IST from 1 Nov) does not decide it, because the live key is used once a day, well inside its allowance.
+- The Fan's voice is Zubenelgenubi (round 2); the Anchor is Algenib.
+- No practice episode: the first scheduled run is the first real episode (Parth). Before it, one technical test of the voice and mixing code on the rehearsal key, checked by Claude, not listened to by Parth.
+- Round 3 (ready): the chosen pair in three accents (both Indian English, both British, Indian English Fan with a British Anchor).

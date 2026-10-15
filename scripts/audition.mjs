@@ -17,21 +17,23 @@ const OUT = `${H}rehearsals/voices/${ROUND.id}`;
 mkdirSync(OUT, { recursive: true });
 const GEM = "https://generativelanguage.googleapis.com/v1beta/models";
 const MODELS = ["gemini-3.8-flash-tts", "gemini-3.1-flash-tts-preview", "gemini-2.5-flash-preview-tts"]; // the 14:00 show's, in order
-const CAP = 6; // requests in all, retries included: the rest of the day's ten stay free
+const CAP = 8; // requests in all, retries included: the rest of the day's ten stay free
 
 const FAN = [
   { text: "Three goals in seven minutes. Seven! I had completely given up on that one.", style: ROUND.fan_style?.excited || "an excited sports fan" },
   { text: "India lost by twenty-four runs. Honestly, that one hurts.", style: ROUND.fan_style?.gutted || "a sports fan, gutted and quiet" },
 ];
 const ANCHOR = [
-  { text: "West Indies made two hundred and forty-seven for three, and the series is level at two-all.", style: "a calm, experienced sports broadcaster" },
-  { text: "So it all comes down to Saturday in Bengaluru. Can India bounce back?", style: "a calm, experienced sports broadcaster, curious" },
+  { text: "West Indies made two hundred and forty-seven for three, and the series is level at two-all.", style: ROUND.anchor_style || "a calm, experienced sports broadcaster" },
+  { text: "So it all comes down to Saturday in Bengaluru. Can India bounce back?", style: `${ROUND.anchor_style || "a calm, experienced sports broadcaster"}, curious` },
 ];
+// a pair may ask for an accent per host (config/voices.json accents): "the speaker <accent text>"
+const accent = k => (k && V.accents?.[k] ? ` He ${V.accents[k]}` : "");
 const PAIRS = ROUND.pairs;
 
 let asks = 0;
-async function voice(fan, anchor) {
-  const parts = [...FAN.map(l => ({ text: l.text, speech_metadata: { speaker: "Fan", style: l.style } })), ...ANCHOR.map(l => ({ text: l.text, speech_metadata: { speaker: "Anchor", style: l.style } }))];
+async function voice(fan, anchor, opt = {}) {
+  const parts = [...FAN.map(l => ({ text: l.text, speech_metadata: { speaker: "Fan", style: `${l.style}.${accent(opt.fan)}` } })), ...ANCHOR.map(l => ({ text: l.text, speech_metadata: { speaker: "Anchor", style: `${l.style}.${accent(opt.anchor)}` } }))];
   const body = { contents: [{ role: "user", parts }], generationConfig: { responseModalities: ["AUDIO"], speechConfig: { multiSpeakerVoiceConfig: { speakerVoiceConfigs: [
     { speaker: "Fan", voiceConfig: { prebuiltVoiceConfig: { voiceName: fan } } }, { speaker: "Anchor", voiceConfig: { prebuiltVoiceConfig: { voiceName: anchor } } }] } } } };
   for (const model of MODELS) {
@@ -48,16 +50,16 @@ async function voice(fan, anchor) {
 
 const rate = mime => Number(String(mime || "").match(/rate=(\d+)/)?.[1]) || 24000;
 const made = [];
-for (const [i, [fan, anchor]] of PAIRS.entries()) {
+for (const [i, [fan, anchor, opt = {}]] of PAIRS.entries()) {
   try {
-    const { pcm, model, mime } = await voice(fan, anchor), raw = `${OUT}/take.pcm`, name = `${i + 1}-fan-${fan}-anchor-${anchor}.mp3`;
+    const { pcm, model, mime } = await voice(fan, anchor, opt), raw = `${OUT}/take.pcm`, name = `${i + 1}-fan-${fan}-anchor-${anchor}${opt.label ? `-${opt.label.toLowerCase().replace(/\W+/g, "-")}` : ""}.mp3`;
     writeFileSync(raw, pcm);
     execFileSync("ffmpeg", ["-loglevel", "error", "-y", "-f", "s16le", "-ar", String(rate(mime)), "-ac", "1", "-i", raw, "-af", "loudnorm=I=-16:TP=-1.5", "-ar", "44100", "-codec:a", "libmp3lame", "-b:a", "96k", `${OUT}/${name}`]);
     rmSync(raw);
-    made.push({ i: i + 1, fan, anchor, name, model, secs: Math.round(pcm.length / 2 / rate(mime)) });
+    made.push({ i: i + 1, fan: `${fan}${opt.fan ? ` (${opt.fan})` : ""}`, anchor: `${anchor}${opt.anchor ? ` (${opt.anchor})` : ""}`, name, model, secs: Math.round(pcm.length / 2 / rate(mime)) });
   } catch (e) { console.log(`audition: pair ${i + 1} not made: ${e.message}`); if (asks >= CAP) break; }
 }
-const L = [`# Voice audition, ${ROUND.id} (${day})`, "", `No accent was asked for, so each voice is heard as it is. The Fan says two lines (${FAN.map(l => l.style).join("; then ")}), then the Anchor says two (calm, then a question).`, ROUND.note || "", "",
+const L = [`# Voice audition, ${ROUND.id} (${day})`, "", `${PAIRS.some(p => p[2]) ? "Accents as labelled." : "No accent was asked for, so each voice is heard as it is."} The Fan says two lines (${FAN.map(l => l.style).join("; then ")}), then the Anchor says two (calm, then a question).`, ROUND.note || "", "",
   "| Clip | Fan voice | Anchor voice | Length | Listen |", "|---|---|---|---|---|", ...made.map(m => `| ${m.i} | ${m.fan} | ${m.anchor} | ${m.secs} s | [${m.name}](${encodeURIComponent(m.name)}) |`), "",
   `Made with ${made[0]?.model || "no model"}, ${asks} voice request(s) of the rehearsal key.`, "", "Google's own one-word descriptions: Fenrir excitable, Puck upbeat, Sadachbia lively, Umbriel easy-going, Zubenelgenubi casual, Algieba smooth; Algenib gravelly, Charon informative, Sadaltager knowledgeable, Orus firm."];
 writeFileSync(`${OUT}/README.md`, L.join("\n"));
