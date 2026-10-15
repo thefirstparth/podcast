@@ -27,7 +27,7 @@ function nudge(why, show) {
   const repo = process.env.GITHUB_REPOSITORY || "thefirstparth/podcast", run = `${process.env.GITHUB_SERVER_URL || "https://github.com"}/${repo}/actions/runs/${process.env.GITHUB_RUN_ID || ""}`;
   const who = (show.owner?.name || "the show's owner").split(" ")[0];
   const title = encodeURIComponent(`Today's episode could not be made`), body = encodeURIComponent(`What happened: ${why}\nThe run: ${run}`);
-  summary(`## No episode today\n${why}\n\nThe next episode will catch up on everything since the last one. Please tell ${who}, so they can look at it:\n- [Open a pre-filled note on GitHub](https://github.com/${repo}/issues/new?title=${title}&body=${body}) (GitHub emails the owner)\n- [Or email ${who}](mailto:${show.owner?.email || ""}?subject=${title}&body=${body})\n`);
+  summary(`## No episode today\n${why}\n\nThe next episode will catch up on everything since the last one. Please tell ${who}:\n- [Open a pre-filled note on GitHub](https://github.com/${repo}/issues/new?title=${title}&body=${body}) (GitHub emails the owner)\n- [Or email ${who}](mailto:${show.owner?.email || ""}?subject=${title}&body=${body})\n`);
 }
 
 // The site's front page: the cover, what the show is, and the feed link to paste into a podcast app (not indexed)
