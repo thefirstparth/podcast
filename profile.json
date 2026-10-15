@@ -129,6 +129,8 @@
       "name": "Golden State Warriors",
       "espn_abbr": "gs",
       "care": "follow",
+      "weak": ["Warriors"],
+      "cues": ["NBA", "Kerr", "Chase Center", "Dub Nation", "Dubs", "preseason", "Lakers", "Celtics", "Knicks", "Nets", "76ers", "Sixers", "Raptors", "Bulls", "Cavaliers", "Cavs", "Pistons", "Pacers", "Bucks", "Hawks", "Hornets", "Heat", "Magic", "Wizards", "Nuggets", "Timberwolves", "Thunder", "Trail Blazers", "Blazers", "Jazz", "Clippers", "Suns", "Kings", "Mavericks", "Mavs", "Rockets", "Grizzlies", "Pelicans", "Spurs"],
       "aliases": [
         "Warriors",
         "Golden State",

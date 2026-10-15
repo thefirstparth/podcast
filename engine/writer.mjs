@@ -62,7 +62,7 @@ FEELING
 
 FACTS (strict)
 - Use only facts given below. Never add a fact, name, number, quote or descriptive detail (no "packed stadium", no "that evening"). A question is answered only with what is given.
-- Say each fact once. Round honestly.
+- Say each fact once. Round honestly. Two stories can be the same news from different outlets (the same event, told in other words): tell it once.
 - The rival is named ONLY in rival-watch, in the cold-open when a result has "same_day", in a table line after a league result, in a coming fixture against them, or when one of the listener's own stories is about them (a ban that rules a player out of the Clasico, the title race); then say it plainly, as part of that story. Never celebrate or dwell on a rival's win.
 - Never talk about how the show is made, sources, feeds, the facts given, or anything missing.
 

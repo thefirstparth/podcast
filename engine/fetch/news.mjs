@@ -88,6 +88,17 @@ export function sameStory(a, b, { df, ignore, lim }) {
   const la = low(a.titles), lb = low(b.titles);
   return [...size.entries()].some(([r, n]) => n >= 3 && shared.some((p, i) => find(i) === r && p.split(" ").some(w => la.has(w) && lb.has(w))));
 }
+// Two chosen stories whose texts tell the same thing in other words (15 Oct: "Alcaraz returns to Vienna after five
+// years" and "Alcaraz set for Vienna Open return after four-year absence"): ten or more shared two-word phrases, at
+// least an eighth of the shorter text's, followed names left out. Checked only on the few stories already chosen.
+export function sameText(a, b, names = []) {
+  const ignore = new Set(names.flatMap(tokens)), pp = t => { const w = tokens(t).filter(x => !ignore.has(x)); return new Set(w.slice(1).map((x, i) => `${w[i]} ${x}`)); };
+  const A = pp(a.text?.text || ""), B = pp(b.text?.text || "");
+  if (!A.size || !B.size) return false;
+  let n = 0; for (const p of A) if (B.has(p)) n++;
+  return n >= 10 && n / Math.min(A.size, B.size) >= 0.12;
+}
+
 // fold cluster b into a (a keeps its headline)
 export function fold(a, b) {
   a.titles = [...a.titles, ...b.titles]; a.outlets = [...new Set([...a.outlets, ...b.outlets])]; a.n = a.outlets.length; a.date = Math.max(a.date || 0, b.date || 0);

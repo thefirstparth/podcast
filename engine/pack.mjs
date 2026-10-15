@@ -27,9 +27,13 @@ const COMMON = new Set("junior jr ii iii silva santos martinez garcia rodriguez 
 const fold = t => String(t).normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase();
 const esc = t => fold(t).replace(/[.*+?^${}()|[\]\\]/g, "\\$&").replace(/[- ]/g, "[- ]");
 // Does a headline name this subject? Its profile words and its squad, after the profile's "not" phrases are taken out
+// A weak alias ("Warriors": also a rugby league side, a Kerala football club, school teams) counts only when the
+// headline also has a cue (profile "cues": the league, its other teams) or a strong alias or squad name (15 Oct).
 export function buildMatcher(f, squad = []) {
-  const words = [...(f.aliases?.length ? f.aliases : [f.name]), ...squad.flatMap(playerAliases)];
-  const yes = new RegExp(`\\b(${words.map(esc).join("|")})\\b`, "i"), no = (f.not || []).length ? new RegExp(`\\b(${f.not.map(esc).join("|")})\\b`, "gi") : null;
+  const weak = new Set((f.weak || []).map(w => w.toLowerCase()));
+  const words = [...(f.aliases?.length ? f.aliases : [f.name]), ...squad.flatMap(playerAliases)].filter(w => !weak.has(w.toLowerCase()));
+  const weakRx = weak.size ? new RegExp(`\\b(${[...weak].map(esc).join("|")})\\b`, "i") : null, cueRx = (f.cues || []).length ? new RegExp(`\\b(${f.cues.map(esc).join("|")})\\b`, "i") : null;
+  const strong = words.length ? new RegExp(`\\b(${words.map(esc).join("|")})\\b`, "i") : /$^/, yes = { test: h => strong.test(h) || (!!weakRx && weakRx.test(h) && !!cueRx && cueRx.test(h)) }, no = (f.not || []).length ? new RegExp(`\\b(${f.not.map(esc).join("|")})\\b`, "gi") : null;
   const skip = (f.skip || []).length ? new RegExp(`\\b(${f.skip.map(esc).join("|")})\\b`, "i") : null;
   return { test: h => !(skip && skip.test(fold(h))) && yes.test(no ? fold(h).replace(no, " ") : fold(h)), skips: h => !!(skip && skip.test(fold(h))) };
 }
@@ -286,7 +290,9 @@ export async function buildPack({ profile = json("profile.json"), show = json("c
     const cap = { "die-hard": 3, follow: 2, "big-moments": 1 }[care(f)] ?? 1;
     const ok = c => (f.sport !== "tennis" || c.titles.some(t => who({ ...f, aliases: f.aliases || [/women|wta/i.test(f.name) ? "WTA" : "ATP", "Davis Cup", "Six Kings"] }).test(t)));
     let took = 0;
-    for (const c of clusters.filter(c => !used.has(c) && c.sport === f.sport && c.n >= (care(f) === "big-moments" ? 3 : 2) && ok(c) && !c.titles.some(t => rivalRx.some(r => r.test(t))))) {
+    // (a story naming someone followed by name in this sport is theirs, not the sport's: 15 Oct, two more Vienna stories)
+    const mine = names.filter(n => n.sport === f.sport);
+    for (const c of clusters.filter(c => !used.has(c) && c.sport === f.sport && c.n >= (care(f) === "big-moments" ? 3 : 2) && ok(c) && !c.titles.some(t => rivalRx.some(r => r.test(t))) && !c.titles.some(t => mine.some(n => who(n).test(t))))) {
       // a story already told for someone in this sport (the Six Kings Slam under Alcaraz) is not told twice
       const twin = news_items.find(n => profile.follows.find(x => x.name === n.subject)?.sport === f.sport && same(n, c));
       if (twin) { used.add(c); news.fold(twin, c); continue; }
@@ -310,6 +316,14 @@ export async function buildPack({ profile = json("profile.json"), show = json("c
   // the text behind each story and each result's best report, read by code (a few hundred words each, at most)
   for (const r of results) if (r.reports?.length) { r.reports.sort((a, b) => b.n - a.n); for (const c of r.reports.slice(0, 2)) if (!r.report) r.report = await news.readCluster(c); r.reports = r.reports.map(c => ({ headline: c.headline, outlets: c.outlets })); }
   await Promise.all([...news_items, ...rival_news].map(async n => { n.text = await news.readCluster(n); }));
+  // one story told by different outlets in other words, found from the texts now read: kept once
+  const nameWords = [...profile.follows, ...(profile.rivals || [])].flatMap(f => [f.name, ...(f.aliases || [])]);
+  const sportOf = n => profile.follows.find(x => x.name === n.subject)?.sport;
+  for (let i = 0; i < news_items.length; i++) for (let j = news_items.length - 1; j > i; j--) {
+    const a = news_items[i], b = news_items[j];
+    if (sportOf(a) !== sportOf(b) || !(() => { try { return news.sameText(a, b, nameWords); } catch { return false; } })()) continue;
+    news.fold(a, b); news_items.splice(j, 1);
+  }
 
   // ---- Around the grounds: at most two things from outside the list that any fan of the sport would expect to hear,
   // scored by code (engine/fetch/elsewhere.mjs); nothing when nothing clears the bar
