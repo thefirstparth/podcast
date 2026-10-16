@@ -12,6 +12,15 @@
   <itunes:explicit>false</itunes:explicit>
   <itunes:image href="https://thefirstparth.github.io/podcast/cover.jpg"/>
   <item>
+    <title>Fri 16 Oct: the day in sport</title>
+    <description></description>
+    <enclosure url="https://github.com/thefirstparth/podcast/releases/download/ep-2026-10-16/episode-2026-10-16.mp3" length="6332125" type="audio/mpeg"/>
+    <guid isPermaLink="false">sports-2026-10-16</guid>
+    <pubDate>Fri, 16 Oct 2026 07:23:54 GMT</pubDate>
+    <itunes:duration>396</itunes:duration>
+    <itunes:explicit>false</itunes:explicit>
+  </item>
+  <item>
     <title>Thu 15 Oct: AS Roma 3-4 Real Madrid</title>
     <description>AS Roma 3-4 Real Madrid. 4th T20I v West Indies, Hyderabad: West Indies won by 24 runs. Preseason: Los Angeles Lakers 89-101 Golden State Warriors</description>
     <enclosure url="https://github.com/thefirstparth/podcast/releases/download/ep-2026-10-15/episode-2026-10-15.mp3" length="9384063" type="audio/mpeg"/>
