@@ -111,9 +111,11 @@ async function main() {
   log(`studio: ${v.form}, ${Math.floor(seconds / 60)} min ${seconds % 60} s, ${Math.round(bytes / 1024)} KB`);
   // the record of the episode: a title and description from the facts (code, not the writer)
   const open = P.items.find(i => P.running_order[0]?.items?.includes(i.id)) || P.items[0];
+  // a day with no result is named after its first story (16 Oct: "the day in sport" said nothing)
+  const story = P.running_order.flatMap(s => s.news || [])[0]?.headline || "", lead = story.length > 90 ? `${story.slice(0, 90).replace(/\s+\S*$/, "")}...` : story;
   const dateLabel = new Date(now).toLocaleDateString("en-GB", { timeZone: profile.listener?.tz || "Asia/Kolkata", weekday: "short", day: "numeric", month: "short" });
-  const meta = { date: day, published: new Date().toISOString(), seconds, bytes, title: `${dateLabel}: ${open ? open.line : "the day in sport"}`,
-    description: P.running_order.flatMap(s => (s.items || []).map(id => P.items.find(i => i.id === id)?.line)).filter(Boolean).filter((x, i, a) => a.indexOf(x) === i).slice(0, 8).join(". "),
+  const meta = { date: day, published: new Date().toISOString(), seconds, bytes, title: `${dateLabel}: ${open ? open.line : lead ? lead : "the day in sport"}`,
+    description: P.running_order.flatMap(s => (s.items || []).map(id => P.items.find(i => i.id === id)?.line)).concat(P.running_order.flatMap(s => (s.news || []).map(n => n.headline))).filter(Boolean).filter((x, i, a) => a.indexOf(x) === i).slice(0, 8).join(". "),
     writer: r.best.model, voice: v.model, form: v.form };
   writeFileSync(`${out}/episode.json`, JSON.stringify(meta, null, 2));
   summary(`## ${meta.title}\n${Math.floor(seconds / 60)} min ${seconds % 60} s. Script by ${meta.writer}; voices by ${meta.voice} (${v.form}). ${LIVE ? "Published." : "Test run: nothing published; the MP3 is in the run's artifacts."}`);

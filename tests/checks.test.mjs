@@ -43,3 +43,8 @@ test("a script well past its planned length goes back for a trim", () => {
   assert.match(checkScript(long, { ...pack, words: 120 }, { rivals }).map(x => x.msg).join(" | "), /over the planned 120: trim/);
   assert.doesNotMatch(checkScript(base, pack, { rivals }).map(x => x.msg).join(" | "), /trim/);
 });
+test("a number the writer was not given goes back", () => {
+  const s = [...base]; s[3] = t("die-hard", "Fan", "elated", "Samson made 56 off 20 balls.");
+  const p = { ...pack, known: JSON.stringify({ text: "Samson reached his fifty in 20 balls" }) };
+  assert.match(checkScript(s, p, { rivals }).map(x => x.msg).join(" | "), /numbers not in the pack.*56/);
+});

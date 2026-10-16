@@ -165,7 +165,9 @@ export async function readCluster(c, max = 1200) {
       const html = await getText(url, { timeout: 10000 });
       const text = articleText(html), desc = metaOf(html, "og:description") || metaOf(html, "description");
       const body = (text.length > 200 ? text : desc).slice(0, max).replace(/\s+\S*$/, "");
-      if (body.length > 80) return { source: r.source, url, text: body };
+      // the page's own publication date, when it says (16 Oct: an outlet's feed re-dated a week-old match report)
+      const published = metaOf(html, "article:published_time") || String(html).match(/"datePublished"\s*:\s*"([^"]+)"/)?.[1] || null;
+      if (body.length > 80) return { source: r.source, url, text: body, published: published && !isNaN(Date.parse(published)) ? new Date(published).toISOString() : null };
     } catch {}
   }
   return null;

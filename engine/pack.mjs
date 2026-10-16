@@ -53,7 +53,7 @@ export async function buildPack({ profile = json("profile.json"), show = json("c
   // from the last published episode (a missed day is caught up, four days at most); else the last window_hours
   const last = ledger.lastPublished(said);
   const since = hours ? now - hours * 36e5 : last ? Math.max(last - 3 * 36e5, now - 4 * 864e5) : now - (show.window_hours ?? 30) * 36e5, until = now + 7 * 864e5, W = { since, until };
-  const items = [], fixtures = [], suppressed = [], errors = [], already = [];
+  const items = [], fixtures = [], suppressed = [], errors = [], already = [], toldResults = [];
   // Where things stand and what is next, for every team and player the listener follows (Parth, 15 Oct: "I would always
   // want to know"): the series or championship as it stands, the next match when it is beyond the seven days, the next
   // series or tournament. Worked out by code every day from the sources; nothing here is remembered or typed in.
@@ -80,7 +80,7 @@ export async function buildPack({ profile = json("profile.json"), show = json("c
   // several days only)
   const fresh = t => (Date.parse(t) >= now - (show.window_hours ?? 30) * 36e5 ? 1 : 0.5);
   const add = it => {
-    if (ledger.resultSaid(said, it.id)) { already.push(`${it.subject}: ${it.line}`); return; }
+    if (ledger.resultSaid(said, it.id)) { already.push(`${it.subject}: ${it.line}`); toldResults.push(it); return; }
     it.mood = moodOf(it.facts, it.stance, show.mood_rules);
     if (it.stance === "rival" && !it.mood) { suppressed.push(`${it.subject}: ${it.line} (a rival's good result, never said)`); return; }
     it.intensity = intensityOf(it.care, it.facts || {});
@@ -261,7 +261,9 @@ export async function buildPack({ profile = json("profile.json"), show = json("c
   // like a result needs two outlets: 15 Oct, "Region 9 football: Tigers, Mustangs, Warriors win big" joined the
   // Warriors' report)
   const RESULTY = /\b(\d+-\d+|beat|beats|beaten|win|wins|won|lose|loses|lost|loss|draw|drew|comeback|defeat|exit|exits|out of|stun|stuns|shock|upset|thriller|knocked|crash)\b/i;
-  const reportOf = (c, f) => results.find(i => {
+  // (a report of a result told in an earlier episode is dropped: 16 Oct, the Roma win and India's loss were told again
+  // the next day from their match reports. A reaction that names neither the opponent nor a scorer still gets in.)
+  const reportOf = (c, f) => [...results, ...toldResults.filter(i => i.kind === "result" && i.stance !== "rival")].find(i => {
     // a report names the opponent or a scorer (within four days of the match) or reads like a result (within 40 hours)
     if (i.subject !== f.name || c.date < Date.parse(i.when) || c.date - Date.parse(i.when) > 96 * 36e5) return false;
     const names = [...i.line.split(/ \d+-\d+ | v |: | bt |, | won by .*$/), ...(i.goals || []).map(g => g.split(": ")[1]?.split(/[,(]/)[0]?.trim().split(" ").at(-1))].map(p => p && p.replace(/^AS |\(\w+\)|\(\d+\)/g, "").trim()).filter(p => p && p.length > 3 && p !== f.name && !f.name.includes(p));
@@ -276,7 +278,7 @@ export async function buildPack({ profile = json("profile.json"), show = json("c
       // a preview of a match that has since been played is old news: the result says it now
       if (results.some(i => i.subject === f.name && c.date < Date.parse(i.when) && i.line.split(/ \d+-\d+ | v |: | bt |, /).some(p => p && p.length > 3 && p !== f.name && !f.name.includes(p) && c.headline.includes(p.replace(/^AS /, ""))))) { used.add(c); continue; }
       const r = reportOf(c, f);
-      if (r) { used.add(c); (r.reports ||= []).push(c); continue; }
+      if (r) { used.add(c); if (!toldResults.includes(r)) (r.reports ||= []).push(c); continue; }
       // the same story as one already chosen for this subject: its outlets join that one (it takes no slot)
       const twin = news_items.find(n => n.subject === f.name && same(n, c));
       if (twin) { used.add(c); news.fold(twin, c); continue; }
@@ -316,6 +318,13 @@ export async function buildPack({ profile = json("profile.json"), show = json("c
   // the text behind each story and each result's best report, read by code (a few hundred words each, at most)
   for (const r of results) if (r.reports?.length) { r.reports.sort((a, b) => b.n - a.n); for (const c of r.reports.slice(0, 2)) if (!r.report) r.report = await news.readCluster(c); r.reports = r.reports.map(c => ({ headline: c.headline, outlets: c.outlets })); }
   await Promise.all([...news_items, ...rival_news].map(async n => { n.text = await news.readCluster(n); }));
+  // a story whose page says it was published well before the window is old news, whatever its feed claimed
+  for (let i = news_items.length - 1; i >= 0; i--) {
+    const p = news_items[i].text?.published;
+    if (p && Date.parse(p) < since - 24 * 36e5) { suppressed.push(`${news_items[i].subject}: "${news_items[i].headline}" (old: published ${p.slice(0, 10)})`); news_items.splice(i, 1); }
+    // one outlet and no page to read: nothing to tell it from but a headline that may be old (16 Oct: a 9 Oct result)
+    else if (!news_items[i].text && news_items[i].n < 2) { suppressed.push(`${news_items[i].subject}: "${news_items[i].headline}" (one outlet, page not readable)`); news_items.splice(i, 1); }
+  }
   // one story told by different outlets in other words, found from the texts now read: kept once
   const nameWords = [...profile.follows, ...(profile.rivals || [])].flatMap(f => [f.name, ...(f.aliases || [])]);
   const sportOf = n => profile.follows.find(x => x.name === n.subject)?.sport;
@@ -333,7 +342,9 @@ export async function buildPack({ profile = json("profile.json"), show = json("c
   if (sports.has("football")) cands.push(...(await safe("elsewhere: football", () => elsewhere.football({ since, now, big: new Set(B.football || []), leagues: B.football_leagues || ["uefa.champions"], skip })) || []));
   if (sports.has("cricket")) cands.push(...(await safe("elsewhere: cricket", () => elsewhere.cricket({ since, tiers: show.cricket_tiers || {}, skip: new Set(profile.follows.filter(f => f.sport === "cricket").map(f => f.name.replace(/ (men|women)$/i, ""))) })) || []));
   // a story many outlets lead with, not about anyone on the list or a rival
-  const free = c => !used.has(c) && !c.titles.some(t => rivalRx.some(r => r.test(t)) || names.some(f => who(f).test(t)));
+  // (nor ruled out by a followed name's skip words: 16 Oct, India women v Zimbabwe got in although Parth's India men
+  // skips women's cricket)
+  const free = c => !used.has(c) && !c.titles.some(t => rivalRx.some(r => r.test(t)) || names.some(f => who(f).test(t) || ((!c.sport || f.sport === c.sport) && who(f).skips(t))));
   const country = profile.listener?.country ? new RegExp(`\\b(${profile.listener.country}|${profile.listener.country}n|${profile.listener.country}'s)\\b`, "i") : null;
   for (const c of clusters.filter(free)) { const d = elsewhere.newsDrama(c) + (country && c.titles.some(t => country.test(t)) ? 1 : 0); if (d) cands.push({ id: `news-${c.headline.slice(0, 40)}`, sport: c.sport, kind: "news", line: c.headline, outlets: c.outlets, drama: d, why: [`${c.n} outlets`], cluster: c }); }
   // the last day's results first: an older upset has had its day (rehearsals over several days only)

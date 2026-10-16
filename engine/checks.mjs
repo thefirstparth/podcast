@@ -50,6 +50,10 @@ export function checkScript(turns, pack, { hosts = ["Fan", "Anchor"], rivals = [
   const unknown = new Set();
   for (const t of turns) for (const m of t.text.matchAll(/(?<![.!?]\s|^)\b([A-Z][a-zà-ÿ'’]+)/g)) { const w = m[1].replace(/['’]s$/, ""); if (!skip.has(w) && w.length > 2 && !known.includes(fold(w))) unknown.add(w); }
   if (unknown.size) soft(`names not in the pack (never add a fact or a name): ${[...unknown].slice(0, 10).join(", ")}`);
+  // every number the hosts say in figures must be one they were given (16 Oct: "56 off 20 balls" for a fifty in 20)
+  const num = n => String(Number(n)), given = new Set((String(pack.known || JSON.stringify(pack)).match(/\d+(?:\.\d+)?/g) || []).map(num));
+  const odd = new Set(turns.flatMap(t => t.text.match(/\d+(?:\.\d+)?/g) || []).map(num).filter(n => !given.has(n)));
+  if (odd.size) soft(`numbers not in the pack (never add a fact or a number): ${[...odd].slice(0, 10).join(", ")}`);
   // the running order, as planned
   const plan = pack.running_order.map(s => s.id), seen = [...new Set(turns.map(t => t.segment))];
   const missing = plan.filter(s => !seen.includes(s));

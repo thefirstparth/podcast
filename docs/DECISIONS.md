@@ -104,3 +104,10 @@
 
   Same window afterwards: 7.2 minutes planned, no wrong Warriors, Vienna under Alcaraz only.
 - **Quiet days keep their stories** (Parth, 15 Oct: "keep as it is"): up to 4 stories per die-hard and 2 per follow, so a day with no results is still about 7 minutes of news, where things stand and the coming week.
+- **Second episode, 16 Oct** (the schedule did not fire again; started by Claude at 12:47 IST, out 12:54; 6 min 36 s). Yesterday's late schedules did run, about five hours late (17:41 and 18:07 IST), and correctly published nothing. The writer's three newest models were busy, so gemini-3.5-flash wrote it; Kylo's take did not cut cleanly, so it went out as one two-voice take, without the per-line listening check. What went wrong in the script, and the fixes:
+  - **Yesterday's matches retold.** The Roma win and India's loss came back through next-day match reports. A report of a result told in an earlier episode is now dropped; reactions that name neither opponent nor scorer still get in.
+  - **Women's cricket in the round-up** (India women v Zimbabwe). A followed name's skip words now also keep a story out of Around the grounds.
+  - **Old stories as new.** An outlet's feed re-dated week-old reports (Djokovic's 9 Oct loss). A story whose page says it was published more than a day before the window is dropped, as is a one-outlet story whose page cannot be read.
+  - **A wrong number.** "56 off 20 balls" for a fifty in 20. Numbers in figures are now checked against what the writer was given.
+  - **A generic title.** "the day in sport" on a day without results: such a day is now named after its first story.
+- Known limit: a women's player named without "women" in the headline (Punam Raut's retirement) can still reach India men's news.
