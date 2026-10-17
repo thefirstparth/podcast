@@ -22,3 +22,10 @@ test("the Fan's calls are claims, never questions", () => {
   record({ items: [], running_order: [] }, { file, turns, fan: "Kylo" });
   assert.deepEqual(lastCalls(load(file)), ["India will win the decider on Saturday, mark my words."]);
 });
+
+test("a call is his own prediction, never what someone else said", () => {
+  const file = `${mkdtempSync(`${tmpdir()}/ledger-`)}/said.json`;
+  const turns = [{ speaker: "Kylo", segment: "die-hard", text: "Vinicius said he has no doubt he will regain his best form soon." }, { speaker: "Kylo", segment: "ahead", text: "Saturday at seven, the decider in Bengaluru." }, { speaker: "Kylo", segment: "ahead", text: "I tell you, India will win the decider tonight." }];
+  record({ items: [], running_order: [] }, { file, turns, fan: "Kylo" });
+  assert.deepEqual(lastCalls(load(file)), ["I tell you, India will win the decider tonight."]);
+});

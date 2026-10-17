@@ -21,14 +21,17 @@ export const newsSaid = (L, cluster) => { const urls = new Set((cluster.links ||
 
 // The Fan's own calls (Parth, 15 Oct: "Dhruv remembers what Kylo said before it happened"): his lines about what is
 // coming, kept so the next episode's Anchor can quote them back
-const CALLS = /\b(will|going to|gonna|bet|mark my words|watch|predict|guarantee|easy|no way|sure|win|lose)\b/i;
+// (his own prediction, never a report of what someone else said: 17 Oct, Dhruv quoted back Kylo's summary of what
+// Vinicius said, because it had "will" in it)
+const CALLS = /\b(I (?:think|bet|reckon|guarantee|predict|promise|tell you|am telling you|swear)|mark my words|you watch|no way|(?:going to|gonna|will|they'll|he'll|we'll) (?:win|lose|beat|score|bounce back|walk it|crush|take|smash|do it))\b/i;
+const REPORTED = /\b(said|says|told|spoke|acknowledged|admitted|claims?|feels|according to|reports?)\b/i;
 export const lastCalls = L => L.episodes.at(-1)?.fan_said || [];
 export function record(pack, { file = FILE, published_at = new Date().toISOString(), turns = [], fan = null } = {}) {
   const L = load(file), cut = Date.now() - KEEP_DAYS * 864e5;
   const results = [...pack.running_order.flatMap(s => s.items || []), ...pack.running_order.flatMap(s => (s.elsewhere || []).map(c => c.id))];
   const urls = pack.running_order.flatMap(s => [...(s.news || []), ...(s.elsewhere || [])]).flatMap(n => [...(n.links || []).map(l => l.url), n.text?.url, n.report?.url]).filter(Boolean);
   // a call is a claim, never a question (15 Oct: "What is on our calendar?" was kept, and quoted back as if it were one)
-  const fan_said = turns.filter(t => t.speaker === fan && !/\?\s*$/.test(t.text) && (t.segment === "ahead" || CALLS.test(t.text)) && t.text.split(/\s+/).length >= 5).map(t => t.text).slice(-8);
+  const fan_said = turns.filter(t => t.speaker === fan && !/\?\s*$/.test(t.text) && CALLS.test(t.text) && !REPORTED.test(t.text) && t.text.split(/\s+/).length >= 5).map(t => t.text).slice(-8);
   L.episodes = [...L.episodes.filter(e => Date.parse(e.published_at) > cut), { published_at, results, urls, fan_said }];
   write(file, L);
   return L;
