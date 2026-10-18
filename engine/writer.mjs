@@ -122,7 +122,8 @@ export async function writeScript(P, { show = json("config/show.json"), profile 
   // Old news never reaches the voice, whatever the writer did (Parth, 18 Oct: no dependence on the writer): code takes out
   // any line that still tells an old result
   const best = bestOf(tries);
-  if (best) { const drop = new Set(oldNewsTurns(best.turns, P).map(x => x.i)); if (drop.size) { log(`writer: ${drop.size} line(s) telling old news taken out by code`); best.turns = best.turns.filter((_, i) => !drop.has(i)); best.removed = drop.size; } }
+  // (with the question it answers, or the answer to it, so the conversation does not dangle)
+  if (best) { const drop = new Set(oldNewsTurns(best.turns, P).flatMap(({ i }) => [i, ...(/\?\s*$/.test(best.turns[i].text) ? [i + 1] : []), ...(i > 0 && /\?\s*$/.test(best.turns[i - 1].text) ? [i - 1] : [])]).filter(i => i < best.turns.length)); if (drop.size) { log(`writer: ${drop.size} line(s) telling old news taken out by code`); best.turns = best.turns.filter((_, i) => !drop.has(i)); best.removed = drop.size; } }
   return { best, tries, requests: asks };
 }
 const bestOf = tries => tries.filter(t => !t.problems.some(p => p.hard)).sort((a, b) => a.problems.length - b.problems.length)[0] || null;

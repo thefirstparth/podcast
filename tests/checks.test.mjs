@@ -69,6 +69,9 @@ test("code takes out a line that tells an old result, whatever the writer did", 
     t("die-hard", "Anchor", "gutted", "Alcaraz crashed out in Shanghai, losing to Bergs."),       // an earlier result
     t("follow", "Anchor", "happy", "Jodar beat Medvedev to reach the Shanghai final."),          // today's news from the same event
     t("ahead", "Anchor", "happy", "Madrid and Roma meet again in the spring, 4-3 last time."),   // Coming up is left alone
+    t("follow", "Fan", "amazed", "And Jodar stunned Daniil Medvedev 6-3, 6-4!"),                 // an old opponent of someone else's, today's news
   ];
+  p.old_marks["Novak Djokovic"] = ["Medvedev"];
+  p.old_news.push("2026-10-10: Carlos Alcaraz, Rolex Shanghai Masters, Round 2: Carlos Alcaraz bt Juan Manuel Cerundolo 6-3 6-3");
   assert.deepEqual(oldNewsTurns(turns, p).map(x => x.i), [0, 1]);
 });

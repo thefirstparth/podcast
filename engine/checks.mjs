@@ -17,15 +17,17 @@ const SAD = new Set(["gutted", "angry", "heartbroken", "frustrated"]);
 const OLDRESULT = /\b(\d+-\d+|beat|beats|beaten|lose|loses|lost|loss|defeat|defeated|exit|exits|crash(?:es|ed)? out|knocked out|dumped out|eliminated|stunned|shock exit|upset)\b/i;
 export function oldNewsTurns(turns, pack) {
   const out = [], olds = (pack.old_news || []).map(o => { const line = o.replace(/^\d{4}-\d{2}-\d{2}: /, ""); return { o, scores: line.match(/\b\d+-\d+\b/g), names: (line.match(/\b[A-Z][a-z]{3,}\b/g) || []).filter(w => !/^(Real|Madrid|India|Golden|State|Warriors|Preseason|Formula|Rolex|Masters|Round)$/.test(w)) }; }).filter(x => x.scores && x.names.length);
-  // (a tournament's name, marked @, counts only with the player named in the same line: the tournament may still be on)
-  const marks = Object.entries(pack.old_marks || {}).flatMap(([who, ms]) => ms.map(m => ({ rx: new RegExp(`\\b${m.replace(/^@/, "").replace(/[.*+?^${}()|[\]\\]/g, "\\$&")}\\b`, "i"), who: m.startsWith("@") ? new RegExp(`\\b${who.split(/\s+/).at(-1)}\\b`, "i") : null })));
+  // (a mark counts only with the subject named in the same line: an earlier opponent or tournament is someone else's
+  // news too. 18 Oct: "Jodar stunned Medvedev", today's Shanghai semi-final, was taken for Djokovic's old match)
+  const marks = Object.entries(pack.old_marks || {}).flatMap(([who, ms]) => ms.map(m => ({ rx: new RegExp(`\\b${m.replace(/^@/, "").replace(/[.*+?^${}()|[\]\\]/g, "\\$&")}\\b`, "i"), who: new RegExp(`\\b${who.replace(/ (men|women)$/i, "").split(/\s+/).at(-1)}\\b`, "i") })));
   turns.forEach((t, i) => {
     if (t.segment === "ahead") return;
     // (a score either way round: "AS Roma 3-4 Real Madrid" is "4-3 to Madrid" when the Fan says it)
-    const has = sc => t.text.includes(sc) || t.text.includes(sc.split("-").reverse().join("-"));
-    const s = olds.find(x => x.scores.every(has) && x.names.some(n => t.text.includes(n)));
+    // (the whole score, in order: one set or one scoreline shared with today's news is not enough)
+    const flat = t.text.replace(/,\s*/g, " "), has = seq => flat.includes(seq.join(" ")) || flat.includes(seq.map(sc => sc.split("-").reverse().join("-")).join(" "));
+    const s = olds.find(x => has(x.scores) && x.names.some(n => t.text.includes(n)));
     if (s) return out.push({ i, why: s.o });
-    if (OLDRESULT.test(t.text) && marks.some(m => m.rx.test(t.text) && (!m.who || m.who.test(t.text)))) out.push({ i, why: `${t.text.slice(0, 60)}...` });
+    if (OLDRESULT.test(t.text) && marks.some(m => m.rx.test(t.text) && m.who.test(t.text))) out.push({ i, why: `${t.text.slice(0, 60)}...` });
   });
   return out;
 }
