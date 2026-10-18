@@ -141,5 +141,7 @@ export async function team({ cricbuzz_id: id = 2, sofascore_id: ssId, name }, { 
   const nextName = soon.find(m => !busy.has(m.series))?.series || null, nm = soon.filter(m => m.series === nextName);
   const counts = {}; for (const m of nm) counts[m.format] = (counts[m.format] || 0) + 1;
   const nextSeries = nextName ? { name: nextName, opponent: nm[0].opponent, from: nm[0].start, to: nm.at(-1).start, counts, first: { desc: nm[0].desc, start: nm[0].start, city: nm[0].city } } : null;
-  return { name, results, fixtures, series, running, next: soon[0] || null, next_series: nextSeries, source: src };
+  // results from the ten days before the window: old news, so a report of one is never told as new (18 Oct)
+  const earlier = all.filter(m => m.state === "done" && Date.parse(m.start) < since && Date.parse(m.start) >= Date.now() - 10 * 864e5).map(m => ({ date: m.start, opponent: m.opponent, competition: m.series, line: `${m.desc} v ${m.opponent}${m.city ? `, ${m.city}` : ""}: ${m.status}` }));
+  return { name, results, fixtures, series, running, next: soon[0] || null, next_series: nextSeries, source: src, earlier };
 }

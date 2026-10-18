@@ -44,7 +44,10 @@ THE HOSTS
 ${show.dynamic ? `Their dynamic: ${show.dynamic}` : ""}${P.previously?.length ? `
 What ${A.id} said in the last episode (${B.id} may quote one of these back to him, word for word, when today's facts prove him right or wrong; never invent anything he said):
 ${P.previously.map(x => `- "${x}"`).join("\n")}` : ""}
-They speak natural ${accent(show)} (the listener is in ${P.listener?.city || (P.listener?.tz === "Asia/Kolkata" ? "Bengaluru, India" : "their own city")}). Never address the listener by name.
+${P.old_news?.length ? `ALREADY OLD (told in the last episodes, or results from before today's window): never tell any of these again as news, and never as if it just happened. At most a few words of background when one of today's stories needs it ("after his Shanghai exit, Alcaraz...").
+${P.old_news.map(x => `- ${x}`).join("\n")}
+
+` : ""}They speak natural ${accent(show)} (the listener is in ${P.listener?.city || (P.listener?.tz === "Asia/Kolkata" ? "Bengaluru, India" : "their own city")}). Never address the listener by name.
 
 THE SHOW, in exactly this order (segments from RUNNING ORDER; a segment not listed is left out entirely, with no line about it)
 - cold-open: one or two lines on the biggest moment, said in its mood. No greeting before it. Then a one-line hello${P.made_at ? ` (it goes out in the ${(h => (h < 12 ? "morning" : h < 17 ? "afternoon" : "evening"))(Number(new Date(P.made_at).toLocaleString("en-GB", { timeZone: P.tz || "UTC", hour: "2-digit", hour12: false })))}, so never another part of the day)` : ""}.

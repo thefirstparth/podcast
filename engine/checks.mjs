@@ -50,6 +50,14 @@ export function checkScript(turns, pack, { hosts = ["Fan", "Anchor"], rivals = [
   const unknown = new Set();
   for (const t of turns) for (const m of t.text.matchAll(/(?<![.!?]\s|^)\b([A-Z][a-zà-ÿ'’]+)/g)) { const w = m[1].replace(/['’]s$/, ""); if (!skip.has(w) && w.length > 2 && !known.includes(fold(w))) unknown.add(w); }
   if (unknown.size) soft(`names not in the pack (never add a fact or a name): ${[...unknown].slice(0, 10).join(", ")}`);
+  // an old result told again as news (18 Oct): a line from the last episodes, or from before the window, whose score
+  // and a name from it come back together outside Coming up
+  for (const old of pack.old_news || []) {
+    const line = old.replace(/^\d{4}-\d{2}-\d{2}: /, ""), scores = line.match(/\b\d+-\d+\b/g), names = (line.match(/\b[A-Z][a-z]{3,}\b/g) || []).filter(w => !/^(Real|Madrid|India|Golden|State|Warriors|Preseason|Formula)$/.test(w));
+    if (!scores || !names.length) continue;
+    const hit = turns.find(t => t.segment !== "ahead" && scores.every(x => t.text.includes(x)) && names.some(n => t.text.includes(n)));
+    if (hit) { soft(`tells old news again ("${old}"): today's stories only, at most a few words of background`); break; }
+  }
   // every clock time must be one the writer was given, with the same am or pm (17 Oct: a kick-off at 00:30 said as
   // "Monday morning at 12:30 AM", and the old voicing turned "11:00 PM" into "eleven a m")
   const clockOf = x => { const m = x.match(/(\d{1,2})(?::(\d{2}))?\s*([ap])\.?\s?m\b/i); return m ? `${Number(m[1])}:${m[2] || "00"} ${m[3].toLowerCase()}m` : null; };

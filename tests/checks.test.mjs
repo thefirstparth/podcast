@@ -55,3 +55,9 @@ test("a time said differently from the one given goes back", () => {
   const ok = [...base]; ok[3] = t("die-hard", "Fan", "elated", "Madrid and Sevilla, late Sunday night, 12:30 am.");
   assert.doesNotMatch(checkScript(ok, p, { rivals }).map(x => x.msg).join(" | "), /times not as given/);
 });
+test("an old result told again as news goes back", () => {
+  const s = [...base]; s[3] = t("die-hard", "Fan", "gutted", "Then tennis served up a shocker. Alcaraz crashed out to Zizou Bergs, losing 7-5, 7-6.");
+  const p = { ...pack, old_news: ["2026-10-13: Carlos Alcaraz, Rolex Shanghai Masters, Round of 32: Zizou Bergs bt Carlos Alcaraz 7-5 7-6"] };
+  assert.match(checkScript(s, p, { rivals }).map(x => x.msg).join(" | "), /tells old news again/);
+  assert.doesNotMatch(checkScript(base, p, { rivals }).map(x => x.msg).join(" | "), /tells old news again/);
+});

@@ -73,6 +73,9 @@ export async function buildPack({ profile = json("profile.json"), show = json("c
   const last = ledger.lastPublished(said);
   const since = hours ? now - hours * 36e5 : last ? Math.max(last - 3 * 36e5, now - 4 * 864e5) : now - (show.window_hours ?? 30) * 36e5, until = now + 7 * 864e5, W = { since, until };
   const items = [], fixtures = [], suppressed = [], errors = [], already = [], toldResults = [];
+  // each subject's results from the ten days before the window (old news: 18 Oct, Alcaraz's 13 Oct exit was told on
+  // the 16th and 17th from fresh-looking reports)
+  const earlier = {};
   // Where things stand and what is next, for every team and player the listener follows (Parth, 15 Oct: "I would always
   // want to know"): the series or championship as it stands, the next match when it is beyond the seven days, the next
   // series or tournament. Worked out by code every day from the sources; nothing here is remembered or typed in.
@@ -131,6 +134,7 @@ export async function buildPack({ profile = json("profile.json"), show = json("c
     const t = await safe(f.name, () => football.team(f, { ...W, rivals: [...rivalIds], rivalNames: (profile.rivals || []).map(r => r.name) }));
     if (!t) continue;
     for (const r of t.results) add(fbItem(f, "love", t, r));
+    (earlier[f.name] ||= []).push(...(t.earlier || []));
     for (const x of t.fixtures) fixtures.push({ subject: f.name, care: care(f), when: x.date, when_local: at(x.date), say: say(x.date), what: `${x.home ? `${f.name} v ${x.opponent}` : `${x.opponent} v ${f.name}`}`, competition: x.competition, venue: x.venue });
     if (!t.fixtures.length && t.next) stand(f, "next", () => [`Next match: ${t.next.home ? `${f.name} v ${t.next.opponent}` : `${t.next.opponent} v ${f.name}`}, ${say(t.next.date)}${t.next.competition ? ` (${t.next.competition})` : ""}`]);
   }
@@ -155,6 +159,7 @@ export async function buildPack({ profile = json("profile.json"), show = json("c
   for (const f of profile.follows.filter(f => f.sport === "cricket")) {
     const t = await safe(f.name, () => cricket.team(f, W));
     if (!t) continue;
+    (earlier[f.name] ||= []).push(...(t.earlier || []));
     for (const r of t.results) {
       const s = t.series.find(s => s.name === r.series && s.format === r.format);
       add({ id: uid("cr", f.name, r.start), sport: "cricket", kind: "result", subject: f.name, stance: "love", care: care(f), when: r.start, when_local: at(r.start), competition: r.series, stage: r.facts.stage,
@@ -211,6 +216,7 @@ export async function buildPack({ profile = json("profile.json"), show = json("c
     const mine = new Set();
     for (const p of players) {
       const t = board ? tennis.player(board, p.name, W) : p.sofascore_id ? await safe(`${p.name} (Sofascore)`, () => sofa.tennisPlayer(p, W)) || { results: [], fixtures: [] } : { results: [], fixtures: [] };
+      (earlier[p.name] ||= []).push(...(t.earlier || []));
       for (const r of t.results) {
         mine.add(r.id);
         add({ id: uid("tn", p.name, r.date), sport: "tennis", kind: "result", subject: p.name, stance: "love", care: care(p), when: r.date, when_local: at(r.date), competition: r.tournament, stage: r.round,
@@ -231,6 +237,7 @@ export async function buildPack({ profile = json("profile.json"), show = json("c
   // ---- NBA
   for (const f of profile.follows.filter(f => f.sport === "basketball")) {
     const t = await safe(f.name, () => nba.team(f, W).then(t => { if (!t.results.length && !t.fixtures.length) throw new Error("ESPN: nothing"); return t; }).catch(e => (f.sofascore_id ? sofa.basketballTeam(f, W) : Promise.reject(e))));
+    (earlier[f.name] ||= []).push(...(t?.earlier || []));
     for (const g of t?.results || []) add({ id: uid("nba", f.name, g.date), sport: "basketball", kind: "result", subject: f.name, stance: "love", care: care(f), when: g.date, when_local: at(g.date), competition: g.kind, stage: g.kind,
       line: `${g.kind}: ${g.home ? `${f.name} ${g.us}-${g.them} ${g.opponent}` : `${g.opponent} ${g.them}-${g.us} ${f.name}`}`, facts: g.facts, source: t.source || "ESPN" });
     for (const x of t?.fixtures || []) fixtures.push({ subject: f.name, care: care(f), when: x.date, when_local: at(x.date), say: say(x.date), what: `${x.home ? `${f.name} v ${x.opponent}` : `${x.opponent} v ${f.name}`}`, competition: x.kind });
@@ -289,6 +296,14 @@ export async function buildPack({ profile = json("profile.json"), show = json("c
     const names = [...i.line.split(/ \d+-\d+ | v |: | bt |, | won by .*$/), ...(i.goals || []).map(g => g.split(": ")[1]?.split(/[,(]/)[0]?.trim().split(" ").at(-1))].map(p => p && p.replace(/^AS |\(\w+\)|\(\d+\)/g, "").trim()).filter(p => p && p.length > 3 && p !== f.name && !f.name.includes(p));
     return names.some(p => c.headline.includes(p)) || (RESULTY.test(c.headline) && c.n >= 2 && c.date - Date.parse(i.when) <= 40 * 36e5);
   });
+  // A story about one of the subject's earlier results: it names that match's opponent (or, in tennis, its
+  // tournament) and reads like a result
+  const OLDRESULT = /\b(\d+-\d+|beat|beats|beaten|win|wins|won|lose|loses|lost|loss|draw|drew|comeback|defeat|defeated|exit|exits|out of|dumped|crash(?:es|ed)? out|knocked out|eliminated|stun|stuns|stunned|shock|upset|thriller|rout|thrash(?:ed)?)\b/i;
+  const SPONSOR = new Set(["rolex", "open", "masters", "championships", "championship", "tennis", "atp", "wta", "cup", "trophy", "series", "tour", "league", "laliga", "preseason", "season", "regular", "the", "and", "2026", "2027"]);
+  const oldReport = (c, f) => (earlier[f.name] || []).find(e => {
+    const marks = [e.opponent && String(e.opponent).split(/\s+/).filter(w => w.length >= 4).at(-1), ...(f.sport === "tennis" ? String(e.competition || "").split(/[\s,]+/).filter(w => w.length >= 5 && !SPONSOR.has(w.toLowerCase())) : [])].filter(Boolean);
+    return c.titles.some(t => OLDRESULT.test(t) && marks.some(m => new RegExp(`\\b${m.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")}\\b`, "i").test(t)));
+  });
   for (const f of names) {
     const cap = { "die-hard": 4, follow: 2, "big-moments": 1 }[care(f)] ?? 1, min = care(f) === "big-moments" ? 2 : 1;
     // a story is the subject's when any of its headlines names the subject (the lead one may not); it is shown by the
@@ -299,6 +314,9 @@ export async function buildPack({ profile = json("profile.json"), show = json("c
       if (results.some(i => i.subject === f.name && c.date < Date.parse(i.when) && i.line.split(/ \d+-\d+ | v |: | bt |, /).some(p => p && p.length > 3 && p !== f.name && !f.name.includes(p) && c.headline.includes(p.replace(/^AS /, ""))))) { used.add(c); continue; }
       const r = reportOf(c, f);
       if (r) { used.add(c); if (!toldResults.includes(r)) (r.reports ||= []).push(c); continue; }
+      // a report of a match from before the window is old news, however new its date looks
+      const old = oldReport(c, f);
+      if (old) { used.add(c); suppressed.push(`${f.name}: "${c.headline}" (about an earlier result: ${old.line})`); continue; }
       // the same story as one already chosen for this subject: its outlets join that one (it takes no slot)
       const twin = news_items.find(n => n.subject === f.name && same(n, c));
       if (twin) { used.add(c); news.fold(twin, c); continue; }
@@ -412,7 +430,7 @@ export async function buildPack({ profile = json("profile.json"), show = json("c
   }
   for (const s of live) { const def = show.segments.find(x => x.id === s.id); Object.assign(s, { name: def?.name, about: def?.about }); }
   return { made_at: new Date(now).toISOString(), tz: TZ, window: { from: new Date(since).toISOString(), to: new Date(now).toISOString() }, listener: profile.listener, tone: profile.tone,
-    minutes: +(total / wpm).toFixed(1), words: total, max_words: max, quiet: total < target * 0.75, running_order: live, items, fixtures, standing, cast: { rival: profile.rivals?.[0]?.name || null, example: profile.follows.filter(f => care(f) === "die-hard")[1]?.name.replace(/ (men|women)$/i, "") || null }, suppressed, already_said: already, previously: ledger.lastCalls(said), errors };
+    minutes: +(total / wpm).toFixed(1), words: total, max_words: max, quiet: total < target * 0.75, running_order: live, items, fixtures, standing, cast: { rival: profile.rivals?.[0]?.name || null, example: profile.follows.filter(f => care(f) === "die-hard")[1]?.name.replace(/ (men|women)$/i, "") || null }, suppressed, already_said: already, previously: ledger.lastCalls(said), old_news: [...new Set([...Object.entries(earlier).flatMap(([who, es]) => es.map(e => `${String(e.date).slice(0, 10)}: ${who}, ${e.line}`)), ...ledger.lastTold(said, 3)])].slice(0, 70), errors };
 }
 
 // A person's view of the pack: what happened, the mood code gave it, and where it sits in the show

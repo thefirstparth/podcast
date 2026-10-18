@@ -26,13 +26,18 @@ export const newsSaid = (L, cluster) => { const urls = new Set((cluster.links ||
 const CALLS = /\b(I (?:think|bet|reckon|guarantee|predict|promise|tell you|am telling you|swear)|mark my words|you watch|no way|(?:going to|gonna|will|they'll|he'll|we'll) (?:win|lose|beat|score|bounce back|walk it|crush|take|smash|do it))\b/i;
 const REPORTED = /\b(said|says|told|spoke|acknowledged|admitted|claims?|feels|according to|reports?)\b/i;
 export const lastCalls = L => L.episodes.at(-1)?.fan_said || [];
+// what the last few episodes told (the newest first), each line with its day
+export const lastTold = (L, n = 3) => L.episodes.slice(-n).reverse().flatMap(e => (e.told || []).map(line => `${String(e.published_at).slice(0, 10)}: ${line}`));
 export function record(pack, { file = FILE, published_at = new Date().toISOString(), turns = [], fan = null } = {}) {
   const L = load(file), cut = Date.now() - KEEP_DAYS * 864e5;
   const results = [...pack.running_order.flatMap(s => s.items || []), ...pack.running_order.flatMap(s => (s.elsewhere || []).map(c => c.id))];
   const urls = pack.running_order.flatMap(s => [...(s.news || []), ...(s.elsewhere || [])]).flatMap(n => [...(n.links || []).map(l => l.url), n.text?.url, n.report?.url]).filter(Boolean);
   // a call is a claim, never a question (15 Oct: "What is on our calendar?" was kept, and quoted back as if it were one)
   const fan_said = turns.filter(t => t.speaker === fan && !/\?\s*$/.test(t.text) && CALLS.test(t.text) && !REPORTED.test(t.text) && t.text.split(/\s+/).length >= 5).map(t => t.text).slice(-8);
-  L.episodes = [...L.episodes.filter(e => Date.parse(e.published_at) > cut), { published_at, results, urls, fan_said }];
+  // what the episode told, in plain lines, for the next episodes' writer: old news is never told again as news (18 Oct)
+  const it = id => (pack.items || []).find(i => i.id === id);
+  const told = [...new Set([...pack.running_order.flatMap(s => (s.items || []).map(id => it(id)?.line).filter(Boolean)), ...pack.running_order.flatMap(s => (s.news || []).map(n => n.headline)), ...pack.running_order.flatMap(s => (s.elsewhere || []).map(c => c.line))])].slice(0, 40);
+  L.episodes = [...L.episodes.filter(e => Date.parse(e.published_at) > cut), { published_at, results, urls, fan_said, told }];
   write(file, L);
   return L;
 }

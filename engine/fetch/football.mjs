@@ -125,7 +125,9 @@ export async function team({ espn_id: id, sofascore_id: ssId, name, league }, { 
   const around = tbl ? (() => { const i = tbl.findIndex(t => t.id === String(id)); return i < 0 ? null : { league, rows: tbl.slice(0, Math.max(4, i + 2)) }; })() : null;
   // the next match whatever its date (an international break leaves the seven days empty)
   const nextMatch = next.filter(r => !r.completed && Date.parse(r.date) > Date.now() - 3 * 36e5).sort((a, b) => a.date.localeCompare(b.date))[0] || null;
-  return { name, id: String(id), results, fixtures, next: nextMatch, table: around };
+  // results from the ten days before the window: old news, so a report of one is never told as new (18 Oct)
+  const earlier = played.filter(r => Date.parse(r.date) < since && Date.parse(r.date) >= Date.now() - 10 * 864e5).map(r => ({ date: r.date, opponent: r.opponent, competition: r.competition, line: `${r.home ? `${name} ${r.us}-${r.them} ${r.opponent}` : `${r.opponent} ${r.them}-${r.us} ${name}`}` }));
+  return { name, id: String(id), results, fixtures, next: nextMatch, table: around, earlier };
 }
 
 // The squad's names (for matching news to the team)

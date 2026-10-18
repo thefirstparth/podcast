@@ -27,7 +27,9 @@ export function player(matches, name, { since, until }) {
     return { ...m, opponent: opp.name, score: m.note || sets, facts: { won: me.won, lost: !me.won, drew: false, eliminated: !me.won, title: me.won && final, big: false, upset: !me.won && !opp.seed && !!me.seed, stage: final ? "final" : semi ? "knockout" : "round", preseason: false } };
   });
   const next = mine.filter(m => m.state !== "post" && Date.parse(m.date) <= until).map(m => ({ ...m, opponent: m.players.find(p => key(p.name) !== k)?.name || "TBC" }));
-  return { name, results, fixtures: next };
+  // results from the ten days before the window: old news, so a report of one is never told as new (18 Oct)
+  const earlier = mine.filter(m => m.state === "post" && Date.parse(m.date) < since).map(m => { const me = m.players.find(p => key(p.name) === k), opp = m.players.find(p => p !== me); return { date: m.date, opponent: opp?.name || null, competition: m.tournament, line: `${m.tournament}, ${m.round}: ${m.note || `${name} v ${opp?.name}`}` }; });
+  return { name, results, fixtures: next, earlier };
 }
 
 // The tournaments starting in the next three weeks (ESPN's scoreboard by date), with the players in each draw once it
