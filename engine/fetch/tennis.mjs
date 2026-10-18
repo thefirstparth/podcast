@@ -21,7 +21,7 @@ export async function board(tour = "atp") {
 
 export function player(matches, name, { since, until }) {
   const k = key(name), mine = matches.filter(m => m.players.some(p => key(p.name) === k));
-  const results = mine.filter(m => m.state === "post" && Date.parse(m.date) >= since).map(m => {
+  const results = mine.filter(m => m.state === "post" && played(m) && Date.parse(m.date) >= since).map(m => {
     const me = m.players.find(p => key(p.name) === k), opp = m.players.find(p => p !== me);
     const final = /^final$/i.test(m.round || ""), semi = /semi/i.test(m.round || ""), sets = me.sets.map((s, i) => `${s}-${opp.sets[i]}`).join(" ");
     return { ...m, opponent: opp.name, score: m.note || sets, facts: { won: me.won, lost: !me.won, drew: false, eliminated: !me.won, title: me.won && final, big: false, upset: !me.won && !opp.seed && !!me.seed, stage: final ? "final" : semi ? "knockout" : "round", preseason: false } };
@@ -49,7 +49,10 @@ export async function calendar(tour = "atp", weeks = 3) {
 }
 
 // Semi-finals and finals of the tournaments on now, whoever played
-export const bigMatches = (matches, { since }) => matches.filter(m => m.state === "post" && Date.parse(m.date) >= since && /^(final|semifinal|semi-final|semifinals)$/i.test(m.round || ""));
+// (only a match really played: two named players and a score or a winner. 18 Oct: an unplayed final, "TBD v TBD", that
+// ESPN listed as finished, became the episode's title)
+const played = m => m.players.length === 2 && m.players.every(p => p.name && !/^(TBD|TBA|bye)$/i.test(p.name.trim())) && (m.players.some(p => p.won) || m.players.some(p => p.sets.length));
+export const bigMatches = (matches, { since }) => matches.filter(m => m.state === "post" && played(m) && Date.parse(m.date) >= since && /^(final|semifinal|semi-final|semifinals)$/i.test(m.round || ""));
 
 // The tour's ranked players (ESPN), so "Men's tennis" means stories about the men's tour: a story must name one of them
 export async function rankings(tour = "atp") {

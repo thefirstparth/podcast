@@ -41,3 +41,10 @@ print(edge_leak(words("That is massive news. Now have you seen the rain outside 
 test("a colon inside a line is said as a comma", () => {
   assert.equal(spoken("one huge relief: Jude Bellingham has agreed, at 7:30 PM."), "one huge relief, Jude Bellingham has agreed, at seven thirty p m.");
 });
+test("an unplayed final is never a result", async () => {
+  const { bigMatches } = await import("../engine/fetch/tennis.mjs");
+  const m = (players, round = "Final") => ({ state: "post", date: "2026-10-18T10:00:00Z", round, tournament: "Grand Prix Auvergne-Rhône-Alpes", players });
+  const tbd = m([{ name: "TBD", won: false, sets: [] }, { name: "TBD", won: false, sets: [] }]);
+  const real = m([{ name: "Rafael Jodar", won: true, sets: [6, 6] }, { name: "Daniil Medvedev", won: false, sets: [3, 4] }], "Semifinal");
+  assert.deepEqual(bigMatches([tbd, real], { since: 0 }).map(x => x.players[0].name), ["Rafael Jodar"]);
+});
