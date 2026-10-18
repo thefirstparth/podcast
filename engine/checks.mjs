@@ -50,6 +50,13 @@ export function checkScript(turns, pack, { hosts = ["Fan", "Anchor"], rivals = [
   const unknown = new Set();
   for (const t of turns) for (const m of t.text.matchAll(/(?<![.!?]\s|^)\b([A-Z][a-zà-ÿ'’]+)/g)) { const w = m[1].replace(/['’]s$/, ""); if (!skip.has(w) && w.length > 2 && !known.includes(fold(w))) unknown.add(w); }
   if (unknown.size) soft(`names not in the pack (never add a fact or a name): ${[...unknown].slice(0, 10).join(", ")}`);
+  // every clock time must be one the writer was given, with the same am or pm (17 Oct: a kick-off at 00:30 said as
+  // "Monday morning at 12:30 AM", and the old voicing turned "11:00 PM" into "eleven a m")
+  const clockOf = x => { const m = x.match(/(\d{1,2})(?::(\d{2}))?\s*([ap])\.?\s?m\b/i); return m ? `${Number(m[1])}:${m[2] || "00"} ${m[3].toLowerCase()}m` : null; };
+  const clocks = t => (t.match(/\b\d{1,2}(?::\d{2})?\s*[ap]\.?\s?m\b/gi) || []).map(clockOf);
+  const givenClocks = new Set(clocks(String(pack.known || JSON.stringify(pack))));
+  const badClocks = new Set(turns.flatMap(t => clocks(t.text)).filter(c => !givenClocks.has(c)));
+  if (badClocks.size) soft(`times not as given (say each time exactly as its "when"): ${[...badClocks].join(", ")}`);
   // every number the hosts say in figures must be one they were given (16 Oct: "56 off 20 balls" for a fifty in 20)
   const num = n => String(Number(n)), given = new Set((String(pack.known || JSON.stringify(pack)).match(/\d+(?:\.\d+)?/g) || []).map(num));
   const odd = new Set(turns.flatMap(t => t.text.match(/\d+(?:\.\d+)?/g) || []).map(num).filter(n => !given.has(n)));

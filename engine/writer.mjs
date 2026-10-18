@@ -26,7 +26,7 @@ export function forWriter(P) {
       results: (s.items || []).map(it).map(item), stories: (s.news || []).map(story),
       elsewhere: (s.elsewhere || []).map(c => ({ what: c.line, competition: c.competition, why_it_matters: c.why, report: c.report?.text })),
       where_things_stand: s.standing?.length ? s.standing.map(x => ({ subject: x.subject, facts: x.lines })) : undefined,
-      fixtures: (s.fixtures || []).map(f => ({ when: f.when_local, what: f.what, competition: f.competition, where: f.venue || undefined })) })),
+      fixtures: (s.fixtures || []).map(f => ({ when: f.say || f.when_local, what: f.what, competition: f.competition, where: f.venue || undefined })) })),
   };
 }
 
@@ -52,7 +52,7 @@ THE SHOW, in exactly this order (segments from RUNNING ORDER; a segment not list
 - rival-watch: the rival's slip, with more colour and enjoyment ("${P.cast?.rival || "Barcelona"} were dreadful" is fine). Results and big bad news only. Never an injury or anything personal.
 - follow: brisk, a result and one line of why it matters.
 - around: quick hits from "elsewhere", told with what made it notable.
-- ahead: ${P.standing?.length ? 'first "where_things_stand" for each team or player, one short spoken line each (where a series or championship stands, the next match, the next series or tournament), then ' : ""}the fixtures, times said the twelve-hour way, what is at stake.${P.standing?.length ? " Never say who plays a tournament unless it is given." : ""}
+- ahead: ${P.standing?.length ? 'first "where_things_stand" for each team or player, one short spoken line each (where a series or championship stands, the next match, the next series or tournament), then ' : ""}the fixtures, what is at stake. Say every day and time exactly as its "when" gives it ("late Sunday night, 12:30 am", "tonight, 7 pm"): code has already worked out the right day and am or pm, so never change, convert or add to them.${P.standing?.length ? " Never say who plays a tournament unless it is given." : ""}
 - signoff: a short goodbye whose last line is exactly: "${show.signoff}"
 
 FEELING

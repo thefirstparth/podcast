@@ -41,7 +41,20 @@ export function spoken(text, pronounce = {}) {
   s = s.replace(/(\d+)\s?[–-]\s?(\d+)(?=\s|[,.;!?]|$)/g, (_, a, b) => `${numWords(a)}-${numWords(b)}`);
   s = s.replace(/(\d[\d,]*(?:\.\d+)?)\s?%/g, (_, n) => `${numWords(n)} per cent`);
   s = s.replace(/(\d+)(st|nd|rd|th)\b/g, (_, n) => ordinal(Number(n)));
-  s = s.replace(/\b(\d{1,2}):(\d{2})\b/g, (_, h, m) => { const H = Number(h), h12 = H % 12 || 12; return `${intWords(h12)}${m === "00" ? "" : " " + (m[0] === "0" ? "oh " + ONES[Number(m[1])] : intWords(Number(m)))} ${H < 12 ? "a m" : "p m"}`; });
+  // a clock time. The script may write it the 12-hour way ("7:00 PM", "12:30 am") or the 24-hour way ("19:00"). A time
+  // with its own am or pm keeps it (17 Oct: "7:00 PM" was read "seven a m, P M", and "11:00 PM" as "eleven a m",
+  // because this assumed 24-hour times, as the paper it was copied from writes them); a 24-hour time gets one; a bare
+  // 1 to 12 o'clock with no am or pm stays bare.
+  s = s.replace(/\b(\d{1,2})(?::(\d{2})|\.(\d{2})(?=\s*[ap](?:\.\s?m\.|\s?m\b)))(?:\s*([ap])(?:\.\s?m\.|\s?m\b))?/gi, (all, h, m1, m2, ap) => {
+    const m = m1 ?? m2, H = Number(h), M = Number(m);
+    if (H > 23 || M > 59) return all;
+    const clock = `${intWords(H % 12 || 12)}${M === 0 ? "" : " " + (M < 10 ? "oh " + ONES[M] : intWords(M))}`;
+    if (ap) return `${clock} ${ap.toLowerCase()} m`;
+    if (H === 0 || H > 12 || h.length === 2 && h[0] === "0") return `${clock} ${H < 12 ? "a m" : "p m"}`;
+    return clock;
+  });
+  // "7 PM", "11am": the hour alone, with its am or pm
+  s = s.replace(/\b(\d{1,2})\s*([ap])(?:\.\s?m\.|\s?m\b)/gi, (all, h, ap) => (Number(h) >= 1 && Number(h) <= 12 ? `${intWords(Number(h))} ${ap.toLowerCase()} m` : all));
   s = s.replace(/\d[\d,]*(?:\.\d+)?/g, n => numWords(n));
   s = s.replace(/&/g, " and ").replace(/\s*[—–]\s*/g, ", ").replace(/\s+/g, " ").trim();
   return s;

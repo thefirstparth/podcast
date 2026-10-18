@@ -48,3 +48,10 @@ test("a number the writer was not given goes back", () => {
   const p = { ...pack, known: JSON.stringify({ text: "Samson reached his fifty in 20 balls" }) };
   assert.match(checkScript(s, p, { rivals }).map(x => x.msg).join(" | "), /numbers not in the pack.*56/);
 });
+test("a time said differently from the one given goes back", () => {
+  const s = [...base]; s[3] = t("die-hard", "Fan", "elated", "Madrid play Sevilla on Monday morning at 12:30 PM.");
+  const p = { ...pack, known: JSON.stringify({ when: "late Sunday night, 12:30 am" }) };
+  assert.match(checkScript(s, p, { rivals }).map(x => x.msg).join(" | "), /times not as given.*12:30 pm/);
+  const ok = [...base]; ok[3] = t("die-hard", "Fan", "elated", "Madrid and Sevilla, late Sunday night, 12:30 am.");
+  assert.doesNotMatch(checkScript(ok, p, { rivals }).map(x => x.msg).join(" | "), /times not as given/);
+});
