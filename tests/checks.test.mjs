@@ -61,3 +61,14 @@ test("an old result told again as news goes back", () => {
   assert.match(checkScript(s, p, { rivals }).map(x => x.msg).join(" | "), /tells old news again/);
   assert.doesNotMatch(checkScript(base, p, { rivals }).map(x => x.msg).join(" | "), /tells old news again/);
 });
+test("code takes out a line that tells an old result, whatever the writer did", async () => {
+  const { oldNewsTurns } = await import("../engine/checks.mjs");
+  const p = { old_news: ["2026-10-15: AS Roma 3-4 Real Madrid"], old_marks: { "Carlos Alcaraz": ["Bergs", "@Shanghai"] } };
+  const turns = [
+    t("die-hard", "Fan", "elated", "What a night in Rome, 4-3 to Real Madrid against Roma."),   // the told score, again
+    t("die-hard", "Anchor", "gutted", "Alcaraz crashed out in Shanghai, losing to Bergs."),       // an earlier result
+    t("follow", "Anchor", "happy", "Jodar beat Medvedev to reach the Shanghai final."),          // today's news from the same event
+    t("ahead", "Anchor", "happy", "Madrid and Roma meet again in the spring, 4-3 last time."),   // Coming up is left alone
+  ];
+  assert.deepEqual(oldNewsTurns(turns, p).map(x => x.i), [0, 1]);
+});

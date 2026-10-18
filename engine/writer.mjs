@@ -6,7 +6,7 @@
 import { readFileSync, writeFileSync, mkdirSync } from "node:fs";
 import { ensureProxy } from "./http.mjs";
 import { buildPack, packMarkdown } from "./pack.mjs";
-import { checkScript } from "./checks.mjs";
+import { checkScript, oldNewsTurns } from "./checks.mjs";
 
 const H = new URL("../", import.meta.url).pathname;
 const json = p => JSON.parse(readFileSync(`${H}${p}`, "utf8"));
@@ -119,7 +119,11 @@ export async function writeScript(P, { show = json("config/show.json"), profile 
       if (!model) { models.shift(); if (!models.length) break; } else if (models.length > 1) { model = models.find(x => x !== m) || model; }
     }
   }
-  return { best: bestOf(tries), tries, requests: asks };
+  // Old news never reaches the voice, whatever the writer did (Parth, 18 Oct: no dependence on the writer): code takes out
+  // any line that still tells an old result
+  const best = bestOf(tries);
+  if (best) { const drop = new Set(oldNewsTurns(best.turns, P).map(x => x.i)); if (drop.size) { log(`writer: ${drop.size} line(s) telling old news taken out by code`); best.turns = best.turns.filter((_, i) => !drop.has(i)); best.removed = drop.size; } }
+  return { best, tries, requests: asks };
 }
 const bestOf = tries => tries.filter(t => !t.problems.some(p => p.hard)).sort((a, b) => a.problems.length - b.problems.length)[0] || null;
 

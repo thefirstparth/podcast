@@ -11,6 +11,25 @@ const PROCESS = /\b(sources?|the pack|data pack|script|prompt|rundown|we checked
 const PERSONAL = /\b(injur(y|ed|ies)|hamstring|knee|ankle|surgery|ill|illness|sick|hospital|died|death|family|wife|baby|funeral|grief)\b/i;
 const SAD = new Set(["gutted", "angry", "heartbroken", "frustrated"]);
 
+// The lines that tell an old result again, outside Coming up: one whose score and a name come from a line already told
+// or from a result before the window; or one that names a subject's earlier opponent or tennis tournament (old_marks)
+// and reads like a result. Decided by code alone.
+const OLDRESULT = /\b(\d+-\d+|beat|beats|beaten|lose|loses|lost|loss|defeat|defeated|exit|exits|crash(?:es|ed)? out|knocked out|dumped out|eliminated|stunned|shock exit|upset)\b/i;
+export function oldNewsTurns(turns, pack) {
+  const out = [], olds = (pack.old_news || []).map(o => { const line = o.replace(/^\d{4}-\d{2}-\d{2}: /, ""); return { o, scores: line.match(/\b\d+-\d+\b/g), names: (line.match(/\b[A-Z][a-z]{3,}\b/g) || []).filter(w => !/^(Real|Madrid|India|Golden|State|Warriors|Preseason|Formula|Rolex|Masters|Round)$/.test(w)) }; }).filter(x => x.scores && x.names.length);
+  // (a tournament's name, marked @, counts only with the player named in the same line: the tournament may still be on)
+  const marks = Object.entries(pack.old_marks || {}).flatMap(([who, ms]) => ms.map(m => ({ rx: new RegExp(`\\b${m.replace(/^@/, "").replace(/[.*+?^${}()|[\]\\]/g, "\\$&")}\\b`, "i"), who: m.startsWith("@") ? new RegExp(`\\b${who.split(/\s+/).at(-1)}\\b`, "i") : null })));
+  turns.forEach((t, i) => {
+    if (t.segment === "ahead") return;
+    // (a score either way round: "AS Roma 3-4 Real Madrid" is "4-3 to Madrid" when the Fan says it)
+    const has = sc => t.text.includes(sc) || t.text.includes(sc.split("-").reverse().join("-"));
+    const s = olds.find(x => x.scores.every(has) && x.names.some(n => t.text.includes(n)));
+    if (s) return out.push({ i, why: s.o });
+    if (OLDRESULT.test(t.text) && marks.some(m => m.rx.test(t.text) && (!m.who || m.who.test(t.text)))) out.push({ i, why: `${t.text.slice(0, 60)}...` });
+  });
+  return out;
+}
+
 export function checkScript(turns, pack, { hosts = ["Fan", "Anchor"], rivals = [], listener = "" } = {}) {
   const P = [], hard = msg => P.push({ hard: true, msg }), soft = msg => P.push({ hard: false, msg });
   if (!Array.isArray(turns) || turns.length < 8) { hard("fewer than eight turns"); return P; }
@@ -50,14 +69,10 @@ export function checkScript(turns, pack, { hosts = ["Fan", "Anchor"], rivals = [
   const unknown = new Set();
   for (const t of turns) for (const m of t.text.matchAll(/(?<![.!?]\s|^)\b([A-Z][a-zà-ÿ'’]+)/g)) { const w = m[1].replace(/['’]s$/, ""); if (!skip.has(w) && w.length > 2 && !known.includes(fold(w))) unknown.add(w); }
   if (unknown.size) soft(`names not in the pack (never add a fact or a name): ${[...unknown].slice(0, 10).join(", ")}`);
-  // an old result told again as news (18 Oct): a line from the last episodes, or from before the window, whose score
-  // and a name from it come back together outside Coming up
-  for (const old of pack.old_news || []) {
-    const line = old.replace(/^\d{4}-\d{2}-\d{2}: /, ""), scores = line.match(/\b\d+-\d+\b/g), names = (line.match(/\b[A-Z][a-z]{3,}\b/g) || []).filter(w => !/^(Real|Madrid|India|Golden|State|Warriors|Preseason|Formula)$/.test(w));
-    if (!scores || !names.length) continue;
-    const hit = turns.find(t => t.segment !== "ahead" && scores.every(x => t.text.includes(x)) && names.some(n => t.text.includes(n)));
-    if (hit) { soft(`tells old news again ("${old}"): today's stories only, at most a few words of background`); break; }
-  }
+  // an old result told again as news (18 Oct): see oldNewsTurns; the writer is asked to fix it, and code takes out any
+  // such line that is left (writer.mjs), so it never depends on the writer
+  const olds = oldNewsTurns(turns, pack);
+  if (olds.length) soft(`tells old news again ("${olds[0].why}"): today's stories only`);
   // every clock time must be one the writer was given, with the same am or pm (17 Oct: a kick-off at 00:30 said as
   // "Monday morning at 12:30 AM", and the old voicing turned "11:00 PM" into "eleven a m")
   const clockOf = x => { const m = x.match(/(\d{1,2})(?::(\d{2}))?\s*([ap])\.?\s?m\b/i); return m ? `${Number(m[1])}:${m[2] || "00"} ${m[3].toLowerCase()}m` : null; };

@@ -300,9 +300,10 @@ export async function buildPack({ profile = json("profile.json"), show = json("c
   // tournament) and reads like a result
   const OLDRESULT = /\b(\d+-\d+|beat|beats|beaten|win|wins|won|lose|loses|lost|loss|draw|drew|comeback|defeat|defeated|exit|exits|out of|dumped|crash(?:es|ed)? out|knocked out|eliminated|stun|stuns|stunned|shock|upset|thriller|rout|thrash(?:ed)?)\b/i;
   const SPONSOR = new Set(["rolex", "open", "masters", "championships", "championship", "tennis", "atp", "wta", "cup", "trophy", "series", "tour", "league", "laliga", "preseason", "season", "regular", "the", "and", "2026", "2027"]);
+  const marksOf = (e, sport) => [e.opponent && String(e.opponent).split(/\s+/).filter(w => w.length >= 4).at(-1), ...(sport === "tennis" ? String(e.competition || "").split(/[\s,]+/).filter(w => w.length >= 5 && !SPONSOR.has(w.toLowerCase())).map(w => `@${w}`) : [])].filter(Boolean);
   const oldReport = (c, f) => (earlier[f.name] || []).find(e => {
-    const marks = [e.opponent && String(e.opponent).split(/\s+/).filter(w => w.length >= 4).at(-1), ...(f.sport === "tennis" ? String(e.competition || "").split(/[\s,]+/).filter(w => w.length >= 5 && !SPONSOR.has(w.toLowerCase())) : [])].filter(Boolean);
-    return c.titles.some(t => OLDRESULT.test(t) && marks.some(m => new RegExp(`\\b${m.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")}\\b`, "i").test(t)));
+    const marks = marksOf(e, f.sport);
+    return c.titles.some(t => OLDRESULT.test(t) && marks.map(m => m.replace(/^@/, "")).some(m => new RegExp(`\\b${m.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")}\\b`, "i").test(t)));
   });
   for (const f of names) {
     const cap = { "die-hard": 4, follow: 2, "big-moments": 1 }[care(f)] ?? 1, min = care(f) === "big-moments" ? 2 : 1;
@@ -363,6 +364,33 @@ export async function buildPack({ profile = json("profile.json"), show = json("c
     // one outlet and no page to read: nothing to tell it from but a headline that may be old (16 Oct: a 9 Oct result)
     else if (!news_items[i].text && news_items[i].n < 2) { suppressed.push(`${news_items[i].subject}: "${news_items[i].headline}" (one outlet, page not readable)`); news_items.splice(i, 1); }
   }
+  // Old results taken out of the text the writer reads (Parth, 18 Oct: no dependence on the writer for this): a
+  // sentence that names one of the subject's earlier results (its opponent or tennis tournament) and reads like a
+  // result, or that has a told result's score, is cut from every story and report. The writer cannot retell what it
+  // never sees. Marks of the window's own results are kept (India v West Indies again in the same series).
+  const nowMarks = f => new Set(items.filter(i => i.subject === f?.name && i.kind === "result").flatMap(i => [String(i.line), String(i.competition || "")].join(" ").split(/[\s,:]+/)).map(w => w.toLowerCase()));
+  const oldMarks = f => { if (!f) return []; const keep = nowMarks(f); return [...new Set((earlier[f.name] || []).flatMap(e => marksOf(e, f.sport)))].filter(m => !keep.has(m.replace(/^@/, "").toLowerCase())); };
+  const oldScores = ledger.lastTold(said, 3).map(x => x.replace(/^\d{4}-\d{2}-\d{2}: /, "")).filter(l => /\b\d+-\d+\b/.test(l) && !items.some(i => i.line === l));
+  const scrub = (text, f) => {
+    if (!text?.text) return text;
+    const sur = new RegExp(`\\b(${[f.name.split(/\s+/).at(-1), ...(f.aliases || [])].map(w => w.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")).join("|")}|he|his)\\b`, "i");
+    const marks = oldMarks(f).map(m => ({ rx: new RegExp(`\\b${m.replace(/^@/, "").replace(/[.*+?^${}()|[\]\\]/g, "\\$&")}\\b`, "i"), needs: m.startsWith("@") }));
+    const told = oldScores.map(l => ({ scores: l.match(/\b\d+-\d+\b/g), names: (l.match(/\b[A-Z][a-z]{3,}\b/g) || []) }));
+    const keep = text.text.split(/(?<=[.!?])\s+/).filter(sn => !(OLDRESULT.test(sn) && marks.some(m => m.rx.test(sn) && (!m.needs || sur.test(sn)))) && !told.some(t => t.scores.every(x => sn.includes(x) || sn.includes(x.split("-").reverse().join("-"))) && t.names.some(n => sn.includes(n))));
+    return { ...text, text: keep.join(" ") };
+  };
+  const subjectOf = name => profile.follows.find(x => x.name === name);
+  // a story whose text, not only its headline, is about something the listener ruled out (18 Oct: India women v
+  // Zimbabwe reached India men's news under a headline that named neither "women" nor a women's player): out when its
+  // opening names it, or it comes up twice
+  for (let i = news_items.length - 1; i >= 0; i--) {
+    const f = subjectOf(news_items[i].subject), tx = news_items[i].text?.text || "";
+    if (!f?.skip?.length || !tx) continue;
+    const rx = new RegExp(`\\b(${f.skip.map(w => w.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")).join("|")})\\b`, "gi"), opening = tx.split(/(?<=[.!?])\s+/).slice(0, 2).join(" ");
+    if (new RegExp(rx.source, "i").test(opening) || (tx.match(rx) || []).length >= 2) { suppressed.push(`${f.name}: "${news_items[i].headline}" (its text is about ${tx.match(rx)?.[0]}, ruled out)`); news_items.splice(i, 1); }
+  }
+  for (const n of news_items) n.text = scrub(n.text, subjectOf(n.subject));
+  for (const r of results) if (r.report) r.report = scrub(r.report, subjectOf(r.subject));
   // one story told by different outlets in other words, found from the texts now read: kept once
   const nameWords = [...profile.follows, ...(profile.rivals || [])].flatMap(f => [f.name, ...(f.aliases || [])]);
   const sportOf = n => profile.follows.find(x => x.name === n.subject)?.sport;
@@ -392,8 +420,14 @@ export async function buildPack({ profile = json("profile.json"), show = json("c
   const around = cands.filter(c => c.rank >= A.min_drama).slice(0, A.max);
   for (const c of around) {
     // the result's own report, when one of the day's stories is about it
-    const rep = c.cluster || clusters.find(k => !used.has(k) && (c.sides || [{ name: c.team1 }, { name: c.team2 }]).filter(x => x.name && k.headline.includes(x.name.replace(/ (FC|CF)$/, ""))).length >= 1 && /\d|beat|stun|shock|thrash|upset|win|draw|held/i.test(k.headline));
-    if (rep) { used.add(rep); c.report = await news.readCluster(rep); c.report_headline = rep.headline; }
+    const rep = c.cluster || clusters.find(k => !used.has(k) && (c.sides || [{ name: c.team1 }, { name: c.team2 }]).filter(x => x.name && k.headline.includes(x.name.replace(/ (FC|CF)$/, ""))).length >= 2 && /\d|beat|stun|shock|thrash|upset|win|draw|held/i.test(k.headline));
+    // (it names both sides, and it is not about something the listener ruled out: 18 Oct, Zimbabwe v Bangladesh took an
+    // India women v Zimbabwe report)
+    if (rep) {
+      used.add(rep); const r = await news.readCluster(rep);
+      const ruled = r?.text && names.some(f => (f.skip || []).length && f.sport === c.sport && new RegExp(`\\b(${f.skip.map(w => w.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")).join("|")})\\b`, "i").test(r.text));
+      if (r && !ruled) { c.report = r; c.report_headline = rep.headline; }
+    }
     delete c.cluster;
   }
   const considered = cands.filter(c => !around.includes(c) && c.drama > 0).slice(0, 8).map(c => `${c.line} (drama ${c.drama}: ${c.why.join(", ")})`);
@@ -430,7 +464,7 @@ export async function buildPack({ profile = json("profile.json"), show = json("c
   }
   for (const s of live) { const def = show.segments.find(x => x.id === s.id); Object.assign(s, { name: def?.name, about: def?.about }); }
   return { made_at: new Date(now).toISOString(), tz: TZ, window: { from: new Date(since).toISOString(), to: new Date(now).toISOString() }, listener: profile.listener, tone: profile.tone,
-    minutes: +(total / wpm).toFixed(1), words: total, max_words: max, quiet: total < target * 0.75, running_order: live, items, fixtures, standing, cast: { rival: profile.rivals?.[0]?.name || null, example: profile.follows.filter(f => care(f) === "die-hard")[1]?.name.replace(/ (men|women)$/i, "") || null }, suppressed, already_said: already, previously: ledger.lastCalls(said), old_news: [...new Set([...Object.entries(earlier).flatMap(([who, es]) => es.map(e => `${String(e.date).slice(0, 10)}: ${who}, ${e.line}`)), ...ledger.lastTold(said, 3)])].slice(0, 70), errors };
+    minutes: +(total / wpm).toFixed(1), words: total, max_words: max, quiet: total < target * 0.75, running_order: live, items, fixtures, standing, cast: { rival: profile.rivals?.[0]?.name || null, example: profile.follows.filter(f => care(f) === "die-hard")[1]?.name.replace(/ (men|women)$/i, "") || null }, suppressed, already_said: already, previously: ledger.lastCalls(said), old_marks: Object.fromEntries(profile.follows.map(f => [f.name, oldMarks(f)]).filter(([, m]) => m.length)), old_news: [...new Set([...Object.entries(earlier).flatMap(([who, es]) => es.map(e => `${String(e.date).slice(0, 10)}: ${who}, ${e.line}`)), ...ledger.lastTold(said, 3)])].slice(0, 70), errors };
 }
 
 // A person's view of the pack: what happened, the mood code gave it, and where it sits in the show
