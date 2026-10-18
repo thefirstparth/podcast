@@ -33,6 +33,16 @@ def f1(want, got):
     m = sum(b.size for b in SequenceMatcher(None, want, got, autojunk=False).get_matching_blocks())
     return 2 * m / (len(want) + len(got))
 
+def edge_leak(got, own, before, after, n=4):
+    # the piece's first n heard words found as a run in the last 2n words of the line before, and not at the start of
+    # its own line (or the same at the other end with the line after)
+    def run_in(seq, hay):
+        return len(seq) >= 3 and any(hay[k:k + len(seq)] == seq for k in range(len(hay) - len(seq) + 1))
+    head, tail = got[:n], got[-n:]
+    if before and run_in(head, before[-2 * n:]) and not run_in(head, own[:2 * n]): return "starts with the line before"
+    if after and run_in(tail, after[:2 * n]) and not run_in(tail, own[-2 * n:]): return "ends with the line after"
+    return None
+
 def tokens(text):
     # every word as said, numbers included, for placing the cuts (a number or a Hindi word the model writes
     # differently still takes up its place between the lines)
@@ -101,7 +111,12 @@ def main():
             # lenient on the words (an accent, a Hindi word or a name can be misheard); strict on order and length: a
             # piece closer to a neighbouring line, or far longer than its own, is a cut in the wrong place
             ok = own >= 0.35 and all(own >= x for x in near) and len(g) <= 1.6 * len(w) + 4
-        out.append({"f1": round(own, 2), "ok": ok, "heard": heard[i][:300]})
+        # a cut in the wrong place leaks words across the edge (17 Oct: "Jude Bellingham has agreed an extension", the
+        # end of one line, played as the start of the next, after the other host had answered): the piece must not
+        # open with the last words of the line before or close with the first words of the line after
+        leak = edge_leak(g, w, want[i - 1] if i > 0 else [], want[i + 1] if i + 1 < len(want) else [])
+        if leak: ok = False
+        out.append({"f1": round(own, 2), "ok": ok, "heard": heard[i][:300], **({"leak": leak} if leak else {})})
     json.dump({"ok": all(x["ok"] for x in out), "pieces": out}, open(sys.argv[2], "w"), indent=1)
     bad = [i for i, x in enumerate(out) if not x["ok"]]
     print(f"verify: {len(out)} lines, {len(out) - len(bad)} match" + (f"; line(s) {', '.join(str(i + 1) for i in bad)} do not" if bad else ""))

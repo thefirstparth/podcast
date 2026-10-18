@@ -27,3 +27,17 @@ test("a time is put the way people say it, from the day the episode goes out", a
   assert.equal(sayAt("2026-10-25T20:00:00Z", now, tz), "Sunday 25 October, late night, 1:30 am"); // Mon 26 Oct 01:30, the US GP, a week on
   assert.equal(sayAt("2026-10-29T14:00:00Z", now, tz), "Thursday 29 October, evening, 7:30 pm");
 });
+test("the listening check catches words leaked across a cut", async () => {
+  const { execFileSync } = await import("node:child_process");
+  const py = `import sys; sys.path.insert(0, "engine/audio")
+from verify_lines import edge_leak, words
+prev = words("But at least there is one huge relief: Jude Bellingham has agreed a contract extension until 2031.", True)
+own = words("That is massive news. Now, have you seen the rain outside over Bengaluru today?", True)
+print(edge_leak(words("Jude Bellingham has agreed a contract extension until 2031. That is massive news. Now have you seen the rain over Bengaluru today?", False), own, prev, []))
+print(edge_leak(words("That is massive news. Now have you seen the rain outside over Bengaluru today?", False), own, prev, []))`;
+  const out = execFileSync("python3", ["-c", py], { cwd: new URL("..", import.meta.url).pathname }).toString().trim().split("\n");
+  assert.deepEqual(out, ["starts with the line before", "None"]);
+});
+test("a colon inside a line is said as a comma", () => {
+  assert.equal(spoken("one huge relief: Jude Bellingham has agreed, at 7:30 PM."), "one huge relief, Jude Bellingham has agreed, at seven thirty p m.");
+});

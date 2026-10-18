@@ -56,6 +56,9 @@ export function spoken(text, pronounce = {}) {
   // "7 PM", "11am": the hour alone, with its am or pm
   s = s.replace(/\b(\d{1,2})\s*([ap])(?:\.\s?m\.|\s?m\b)/gi, (all, h, ap) => (Number(h) >= 1 && Number(h) <= 12 ? `${intWords(Number(h))} ${ap.toLowerCase()} m` : all));
   s = s.replace(/\d[\d,]*(?:\.\d+)?/g, n => numWords(n));
+  // a colon or semicolon inside a line is said as a short comma pause: the voice holds a colon like the end of a line,
+  // and the cut by pauses then split one line in two there (17 Oct: "one huge relief: Jude Bellingham...")
+  s = s.replace(/\s*[:;]\s+/g, ", ");
   s = s.replace(/&/g, " and ").replace(/\s*[—–]\s*/g, ", ").replace(/\s+/g, " ").trim();
   return s;
 }
