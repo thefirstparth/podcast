@@ -28,7 +28,7 @@ It takes about 30 minutes to set up. You need a GitHub account and a Google acco
   - add `skip`: words that rule a story out entirely
 - Follow a whole sport with `{ "sport": "f1", "kind": "all", "name": "Formula 1", "care": "follow" }`.
 - `rivals`: a team you love to see lose. It is mentioned only when it loses, draws or goes out, never when it wins, and never its injuries or anything personal.
-- `wider.skip_sports`: sports you never want in the round-up.
+- `wider.skip_sports`: sports you never want anywhere in the show, by name ("chess"), or "women's sport" to leave out every women's competition. The words for each are in `config/show.json` (`sport_words`).
 - `length`: minutes, `target` and `max`.
 
 Sports covered: football (clubs and national sides), cricket (international sides), F1, men's tennis and the NBA.

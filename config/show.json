@@ -281,6 +281,7 @@
   "rehearsal_requests": 3,
   "sport_words": {
     "note": "How code tells a story's sport from its headline, for skip_sports. Plain words, editable.",
+    "women's sport": ["women", "women's", "womens", "woman", "ladies", "WNBA", "WTA", "NWSL", "WSL", "Women's Super League", "Liga F", "Lionesses", "Matildas", "Valkyries", "WPL", "WBBL", "Women's Premier League", "IND-W", "AUS-W", "ENG-W", "SA-W", "NZ-W", "PAK-W", "SL-W", "WI-W", "BAN-W", "ZIM-W", "IRE-W"],
     "chess": [
       "chess",
       "grandmaster",

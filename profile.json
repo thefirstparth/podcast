@@ -212,9 +212,10 @@
     "football": "follow",
     "other_sports": "big-moments",
     "skip_sports": [
-      "chess"
+      "chess",
+      "women's sport"
     ],
-    "note": "Around the grounds. other_sports: how much of every other sport. skip_sports: sports never wanted (Parth, 15 Oct: chess is a no). A sport listed in sports_wanted (for example chess) brings in its own desks. A story naming the listener's country counts a little more."
+    "note": "Around the grounds. other_sports: how much of every other sport. skip_sports: sports never wanted (Parth, 15 Oct: chess is a no; 18 Oct: no women's sport anywhere, man). A sport listed in sports_wanted (for example chess) brings in its own desks. A story naming the listener's country counts a little more."
   },
   "tone": {
     "emotion": "full",

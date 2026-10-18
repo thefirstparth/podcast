@@ -132,3 +132,9 @@
   2. After the writer, code takes out any line that still tells an old result (a told score either way round with a name from it, or an earlier opponent or tournament with a result word), outside Coming up. The voice never gets it.
   3. A story whose text, not only its headline, is about something ruled out (India women) is dropped. A round-up match report must name both sides and not be about a ruled-out topic. This came from the 08:21 test: India women v Zimbabwe reached the script twice, through India men's news and through the Zimbabwe v Bangladesh report.
 - **Fourth episode, 18 Oct** (started by the daily routine at 12:28 IST, out 12:34; 7 min 42 s). Clean on the air: every time said correctly, no old news, no women's cricket. But its title was "Grand Prix Auvergne-Rhône-Alpes, Final: TBD v TBD". ESPN listed an unplayed final as finished, code ranked it the day's top result, and the title follows the cold open's item (the writer opened with India's washout and never said the final). Fixed: a tennis match counts only when it was really played, with two named players and a score or a winner.
+- **No women's sport anywhere** (Parth, 18 Oct: "I don't want any women anywhere, man"; the 18 Oct episode had the WNBA Finals under the Warriors). "women's sport" is a ruled-out sport in profile.json (`wider.skip_sports`), with its words in config/show.json (women, women's, ladies, WNBA, WTA, NWSL, WSL, Liga F, WPL, WBBL, Lionesses, Matildas, Valkyries, IND-W and the like). Code keeps it out at every step:
+  - **Headlines:** any story whose headline names it.
+  - **Story text:** any story whose text opens about it. A story that only mentions it in passing loses those sentences.
+  - **The round-up:** its results and match reports.
+  - **The script:** any line about it, taken out before voicing.
+  - **Side effect:** on 18 Oct one Warriors story also went, because it opens at the WNBA game where the waivers were announced.

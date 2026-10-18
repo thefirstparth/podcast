@@ -124,6 +124,12 @@ export async function writeScript(P, { show = json("config/show.json"), profile 
   const best = bestOf(tries);
   // (with the question it answers, or the answer to it, so the conversation does not dangle)
   if (best) { const drop = new Set(oldNewsTurns(best.turns, P).flatMap(({ i }) => [i, ...(/\?\s*$/.test(best.turns[i].text) ? [i + 1] : []), ...(i > 0 && /\?\s*$/.test(best.turns[i - 1].text) ? [i - 1] : [])]).filter(i => i < best.turns.length)); if (drop.size) { log(`writer: ${drop.size} line(s) telling old news taken out by code`); best.turns = best.turns.filter((_, i) => !drop.has(i)); best.removed = drop.size; } }
+  // and any line about a sport the listener ruled out (Parth, 18 Oct: "no women anywhere"), by code
+  if (best && P.skip_words?.length) {
+    const rx = new RegExp(`\\b(${P.skip_words.map(w => w.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")).join("|")})\\b`, "i");
+    const drop = new Set(best.turns.flatMap((t, i) => (t.segment !== "signoff" && rx.test(t.text) ? [i, ...(/\?\s*$/.test(t.text) ? [i + 1] : []), ...(i > 0 && /\?\s*$/.test(best.turns[i - 1].text) ? [i - 1] : [])] : [])).filter(i => i < best.turns.length));
+    if (drop.size) { log(`writer: ${drop.size} line(s) about a ruled-out sport taken out by code`); best.turns = best.turns.filter((_, i) => !drop.has(i)); best.removed = (best.removed || 0) + drop.size; }
+  }
   return { best, tries, requests: asks };
 }
 const bestOf = tries => tries.filter(t => !t.problems.some(p => p.hard)).sort((a, b) => a.problems.length - b.problems.length)[0] || null;
