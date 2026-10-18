@@ -280,7 +280,7 @@ export async function buildPack({ profile = json("profile.json"), show = json("c
   // (written after the match started, and naming the opponent, a scorer or reading like a result; one that only reads
   // like a result needs two outlets: 15 Oct, "Region 9 football: Tigers, Mustangs, Warriors win big" joined the
   // Warriors' report)
-  const RESULTY = /\b(\d+-\d+|beat|beats|beaten|win|wins|won|lose|loses|lost|loss|draw|drew|comeback|defeat|exit|exits|out of|stun|stuns|shock|upset|thriller|knocked|crash)\b/i;
+  const RESULTY = /\b(\d+-\d+|beat|beats|beaten|win|wins|won|lose|loses|lost|loss|draw|drew|comeback|defeat|exit|exits|out of|stun|stuns|shock|upset|thriller|knocked|crash|washe?s? out|washout|rained off|abandoned|no result)\b/i;
   // (a report of a result told in an earlier episode is dropped: 16 Oct, the Roma win and India's loss were told again
   // the next day from their match reports. A reaction that names neither the opponent nor a scorer still gets in.)
   const reportOf = (c, f) => [...results, ...toldResults.filter(i => i.kind === "result" && i.stance !== "rival")].find(i => {
