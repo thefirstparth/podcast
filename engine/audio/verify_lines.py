@@ -43,6 +43,25 @@ def edge_leak(got, own, before, after, n=4):
     if after and run_in(tail, after[:2 * n]) and not run_in(tail, own[-2 * n:]): return "ends with the line after"
     return None
 
+def misplaced(want, got, run=4):
+    # the whole take at once (19 Oct: a cut one sentence early moved "In the second half, sixty-three minutes in,
+    # Mbappe stepped up to convert a penalty" into the next piece, so it played after the other host had answered and
+    # after the fourth goal; each piece still had most of its own words, and the moved sentence was too long for the
+    # edge check). Every line's words are matched in order against every piece's heard words, and a run of `run` or
+    # more of one line's words heard inside another line's piece is a cut in the wrong place.
+    script, owner, heard, piece = [], [], [], []
+    for k, w in enumerate(want): script += w; owner += [k] * len(w)
+    for k, g in enumerate(got): heard += g; piece += [k] * len(g)
+    bad = set()
+    for b in SequenceMatcher(None, script, heard, autojunk=False).get_matching_blocks():
+        i = 0
+        while i < b.size:
+            j = i
+            while j < b.size and owner[b.a + j] == owner[b.a + i] and piece[b.b + j] == piece[b.b + i]: j += 1
+            if j - i >= run and owner[b.a + i] != piece[b.b + i]: bad.update({owner[b.a + i], piece[b.b + i]})
+            i = j
+    return sorted(bad)
+
 def tokens(text):
     # every word as said, numbers included, for placing the cuts (a number or a Hindi word the model writes
     # differently still takes up its place between the lines)
@@ -117,6 +136,8 @@ def main():
         leak = edge_leak(g, w, want[i - 1] if i > 0 else [], want[i + 1] if i + 1 < len(want) else [])
         if leak: ok = False
         out.append({"f1": round(own, 2), "ok": ok, "heard": heard[i][:300], **({"leak": leak} if leak else {})})
+    for i in misplaced(want, got):
+        out[i]["ok"] = False; out[i]["moved"] = "words of another line"
     json.dump({"ok": all(x["ok"] for x in out), "pieces": out}, open(sys.argv[2], "w"), indent=1)
     bad = [i for i, x in enumerate(out) if not x["ok"]]
     print(f"verify: {len(out)} lines, {len(out) - len(bad)} match" + (f"; line(s) {', '.join(str(i + 1) for i in bad)} do not" if bad else ""))

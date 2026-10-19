@@ -48,3 +48,20 @@ test("an unplayed final is never a result", async () => {
   const real = m([{ name: "Rafael Jodar", won: true, sets: [6, 6] }, { name: "Daniil Medvedev", won: false, sets: [3, 4] }], "Semifinal");
   assert.deepEqual(bigMatches([tbd, real], { since: 0 }).map(x => x.players[0].name), ["Rafael Jodar"]);
 });
+test("a whole sentence cut into the wrong line is caught", async () => {
+  const { execFileSync } = await import("node:child_process");
+  // 19 Oct, Dhruv's take cut one sentence early: the third goal played after the fourth
+  const py = `import sys; sys.path.insert(0, "engine/audio")
+from verify_lines import misplaced, words
+lines = ["Then Mbappe turned it on. Jude Bellingham fed him in the thirty-seventh minute. In the second half, sixty-three minutes in, Mbappe stepped up to convert a penalty for three-nil.",
+         "Looking at the table, Barcelona lead on twenty-seven points, Atletico Madrid are second on twenty-two."]
+want = [words(l, True) for l in lines]
+bad = ["Then Mbappe turned it on. Jude Bellingham fed him in the 37th minute.",
+       "In the second half, 63 minutes in, Mbappe stepped up to convert a penalty for 3-0. Looking at the table, Barcelona lead on 27 points, Atletico Madrid are second on 22."]
+good = ["Then Mbappe turned it on. Jude Bellingham fed him in the 37th minute. In the second half, 63 minutes in, Mbappe stepped up to convert a penalty for 3-0.",
+        "Looking at the table, Barcelona lead on 27 points, Atletico Madrid are second on 22."]
+print(misplaced(want, [words(x, False) for x in bad]))
+print(misplaced(want, [words(x, False) for x in good]))`;
+  const out = execFileSync("python3", ["-c", py], { cwd: new URL("..", import.meta.url).pathname }).toString().trim().split("\n");
+  assert.deepEqual(out, ["[0, 1]", "[]"]);
+});

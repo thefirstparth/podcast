@@ -62,7 +62,7 @@ export function spoken(text, pronounce = {}) {
   s = s.replace(/&/g, " and ").replace(/\s*[—–]\s*/g, ", ").replace(/\s+/g, " ").trim();
   return s;
 }
-function ordinal(n) {
+export function ordinal(n) {
   const w = intWords(n), irregular = { one: "first", two: "second", three: "third", five: "fifth", eight: "eighth", nine: "ninth", twelve: "twelfth" };
   const m = w.match(/(\w+)$/), last = m[1];
   if (irregular[last]) return w.slice(0, -last.length) + irregular[last];

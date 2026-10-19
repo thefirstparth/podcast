@@ -1,3 +1,5 @@
+import { intWords, ordinal } from "./audio/lib.mjs";
+
 // The checks a script must pass before it is voiced (docs/WRITER.md). Each problem is { hard, msg }: a hard one means
 // the script is never voiced; soft ones go back to the writer for a rewrite, and after the last try the script with
 // the fewest soft problems is used. All code.
@@ -30,6 +32,79 @@ export function oldNewsTurns(turns, pack) {
     if (OLDRESULT.test(t.text) && marks.some(m => m.rx.test(t.text) && m.who.test(t.text))) out.push({ i, why: `${t.text.slice(0, 60)}...` });
   });
   return out;
+}
+
+// Numbers as the script writes them, in figures or in words ("twenty-seven", "four-one"), and clock times left out
+const NUMWORD = new Map(Array.from({ length: 200 }, (_, n) => [intWords(n), n]));
+const NUMRX = new RegExp(`\\b(${[...NUMWORD.keys()].sort((a, b) => b.length - a.length).join("|")})\\b`, "gi");
+const numbersIn = s => {
+  const t = s.replace(/\b\d{1,2}(?::\d{2})?\s*[ap]\.?\s?m\b/gi, " ").replace(/,(?=\d{3}\b)/g, "");
+  return [...(t.match(/(?<![\w.])\d+(?:\.\d+)?(?![\w])/g) || []).map(Number), ...[...t.toLowerCase().matchAll(NUMRX)].map(m => NUMWORD.get(m[1]))].filter(n => n > 1);
+};
+const NOTNAME = new Set(["I", "I'm", "I've", "I'd", "OK", "Okay", "Oh", "Right", "Yes", "No", "And", "But", "Then", "Here", "Now", "Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]);
+const namesIn = s => new Set([...s.matchAll(/(?<![.!?]\s|^)\b([A-Z][\wà-ÿ'’]{2,})/g)].map(m => m[1].replace(/['’]s$/, "")).filter(w => !NOTNAME.has(w)));
+const sentencesOf = text => text.match(/[^.!?]+[.!?]*/g)?.map(s => s.trim()).filter(Boolean) || [];
+
+// The same fact told twice (19 Oct: India's tour, "two Tests, five ODIs, five T20Is", in the cricket story and again
+// in "where things stand"; Antonelli "102 ahead of Russell" the same way). A sentence repeats an earlier one in another
+// turn when they share two numbers and a name, or one number above twelve and two names. The cold open is a teaser
+// told again on purpose and is left out. `whole`: every number and name in the later sentence was already said, so it
+// adds nothing and code takes it out (writer.mjs); otherwise it goes back to the writer. Decided by code alone.
+export function repeats(turns) {
+  const said = [], out = [];
+  turns.forEach((t, i) => {
+    if (t.segment === "cold-open" || t.segment === "signoff") return;
+    for (const s of sentencesOf(t.text)) {
+      const nums = numbersIn(s), names = namesIn(s);
+      const hit = said.find(x => x.i !== i && (() => {
+        const n = nums.filter(v => x.nums.includes(v)), m = [...names].filter(v => x.names.has(v));
+        return (new Set(n).size >= 2 && m.length >= 1) || (n.some(v => v > 12) && m.length >= 2);
+      })());
+      if (hit && !/\?\s*$/.test(s)) {
+        const before = { nums: said.flatMap(x => x.nums), names: new Set(said.flatMap(x => [...x.names])) };
+        out.push({ i, sentence: s, first: hit.s, whole: nums.every(v => before.nums.includes(v)) && [...names].every(v => before.names.has(v)) });
+      }
+      said.push({ i, s, nums, names });
+    }
+  });
+  return out;
+}
+
+// A red card talked about in a match where none was shown (19 Oct: "Sevilla were demanding a red card after an
+// altercation between Güler and Peque Fernández" was heard as Güler sent off). Allowed when the data has a red card,
+// or the line says it was not given.
+const REDCARD = /\b(red card|red-card|sent off|sending off|sending-off|ten men|10 men)\b/i;
+const NOTGIVEN = /\b(no red|not sent off|wasn't sent off|weren't sent off|never sent off|stayed on|escaped|got away with|let (?:it|him|that) go|let off|no card|only a yellow|just a yellow|not given|wasn't given|didn't give|did not give|waved (?:it )?away|gave nothing|no action)\b/i;
+export function redCardTurns(turns, pack) {
+  const games = (pack.items || []).filter(i => Array.isArray(i.reds) && !i.reds.length && i.line)
+    .map(i => (i.line.match(/^(.+?)\s+\d+-\d+\s+(.+)$/) || []).slice(1).filter(Boolean)).filter(x => x.length);
+  const out = [];
+  turns.forEach((t, i) => {
+    for (const s of sentencesOf(t.text)) if (REDCARD.test(s) && !NOTGIVEN.test(s) && games.some(g => g.some(team => fold(s).includes(fold(team))))) out.push({ i, sentence: s });
+  });
+  return out;
+}
+
+// Goals told in the order they happened (19 Oct: Parth heard the third goal after the fourth). Minutes said in one
+// segment of the show must not go back.
+const ORD = new Map(Array.from({ length: 121 }, (_, n) => [ordinal(n), n]).slice(1));
+const ORDRX = new RegExp(`\\b(${[...ORD.keys()].sort((a, b) => b.length - a.length).join("|")})\\b`, "gi");
+export function minutesIn(s) {
+  const t = s.toLowerCase().replace(ORDRX, w => `${ORD.get(w)}th`).replace(NUMRX, w => String(NUMWORD.get(w)));
+  const out = [];
+  for (const m of t.matchAll(/\b(?:(\d{1,3})(?:st|nd|rd|th)?[- ]minute(?!s? (?:later|left|to go|remaining|after|from|of|on the clock|before))|on (\d{1,3}) minutes|(\d{1,3}) minutes in|in the ([5-9]|\d{2,3})th\b(?! (?:quarter|over|round|set|game|hole|lap|inning))|(just )?before (the hour|half-?time|the break)|(stoppage|injury) time)/g)) {
+    const v = Number(m[1] || m[2] || m[3] || m[4]) || (m[6] ? (/hour/.test(m[6]) ? 58 : 44) : m[7] ? 90 : null);
+    if (v) out.push({ at: m.index, v });
+  }
+  return out.sort((a, b) => a.at - b.at).map(x => x.v);
+}
+export function minutesOutOfOrder(turns) {
+  let seg = null, last = 0;
+  for (const t of turns) {
+    if (t.segment !== seg) { seg = t.segment; last = 0; }
+    for (const v of minutesIn(t.text)) { if (v < last) return `${v} after ${last}: "${t.text.slice(0, 60)}"`; last = v; }
+  }
+  return null;
 }
 
 export function checkScript(turns, pack, { hosts = ["Fan", "Anchor"], rivals = [], listener = "" } = {}) {
@@ -86,6 +161,12 @@ export function checkScript(turns, pack, { hosts = ["Fan", "Anchor"], rivals = [
   const num = n => String(Number(n)), given = new Set((String(pack.known || JSON.stringify(pack)).match(/\d+(?:\.\d+)?/g) || []).map(num));
   const odd = new Set(turns.flatMap(t => t.text.match(/\d+(?:\.\d+)?/g) || []).map(num).filter(n => !given.has(n)));
   if (odd.size) soft(`numbers not in the pack (never add a fact or a number): ${[...odd].slice(0, 10).join(", ")}`);
+  const twice = repeats(turns);
+  if (twice.length) soft(`says the same thing twice ("${twice[0].sentence.slice(0, 70)}" was already said): say each fact once, and in "where things stand" only what the show has not said`);
+  const reds = redCardTurns(turns, pack);
+  if (reds.length) soft(`a red card no one was shown ("${reds[0].sentence.slice(0, 70)}"): no red card was given in that match, so say plainly that it was not given`);
+  const order = minutesOutOfOrder(turns);
+  if (order) soft(`a match told out of order (minute ${order}): tell the goals and moments in the order they happened`);
   // the running order, as planned
   const plan = pack.running_order.map(s => s.id), seen = [...new Set(turns.map(t => t.segment))];
   const missing = plan.filter(s => !seen.includes(s));

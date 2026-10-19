@@ -6,7 +6,7 @@
 import { readFileSync, writeFileSync, mkdirSync } from "node:fs";
 import { ensureProxy } from "./http.mjs";
 import { buildPack, packMarkdown } from "./pack.mjs";
-import { checkScript, oldNewsTurns } from "./checks.mjs";
+import { checkScript, oldNewsTurns, repeats, redCardTurns } from "./checks.mjs";
 
 const H = new URL("../", import.meta.url).pathname;
 const json = p => JSON.parse(readFileSync(`${H}${p}`, "utf8"));
@@ -51,11 +51,11 @@ ${P.old_news.map(x => `- ${x}`).join("\n")}
 
 THE SHOW, in exactly this order (segments from RUNNING ORDER; a segment not listed is left out entirely, with no line about it)
 - cold-open: one or two lines on the biggest moment, said in its mood. No greeting before it. Then a one-line hello${P.made_at ? ` (it goes out in the ${(h => (h < 12 ? "morning" : h < 17 ? "afternoon" : "evening"))(Number(new Date(P.made_at).toLocaleString("en-GB", { timeZone: P.tz || "UTC", hour: "2-digit", hour12: false })))}, so never another part of the day)` : ""}.
-- die-hard: each result in order. Follow its "mood", "strength" (1 to 5) and "shape": if the shape says they were 1-3 down, the turn starts in dread and ends in joy. Tell how it happened from the goals or the scorecard, what it means ("form_before", "series", "standings"), what is next. A "table" is said only after that result. Then the stories, each retold from its "text".
+- die-hard: each result in order. Follow its "mood", "strength" (1 to 5) and "shape": if the shape says they were 1-3 down, the turn starts in dread and ends in joy. Tell how it happened from the goals or the scorecard, in the order it happened, what it means ("form_before", "series", "standings"), what is next. A "table" is said only after that result. Then the stories, each retold from its "text".
 - rival-watch: the rival's slip, with more colour and enjoyment ("${P.cast?.rival || "Barcelona"} were dreadful" is fine). Results and big bad news only. Never an injury or anything personal.
 - follow: brisk, a result and one line of why it matters.
 - around: quick hits from "elsewhere", told with what made it notable.
-- ahead: ${P.standing?.length ? 'first "where_things_stand" for each team or player, one short spoken line each (where a series or championship stands, the next match, the next series or tournament), then ' : ""}the fixtures, what is at stake. Say every day and time exactly as its "when" gives it ("late Sunday night, 12:30 am", "tonight, 7 pm"): code has already worked out the right day and am or pm, so never change, convert or add to them.${P.standing?.length ? " Never say who plays a tournament unless it is given." : ""}
+- ahead: ${P.standing?.length ? 'first "where_things_stand" for each team or player, one short spoken line each (where a series or championship stands, the next match, the next series or tournament), leaving out anything the show has already said, then ' : ""}the fixtures, what is at stake. Say every day and time exactly as its "when" gives it ("late Sunday night, 12:30 am", "tonight, 7 pm"): code has already worked out the right day and am or pm, so never change, convert or add to them.${P.standing?.length ? " Never say who plays a tournament unless it is given." : ""}
 - signoff: a short goodbye whose last line is exactly: "${show.signoff}"
 
 FEELING
@@ -65,7 +65,8 @@ FEELING
 
 FACTS (strict)
 - Use only facts given below. Never add a fact, name, number, quote or descriptive detail (no "packed stadium", no "that evening"). A question is answered only with what is given.
-- Say each fact once. Round honestly. Two stories can be the same news from different outlets (the same event, told in other words): tell it once.
+- Say each fact once in the whole episode, "where things stand" and the fixtures included. Round honestly.
+- A call that was not given (a red card someone wanted, a penalty appeal): say plainly that it was not given. A red card is only ever one that is in the facts. Two stories can be the same news from different outlets (the same event, told in other words): tell it once.
 - The rival is named ONLY in rival-watch, in the cold-open when a result has "same_day", in a table line after a league result, in a coming fixture against them, or when one of the listener's own stories is about them (a ban that rules a player out of the Clasico, the title race); then say it plainly, as part of that story. Never celebrate or dwell on a rival's win.
 - Never talk about how the show is made, sources, feeds, the facts given, or anything missing.
 
@@ -130,7 +131,25 @@ export async function writeScript(P, { show = json("config/show.json"), profile 
     const drop = new Set(best.turns.flatMap((t, i) => (t.segment !== "signoff" && rx.test(t.text) ? [i, ...(/\?\s*$/.test(t.text) ? [i + 1] : []), ...(i > 0 && /\?\s*$/.test(best.turns[i - 1].text) ? [i - 1] : [])] : [])).filter(i => i < best.turns.length));
     if (drop.size) { log(`writer: ${drop.size} line(s) about a ruled-out sport taken out by code`); best.turns = best.turns.filter((_, i) => !drop.has(i)); best.removed = (best.removed || 0) + drop.size; }
   }
+  // a sentence that only says again what the show already said (19 Oct: India's tour told twice), and a red card the
+  // match never had (19 Oct: "demanding a red card" heard as Güler sent off), are taken out by code, sentence by sentence
+  if (best) cutSentences(best, redCardTurns(best.turns, P), "about a red card no one was shown", log);
+  if (best) cutSentences(best, repeats(best.turns).filter(r => r.whole), "saying again what was already said", log);
   return { best, tries, requests: asks };
+}
+export function cutSentences(best, hits, why, log) {
+  if (!hits.length) return;
+  const empty = new Set();
+  for (const { i, sentence } of hits) {
+    const text = best.turns[i].text.replace(sentence, " ").replace(/\s{2,}/g, " ").trim();
+    best.turns[i] = { ...best.turns[i], text };
+    if (!/[a-z]/i.test(text)) empty.add(i);
+  }
+  // a line left empty goes, with the question it answers or the answer to it
+  const drop = new Set([...empty].flatMap(i => [i, ...(i > 0 && /\?\s*$/.test(best.turns[i - 1].text) ? [i - 1] : [])]));
+  best.turns = best.turns.filter((_, i) => !drop.has(i));
+  best.removed = (best.removed || 0) + hits.length;
+  log(`writer: ${hits.length} sentence(s) ${why} taken out by code`);
 }
 const bestOf = tries => tries.filter(t => !t.problems.some(p => p.hard)).sort((a, b) => a.problems.length - b.problems.length)[0] || null;
 

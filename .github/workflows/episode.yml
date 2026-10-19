@@ -48,7 +48,8 @@ jobs:
             .out/*/episode.vtt
             .out/*/script.md
             .out/*/pack.md
-            .out/*/*-take.wav
+            .out/*/verify/*-take.wav
+            .out/*/verify/*.out.json
           retention-days: 7
           if-no-files-found: ignore
           include-hidden-files: true

@@ -75,3 +75,23 @@ test("code takes out a line that tells an old result, whatever the writer did", 
   p.old_news.push("2026-10-10: Carlos Alcaraz, Rolex Shanghai Masters, Round 2: Carlos Alcaraz bt Juan Manuel Cerundolo 6-3 6-3");
   assert.deepEqual(oldNewsTurns(turns, p).map(x => x.i), [0, 1]);
 });
+test("the same fact twice is caught, and a sentence that adds nothing is marked for code to take out", async () => {
+  const { repeats } = await import("../engine/checks.mjs");
+  const s = [t("cold-open", "Fan", "elated", "Big night."), t("die-hard", "Fan", "worried", "India tour New Zealand next. Two Tests, five ODIs, five T20Is."),
+    t("die-hard", "Anchor", "calm", "He is 102 points ahead of George Russell and 111 clear of Lewis Hamilton."),
+    t("ahead", "Anchor", "calm", "Here is where things stand. India are gearing up for New Zealand, with five T20Is, five ODIs, and two Tests. Antonelli leads on 340 points, 102 ahead of George Russell, with Lewis Hamilton third."),
+    t("ahead", "Fan", "happy", "Thursday afternoon, 12:30 pm sees India play the first T20I against New Zealand.")];
+  assert.deepEqual(repeats(s).map(r => [r.i, r.whole]), [[3, true], [3, false]]);
+});
+test("a red card the match never had is caught unless the line says it was not given", async () => {
+  const { redCardTurns } = await import("../engine/checks.mjs");
+  const p = { items: [{ line: "Real Madrid 4-1 Sevilla", reds: [] }] };
+  assert.equal(redCardTurns([t("die-hard", "Fan", "elated", "Sevilla were demanding a red card after an altercation with Güler.")], p).length, 1);
+  assert.equal(redCardTurns([t("die-hard", "Fan", "elated", "Sevilla wanted Güler sent off, but the referee gave nothing.")], p).length, 0);
+  assert.equal(redCardTurns([t("die-hard", "Fan", "elated", "Sevilla wanted a red card.")], { items: [{ line: "Real Madrid 4-1 Sevilla", reds: ["70' Sevilla: X"] }] }).length, 0);
+});
+test("a match told out of order is caught; counts of minutes and quarters are not match minutes", async () => {
+  const { minutesOutOfOrder, minutesIn } = await import("../engine/checks.mjs");
+  assert.match(minutesOutOfOrder([t("die-hard", "Anchor", "happy", "In the second half, sixty-three minutes in, a penalty."), t("die-hard", "Fan", "happy", "Valverde blocked just before the hour.")]), /58 after 63/);
+  assert.deepEqual(minutesIn("Güler on thirty minutes, then the thirty-seventh minute, two minutes later, forty-five minutes left, in the fourth quarter, in the eightieth"), [30, 37, 80]);
+});
