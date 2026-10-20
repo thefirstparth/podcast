@@ -155,3 +155,4 @@
   8. **Cut-off names.** Article texts end on a whole sentence ("missing Jimmy Butler III and Moses").
   9. **Fixtures.** The next four days in full (and a die-hard fixture always), anything later in one line; grouped by day and shared between the hosts. More than three lines in a row from one host goes back to the writer.
   10. **Dates are not facts said twice** ("27 October" against "22 Oct to 27 Nov").
+  - **With 3 and 6, a cut wrong at a few lines is repaired, not thrown away.** Replaying the 20 Oct takes offline showed the stricter check would have sent the whole episode to the one-take fallback (no cuts, no listening check) over one word. Now the lines the check rejects (up to four, or a sixth of a host's lines) are voiced again on their own, heard, and put in; only if that fails does the run fall back. One voice request is always kept back for the one-take fallback.
