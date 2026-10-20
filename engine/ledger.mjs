@@ -28,6 +28,24 @@ const REPORTED = /\b(said|says|told|spoke|acknowledged|admitted|claims?|feels|ac
 export const lastCalls = L => L.episodes.at(-1)?.fan_said || [];
 // what the last few episodes told (the newest first), each line with its day
 export const lastTold = (L, n = 3) => L.episodes.slice(-n).reverse().flatMap(e => (e.told || []).map(line => `${String(e.published_at).slice(0, 10)}: ${line}`));
+export const lastSpoken = (L, n = 3) => L.episodes.slice(-n).flatMap(e => e.spoken || []);
+// A sentence of a story that says again what an episode already said: most of its words (names among them) are in one
+// line the hosts said. Code alone; the story keeps whatever is new.
+const STOPW = new Set("about after again against also back been before being both could didn't does down even every first from going have here into it's just last least like made make many more most much next only other over really right said says season since some still than that their them then there these they this those though three through time told under until very want week well were what when where which while will with would year years your".split(" "));
+const content = t => new Set((String(t).normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase().match(/[a-z']{4,}/g) || []).filter(w => !STOPW.has(w)));
+export function saidAgain(sentence, spoken) {
+  // word stems (four letters: "limped" and "limping" are one), compared with a stretch of three lines the hosts said in
+  // a row, one of them naming someone the sentence names; close to half its words, five at least, is said again
+  const stems = t => new Set([...content(t)].map(w => w.slice(0, 4)));
+  const S = stems(sentence);
+  if (S.size < 6) return false;
+  const nm = t => new Set((String(t).normalize("NFD").replace(/[\u0300-\u036f]/g, "").match(/\b[A-Z][a-z]{3,}/g) || []).map(w => w.toLowerCase()).filter(w => !STOPW.has(w)));
+  const mine = nm(sentence);
+  return spoken.some((line, i) => {
+    if (![...nm(line)].some(w => mine.has(w))) return false;
+    return [spoken.slice(Math.max(0, i - 2), i + 1), spoken.slice(i, i + 3)].some(win => { const T = stems(win.join(" ")), both = [...S].filter(w => T.has(w)); return both.length >= 5 && both.length / S.size >= 0.45; });
+  });
+}
 export function record(pack, { file = FILE, published_at = new Date().toISOString(), turns = [], fan = null } = {}) {
   const L = load(file), cut = Date.now() - KEEP_DAYS * 864e5;
   const results = [...pack.running_order.flatMap(s => s.items || []), ...pack.running_order.flatMap(s => (s.elsewhere || []).map(c => c.id))];
@@ -37,7 +55,10 @@ export function record(pack, { file = FILE, published_at = new Date().toISOStrin
   // what the episode told, in plain lines, for the next episodes' writer: old news is never told again as news (18 Oct)
   const it = id => (pack.items || []).find(i => i.id === id);
   const told = [...new Set([...pack.running_order.flatMap(s => (s.items || []).map(id => it(id)?.line).filter(Boolean)), ...pack.running_order.flatMap(s => (s.news || []).map(n => n.headline)), ...pack.running_order.flatMap(s => (s.elsewhere || []).map(c => c.line))])].slice(0, 40);
-  L.episodes = [...L.episodes.filter(e => Date.parse(e.published_at) > cut), { published_at, results, urls, fan_said, told }];
+  // and what the hosts actually said about it (20 Oct: "Curry expected to play" was a new headline, and its text retold
+  // the ankle scare from the day before): the next episodes' stories lose the sentences that say it again
+  const spoken = turns.filter(t => !["ahead", "signoff", "cold-open"].includes(t.segment)).map(t => t.text).slice(0, 80);
+  L.episodes = [...L.episodes.filter(e => Date.parse(e.published_at) > cut), { published_at, results, urls, fan_said, told, spoken }];
   write(file, L);
   return L;
 }

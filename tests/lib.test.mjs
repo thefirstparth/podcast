@@ -65,3 +65,22 @@ print(misplaced(want, [words(x, False) for x in good]))`;
   const out = execFileSync("python3", ["-c", py], { cwd: new URL("..", import.meta.url).pathname }).toString().trim().split("\n");
   assert.deepEqual(out, ["[0, 1]", "[]"]);
 });
+test("one word across a cut, and a name said as another name, are caught", async () => {
+  const { execFileSync } = await import("node:child_process");
+  // 20 Oct: "Ukraine" (heard "Crane") played after the other host's reply; "Jodar" was said as "Nadal"
+  const py = `import sys; sys.path.insert(0, "engine/audio")
+from verify_lines import stray_edges, name_swaps, words
+lines = ["sad news from Elina Svitolina and Gael Monfils, due to the war in Ukraine.", "On court, Greg Rusedski believes Novak Djokovic can still reach the ATP Finals."]
+heard = ["sad news from Alina Switolina and Gail Monfield, due to the war in Yook.", "Crane. On quote, Greg Roszewski believes Novak Djokovic can still reach the ATP finals."]
+print(stray_edges([words(l, True) for l in lines], [words(h, False) for h in heard]))
+print(stray_edges([words(l, True) for l in lines], [words(l, False) for l in lines]))
+script = ["Only Novak Djokovic and Rafael Nadal have won it five years running.", "Jannik Sinner withdrew, and Rafael Jodar in ninth is just over 300 points ahead."]
+print(name_swaps(script[1:], ["Janik Sinavidru, and Rafael Nadal in 9th is just over 300 points ahead."], ["djokovic", "nadal", "sinner", "jodar"]))
+print(name_swaps(script[1:], ["Jannik Sinner withdrew, and Rafael Hodar in 9th is just over 300 points ahead."], ["djokovic", "nadal", "sinner", "jodar"]))`;
+  const out = execFileSync("python3", ["-c", py], { cwd: new URL("..", import.meta.url).pathname }).toString().trim().split("\n");
+  assert.deepEqual(out, ["[0, 1]", "[]", "{0: 'said nadal for jodar'}", "{}"]);
+});
+test("an article cut to length ends on a whole sentence", async () => {
+  const { toSentence } = await import("../engine/fetch/news.mjs");
+  assert.equal(toSentence("Kerr says Curry is fine and expected to play on Wednesday. The Dubs are already without Jimmy Butler III, Moses"), "Kerr says Curry is fine and expected to play on Wednesday.");
+});

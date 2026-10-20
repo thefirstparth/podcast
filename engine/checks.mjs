@@ -38,7 +38,9 @@ export function oldNewsTurns(turns, pack) {
 const NUMWORD = new Map(Array.from({ length: 200 }, (_, n) => [intWords(n), n]));
 const NUMRX = new RegExp(`\\b(${[...NUMWORD.keys()].sort((a, b) => b.length - a.length).join("|")})\\b`, "gi");
 const numbersIn = s => {
-  const t = s.replace(/\b\d{1,2}(?::\d{2})?\s*[ap]\.?\s?m\b/gi, " ").replace(/,(?=\d{3}\b)/g, "");
+  // (a date is not a fact said twice: 20 Oct, "Tuesday 27 October" in a fixture was taken for "22 Oct to 27 Nov")
+  const MON = "jan(?:uary)?|feb(?:ruary)?|mar(?:ch)?|apr(?:il)?|may|june?|july?|aug(?:ust)?|sep(?:t(?:ember)?)?|oct(?:ober)?|nov(?:ember)?|dec(?:ember)?";
+  const t = s.replace(/\b\d{1,2}(?::\d{2})?\s*[ap]\.?\s?m\b/gi, " ").replace(new RegExp(`\\b\\d{1,2}(?:st|nd|rd|th)?\\s+(?:${MON})\\b|\\b(?:${MON})\\s+\\d{1,2}(?:st|nd|rd|th)?\\b`, "gi"), " ").replace(/,(?=\d{3}\b)/g, "");
   return [...(t.match(/(?<![\w.])\d+(?:\.\d+)?(?![\w])/g) || []).map(Number), ...[...t.toLowerCase().matchAll(NUMRX)].map(m => NUMWORD.get(m[1]))].filter(n => n > 1);
 };
 const NOTNAME = new Set(["I", "I'm", "I've", "I'd", "OK", "Okay", "Oh", "Right", "Yes", "No", "And", "But", "Then", "Here", "Now", "Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]);
@@ -107,7 +109,7 @@ export function minutesOutOfOrder(turns) {
   return null;
 }
 
-export function checkScript(turns, pack, { hosts = ["Fan", "Anchor"], rivals = [], listener = "" } = {}) {
+export function checkScript(turns, pack, { hosts = ["Fan", "Anchor"], rivals = [], listener = "", title = "" } = {}) {
   const P = [], hard = msg => P.push({ hard: true, msg }), soft = msg => P.push({ hard: false, msg });
   if (!Array.isArray(turns) || turns.length < 8) { hard("fewer than eight turns"); return P; }
   const all = turns.map(t => t.text).join(" "), n = words(all).length;
@@ -161,6 +163,13 @@ export function checkScript(turns, pack, { hosts = ["Fan", "Anchor"], rivals = [
   const num = n => String(Number(n)), given = new Set((String(pack.known || JSON.stringify(pack)).match(/\d+(?:\.\d+)?/g) || []).map(num));
   const odd = new Set(turns.flatMap(t => t.text.match(/\d+(?:\.\d+)?/g) || []).map(num).filter(n => !given.has(n)));
   if (odd.size) soft(`numbers not in the pack (never add a fact or a number): ${[...odd].slice(0, 10).join(", ")}`);
+  // the show opens: a cold open, then a hello with its name (20 Oct: no result, no cold open, no hello)
+  if (turns[0]?.segment !== "cold-open") soft("the show must open with the cold open: one or two lines on the biggest moment, then the hello");
+  if (title && !turns.slice(0, 5).some(t => fold(t.text).includes(fold(title)))) soft(`no hello with the show's name ("${title}") near the start`);
+  // the fixtures shared between the hosts, not read out as a list by one (20 Oct: twelve lines in a row from Dhruv)
+  let run = 0, most = 0;
+  for (let i = 0; i < turns.length; i++) { run = turns[i].segment === "ahead" && turns[i - 1]?.segment === "ahead" && turns[i - 1].speaker === turns[i].speaker ? run + 1 : 1; if (turns[i].segment === "ahead") most = Math.max(most, run); }
+  if (most > 3) soft(`${most} lines in a row from one host in Coming up: share the fixtures between the hosts, grouped by day`);
   const twice = repeats(turns);
   if (twice.length) soft(`says the same thing twice ("${twice[0].sentence.slice(0, 70)}" was already said): say each fact once, and in "where things stand" only what the show has not said`);
   const reds = redCardTurns(turns, pack);

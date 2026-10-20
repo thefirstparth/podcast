@@ -95,3 +95,43 @@ test("a match told out of order is caught; counts of minutes and quarters are no
   assert.match(minutesOutOfOrder([t("die-hard", "Anchor", "happy", "In the second half, sixty-three minutes in, a penalty."), t("die-hard", "Fan", "happy", "Valverde blocked just before the hour.")]), /58 after 63/);
   assert.deepEqual(minutesIn("Güler on thirty minutes, then the thirty-seventh minute, two minutes later, forty-five minutes left, in the fourth quarter, in the eightieth"), [30, 37, 80]);
 });
+test("a date is not a fact said twice", async () => {
+  const { repeats } = await import("../engine/checks.mjs");
+  assert.deepEqual(repeats([t("die-hard", "Fan", "calm", "Big week."), t("ahead", "Anchor", "calm", "For India men, the tour of New Zealand spans 22 Oct to 27 Nov, featuring five T20Is."), t("ahead", "Fan", "calm", "Tuesday 27 October, afternoon, 12:30 pm, India play the 3rd T20I against New Zealand at Hnry Stadium.")]), []);
+});
+test("the show opens with a cold open and its name, and the fixtures are shared", () => {
+  const s = [t("die-hard", "Fan", "happy", "Jose Mourinho is cooking something special."), ...base.slice(2)];
+  const p = checkScript(s, pack, { rivals, title: "Side Effects of Sports" }).map(x => x.msg).join(" | ");
+  assert.match(p, /open with the cold open/); assert.match(p, /no hello with the show's name/);
+  const f = [...base.slice(0, -1), ...Array.from({ length: 5 }, () => t("ahead", "Anchor", "calm", "Thursday morning, a fixture.")), base.at(-1)];
+  assert.match(checkScript(f, { ...pack, running_order: [...pack.running_order, { id: "ahead" }] }, { rivals }).map(x => x.msg).join(" | "), /5 lines in a row/);
+});
+test("a story that repeats what an earlier episode said loses those sentences", async () => {
+  const { saidAgain } = await import("../engine/ledger.mjs");
+  const spoken = ["In basketball, Golden State had a scare on Sunday. Steph Curry limped off during an open scrimmage with an ankle tweak.", "Steph is going to be ready for opening night, right?", "Steve Kerr says he is fine and expected to play against the Lakers on Thursday, even though the Warriors are already missing Jimmy Butler the third and Moses."];
+  assert.equal(saidAgain("Stephen Curry sent fans and those within the Golden State Warriors into a panic on Sunday, limping off the floor at open practice just days out from the team's season opener against the Los Angeles Lakers.", spoken), true);
+  assert.equal(saidAgain("Max Verstappen has taken aim at Damon Hill after the 1996 world champion reversed his position on Formula 1's controversial 2026 regulations.", spoken), false);
+});
+test("a title the results do not show is caught; an old title is not judged", async () => {
+  const { falseTitle } = await import("../engine/pack.mjs");
+  const p = { name: "Novak Djokovic", aliases: ["Djokovic", "Nole"] }, now = Date.parse("2026-10-20T07:00:00Z");
+  const ev = [{ name: "Swiss Indoors Basel", end: "2026-11-02T04:59Z", winner: null }, { name: "Rolex Shanghai Masters", end: "2026-10-12T00:00:00Z", winner: "Jannik Sinner" }];
+  assert.equal(falseTitle("Wait a minute... Novak just won Basel and Rafael is in the race.", p, ev, now), true);
+  assert.equal(falseTitle("Djokovic won Shanghai.", p, ev, now), true);
+  assert.equal(falseTitle("Djokovic has won Basel twice before, in 2014 and 2015.", p, ev, now), false);
+  assert.equal(falseTitle("Djokovic is back in Basel after 14 years.", p, ev, now), false);
+});
+test("women's players by name, without names that are also someone else's", async () => {
+  const { womenNames } = await import("../engine/pack.mjs");
+  const w = womenNames(["Aryna Sabalenka", "Elina Svitolina", "Leylah Fernandez", "Coco Gauff"], ["Jannik Sinner", "Francisco Cerundolo"]);
+  assert.ok(w.includes("Elina Svitolina") && w.includes("svitolina") && w.includes("gauff") && w.includes("Leylah Fernandez"));
+  assert.ok(!w.includes("fernandez"));
+});
+test("the title never comes from a rival's headline; with no result it is the next big fixture", async () => {
+  const { episodeTitle } = await import("../engine/pack.mjs");
+  const P = { made_at: "2026-10-20T07:00:00Z", items: [], running_order: [{ id: "cold-open", items: [] }, { id: "die-hard", news: [{ headline: "Barcelona face ultimate test: PSG and Real Madrid await Hansi Flick's flying side" }, { headline: "Diomande starting to shine" }] }],
+    fixtures: [{ subject: "Real Madrid", care: "die-hard", when: "2026-10-21T19:00:00Z", say: "late tomorrow night, 12:30 am", what: "Real Madrid v RB Leipzig" }] };
+  const R = [{ name: "Barcelona", aliases: ["Barca"] }];
+  assert.equal(episodeTitle(P, R), "Real Madrid v RB Leipzig, late tomorrow night");
+  assert.equal(episodeTitle({ ...P, fixtures: [] }, R), "Diomande starting to shine");
+});

@@ -19,14 +19,18 @@ export function forWriter(P) {
   const item = i => ({ subject: i.subject, what: i.line, when: i.when_local, competition: i.competition, mood: i.mood, strength: i.intensity, shape: i.arc?.text, form_before: i.form_before, same_day: i.double,
     goals: i.goals, red_cards: i.reds?.length ? i.reds : undefined, scorecard: i.scorecard, series: i.series, top_three: i.top3, standings: i.standings, scorer_note: i.player_note,
     table: i.table ? { said_after_the_result: true, rows: i.table.rows } : undefined, match_report: i.report?.text, also_reported: i.reports?.slice(0, 4).map(r => r.headline) });
+  const soon = f => f.care === "die-hard" || Date.parse(f.when) - Date.parse(P.made_at) < 4 * 864e5;
   const story = n => ({ subject: n.subject, headline: n.headline, outlets: n.outlets?.length, text: n.text?.text, mood: n.mood });
   return {
     listener: P.listener, length: { planned_words: P.words, never_more_than: P.max_words },
     running_order: P.running_order.map(s => ({ segment: s.id, name: s.name, about: s.about, words: s.words,
-      results: (s.items || []).map(it).map(item), stories: (s.news || []).map(story),
+      results: (s.items || []).map(it).map(item), stories: (s.news || []).map(story), opens_on: s.teaser || undefined,
       elsewhere: (s.elsewhere || []).map(c => ({ what: c.line, competition: c.competition, why_it_matters: c.why, report: c.report?.text })),
       where_things_stand: s.standing?.length ? s.standing.map(x => ({ subject: x.subject, facts: x.lines })) : undefined,
-      fixtures: (s.fixtures || []).map(f => ({ when: f.say || f.when_local, what: f.what, competition: f.competition, where: f.venue || undefined })) })),
+      // the next four days in full (and a die-hard fixture always); anything after in one line (20 Oct: twelve fixtures
+      // read one by one by one host)
+      fixtures: (s.fixtures || []).filter(f => soon(f)).map(f => ({ when: f.say || f.when_local, what: f.what, competition: f.competition, where: f.venue || undefined })),
+      later: (s.fixtures || []).filter(f => !soon(f)).map(f => `${f.what} (${String(f.say || f.when_local).split(",")[0]})`) })),
   };
 }
 
@@ -50,12 +54,12 @@ ${P.old_news.map(x => `- ${x}`).join("\n")}
 ` : ""}They speak natural ${accent(show)} (the listener is in ${P.listener?.city || (P.listener?.tz === "Asia/Kolkata" ? "Bengaluru, India" : "their own city")}). Never address the listener by name.
 
 THE SHOW, in exactly this order (segments from RUNNING ORDER; a segment not listed is left out entirely, with no line about it)
-- cold-open: one or two lines on the biggest moment, said in its mood. No greeting before it. Then a one-line hello${P.made_at ? ` (it goes out in the ${(h => (h < 12 ? "morning" : h < 17 ? "afternoon" : "evening"))(Number(new Date(P.made_at).toLocaleString("en-GB", { timeZone: P.tz || "UTC", hour: "2-digit", hour12: false })))}, so never another part of the day)` : ""}.
+- cold-open: one or two lines on the biggest moment, said in its mood (with no result, on its "opens_on": that story or fixture, told properly later). No greeting before it. Then a one-line hello with the show's name${P.made_at ? ` (it goes out in the ${(h => (h < 12 ? "morning" : h < 17 ? "afternoon" : "evening"))(Number(new Date(P.made_at).toLocaleString("en-GB", { timeZone: P.tz || "UTC", hour: "2-digit", hour12: false })))}, so never another part of the day)` : ""}.
 - die-hard: each result in order. Follow its "mood", "strength" (1 to 5) and "shape": if the shape says they were 1-3 down, the turn starts in dread and ends in joy. Tell how it happened from the goals or the scorecard, in the order it happened, what it means ("form_before", "series", "standings"), what is next. A "table" is said only after that result. Then the stories, each retold from its "text".
 - rival-watch: the rival's slip, with more colour and enjoyment ("${P.cast?.rival || "Barcelona"} were dreadful" is fine). Results and big bad news only. Never an injury or anything personal.
 - follow: brisk, a result and one line of why it matters.
 - around: quick hits from "elsewhere", told with what made it notable.
-- ahead: ${P.standing?.length ? 'first "where_things_stand" for each team or player, one short spoken line each (where a series or championship stands, the next match, the next series or tournament), leaving out anything the show has already said, then ' : ""}the fixtures, what is at stake. Say every day and time exactly as its "when" gives it ("late Sunday night, 12:30 am", "tonight, 7 pm"): code has already worked out the right day and am or pm, so never change, convert or add to them.${P.standing?.length ? " Never say who plays a tournament unless it is given." : ""}
+- ahead: ${P.standing?.length ? 'first "where_things_stand" for each team or player, one short spoken line each (where a series or championship stands, the next match, the next series or tournament), leaving out anything the show has already said, then ' : ""}the fixtures, what is at stake: grouped by day ("Thursday is a big one: ..."), shared between the hosts (never more than three fixture lines in a row from one host), and anything in "later" in one line at the end. Say every day and time exactly as its "when" gives it ("late Sunday night, 12:30 am", "tonight, 7 pm"): code has already worked out the right day and am or pm, so never change, convert or add to them.${P.standing?.length ? " Never say who plays a tournament unless it is given." : ""}
 - signoff: a short goodbye whose last line is exactly: "${show.signoff}"
 
 FEELING
@@ -95,7 +99,7 @@ async function gemini(model, key, text) {
 }
 
 export async function writeScript(P, { show = json("config/show.json"), profile = json("profile.json"), key, cap = show.rehearsal_requests ?? 3, log = console.log, onTry = () => {} } = {}) {
-  const base = prompt(P, show), opts = { hosts: show.hosts.map(h => h.id), rivals: profile.rivals || [], listener: profile.listener?.name };
+  const base = prompt(P, show), opts = { hosts: show.hosts.map(h => h.id), rivals: profile.rivals || [], listener: profile.listener?.name, title: show.title };
   const tries = [];
   let asks = 0, model = null, last = null;
   const models = [...show.text_models];

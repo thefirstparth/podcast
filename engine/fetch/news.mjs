@@ -156,6 +156,12 @@ async function publisherOf(url) {
 
 // The best report of a cluster, read to about 1,200 characters (desk feeds first, then Google News links followed to
 // the publisher); its description when the body cannot be read
+// A text cut to length ends on its last whole sentence (20 Oct: "the Warriors are already missing Jimmy Butler III and
+// Moses", cut mid-name, went on air as "and Moses"); with no sentence end in it, on its last whole word.
+export function toSentence(t) {
+  const s = String(t || ""), end = Math.max(...[...s.matchAll(/[.!?]["'’”)]?(?=\s|$)/g)].map(m => m.index + m[0].length), -1);
+  return end > s.length * 0.4 ? s.slice(0, end) : s.replace(/\s+\S*$/, "");
+}
 export async function readCluster(c, max = 1200) {
   const links = [...(c.links || [])].sort((a, b) => isGoogle(a.url) - isGoogle(b.url)).slice(0, 4);
   for (const r of links) {
@@ -164,7 +170,7 @@ export async function readCluster(c, max = 1200) {
       if (!url) continue;
       const html = await getText(url, { timeout: 10000 });
       const text = articleText(html), desc = metaOf(html, "og:description") || metaOf(html, "description");
-      const body = (text.length > 200 ? text : desc).slice(0, max).replace(/\s+\S*$/, "");
+      const body = toSentence((text.length > 200 ? text : desc).slice(0, max));
       // the page's own publication date, when it says (16 Oct: an outlet's feed re-dated a week-old match report)
       const published = metaOf(html, "article:published_time") || String(html).match(/"datePublished"\s*:\s*"([^"]+)"/)?.[1] || null;
       if (body.length > 80) return { source: r.source, url, text: body, published: published && !isNaN(Date.parse(published)) ? new Date(published).toISOString() : null };

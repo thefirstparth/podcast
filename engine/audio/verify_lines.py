@@ -5,7 +5,7 @@
 # more words than the line has (a cut in the wrong place moves words into a neighbour or runs two lines together). A one or two word line ("Arre wah!") only has to stay short, since a cut
 # that swallowed a neighbour makes it long. Any piece that fails rejects the whole cut, and make.mjs falls back.
 # Reads {model, pieces: [{wav, text}]} from argv[1], writes {ok, pieces: [{f1, ok, heard}]} to argv[2].
-import json, re, sys, wave
+import json, re, sys, unicodedata, wave
 from difflib import SequenceMatcher
 import numpy as np
 
@@ -61,6 +61,46 @@ def misplaced(want, got, run=4):
             if j - i >= run and owner[b.a + i] != piece[b.b + i]: bad.update({owner[b.a + i], piece[b.b + i]})
             i = j
     return sorted(bad)
+
+def stray_edges(want, got):
+    # one word across a cut (20 Oct: the voice slurred "Ukraine", the cut fell after the slur, and "Ukraine" played
+    # after the other host's reply): a line's last word heard only at the start of the next piece, or its first word
+    # only at the end of the piece before. Too short for the runs above. Pairs (piece, piece) that are wrong.
+    # (heard loosely: the listening model wrote "Ukraine" as "Crane")
+    like = lambda a, ws: any(SequenceMatcher(None, a, x).ratio() >= 0.6 for x in ws)
+    bad = set()
+    for k in range(len(want) - 1):
+        w, nxt, g, gn = want[k], want[k + 1], got[k], got[k + 1]
+        if w and gn and len(w[-1]) >= 4 and not like(w[-1], g[-3:]) and like(w[-1], gn[:2]) and not like(w[-1], nxt[:3]): bad.update({k, k + 1})
+        if nxt and g and len(nxt[0]) >= 4 and not like(nxt[0], gn[:3]) and like(nxt[0], g[-2:]) and not like(nxt[0], w[-3:]): bad.update({k, k + 1})
+    return sorted(bad)
+
+def proper_names(text):
+    # names in the middle of a sentence (a capital not after a full stop), five letters or more, as plain lower case
+    t = re.sub(r"<[^>]+>", " ", text)
+    out = []
+    for m in re.finditer(r"(?<![.!?]\s)(?<!^)\b([A-Z][A-Za-zÀ-ſ'’-]{4,})", t):
+        w = unicodedata.normalize("NFD", m.group(1)).encode("ascii", "ignore").decode().lower().strip("'’-")
+        if len(w) >= 5: out.append(w)
+    return out
+
+def name_swaps(texts, heard, all_names):
+    # a name said as another name (20 Oct: "Rafael Jodar, ninth in the race" was heard as "Rafael Nadal": the voice
+    # swapped in the famous one). The line and what was heard are lined up word by word; where a name of the line is
+    # replaced, the words heard in its place must not be another name from the script. A misheard spelling of the right
+    # name ("Diamandi" for Diomande) is not a swap. Returns {piece: "said X for Y"}.
+    like = lambda a, b: SequenceMatcher(None, a, b).ratio()
+    plain = lambda t: re.findall(r"[a-z']+", unicodedata.normalize("NFD", re.sub(r"<[^>]+>", " ", t)).encode("ascii", "ignore").decode().lower().replace("-", " "))
+    out = {}
+    for i, (text, h) in enumerate(zip(texts, heard)):
+        mine, a, b = set(proper_names(text)), plain(text), plain(h)
+        others = [n for n in all_names if n not in mine and not any(like(n, x) >= 0.6 for x in mine)]
+        for op, a1, a2, b1, b2 in SequenceMatcher(None, a, b, autojunk=False).get_opcodes():
+            if op != "replace" or b2 - b1 > 3: continue
+            gone = [w for w in a[a1:a2] if w in mine and not any(like(w, g) >= 0.6 for g in b[b1:b2])]
+            swap = next((o for o in others for g in b[b1:b2] if like(o, g) >= 0.85), None)
+            if gone and swap: out[i] = f"said {swap} for {gone[0]}"; break
+    return out
 
 def tokens(text):
     # every word as said, numbers included, for placing the cuts (a number or a Hindi word the model writes
@@ -138,9 +178,15 @@ def main():
         out.append({"f1": round(own, 2), "ok": ok, "heard": heard[i][:300], **({"leak": leak} if leak else {})})
     for i in misplaced(want, got):
         out[i]["ok"] = False; out[i]["moved"] = "words of another line"
-    json.dump({"ok": all(x["ok"] for x in out), "pieces": out}, open(sys.argv[2], "w"), indent=1)
+    for i in stray_edges(want, got):
+        out[i]["ok"] = False; out[i]["moved"] = "a word across the cut"
+    # names said as other names: the cut stands, and the caller voices those lines again (voice.mjs)
+    all_names = sorted({n for t in job.get("script", [p["text"] for p in job["pieces"]]) for n in proper_names(t)})
+    swaps = name_swaps([p["text"] for p in job["pieces"]], heard, all_names)
+    for i, why in swaps.items(): out[i]["swap"] = why
+    json.dump({"ok": all(x["ok"] for x in out), "pieces": out, "swaps": sorted(swaps)}, open(sys.argv[2], "w"), indent=1)
     bad = [i for i, x in enumerate(out) if not x["ok"]]
-    print(f"verify: {len(out)} lines, {len(out) - len(bad)} match" + (f"; line(s) {', '.join(str(i + 1) for i in bad)} do not" if bad else ""))
+    print(f"verify: {len(out)} lines, {len(out) - len(bad)} match" + (f"; line(s) {', '.join(str(i + 1) for i in bad)} do not" if bad else "") + "".join(f"; line {i + 1} {why}" for i, why in sorted(swaps.items())))
 
 if __name__ == "__main__":
     main()

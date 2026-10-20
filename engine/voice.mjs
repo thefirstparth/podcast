@@ -40,12 +40,15 @@ export async function voiceScript(turns, { key, show, voices, out, log = console
   const listen = (sp, pieces, lines) => {
     const job = `${dir}/${sp}.json`, res = `${dir}/${sp}.out.json`;
     const list = pieces.map((p, i) => { const f = `${dir}/${sp}-${i + 1}.wav`; writeFileSync(f, Buffer.concat([wavHeader(p.length), p])); return { wav: f, text: lines[i] }; });
-    writeFileSync(job, JSON.stringify({ model: show.verify_model || "base.en", pieces: list }));
+    writeFileSync(job, JSON.stringify({ model: show.verify_model || "base.en", pieces: list, script: texts }));
     py(job, res);
-    const bad = JSON.parse(readFileSync(res, "utf8")).pieces.map((x, i) => [i, x]).filter(([, x]) => !x.ok);
+    const r = JSON.parse(readFileSync(res, "utf8")), bad = r.pieces.map((x, i) => [i, x]).filter(([, x]) => !x.ok);
     if (bad.length) log(`voice: ${sp}'s cut is wrong at line ${bad.map(([i, x]) => `${i + 1} (heard "${x.heard.slice(0, 50)}")`).join(", ")}`);
+    swapped.set(sp, r.swaps || []);
+    for (const i of r.swaps || []) log(`voice: ${sp}'s line ${i + 1} ${r.pieces[i].swap}`);
     return !bad.length;
   };
+  const swapped = new Map();
   const byEar = (sp, take, lines) => {
     const wav = `${dir}/${sp}-take.wav`, job = `${dir}/${sp}-align.json`, res = `${dir}/${sp}-align.out.json`;
     writeFileSync(wav, Buffer.concat([wavHeader(take.length), take]));
@@ -67,12 +70,23 @@ export async function voiceScript(turns, { key, show, voices, out, log = console
           generationConfig: { responseModalities: ["AUDIO"], speechConfig: speakers } };
         const take = await ask(model, body);
         writeFileSync(`${dir}/${h.id}-take.wav`, Buffer.concat([wavHeader(take.length), take]));
-        let cut = splitLines(take, lines.map(l => l.split(/\s+/).length));
+        let cut = splitLines(take, lines.map(l => l.split(/\s+/).length)), via = h.id;
         if (cut && !listen(h.id, cut, lines)) cut = null;
-        if (!cut) { cut = byEar(h.id, take, lines); if (cut && !listen(`${h.id}-ear`, cut, lines)) cut = null; }
+        if (!cut) { via = `${h.id}-ear`; cut = byEar(h.id, take, lines); if (cut && !listen(via, cut, lines)) cut = null; }
         if (!cut) throw new Error(`${h.id}'s take did not cut cleanly into ${lines.length} lines`);
         mine.forEach(([, i], k) => pieces.set(i, cut[k]));
         log(`voice: ${h.id} (${h.voice}), ${lines.length} lines, every one heard as written`);
+        // a name said as another name (20 Oct: "Jodar" said as "Nadal"): those lines voiced once more, on their own,
+        // and a new piece used only when it is heard right; otherwise the first stays
+        const redo = [...(swapped.get(via) || [])];
+        if (redo.length && asks < cap) try {
+          const again = await ask(model, { contents: [{ role: "user", parts: redo.map(k => ({ text: lines[k], speech_metadata: { speaker: h.id, style: `${h.describe}${moodLine(show, mine[k][0].mood)} Say every name exactly as it is written. Leave a clear pause after each line.` } })) }], generationConfig: { responseModalities: ["AUDIO"], speechConfig: speakers } });
+          const sub = redo.map(k => lines[k]);
+          let cut2 = splitLines(again, sub.map(l => l.split(/\s+/).length));
+          if (cut2 && !listen(`${h.id}-again`, cut2, sub)) cut2 = null;
+          const still = new Set(swapped.get(`${h.id}-again`) || []);
+          if (cut2) redo.forEach((k, j) => { if (!still.has(j)) { pieces.set(mine[k][1], cut2[j]); log(`voice: ${h.id}'s line ${k + 1} voiced again, the name now right`); } });
+        } catch (e) { log(`voice: ${h.id}'s lines with a wrong name stay as they are (${e.message})`); }
       }
       return { form: "solo", model, requests: asks, pieces: turns.map((t, i) => ({ speaker: t.speaker, pcm: pieces.get(i) })) };
     } catch (e) { log(`voice: solo on ${model} failed: ${e.message}`); if (/requests are used/.test(e.message)) break; }

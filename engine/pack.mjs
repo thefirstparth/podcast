@@ -35,7 +35,9 @@ export function buildMatcher(f, squad = []) {
   const weakRx = weak.size ? new RegExp(`\\b(${[...weak].map(esc).join("|")})\\b`, "i") : null, cueRx = (f.cues || []).length ? new RegExp(`\\b(${f.cues.map(esc).join("|")})\\b`, "i") : null;
   const strong = words.length ? new RegExp(`\\b(${words.map(esc).join("|")})\\b`, "i") : /$^/, yes = { test: h => strong.test(h) || (!!weakRx && weakRx.test(h) && !!cueRx && cueRx.test(h)) }, no = (f.not || []).length ? new RegExp(`\\b(${f.not.map(esc).join("|")})\\b`, "gi") : null;
   const skip = (f.skip || []).length ? new RegExp(`\\b(${f.skip.map(esc).join("|")})\\b`, "i") : null;
-  return { test: h => !(skip && skip.test(fold(h))) && yes.test(no ? fold(h).replace(no, " ") : fold(h)), skips: h => !!(skip && skip.test(fold(h))) };
+  // at: where the name first comes in a headline (-1 when it does not), to tell whose story it is
+  const at = h => { const t = no ? fold(h).replace(no, m => " ".repeat(m.length)) : fold(h), m = t.match(strong); return m ? m.index : -1; };
+  return { test: h => !(skip && skip.test(fold(h))) && yes.test(no ? fold(h).replace(no, " ") : fold(h)), skips: h => !!(skip && skip.test(fold(h))), at };
 }
 // A time the way people say it, from the day the episode goes out (17 Oct: "Monday morning at 12:30 AM" for a kick-off
 // that, in India, is late on Sunday night): "tonight, 7 pm", "tomorrow afternoon, 12:30 pm", "late Sunday night,
@@ -55,6 +57,41 @@ export function sayAt(t, now, tz) {
   else if (diff > 1 && diff < 7) when = `${late}${a.weekday} ${part}`;
   else when = `${anchor.toLocaleDateString("en-GB", { timeZone: tz, weekday: "long", day: "numeric", month: "long" })}, ${late}${part}`;
   return `${when}, ${clock}`;
+}
+// The episode's title, from the facts (code, not the writer): the cold open's result; on a day with no result, the
+// listener's next die-hard fixture ("Real Madrid v RB Leipzig, late tomorrow night"); else the first story whose
+// headline does not name a rival (20 Oct: a Barcelona headline named the episode); else "the day in sport".
+export function episodeTitle(P, rivals = []) {
+  const open = P.items.find(i => P.running_order[0]?.id === "cold-open" && P.running_order[0].items?.includes(i.id) && i.stance !== "rival");
+  if (open) return open.line;
+  const next = (P.fixtures || []).filter(x => x.care === "die-hard" && Date.parse(x.when) > Date.parse(P.made_at)).sort((a, b) => a.when.localeCompare(b.when))[0];
+  if (next) { const who = next.subject.replace(/ (men|women)$/i, ""); return `${next.what.includes(who) ? next.what : `${who}, ${next.what}`}, ${String(next.say || "").split(",")[0]}`; }
+  const rx = rivals.length ? new RegExp(`\\b(${rivals.flatMap(r => [r.name, ...(r.aliases || [])]).map(esc).join("|")})\\b`, "i") : null;
+  const story = P.running_order.flatMap(s => s.news || []).map(n => n.headline).find(h => h && !(rx && rx.test(fold(h)))) || "";
+  return story ? (story.length > 90 ? `${story.slice(0, 90).replace(/\s+\S*$/, "")}...` : story) : "the day in sport";
+}
+// The words that mark a women's player: every ranked name in full, and the surnames of the top hundred that cannot be
+// someone else (not an ATP player's, not a common surname or word: "Fernandez" is also a Sevilla midfielder)
+const SHARED_SURNAMES = new Set(["williams", "collins", "keys", "jones", "smith", "brown", "wilson", "thomas", "martin", "stephens", "fernandez", "rodriguez", "garcia", "martinez", "lopez", "gonzalez", "sanchez", "perez", "navarro", "jovic", "zheng", "zhang"]);
+export function womenNames(wta = [], atp = []) {
+  const men = new Set(atp.map(n => fold(n).split(/\s+/).at(-1)));
+  const sur = wta.slice(0, 100).map(n => fold(n).split(/\s+/).at(-1)).filter(w => w.length >= 5 && !men.has(w) && !SHARED_SURNAMES.has(w));
+  return [...new Set([...wta.map(n => n.normalize("NFD").replace(/[\u0300-\u036f]/g, "")), ...wta, ...sur])];
+}
+// A sentence saying a player won a tournament the data knows (ESPN's calendar of the weeks around now) when the data
+// says he did not: it is still to be finished, or someone else won it. A title from before ("won Basel ten times", "in
+// 2019") is not judged: the data does not reach back that far.
+const WON = /\b(won|wins|win|winning|triumph|triumphed|title|champion|crowned|lifted)\b/i, PAST = /\b(19|20)\d\d\b|\b(times|titles|last year|previous(?:ly)?|former|career|once|ago)\b/i;
+const GENERIC = new Set(["open", "masters", "championships", "indoors", "international", "tennis", "cup", "trophy", "series", "classic", "grand", "prix", "swiss", "rolex", "presented"]);
+export function falseTitle(sentence, p, events, now = Date.now()) {
+  if (!WON.test(sentence) || PAST.test(sentence)) return false;
+  const names = [p.name, p.name.split(/\s+/)[0], p.name.split(/\s+/).at(-1), ...(p.aliases || [])].map(fold);
+  const t = fold(sentence);
+  if (!names.some(n => new RegExp(`\\b${n.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")}\\b`).test(t))) return false;
+  const e = events.find(e => fold(e.name).split(/[^a-z]+/).some(w => w.length >= 5 && !GENERIC.has(w) && new RegExp(`\\b${w}\\b`).test(t)));
+  if (!e) return false;
+  if (e.winner) return fold(e.winner) !== fold(p.name);
+  return !e.end || Date.parse(e.end) > now;
 }
 export function playerAliases(name) {
   const f = String(name).normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/[^A-Za-z' -]/g, "").trim(), w = f.split(/\s+/);
@@ -208,11 +245,14 @@ export async function buildPack({ profile = json("profile.json"), show = json("c
   }
 
   // ---- tennis: followed players, then the big matches of the tournaments on now
+  let tourEvents = [];
   const players = profile.follows.filter(f => f.sport === "tennis" && f.kind === "player"), allTennis = profile.follows.find(f => f.sport === "tennis" && f.kind === "all");
   if (players.length || allTennis) {
     // ESPN's scoreboard first; if it fails, each player's matches from Sofascore
     const board = await safe("tennis (Sofascore used)", () => tennis.board("atp"));
     const cal = await safe("tennis calendar", () => tennis.calendar("atp", 3));
+    // the tournaments the data knows, with each one's champion once its final is played, to check what stories claim
+    tourEvents = (cal || []).map(e => ({ name: e.name, end: e.end, winner: (board || []).find(m => m.tournament === e.name && /^final$/i.test(m.round || "") && m.state === "post")?.players.find(p => p.won)?.name || null }));
     const mine = new Set();
     for (const p of players) {
       const t = board ? tennis.player(board, p.name, W) : p.sofascore_id ? await safe(`${p.name} (Sofascore)`, () => sofa.tennisPlayer(p, W)) || { results: [], fixtures: [] } : { results: [], fixtures: [] };
@@ -252,7 +292,16 @@ export async function buildPack({ profile = json("profile.json"), show = json("c
   const tagged = (list, sport) => list.map(f => ({ ...f, sport }));
   const pool = await safe("news", () => news.feeds([...[...sports].flatMap(s => tagged(feeds[s] || [], s)), ...tagged(feeds.general || [], null), ...[...names, ...(profile.rivals || [])].flatMap(f => (feeds.teams?.[f.name] || []).map(x => (x.google ? news.searchFeed(x.google, x.edition || lang, f.sport, { raw: true }) : { ...x, sport: f.sport }))), ...names.map(f => (/ men$/.test(f.name) ? news.searchFeed(`${f.name.replace(/ men$/, "")} cricket`, lang, f.sport, { intitle: false }) : news.searchFeed(f.search || f.name, lang, f.sport)))], W)) || [];
   // sports the listener never wants (profile.wider.skip_sports, matched by config/show.json sport_words)
-  const skipRx = (profile.wider?.skip_sports || []).flatMap(k => show.sport_words?.[k] || [k]).map(w => new RegExp(`\\b${w.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")}\\b`, "i"));
+  // Women's players by name (20 Oct: "Svitolina and Monfils' surprise split" came in under Djokovic, with no word like
+  // "women" or "WTA" in it): the WTA's ranked players from ESPN each run, the last list that loaded if it fails
+  const skipWords = (profile.wider?.skip_sports || []).flatMap(k => show.sport_words?.[k] || [k]);
+  if ((profile.wider?.skip_sports || []).includes("women's sport")) {
+    const sq = ledger.squads(), wta = await safe("WTA players (last known used)", () => tennis.rankings("wta"));
+    if (wta?.length >= 50) { sq.WTA = { names: wta, as_of: new Date(now).toISOString() }; ledger.saveSquads(sq); }
+    const atp = (await safe("ATP players", () => tennis.rankings("atp"))) || sq["Men's tennis"]?.names || [];
+    skipWords.push(...womenNames(sq.WTA?.names || [], atp));
+  }
+  const skipRx = skipWords.map(w => new RegExp(`\\b${w.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")}\\b`, "i"));
   const clusters = news.cluster(pool).filter(c => !c.titles.some(t => skipRx.some(r => r.test(t)))).filter(c => { if (ledger.newsSaid(said, c)) { already.push(`news: ${c.headline}`); return false; } return true; });
   const rx = n => new RegExp(`\\b(${n})\\b`, "i");
   // how a name appears in headlines (the setup page will ask for these; for now, Parth's), and what a match is not
@@ -275,6 +324,7 @@ export async function buildPack({ profile = json("profile.json"), show = json("c
   const matchers = new Map();
   const who = f => { if (!matchers.has(f.name)) matchers.set(f.name, buildMatcher(f, squads[f.name]?.names || [])); return matchers.get(f.name); };
   const rivalRx = (profile.rivals || []).map(who);
+  const rivalOf = (h, f) => { const me = who(f).at(h); return (profile.rivals || []).some(r => { const a = who(r).at(h); return a >= 0 && (me < 0 || a < me) && !/^\s*(v|vs\.?|versus|-|–)\s*$/i.test(fold(h).slice(a, me < 0 ? a : me).replace(new RegExp(`^.*?\\b(${[r.name, ...(r.aliases || [])].map(esc).join("|")})\\b`, "i"), "")); }); };
   const used = new Set();
   const news_items = [];
   // one story in pieces is folded together (a fault here never stops the pack: the pieces stay as they were)
@@ -311,6 +361,10 @@ export async function buildPack({ profile = json("profile.json"), show = json("c
     // headline that does. A story that also names the rival is still the subject's ("Vinicius to miss Barcelona game").
     const mine = clusters.filter(c => !used.has(c) && c.n >= min && c.titles.some(t => who(f).test(t)) && !c.titles.some(t => who(f).skips(t))).map(c => Object.assign(c, { headline: c.titles.find(t => who(f).test(t)) || c.headline }));
     for (const c of mine) {
+      // a headline that names the rival before the subject is the rival's story (20 Oct: "Barcelona face ultimate test:
+      // PSG and Real Madrid await Hansi Flick's flying side" led the show and named the episode), unless it is the
+      // fixture itself ("Barcelona v Real Madrid: ..."). A rival reaches the show only through Rival Watch.
+      if (rivalOf(c.headline, f)) { used.add(c); suppressed.push(`${f.name}: "${c.headline}" (about the rival)`); continue; }
       // a preview of a match that has since been played is old news: the result says it now
       if (results.some(i => i.subject === f.name && c.date < Date.parse(i.when) && i.line.split(/ \d+-\d+ | v |: | bt |, /).some(p => p && p.length > 3 && p !== f.name && !f.name.includes(p) && c.headline.includes(p.replace(/^AS /, ""))))) { used.add(c); continue; }
       const r = reportOf(c, f);
@@ -400,7 +454,34 @@ export async function buildPack({ profile = json("profile.json"), show = json("c
     // at a WNBA game, keeps the waivers and loses the game)
     else if (tx && skipHits(tx)) list[i].text = { ...list[i].text, text: tx.split(/(?<=[.!?])\s+/).filter(sn => !skipRx.some(r => r.test(sn))).join(" ") };
   }
+  // a story is about its subject: named in the opening of its text (20 Oct: Svitolina and Monfils' split came in under
+  // Djokovic because the headline said he reacted to it). A whole sport (Men's tennis, Formula 1) has no one name.
+  for (let i = news_items.length - 1; i >= 0; i--) {
+    const f = subjectOf(news_items[i].subject), tx = news_items[i].text?.text;
+    if (!f || f.kind === "all" || !tx) continue;
+    const ss = tx.split(/(?<=[.!?])\s+/), opening = ss.slice(0, Math.max(3, ss.findIndex((_, k) => ss.slice(0, k + 1).join(" ").length >= 400) + 1)).join(" ");
+    if (!who(f).test(opening)) { suppressed.push(`${f.name}: "${news_items[i].headline}" (its text is not about ${f.name})`); news_items.splice(i, 1); }
+  }
   for (const n of news_items) n.text = scrub(n.text, subjectOf(n.subject));
+  // a title a story says a followed player won, where the data knows that tournament and he has not won it (20 Oct:
+  // "Novak just won Basel", the week Basel was still to be played): the sentence is cut
+  const tennisPlayers = profile.follows.filter(f => f.sport === "tennis" && f.kind === "player");
+  if (tourEvents.length) for (const n of news_items) {
+    if (!n.text?.text || !tennisPlayers.length) continue;
+    const ss = n.text.text.split(/(?<=[.!?])\s+/), keep = ss.filter(sn => !tennisPlayers.some(p => falseTitle(sn, p, tourEvents, now)));
+    if (keep.length < ss.length) { suppressed.push(`${n.subject}: "${n.headline}" (a title claim the results do not show, cut)`); n.text = { ...n.text, text: keep.join(" ") }; }
+  }
+  // what the last episodes already said, cut from today's stories sentence by sentence; a story with nothing new left
+  // goes (20 Oct: the Curry ankle scare, told on 19 Oct, came back inside "Curry expected to play")
+  const spoken = ledger.lastSpoken(said, 3);
+  for (let i = news_items.length - 1; i >= 0; i--) {
+    const tx = news_items[i].text?.text;
+    if (!tx || !spoken.length) continue;
+    const ss = tx.split(/(?<=[.!?])\s+/), keep = ss.filter(sn => !ledger.saidAgain(sn, spoken));
+    if (keep.length === ss.length) continue;
+    if (keep.join(" ").length < 120) { suppressed.push(`${news_items[i].subject}: "${news_items[i].headline}" (already told)`); news_items.splice(i, 1); }
+    else news_items[i].text = { ...news_items[i].text, text: keep.join(" ") };
+  }
   for (const r of results) if (r.report) r.report = scrub(r.report, subjectOf(r.subject));
   // one story told by different outlets in other words, found from the texts now read: kept once
   const nameWords = [...profile.follows, ...(profile.rivals || [])].flatMap(f => [f.name, ...(f.aliases || [])]);
@@ -456,7 +537,9 @@ export async function buildPack({ profile = json("profile.json"), show = json("c
   const wpm = show.words_per_minute || 164;
   const wordsFor = i => Math.round(40 + 45 * i.score);
   const segs = [
-    { id: "cold-open", items: open ? [open.id] : [], words: open ? 35 : 0 },
+    // (with no result, the show still opens: on the biggest die-hard story, else the next die-hard fixture; 20 Oct had
+    // no cold open and so no hello, and began on a story mid-thought)
+    { id: "cold-open", items: open ? [open.id] : [], teaser: open ? null : (n => n ? { subject: n.subject, headline: n.headline } : null)(news_items.find(n => n.care === "die-hard")) || (x => x ? { subject: x.subject, fixture: x.what, when: x.say } : null)(fixtures.filter(x => x.care === "die-hard").sort((a, b) => a.when.localeCompare(b.when))[0]), words: 35 },
     { id: "die-hard", items: by(i => i.care === "die-hard").map(i => i.id), news: news_items.filter(n => n.care === "die-hard") },
     { id: "rival-watch", items: by(i => i.stance === "rival").map(i => i.id), news: rival_news },
     { id: "follow", items: by(i => i.stance !== "rival" && i.care !== "die-hard").map(i => i.id), news: news_items.filter(n => n.care !== "die-hard") },
@@ -465,7 +548,7 @@ export async function buildPack({ profile = json("profile.json"), show = json("c
     { id: "signoff", words: 15 },
   ];
   for (const s of segs) if (s.words == null) s.words = (s.items || []).reduce((n, id) => n + wordsFor(items.find(i => i.id === id)), 0) + (s.news || []).length * 35 + (s.elsewhere || []).length * 45 + (s.fixtures || []).length * 14 + (s.standing || []).reduce((n, x) => n + x.lines.length * 16, 0);
-  const live = segs.filter(s => s.words > 0 && ((s.items || []).length || (s.news || []).length || (s.elsewhere || []).length || (s.fixtures || []).length || (s.standing || []).length || ["signoff"].includes(s.id)));
+  const live = segs.filter(s => s.words > 0 && ((s.items || []).length || s.teaser || (s.news || []).length || (s.elsewhere || []).length || (s.fixtures || []).length || (s.standing || []).length || ["signoff"].includes(s.id)));
   let total = live.reduce((n, s) => n + s.words, 0);
   // The listener's length (profile.length): a big day is brought down to the target, never past it, the cold open and
   // sign-off untouched; a quiet day stays short (never padded). The writer's check holds the script under max.
@@ -477,7 +560,7 @@ export async function buildPack({ profile = json("profile.json"), show = json("c
   }
   for (const s of live) { const def = show.segments.find(x => x.id === s.id); Object.assign(s, { name: def?.name, about: def?.about }); }
   return { made_at: new Date(now).toISOString(), tz: TZ, window: { from: new Date(since).toISOString(), to: new Date(now).toISOString() }, listener: profile.listener, tone: profile.tone,
-    minutes: +(total / wpm).toFixed(1), words: total, max_words: max, quiet: total < target * 0.75, running_order: live, items, fixtures, standing, cast: { rival: profile.rivals?.[0]?.name || null, example: profile.follows.filter(f => care(f) === "die-hard")[1]?.name.replace(/ (men|women)$/i, "") || null }, suppressed, already_said: already, previously: ledger.lastCalls(said), skip_words: (profile.wider?.skip_sports || []).flatMap(k => show.sport_words?.[k] || [k]), old_marks: Object.fromEntries(profile.follows.map(f => [f.name, oldMarks(f)]).filter(([, m]) => m.length)), old_news: [...new Set([...Object.entries(earlier).flatMap(([who, es]) => es.map(e => `${String(e.date).slice(0, 10)}: ${who}, ${e.line}`)), ...ledger.lastTold(said, 3)])].slice(0, 70), errors };
+    minutes: +(total / wpm).toFixed(1), words: total, max_words: max, quiet: total < target * 0.75, running_order: live, items, fixtures, standing, cast: { rival: profile.rivals?.[0]?.name || null, example: profile.follows.filter(f => care(f) === "die-hard")[1]?.name.replace(/ (men|women)$/i, "") || null }, suppressed, already_said: already, previously: ledger.lastCalls(said), skip_words: skipWords, old_marks: Object.fromEntries(profile.follows.map(f => [f.name, oldMarks(f)]).filter(([, m]) => m.length)), old_news: [...new Set([...Object.entries(earlier).flatMap(([who, es]) => es.map(e => `${String(e.date).slice(0, 10)}: ${who}, ${e.line}`)), ...ledger.lastTold(said, 3)])].slice(0, 70), errors };
 }
 
 // A person's view of the pack: what happened, the mood code gave it, and where it sits in the show
