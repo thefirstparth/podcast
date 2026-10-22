@@ -57,7 +57,7 @@ Gemini's free tier is not offered in the EU, the UK or Switzerland. Google may u
 Settings, then Pages: deploy from the `gh-pages` branch. Your feed will be at `https://<your-user>.github.io/<repo>/feed.xml`. In Apple Podcasts, go to Library, then Follow a Show by URL. Pocket Casts and Overcast can also add a feed by URL. The feed asks podcast directories not to list it.
 
 ## 6. Pick your time
-The daily run is the `cron` in `.github/workflows/episode.yml`, in UTC. A run takes about ten minutes. Keep the backup run 15 minutes after the first. Use odd minutes; GitHub starts runs set on the hour late.
+Your episode's time is the `1228` in the `gate` job of `.github/workflows/episode.yml`: the first scheduled run after that time (in your time zone, `TZ=` on the same line) makes the episode. GitHub starts scheduled runs hours late, so the workflow fires every half hour through the night and morning (the two `cron` lines, in UTC) and every run before your time, or after the day's episode is out, stops within seconds. Move the `cron` hours with your time: start them about nine hours before it and end them about two hours after. A run takes about ten minutes.
 
 ## 7. Rehearse, then go live
 1. In Actions, run the rehearse workflow. It writes a script from today's real data with the rehearsal key and commits it to `rehearsals/`. Read it.

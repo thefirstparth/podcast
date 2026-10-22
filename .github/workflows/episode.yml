@@ -1,9 +1,11 @@
-# The daily episode (engine/episode.mjs). Ready by 13:00 IST (Parth, 15 Oct): the run starts at 12:28 IST with a backup at
-# 12:43 IST (Parth, 15 Oct) (odd minutes: GitHub starts runs on the hour late); a run takes about six minutes. Scheduled runs are live.
-# The live key is used once a day, well inside its daily allowance, so the Gemini reset time does not matter here.
+# The daily episode (engine/episode.mjs). Ready by 13:00 IST (Parth, 15 Oct): a Claude routine starts it at 12:28 IST; a
+# run takes about ten minutes.
+# GitHub's own timer is the safety net that needs nothing else: its scheduled runs start hours late (4.5 to 8 hours, 15 to
+# 21 Oct), so it fires every half hour through the night and morning, and a first, seconds-long job lets through only the
+# first run that lands after 12:28 IST on a day with no episode yet (Parth, 22 Oct). Scheduled runs are live.
 # test: the rehearsal key, nothing published; the MP3, script and pack are kept as the run's artifacts.
 # live: the live key; the episode goes to GitHub Releases and the feed to the gh-pages branch (GitHub Pages).
-# The live key is used only by the scheduled run and a redo Parth asks for (agreed 15 Oct).
+# The live key is used only by the live runs and a redo Parth asks for (agreed 15 Oct).
 name: episode
 on:
   workflow_dispatch:
@@ -11,12 +13,32 @@ on:
       mode: { description: "test (rehearsal key, nothing published) or live", type: choice, options: [test, live], default: test }
       force: { description: "Live only: make it again even if today's is published", type: boolean, default: false }
   schedule:
-    - cron: "58 6 * * *"   # 12:28 IST
-    - cron: "13 7 * * *"   # 12:43 IST, the backup (does nothing if the first one published)
-concurrency: { group: episode, cancel-in-progress: false }
+    # every half hour from 03:31 to 15:01 IST, in UTC (odd minutes: GitHub starts runs set on the hour later still)
+    - cron: "1,31 22,23 * * *"
+    - cron: "1,31 0-9 * * *"
 permissions: { contents: write }
 jobs:
+  # a scheduled run goes ahead only after 12:28 IST and only while today's episode is not out; a run started by hand
+  # always goes ahead
+  gate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    outputs: { go: "${{ steps.gate.outputs.go }}" }
+    steps:
+      - id: gate
+        env: { GH_TOKEN: "${{ github.token }}", EVENT: "${{ github.event_name }}" }
+        run: |
+          day=$(TZ=Asia/Kolkata date +%F); now=$(TZ=Asia/Kolkata date +%H%M); go=true
+          if [ "$EVENT" = "schedule" ]; then
+            if [ $((10#$now)) -lt 1228 ]; then go=false; echo "It is $now IST, before 12:28: nothing to do yet."
+            elif gh release view "ep-$day" -R "$GITHUB_REPOSITORY" >/dev/null 2>&1; then go=false; echo "Today's episode ($day) is already out."
+            fi
+          fi
+          echo "go=$go" >> "$GITHUB_OUTPUT"
   episode:
+    needs: gate
+    if: needs.gate.outputs.go == 'true'
+    concurrency: { group: episode, cancel-in-progress: false }
     runs-on: ubuntu-latest
     timeout-minutes: 45
     steps:
