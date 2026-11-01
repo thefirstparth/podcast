@@ -38,7 +38,7 @@
    "Carlos Espí",
    "Yan Diomande"
   ],
-  "as_of": "2026-10-29T11:20:28.618Z"
+  "as_of": "2026-11-01T11:42:34.528Z"
  },
  "Golden State Warriors": {
   "names": [
@@ -61,7 +61,7 @@
    "Gui Santos",
    "Brandon Williams"
   ],
-  "as_of": "2026-10-29T11:20:28.618Z"
+  "as_of": "2026-11-01T11:42:34.528Z"
  },
  "Barcelona": {
   "names": [
@@ -79,6 +79,7 @@
    "Alejandro Balde",
    "Pau Cubarsí",
    "Xavi Espart",
+   "Guillem Víctor",
    "Jordi Pesquer",
    "Frenkie de Jong",
    "Dani Olmo",
@@ -89,6 +90,7 @@
    "Marc Bernal",
    "Brian Fariñas",
    "Orian Goren",
+   "Ebrima Tunkara",
    "Gabriel Jesus",
    "Raphinha",
    "Anthony Gordon",
@@ -98,7 +100,7 @@
    "Jesse Bisiwu",
    "Hamza Abdelkarim"
   ],
-  "as_of": "2026-10-29T11:20:28.618Z"
+  "as_of": "2026-11-01T11:42:34.528Z"
  },
  "Men's tennis": {
   "names": [
@@ -253,7 +255,7 @@
    "Gabriel Diallo",
    "Elmer Moller"
   ],
-  "as_of": "2026-10-29T11:20:28.618Z"
+  "as_of": "2026-11-01T11:42:34.528Z"
  },
  "WTA": {
   "names": [
@@ -408,6 +410,6 @@
    "Susan Bandecchi",
    "Robin Montgomery"
   ],
-  "as_of": "2026-10-29T11:20:28.618Z"
+  "as_of": "2026-11-01T11:42:34.528Z"
  }
 }
